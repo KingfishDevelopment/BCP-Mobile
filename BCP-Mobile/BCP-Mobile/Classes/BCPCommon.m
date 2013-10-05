@@ -38,6 +38,12 @@ static NSObject<BCPViewControllerDelegate> *viewControllerDelegate = nil;
 + (UIColor *)SIDEBAR_COLOR {
     return [BCPColor colorWithWhite:0.2 alpha:1];
 }
++ (float)SIDEBAR_DISABLED_ALPHA {
+    return 0.6;
+}
++ (UIColor *)SIDEBAR_DISABLED_COLOR {
+    return [BCPColor colorWithWhite:0.25 alpha:1];
+}
 + (int)SIDEBAR_CELL_PADDING {
     return 8;
 }

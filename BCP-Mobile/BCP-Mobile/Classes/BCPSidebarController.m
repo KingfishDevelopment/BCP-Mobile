@@ -50,6 +50,18 @@
         cell = [[BCPSidebarCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SidebarCell"];
     }
     [cell setDividerHidden:(indexPath.row==0)];
+    
+    if(indexPath.section==0&&[[BCPCommon data] objectForKey:@"login"]==nil) {
+        if(indexPath.row<[self tableView:tableView numberOfRowsInSection:indexPath.section]-1) {
+            [cell setEnabled:NO];
+        }
+        else {
+            [cell setEnabled:YES];
+        }
+    }
+    else
+        [cell setEnabled:YES];
+    
     [cell setLabelText:[[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
     
     return cell;

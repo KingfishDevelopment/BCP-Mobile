@@ -10,7 +10,9 @@
 
 @interface BCPSidebarCell : UITableViewCell
 
+@property (nonatomic, retain) UIView *disabledOverlay;
 @property (nonatomic, retain) UIView *divider;
+@property (nonatomic) BOOL enabled;
 @property (nonatomic, retain) UIImageView *icon;
 @property (nonatomic, retain) UILabel *label;
 

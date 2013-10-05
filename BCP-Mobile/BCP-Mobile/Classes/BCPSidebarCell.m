@@ -30,6 +30,11 @@
         [self.label setTextColor:[BCPCommon SIDEBAR_TEXT_COLOR]];
         [self addSubview:self.label];
         
+        self.disabledOverlay = [[UIView alloc] init];
+        [self.disabledOverlay setAlpha:0];
+        [self.disabledOverlay setBackgroundColor:[BCPCommon SIDEBAR_DISABLED_COLOR]];
+        [self addSubview:self.disabledOverlay];
+        
         [self setFrame:self.frame];
     }
     return self;
@@ -39,12 +44,18 @@
     [self.divider setHidden:hidden];
 }
 
+- (void)setEnabled:(BOOL)enabled {
+    [self setUserInteractionEnabled:enabled];
+    [self.disabledOverlay setAlpha:enabled?0:[BCPCommon SIDEBAR_DISABLED_ALPHA]];
+}
+
 - (void)setFrame:(CGRect)frame {
     [super setFrame:frame];
     
     [self.divider setFrame:CGRectMake(0, 0, frame.size.width, 1)];
     [self.icon setFrame:CGRectMake([BCPCommon SIDEBAR_CELL_PADDING], [BCPCommon SIDEBAR_CELL_PADDING], frame.size.height-([BCPCommon SIDEBAR_CELL_PADDING]*2), frame.size.height-([BCPCommon SIDEBAR_CELL_PADDING]*2))];
     [self.label setFrame:CGRectMake(self.icon.frame.size.width+[BCPCommon SIDEBAR_CELL_PADDING]*2, [BCPCommon SIDEBAR_CELL_PADDING], frame.size.width-self.icon.frame.size.width-[BCPCommon SIDEBAR_CELL_PADDING], frame.size.height-([BCPCommon SIDEBAR_CELL_PADDING]*2))];
+    [self.disabledOverlay setFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
 }
 
 - (void)setLabelText:(NSString *)text {

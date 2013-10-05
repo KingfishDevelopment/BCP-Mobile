@@ -15,6 +15,9 @@
 
 - (void)changeSetting:(NSString *)setting toValue:(id)value;
 - (id)getSetting:(NSString *)setting;
+- (id)objectForKey:(id)aKey;
+- (void)removeObjectForKey:(id)aKey;
+- (void)setObject:(id)anObject forKey:(id < NSCopying >)aKey;
 - (void)setUnlockableValue:(double)value forName:(NSString *)name;
 - (float)unlockableValueForName:(NSString *)name;
 

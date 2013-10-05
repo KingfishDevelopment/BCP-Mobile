@@ -44,6 +44,10 @@
     return [[self.data objectForKey:@"settings"] objectForKey:setting];
 }
 
+- (id)objectForKey:(id)aKey {
+    return [self.data objectForKey:aKey];
+}
+
 - (void)removeObjectForKey:(id)aKey {
     [self.data removeObjectForKey:aKey];
     [self saveDictionary];
