@@ -13,6 +13,13 @@
 		020E209417FE3F42003C071F /* BCPData.m in Sources */ = {isa = PBXBuildFile; fileRef = 020E209317FE3F42003C071F /* BCPData.m */; };
 		020E209717FE55E6003C071F /* BCPImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 020E209617FE55E6003C071F /* BCPImage.m */; };
 		020E209A17FE584F003C071F /* BCPColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 020E209917FE584F003C071F /* BCPColor.m */; };
+		02372CFB17FFBC2F00C64B49 /* BCPContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02372CFA17FFBC2F00C64B49 /* BCPContentView.m */; };
+		02372CFE17FFBC6900C64B49 /* BCPContentViewIntro.m in Sources */ = {isa = PBXBuildFile; fileRef = 02372CFD17FFBC6900C64B49 /* BCPContentViewIntro.m */; };
+		02372D0217FFC12600C64B49 /* RoundedIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 02372D0017FFC12600C64B49 /* RoundedIcon.png */; };
+		02372D0317FFC12600C64B49 /* RoundedIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02372D0117FFC12600C64B49 /* RoundedIcon@2x.png */; };
+		02372D0517FFC83500C64B49 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02372D0417FFC83500C64B49 /* QuartzCore.framework */; };
+		02372D0817FFDD2A00C64B49 /* CodingIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 02372D0617FFDD2A00C64B49 /* CodingIcon.png */; };
+		02372D0917FFDD2A00C64B49 /* CodingIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02372D0717FFDD2A00C64B49 /* CodingIcon@2x.png */; };
 		02860FD317FCD55800A127E6 /* BCPCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 02860FD217FCD55800A127E6 /* BCPCommon.m */; };
 		029369F017FCDC7100066178 /* BCPContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 029369EF17FCDC7100066178 /* BCPContent.m */; };
 		029369F617FCE23E00066178 /* BCPSidebarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 029369F517FCE23E00066178 /* BCPSidebarCell.m */; };
@@ -102,6 +109,15 @@
 		020E209617FE55E6003C071F /* BCPImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPImage.m; path = Classes/BCPImage.m; sourceTree = "<group>"; };
 		020E209817FE584F003C071F /* BCPColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPColor.h; path = Classes/BCPColor.h; sourceTree = "<group>"; };
 		020E209917FE584F003C071F /* BCPColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPColor.m; path = Classes/BCPColor.m; sourceTree = "<group>"; };
+		02372CF917FFBC2F00C64B49 /* BCPContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPContentView.h; path = Classes/BCPContentView.h; sourceTree = "<group>"; };
+		02372CFA17FFBC2F00C64B49 /* BCPContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPContentView.m; path = Classes/BCPContentView.m; sourceTree = "<group>"; };
+		02372CFC17FFBC6900C64B49 /* BCPContentViewIntro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPContentViewIntro.h; path = Classes/BCPContentViewIntro.h; sourceTree = "<group>"; };
+		02372CFD17FFBC6900C64B49 /* BCPContentViewIntro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPContentViewIntro.m; path = Classes/BCPContentViewIntro.m; sourceTree = "<group>"; };
+		02372D0017FFC12600C64B49 /* RoundedIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RoundedIcon.png; sourceTree = "<group>"; };
+		02372D0117FFC12600C64B49 /* RoundedIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RoundedIcon@2x.png"; sourceTree = "<group>"; };
+		02372D0417FFC83500C64B49 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		02372D0617FFDD2A00C64B49 /* CodingIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CodingIcon.png; sourceTree = "<group>"; };
+		02372D0717FFDD2A00C64B49 /* CodingIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CodingIcon@2x.png"; sourceTree = "<group>"; };
 		02860FD117FCD55800A127E6 /* BCPCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPCommon.h; path = Classes/BCPCommon.h; sourceTree = "<group>"; };
 		02860FD217FCD55800A127E6 /* BCPCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPCommon.m; path = Classes/BCPCommon.m; sourceTree = "<group>"; };
 		029369EE17FCDC7100066178 /* BCPContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPContent.h; path = Classes/BCPContent.h; sourceTree = "<group>"; };
@@ -185,6 +201,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02372D0517FFC83500C64B49 /* QuartzCore.framework in Frameworks */,
 				02A778A417FBDE0000CDFC3F /* CoreGraphics.framework in Frameworks */,
 				02A778A617FBDE0000CDFC3F /* UIKit.framework in Frameworks */,
 				02A778A217FBDE0000CDFC3F /* Foundation.framework in Frameworks */,
@@ -214,6 +231,18 @@
 			path = Resources/Fonts;
 			sourceTree = "<group>";
 		};
+		02372CFF17FFC12600C64B49 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				02372D0617FFDD2A00C64B49 /* CodingIcon.png */,
+				02372D0717FFDD2A00C64B49 /* CodingIcon@2x.png */,
+				02372D0017FFC12600C64B49 /* RoundedIcon.png */,
+				02372D0117FFC12600C64B49 /* RoundedIcon@2x.png */,
+			);
+			name = Images;
+			path = Resources/Images;
+			sourceTree = "<group>";
+		};
 		02A7789517FBDE0000CDFC3F = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +265,7 @@
 		02A778A017FBDE0000CDFC3F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				02372D0417FFC83500C64B49 /* QuartzCore.framework */,
 				02A778A117FBDE0000CDFC3F /* Foundation.framework */,
 				02A778A317FBDE0000CDFC3F /* CoreGraphics.framework */,
 				02A778A517FBDE0000CDFC3F /* UIKit.framework */,
@@ -295,6 +325,10 @@
 				02860FD217FCD55800A127E6 /* BCPCommon.m */,
 				029369EE17FCDC7100066178 /* BCPContent.h */,
 				029369EF17FCDC7100066178 /* BCPContent.m */,
+				02372CF917FFBC2F00C64B49 /* BCPContentView.h */,
+				02372CFA17FFBC2F00C64B49 /* BCPContentView.m */,
+				02372CFC17FFBC6900C64B49 /* BCPContentViewIntro.h */,
+				02372CFD17FFBC6900C64B49 /* BCPContentViewIntro.m */,
 				020E209217FE3F42003C071F /* BCPData.h */,
 				020E209317FE3F42003C071F /* BCPData.m */,
 				020E208A17FE3A0D003C071F /* BCPFont.h */,
@@ -318,6 +352,7 @@
 			children = (
 				020E208D17FE3BF6003C071F /* Fonts */,
 				02E278A217FD27690072C4A1 /* Icons */,
+				02372CFF17FFC12600C64B49 /* Images */,
 				02E2789517FD20D80072C4A1 /* Shadows */,
 				02E2785C17FCF4BF0072C4A1 /* Tabs */,
 			);
@@ -471,6 +506,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02E278B117FD27810072C4A1 /* Icon-40.png in Resources */,
+				02372D0217FFC12600C64B49 /* RoundedIcon.png in Resources */,
 				02E2787E17FCF4BF0072C4A1 /* TabCalendar@2x.png in Resources */,
 				02E2787B17FCF4BF0072C4A1 /* TabAnnouncements.png in Resources */,
 				02E2789F17FD21100072C4A1 /* ShadowBelow@2x.png in Resources */,
@@ -488,6 +524,7 @@
 				02E2788D17FCF4BF0072C4A1 /* TabRateThisApp.png in Resources */,
 				02E278B617FD27810072C4A1 /* Icon-72@2x.png in Resources */,
 				020E209117FE3BF6003C071F /* ComicSansMS.ttf in Resources */,
+				02372D0917FFDD2A00C64B49 /* CodingIcon@2x.png in Resources */,
 				02E2789317FCF4BF0072C4A1 /* TabSportsResults.png in Resources */,
 				02E2787C17FCF4BF0072C4A1 /* TabAnnouncements@2x.png in Resources */,
 				02E278BE17FD27810072C4A1 /* Icon@2x.png in Resources */,
@@ -496,10 +533,12 @@
 				02E2788317FCF4BF0072C4A1 /* TabGrades.png in Resources */,
 				02E278BB17FD27810072C4A1 /* Icon-Small.png in Resources */,
 				02E2788A17FCF4BF0072C4A1 /* TabNews@2x.png in Resources */,
+				02372D0817FFDD2A00C64B49 /* CodingIcon.png in Resources */,
 				02E2788917FCF4BF0072C4A1 /* TabNews.png in Resources */,
 				02E278B317FD27810072C4A1 /* Icon-60.png in Resources */,
 				02E2787A17FCF4BF0072C4A1 /* TabAbout@2x.png in Resources */,
 				02A778B417FBDE0000CDFC3F /* Images.xcassets in Resources */,
+				02372D0317FFC12600C64B49 /* RoundedIcon@2x.png in Resources */,
 				02E2788B17FCF4BF0072C4A1 /* TabPlanner.png in Resources */,
 				02E2788117FCF4BF0072C4A1 /* TabEmail.png in Resources */,
 				02E2788E17FCF4BF0072C4A1 /* TabRateThisApp@2x.png in Resources */,
@@ -547,9 +586,11 @@
 				02A778B217FBDE0000CDFC3F /* AppDelegate.m in Sources */,
 				029369FC17FCE31900066178 /* BCPSidebarController.m in Sources */,
 				020E208C17FE3A0D003C071F /* BCPFont.m in Sources */,
+				02372CFB17FFBC2F00C64B49 /* BCPContentView.m in Sources */,
 				02AE178F17FCA50A00869A8D /* BCPViewController.m in Sources */,
 				020E209417FE3F42003C071F /* BCPData.m in Sources */,
 				02A778AE17FBDE0000CDFC3F /* main.m in Sources */,
+				02372CFE17FFBC6900C64B49 /* BCPContentViewIntro.m in Sources */,
 				02AE179317FCAE1F00869A8D /* BCPInterface.m in Sources */,
 				020E209717FE55E6003C071F /* BCPImage.m in Sources */,
 			);

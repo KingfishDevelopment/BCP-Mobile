@@ -19,6 +19,7 @@
 @end
 
 @protocol BCPViewControllerDelegate<NSObject>
+- (void)setInterfaceScrollViewEnabled:(BOOL)enabled;
 - (void)setScrollsToTop:(UIScrollView *)scrollView;
 - (void)showContentView:(NSString *)view;
 @end
@@ -26,6 +27,12 @@
 @interface BCPCommon : NSObject
 
 + (UIColor *)BLUE;
++ (int)INTRO_DESCRIPTION_ICON_SIZE;
++ (int)INTRO_ICON_SIZE;
++ (int)INTRO_MIDDLE_PADDING;
++ (int)INTRO_SIDE_PADDING;
++ (UIColor *)INTRO_SHADOW_COLOR;
++ (UIColor *)INTRO_TEXT_COLOR;
 + (BOOL)IS_IOS7;
 + (BOOL)IS_IPAD;
 + (int)SHADOW_SIZE;
@@ -42,6 +49,7 @@
 + (int)SIDEBAR_WIDTH;
 
 + (BCPData *)data;
++ (void)setInterfaceScrollViewEnabled:(BOOL)enabled;
 + (void)setScrollsToTop:(UIScrollView *)scrollView;
 + (void)setViewControllerDelegate:(NSObject<BCPViewControllerDelegate> *)viewControllerDelegate;
 + (void)showContentView:(NSString *)view;

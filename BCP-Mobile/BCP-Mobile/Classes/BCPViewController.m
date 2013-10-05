@@ -28,6 +28,8 @@
         [[NSNotificationCenter defaultCenter] addObserver:self.keyboardDelegate selector:keyboardHidden name:UIKeyboardWillHideNotification object:nil];
         
         self.interface = [[BCPInterface alloc] init];
+        if(self.startInterfaceWithDisabledScrollView)
+            [self.interface.scrollView setScrollEnabled:NO];
         [self.view addSubview:self.interface];
         
         [self shouldAutorotate];
@@ -37,6 +39,13 @@
 
 -(UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
+}
+
+- (void)setInterfaceScrollViewEnabled:(BOOL)enabled {
+    if(self.interface==nil)
+        self.startInterfaceWithDisabledScrollView = true;
+    else
+        [self.interface.scrollView setScrollEnabled:enabled];
 }
 
 - (void)setScrollsToTop:(UIScrollView *)scrollView {

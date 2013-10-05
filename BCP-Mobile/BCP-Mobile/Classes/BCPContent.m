@@ -16,12 +16,30 @@
     if (self) {
         [self setBackgroundColor:[BCPCommon BLUE]];
         [BCPColor registerView:self withGetter:@"backgroundColor" withSetter:@"setBackgroundColor:"];
+        
+        BCPContentViewIntro *introView = [[BCPContentViewIntro alloc] init];
+        
+        self.views = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:introView,nil] forKeys:[NSArray arrayWithObjects:@"intro",nil]];
+        for(NSString *key in [self.views allKeys]) {
+            [[self.views objectForKey:key] setHidden:YES];
+            [self addSubview:[self.views objectForKey:key]];
+        }
+        
+        [self showContentView:@"intro"];
     }
     return self;
 }
 
+- (void)setFrame:(CGRect)frame {
+    [super setFrame:frame];
+    CGRect viewFrame = CGRectMake(0, 0, frame.size.width, frame.size.height);
+    for(NSString *key in [self.views allKeys])
+        [[self.views objectForKey:key] setFrame:viewFrame];
+}
+
 - (void)showContentView:(NSString *)view {
-    NSLog(@"%@",view);
+    for(NSString *key in [self.views allKeys])
+        [[self.views objectForKey:key] setHidden:![key isEqualToString:view]];
 }
 
 @end

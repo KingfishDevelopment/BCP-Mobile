@@ -20,6 +20,24 @@ static NSObject<BCPViewControllerDelegate> *viewControllerDelegate = nil;
 + (UIColor *)BLUE {
     return [BCPColor colorWithRed:0 green:0.333 blue:0.588 alpha:1];
 }
++ (int)INTRO_DESCRIPTION_ICON_SIZE {
+    return 64;
+}
++ (int)INTRO_ICON_SIZE {
+    return 128;
+}
++ (int)INTRO_MIDDLE_PADDING {
+    return 10;
+}
++ (int)INTRO_SIDE_PADDING {
+    return 20;
+}
++ (UIColor *)INTRO_SHADOW_COLOR {
+    return [BCPColor colorWithWhite:0.1 alpha:1];
+}
++ (UIColor *)INTRO_TEXT_COLOR {
+    return [BCPColor colorWithWhite:0.9 alpha:1];
+}
 + (BOOL)IS_IOS7 {
     return ([[[UIDevice currentDevice] systemVersion] compare:@"7" options:NSNumericSearch] != NSOrderedAscending);
 }
@@ -65,6 +83,10 @@ static NSObject<BCPViewControllerDelegate> *viewControllerDelegate = nil;
 
 + (BCPData *)data {
     return data;
+}
+
++ (void)setInterfaceScrollViewEnabled:(BOOL)enabled {
+    [viewControllerDelegate setInterfaceScrollViewEnabled:enabled];
 }
 
 + (void)setScrollsToTop:(UIScrollView *)scrollView {

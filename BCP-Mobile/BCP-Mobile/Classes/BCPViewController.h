@@ -13,6 +13,7 @@
 
 @property (nonatomic, unsafe_unretained) NSObject<BCPKeyboardDelegate> *keyboardDelegate;
 @property (nonatomic, retain) BCPInterface *interface;
+@property (nonatomic) BOOL startInterfaceWithDisabledScrollView;
 
 - (id)initWithFrame:(CGRect)frame;
 
