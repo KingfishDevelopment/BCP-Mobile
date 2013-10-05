@@ -21,11 +21,12 @@
         [self addSubview:self.divider];
         
         self.icon = [[UIImageView alloc] init];
+        [BCPImage registerView:self.icon withGetter:@"image" withSetter:@"setImage:" withImage:nil];
         [self addSubview:self.icon];
         
         self.label = [[UILabel alloc] init];
         [self.label setBackgroundColor:[UIColor clearColor]];
-        [self.label setFont:[UIFont boldSystemFontOfSize:18]];
+        [self.label setFont:[BCPFont boldSystemFontOfSize:18]];
         [self.label setTextColor:[BCPCommon SIDEBAR_TEXT_COLOR]];
         [self addSubview:self.label];
         
@@ -48,7 +49,9 @@
 
 - (void)setLabelText:(NSString *)text {
     [self.label setText:text];
-    [self.icon setImage:[UIImage imageNamed:[@"Tab" stringByAppendingString:[text stringByReplacingOccurrencesOfString:@" " withString:@""]]]];
+    UIImage *tabImage = [UIImage imageNamed:[@"Tab" stringByAppendingString:[text stringByReplacingOccurrencesOfString:@" " withString:@""]]];
+    [self.icon setImage:tabImage];
+    [BCPImage registerView:self.icon withGetter:@"image" withSetter:@"setImage:" withImage:tabImage];
 }
 
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {

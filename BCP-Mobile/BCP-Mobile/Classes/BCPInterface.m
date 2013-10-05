@@ -36,6 +36,7 @@
         
         self.scrollViewShadow = [[UIImageView alloc] init];
         [self.scrollViewShadow setImage:[UIImage imageNamed:@"ShadowRight"]];
+        [BCPImage registerView:self.scrollViewShadow withGetter:@"image" withSetter:@"setImage:" withImage:[UIImage imageNamed:@"ShadowRight"]];
         [self addSubview:self.scrollViewShadow];
         
         self.content = [[BCPContent alloc] init];

@@ -55,6 +55,10 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [BCPCommon showContentView:[[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [BCPCommon SIDEBAR_CELL_HEIGHT];
 }
@@ -73,7 +77,7 @@
     
     UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake([BCPCommon SIDEBAR_HEADER_PADDING], [BCPCommon SIDEBAR_HEADER_PADDING]/2, tableView.frame.size.width-([BCPCommon SIDEBAR_HEADER_PADDING]*2), 20)];
     [headerLabel setBackgroundColor:[UIColor clearColor]];
-    [headerLabel setFont:[UIFont boldSystemFontOfSize:16]];
+    [headerLabel setFont:[BCPFont boldSystemFontOfSize:16]];
     [headerLabel setText:[self tableView:tableView titleForHeaderInSection:section]];
     [headerLabel setTextColor:[BCPCommon SIDEBAR_TEXT_COLOR]];
     [headerView addSubview:headerLabel];

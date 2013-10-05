@@ -10,4 +10,6 @@
 
 @interface BCPContent : UIView
 
+- (void)showContentView:(NSString *)view;
+
 @end

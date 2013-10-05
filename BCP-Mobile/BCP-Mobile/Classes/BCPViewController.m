@@ -24,7 +24,7 @@
         
         SEL keyboardShown = sel_registerName("keyboardShown:");
         SEL keyboardHidden = sel_registerName("keyboardHidden:");
-        [[NSNotificationCenter defaultCenter] addObserver:self.keyboardDelegate selector:keyboardShown name:UIKeyboardWillShowNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:keyboardShown name:UIKeyboardWillShowNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self.keyboardDelegate selector:keyboardHidden name:UIKeyboardWillHideNotification object:nil];
         
         self.interface = [[BCPInterface alloc] init];
@@ -59,6 +59,15 @@
 -(BOOL)shouldAutorotate {
     [self willRotateToInterfaceOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
     return YES;
+}
+
+- (void)showContentView:(NSString *)view {
+    [self.interface.content showContentView:view];
+    if(![BCPCommon IS_IPAD]) {
+        [UIView animateWithDuration:0.25 delay:0 options:0 animations:^ {
+            [self.interface.scrollView setContentOffset:CGPointMake([BCPCommon SIDEBAR_WIDTH], 0)];
+        } completion:NULL];
+    }
 }
 
 - (void)viewDidLoad {

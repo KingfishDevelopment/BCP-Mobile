@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "BCPColor.h"
+#import "BCPData.h"
+#import "BCPFont.h"
+#import "BCPImage.h"
 
 @protocol BCPKeyboardDelegate<NSObject>
 - (void)keyboardHidden:(NSNotification*)notification;
@@ -16,6 +20,7 @@
 
 @protocol BCPViewControllerDelegate<NSObject>
 - (void)setScrollsToTop:(UIScrollView *)scrollView;
+- (void)showContentView:(NSString *)view;
 @end
 
 @interface BCPCommon : NSObject
@@ -23,6 +28,7 @@
 + (UIColor *)BLUE;
 + (BOOL)IS_IOS7;
 + (BOOL)IS_IPAD;
++ (int)SHADOW_SIZE;
 + (UIColor *)SIDEBAR_ACCENT_COLOR;
 + (int)SIDEBAR_CELL_HEIGHT;
 + (UIColor *)SIDEBAR_COLOR;
@@ -31,10 +37,11 @@
 + (int)SIDEBAR_HEADER_PADDING;
 + (UIColor *)SIDEBAR_SELECTED_COLOR;
 + (UIColor *)SIDEBAR_TEXT_COLOR;
-+ (int)SHADOW_SIZE;
 + (int)SIDEBAR_WIDTH;
 
++ (BCPData *)data;
 + (void)setScrollsToTop:(UIScrollView *)scrollView;
 + (void)setViewControllerDelegate:(NSObject<BCPViewControllerDelegate> *)viewControllerDelegate;
++ (void)showContentView:(NSString *)view;
 
 @end
