@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BCPContentView : UIView
+@interface BCPContentView : UIView <BCPKeyboardDelegate>
+
+- (void)addShadowToView:(UIView *)view;
+- (void)formatLabel:(UILabel *)label;
 
 @end

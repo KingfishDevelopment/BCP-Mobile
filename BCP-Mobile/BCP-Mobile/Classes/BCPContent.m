@@ -18,13 +18,13 @@
         [BCPColor registerView:self withGetter:@"backgroundColor" withSetter:@"setBackgroundColor:"];
         
         BCPContentViewIntro *introView = [[BCPContentViewIntro alloc] init];
+        BCPContentViewLogin *loginView = [[BCPContentViewLogin alloc] init];
         
-        self.views = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:introView,nil] forKeys:[NSArray arrayWithObjects:@"intro",nil]];
+        self.views = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:introView,loginView,nil] forKeys:[NSArray arrayWithObjects:@"intro",@"login",nil]];
         for(NSString *key in [self.views allKeys]) {
             [[self.views objectForKey:key] setHidden:YES];
             [self addSubview:[self.views objectForKey:key]];
         }
-        
         [self showContentView:@"intro"];
     }
     return self;
@@ -38,8 +38,11 @@
 }
 
 - (void)showContentView:(NSString *)view {
-    for(NSString *key in [self.views allKeys])
+    for(NSString *key in [self.views allKeys]) {
         [[self.views objectForKey:key] setHidden:![key isEqualToString:view]];
+        if([key isEqualToString:view])
+            [BCPCommon setKeyboardOwner:[self.views objectForKey:key]];
+    }
 }
 
 @end

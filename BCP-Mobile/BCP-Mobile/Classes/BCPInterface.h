@@ -10,7 +10,7 @@
 #import "BCPContent.h"
 #import "BCPSidebarController.h"
 
-@interface BCPInterface : UIView <UIScrollViewDelegate>
+@interface BCPInterface : UIView <UIGestureRecognizerDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, retain) BCPContent *content;
 @property (nonatomic, retain) UIScrollView *scrollView;

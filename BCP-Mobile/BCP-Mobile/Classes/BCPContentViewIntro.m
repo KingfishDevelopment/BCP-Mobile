@@ -29,6 +29,7 @@
         self.iconLabel = [[UILabel alloc] init];
         [self.iconLabel setText:@"Welcome to BCP Mobile!\r\n\r\nSwipe Left to Continue."];
         [self formatLabel:self.iconLabel];
+        [self.scrollView addSubview:self.iconLabel];
         
         self.descriptionScrollViewContainer = [[UIView alloc] init];
         [self.descriptionScrollViewContainer setAlpha:0];
@@ -55,6 +56,7 @@
         self.descriptionLabel = [[UILabel alloc] init];
         [self.descriptionLabel setText:@"BCP Mobile lets you check your school grades, announcements, news, and more."];
         [self formatLabel:self.descriptionLabel];
+        [self.scrollView addSubview:self.descriptionLabel];
         
         self.codingIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CodingIcon"]];
         [BCPImage registerView:self.codingIcon withGetter:@"image" withSetter:@"setImage:" withImage:[UIImage imageNamed:@"CodingIcon"]];
@@ -65,6 +67,7 @@
         [self.codingIcon setAlpha:0];
         [self.codingLabel setText:@"BCP Mobile is made by Bellarmine students. It's completely open source, so if you want to help out, you can get started right now!\r\n\r\n(This also means questions should be sent to the developers, not Bellarmine!)"];
         [self formatLabel:self.codingLabel];
+        [self.scrollView addSubview:self.codingLabel];
         
         self.finalIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"RoundedIcon"]];
         [BCPImage registerView:self.finalIcon withGetter:@"image" withSetter:@"setImage:" withImage:[UIImage imageNamed:@"RoundedIcon"]];
@@ -74,31 +77,12 @@
         self.finalIconLabel = [[UILabel alloc] init];
         [self.finalIconLabel setText:[([BCPCommon IS_IPAD]?@"Look to the Left":@"Swipe Right") stringByAppendingString:@" to Get Started!" ]];
         [self formatLabel:self.finalIconLabel];
+        [self.scrollView addSubview:self.finalIconLabel];
         
         if(![BCPCommon IS_IPAD])
             [BCPCommon setInterfaceScrollViewEnabled:NO];
     }
     return self;
-}
-
-- (void)addShadowToView:(UIView *)view {
-    view.layer.shadowColor = [BCPCommon INTRO_SHADOW_COLOR].CGColor;
-    view.layer.shadowOffset = CGSizeMake(0, 4);
-    view.layer.shadowOpacity = 0.8;
-    view.layer.shadowRadius = 4;
-    view.clipsToBounds = NO;
-}
-
-- (void)formatLabel:(UILabel *)label {
-    [label setLineBreakMode:NSLineBreakByWordWrapping];
-    [label setNumberOfLines:0];
-    [label setTextAlignment:NSTextAlignmentCenter];
-    [label setBackgroundColor:[UIColor clearColor]];
-    [label setFont:[BCPFont boldSystemFontOfSize:20]];
-    [label setTextColor:[BCPCommon INTRO_TEXT_COLOR]];
-    [label setShadowColor:[BCPCommon INTRO_SHADOW_COLOR]];
-    [label setShadowOffset:CGSizeMake(0,2)];
-    [self.scrollView addSubview:label];
 }
 
 - (void)scrollDescriptionScrollView {
@@ -130,22 +114,22 @@
     [self.scrollView setFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     [self.scrollView setContentSize:CGSizeMake(self.frame.size.width*4, self.frame.size.height)];
     
-    [self.icon setFrame:CGRectMake((frame.size.width-[BCPCommon INTRO_ICON_SIZE])/2, frame.size.height/2-[BCPCommon INTRO_ICON_SIZE]-[BCPCommon INTRO_MIDDLE_PADDING], [BCPCommon INTRO_ICON_SIZE], [BCPCommon INTRO_ICON_SIZE])];
-    CGSize iconLabelSize = [self.iconLabel.text sizeWithFont:[self.iconLabel font] constrainedToSize:CGSizeMake(frame.size.width-[BCPCommon INTRO_SIDE_PADDING]*2, 10000) lineBreakMode:self.iconLabel.lineBreakMode];
-    [self.iconLabel setFrame:CGRectMake([BCPCommon INTRO_SIDE_PADDING], frame.size.height/2+[BCPCommon INTRO_MIDDLE_PADDING], frame.size.width-[BCPCommon INTRO_SIDE_PADDING]*2, iconLabelSize.height)];
+    [self.icon setFrame:CGRectMake((frame.size.width-[BCPCommon INTRO_ICON_SIZE])/2, frame.size.height/2-[BCPCommon INTRO_ICON_SIZE]-[BCPCommon CONTENT_MIDDLE_PADDING], [BCPCommon INTRO_ICON_SIZE], [BCPCommon INTRO_ICON_SIZE])];
+    CGSize iconLabelSize = [self.iconLabel.text sizeWithFont:[self.iconLabel font] constrainedToSize:CGSizeMake(frame.size.width-[BCPCommon CONTENT_SIDE_PADDING]*2, 10000) lineBreakMode:self.iconLabel.lineBreakMode];
+    [self.iconLabel setFrame:CGRectMake([BCPCommon CONTENT_SIDE_PADDING], frame.size.height/2+[BCPCommon CONTENT_MIDDLE_PADDING], frame.size.width-[BCPCommon CONTENT_SIDE_PADDING]*2, iconLabelSize.height)];
     
-    [self.descriptionScrollViewContainer setFrame:CGRectMake([BCPCommon INTRO_SIDE_PADDING], frame.size.height/2-[BCPCommon INTRO_DESCRIPTION_ICON_SIZE]-[BCPCommon INTRO_MIDDLE_PADDING], frame.size.width-[BCPCommon INTRO_SIDE_PADDING]*2, [BCPCommon INTRO_DESCRIPTION_ICON_SIZE])];
-    [self.descriptionScrollView setFrame:CGRectMake(0, 0, frame.size.width-[BCPCommon INTRO_SIDE_PADDING]*2, [BCPCommon INTRO_DESCRIPTION_ICON_SIZE])];
-    CGSize descriptionLabelSize = [self.descriptionLabel.text sizeWithFont:[self.descriptionLabel font] constrainedToSize:CGSizeMake(frame.size.width-[BCPCommon INTRO_SIDE_PADDING]*2, 10000) lineBreakMode:self.descriptionLabel.lineBreakMode];
-    [self.descriptionLabel setFrame:CGRectMake(frame.size.width+[BCPCommon INTRO_SIDE_PADDING], frame.size.height/2+[BCPCommon INTRO_MIDDLE_PADDING], frame.size.width-[BCPCommon INTRO_SIDE_PADDING]*2, descriptionLabelSize.height)];
+    [self.descriptionScrollViewContainer setFrame:CGRectMake([BCPCommon CONTENT_SIDE_PADDING], frame.size.height/2-[BCPCommon INTRO_DESCRIPTION_ICON_SIZE]-[BCPCommon CONTENT_MIDDLE_PADDING], frame.size.width-[BCPCommon CONTENT_SIDE_PADDING]*2, [BCPCommon INTRO_DESCRIPTION_ICON_SIZE])];
+    [self.descriptionScrollView setFrame:CGRectMake(0, 0, frame.size.width-[BCPCommon CONTENT_SIDE_PADDING]*2, [BCPCommon INTRO_DESCRIPTION_ICON_SIZE])];
+    CGSize descriptionLabelSize = [self.descriptionLabel.text sizeWithFont:[self.descriptionLabel font] constrainedToSize:CGSizeMake(frame.size.width-[BCPCommon CONTENT_SIDE_PADDING]*2, 10000) lineBreakMode:self.descriptionLabel.lineBreakMode];
+    [self.descriptionLabel setFrame:CGRectMake(frame.size.width+[BCPCommon CONTENT_SIDE_PADDING], frame.size.height/2+[BCPCommon CONTENT_MIDDLE_PADDING], frame.size.width-[BCPCommon CONTENT_SIDE_PADDING]*2, descriptionLabelSize.height)];
 
-    [self.codingIcon setFrame:CGRectMake((frame.size.width-[BCPCommon INTRO_ICON_SIZE])/2, frame.size.height/2-[BCPCommon INTRO_ICON_SIZE]-[BCPCommon INTRO_MIDDLE_PADDING], [BCPCommon INTRO_ICON_SIZE], [BCPCommon INTRO_ICON_SIZE])];
-    CGSize codingLabelSize = [self.codingLabel.text sizeWithFont:[self.codingLabel font] constrainedToSize:CGSizeMake(frame.size.width-[BCPCommon INTRO_SIDE_PADDING]*2, 10000) lineBreakMode:self.codingLabel.lineBreakMode];
-    [self.codingLabel setFrame:CGRectMake(frame.size.width*2+[BCPCommon INTRO_SIDE_PADDING], frame.size.height/2+[BCPCommon INTRO_MIDDLE_PADDING], frame.size.width-[BCPCommon INTRO_SIDE_PADDING]*2, codingLabelSize.height)];
+    [self.codingIcon setFrame:CGRectMake((frame.size.width-[BCPCommon INTRO_ICON_SIZE])/2, frame.size.height/2-[BCPCommon INTRO_ICON_SIZE]-[BCPCommon CONTENT_MIDDLE_PADDING], [BCPCommon INTRO_ICON_SIZE], [BCPCommon INTRO_ICON_SIZE])];
+    CGSize codingLabelSize = [self.codingLabel.text sizeWithFont:[self.codingLabel font] constrainedToSize:CGSizeMake(frame.size.width-[BCPCommon CONTENT_SIDE_PADDING]*2, 10000) lineBreakMode:self.codingLabel.lineBreakMode];
+    [self.codingLabel setFrame:CGRectMake(frame.size.width*2+[BCPCommon CONTENT_SIDE_PADDING], frame.size.height/2+[BCPCommon CONTENT_MIDDLE_PADDING], frame.size.width-[BCPCommon CONTENT_SIDE_PADDING]*2, codingLabelSize.height)];
 
-    [self.finalIcon setFrame:CGRectMake((frame.size.width-[BCPCommon INTRO_ICON_SIZE])/2, frame.size.height/2-[BCPCommon INTRO_ICON_SIZE]-[BCPCommon INTRO_MIDDLE_PADDING], [BCPCommon INTRO_ICON_SIZE], [BCPCommon INTRO_ICON_SIZE])];
-    CGSize finalIconLabelSize = [self.finalIconLabel.text sizeWithFont:[self.finalIconLabel font] constrainedToSize:CGSizeMake(frame.size.width-[BCPCommon INTRO_SIDE_PADDING]*2, 10000) lineBreakMode:self.finalIconLabel.lineBreakMode];
-    [self.finalIconLabel setFrame:CGRectMake(frame.size.width*3+[BCPCommon INTRO_SIDE_PADDING], frame.size.height/2+[BCPCommon INTRO_MIDDLE_PADDING], frame.size.width-[BCPCommon INTRO_SIDE_PADDING]*2, finalIconLabelSize.height)];
+    [self.finalIcon setFrame:CGRectMake((frame.size.width-[BCPCommon INTRO_ICON_SIZE])/2, frame.size.height/2-[BCPCommon INTRO_ICON_SIZE]-[BCPCommon CONTENT_MIDDLE_PADDING], [BCPCommon INTRO_ICON_SIZE], [BCPCommon INTRO_ICON_SIZE])];
+    CGSize finalIconLabelSize = [self.finalIconLabel.text sizeWithFont:[self.finalIconLabel font] constrainedToSize:CGSizeMake(frame.size.width-[BCPCommon CONTENT_SIDE_PADDING]*2, 10000) lineBreakMode:self.finalIconLabel.lineBreakMode];
+    [self.finalIconLabel setFrame:CGRectMake(frame.size.width*3+[BCPCommon CONTENT_SIDE_PADDING], frame.size.height/2+[BCPCommon CONTENT_MIDDLE_PADDING], frame.size.width-[BCPCommon CONTENT_SIDE_PADDING]*2, finalIconLabelSize.height)];
 }
 
 @end

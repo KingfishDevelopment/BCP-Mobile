@@ -51,7 +51,7 @@
     }
     [cell setDividerHidden:(indexPath.row==0)];
     
-    if(indexPath.section==0&&[[BCPCommon data] objectForKey:@"login"]==nil) {
+    if(indexPath.section==0&&![[BCPCommon data] objectForKey:@"login"]) {
         if(indexPath.row<[self tableView:tableView numberOfRowsInSection:indexPath.section]-1) {
             [cell setEnabled:NO];
         }
@@ -59,8 +59,9 @@
             [cell setEnabled:YES];
         }
     }
-    else
+    else {
         [cell setEnabled:YES];
+    }
     
     [cell setLabelText:[[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
     
@@ -68,7 +69,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [BCPCommon showContentView:[[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
+    [BCPCommon dismissKeyboard];
+    [BCPCommon showContentView:[[[[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] stringByReplacingOccurrencesOfString:@" " withString:@""] lowercaseString]];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

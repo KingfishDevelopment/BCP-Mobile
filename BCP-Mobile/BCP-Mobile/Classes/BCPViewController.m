@@ -22,10 +22,8 @@
         [self.view setFrame:frame];
         [self.view setBackgroundColor:[UIColor blackColor]];
         
-        SEL keyboardShown = sel_registerName("keyboardShown:");
-        SEL keyboardHidden = sel_registerName("keyboardHidden:");
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:keyboardShown name:UIKeyboardWillShowNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self.keyboardDelegate selector:keyboardHidden name:UIKeyboardWillHideNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShown:) name:UIKeyboardWillShowNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardHidden:) name:UIKeyboardDidHideNotification object:nil];
         
         self.interface = [[BCPInterface alloc] init];
         if(self.startInterfaceWithDisabledScrollView)
@@ -37,8 +35,36 @@
     return self;
 }
 
+- (void)dismissKeyboard {
+    [self.view endEditing:YES];
+}
+
+- (void)error:(NSString *)error {
+    NSString *title = @"Fatal Error";
+    if([error isEqualToString:@"INVALID_LOGIN"]) {
+        error = @"Your username and password appear to be incorrect.\r\n\r\nPlease try again.";
+        title = @"Invalid Login";
+    }
+    else
+        error = @"A serious (and fatal) error has occured.\r\n\r\nPlease try again, and if the problem persists, please report it so we can get it fixed!";
+    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:title message:error delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [errorAlertView performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES];
+}
+
+- (void)keyboardHidden:(NSNotification*)notification {
+    [self.keyboardDelegate keyboardHidden:notification];
+}
+
+- (void)keyboardShown:(NSNotification*)notification {
+    [self.keyboardDelegate keyboardShown:notification];
+}
+
 -(UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
+}
+
+- (void)reloadSidebar {
+    [self.interface.sidebar reloadData];
 }
 
 - (void)setInterfaceScrollViewEnabled:(BOOL)enabled {
@@ -46,6 +72,10 @@
         self.startInterfaceWithDisabledScrollView = true;
     else
         [self.interface.scrollView setScrollEnabled:enabled];
+}
+
+- (void)setKeyboardOwner:(NSObject<BCPKeyboardDelegate> *)keyboardDelegate {
+    self.keyboardDelegate = keyboardDelegate;
 }
 
 - (void)setScrollsToTop:(UIScrollView *)scrollView {

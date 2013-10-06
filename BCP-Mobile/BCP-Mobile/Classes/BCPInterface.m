@@ -32,8 +32,13 @@
         [self.scrollView setPagingEnabled:YES];
         [self.scrollView setShowsHorizontalScrollIndicator:NO];
         [self.scrollView setShowsVerticalScrollIndicator:NO];
+        UITapGestureRecognizer *scrollViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewTap:)];
+        [scrollViewTap setDelegate:self];
+        scrollViewTap.numberOfTapsRequired = 1;
+        scrollViewTap.enabled = YES;
+        scrollViewTap.cancelsTouchesInView = NO;
+        [self.scrollView addGestureRecognizer:scrollViewTap];
         [self addSubview:self.scrollView];
-        
         self.scrollViewShadow = [[UIImageView alloc] init];
         [self.scrollViewShadow setImage:[UIImage imageNamed:@"ShadowRight"]];
         [BCPImage registerView:self.scrollViewShadow withGetter:@"image" withSetter:@"setImage:" withImage:[UIImage imageNamed:@"ShadowRight"]];
@@ -53,9 +58,20 @@
     if(scrollView.contentOffset.x==0) {
         [self sendSubviewToBack:self.scrollView];
         [BCPCommon setScrollsToTop:self.sidebar];
+        [self.content setUserInteractionEnabled:NO];
     }
     else
         [self bringSubviewToFront:self.scrollView];
+    if(scrollView.contentOffset.x==[BCPCommon SIDEBAR_WIDTH])
+        [self.content setUserInteractionEnabled:YES];
+}
+
+- (void)scrollViewTap:(UITapGestureRecognizer *)recognizer {
+    if(self.content.userInteractionEnabled==NO&&![BCPCommon IS_IPAD]) {
+        [UIView animateWithDuration:0.25 delay:0 options:0 animations:^ {
+            [self.scrollView setContentOffset:CGPointMake([BCPCommon SIDEBAR_WIDTH], 0)];
+        } completion:NULL];
+    }
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
