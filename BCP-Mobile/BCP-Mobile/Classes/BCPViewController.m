@@ -30,6 +30,9 @@
             [self.interface.scrollView setScrollEnabled:NO];
         [self.view addSubview:self.interface];
         
+        if(self.firstView)
+            [self.interface.sidebarController selectRow:self.firstView];
+        
         [self shouldAutorotate];
     }
     return self;
@@ -101,7 +104,9 @@
 }
 
 - (void)showContentView:(NSString *)view {
+    [[BCPCommon data] setObject:view forKey:@"lastView"];
     [self.interface.content showContentView:view];
+    self.firstView = view;
     if(![BCPCommon IS_IPAD]) {
         [UIView animateWithDuration:0.25 delay:0 options:0 animations:^ {
             [self.interface.scrollView setContentOffset:CGPointMake([BCPCommon SIDEBAR_WIDTH], 0)];
@@ -110,7 +115,7 @@
 }
 
 - (void)viewDidLoad {
-    if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)])
+    if([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)])
         [self setNeedsStatusBarAppearanceUpdate];
 }
 

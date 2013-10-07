@@ -11,7 +11,10 @@
 
 @interface BCPSidebarController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, retain) NSString *firstRow;
 @property (nonatomic, retain) NSArray *sections;
 @property (nonatomic, retain) NSArray *titles;
+
+- (void)selectRow:(NSString *)row;
 
 @end

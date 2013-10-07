@@ -11,6 +11,7 @@
 
 @interface BCPViewController : UIViewController <BCPViewControllerDelegate>
 
+@property (nonatomic, retain) NSString *firstView;
 @property (nonatomic, unsafe_unretained) NSObject<BCPKeyboardDelegate> *keyboardDelegate;
 @property (nonatomic, retain) BCPInterface *interface;
 @property (nonatomic) BOOL startInterfaceWithDisabledScrollView;

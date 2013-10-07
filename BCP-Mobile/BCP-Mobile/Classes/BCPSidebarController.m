@@ -31,6 +31,10 @@
     return [self.sections count];
 }
 
+- (void)selectRow:(NSString *)row {
+    self.firstRow = row;
+}
+
 - (void)setTableView:(UITableView *)tableView {
     [super setTableView:tableView];
     [tableView setBackgroundColor:[BCPCommon SIDEBAR_COLOR]];
@@ -62,15 +66,20 @@
     else {
         [cell setEnabled:YES];
     }
-    
-    [cell setLabelText:[[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
+    NSString *section = [[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    if([section isEqualToString:@"Login"]&&[[BCPCommon data] objectForKey:@"login"])
+        section = @"Logout";
+    [cell setLabelText:section];
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [BCPCommon dismissKeyboard];
-    [BCPCommon showContentView:[[[[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] stringByReplacingOccurrencesOfString:@" " withString:@""] lowercaseString]];
+    NSString *section = [[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    if([section isEqualToString:@"Login"]&&!![[BCPCommon data] objectForKey:@"login"])
+        section = @"Logout";
+    [BCPCommon showContentView:[[section stringByReplacingOccurrencesOfString:@" " withString:@""] lowercaseString]];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -97,6 +106,20 @@
     [headerView addSubview:headerLabel];
     
     return headerView;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    if(self.firstRow) {
+        if([self.firstRow isEqualToString:@"logout"])
+            self.firstRow = @"login";
+        for(int section=0;section<[self.sections count];section++)
+            for(int row=0;row<[[self.sections objectAtIndex:section] count];row++)
+                if([[[[[self.sections objectAtIndex:section] objectAtIndex:row] stringByReplacingOccurrencesOfString:@" " withString:@""] lowercaseString] isEqualToString:self.firstRow]) {
+                    NSIndexPath *indexPath=[NSIndexPath indexPathForRow:row inSection:section];
+                    [self.tableView selectRowAtIndexPath:indexPath animated:YES  scrollPosition:UITableViewScrollPositionBottom];
+                    break;
+                }
+    }
 }
 
 @end

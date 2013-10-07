@@ -78,9 +78,6 @@
         [self.finalIconLabel setText:[([BCPCommon IS_IPAD]?@"Look to the Left":@"Swipe Right") stringByAppendingString:@" to Get Started!" ]];
         [self formatLabel:self.finalIconLabel];
         [self.scrollView addSubview:self.finalIconLabel];
-        
-        if(![BCPCommon IS_IPAD])
-            [BCPCommon setInterfaceScrollViewEnabled:NO];
     }
     return self;
 }

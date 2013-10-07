@@ -25,7 +25,13 @@
             [[self.views objectForKey:key] setHidden:YES];
             [self addSubview:[self.views objectForKey:key]];
         }
-        [self showContentView:@"intro"];
+        if([[BCPCommon data] objectForKey:@"lastView"])
+            [BCPCommon showContentView:[[BCPCommon data] objectForKey:@"lastView"]];
+        else {
+            if(![BCPCommon IS_IPAD])
+                [BCPCommon setInterfaceScrollViewEnabled:NO];
+            [self showContentView:@"intro"];
+        }
     }
     return self;
 }
