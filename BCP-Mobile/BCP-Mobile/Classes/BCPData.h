@@ -17,6 +17,7 @@
 @property (nonatomic, retain) SBJsonParser *parser;
 @property (nonatomic, retain) NSString *path;
 
+- (NSArray *)allKeys;
 - (void)changeSetting:(NSString *)setting toValue:(id)value;
 - (id)getSetting:(NSString *)setting;
 - (id)objectForKey:(id)aKey;

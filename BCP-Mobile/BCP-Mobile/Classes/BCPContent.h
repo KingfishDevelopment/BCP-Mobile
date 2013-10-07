@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "BCPContentViewIntro.h"
 #import "BCPContentViewLogin.h"
+#import "BCPContentViewLogout.h"
 
 @interface BCPContent : UIView
 
-@property (nonatomic, retain) NSDictionary *views;
+@property (nonatomic, retain) NSMutableDictionary *views;
 
 - (void)showContentView:(NSString *)view;
 

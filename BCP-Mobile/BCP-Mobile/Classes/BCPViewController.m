@@ -66,6 +66,18 @@
     return UIStatusBarStyleLightContent;
 }
 
+- (void)reloadLoginViews {
+    [[self.interface.content.views objectForKey:@"login"] removeFromSuperview];
+    [[self.interface.content.views objectForKey:@"logout"] removeFromSuperview];
+    [self.interface.content.views setObject:[[BCPContentViewLogin alloc] init] forKey:@"login"];
+    [self.interface.content.views setObject:[[BCPContentViewLogout alloc] init] forKey:@"logout"];
+    [[self.interface.content.views objectForKey:@"login"] setHidden:YES];
+    [[self.interface.content.views objectForKey:@"logout"] setHidden:YES];
+    [self.interface.content addSubview:[self.interface.content.views objectForKey:@"login"]];
+    [self.interface.content addSubview:[self.interface.content.views objectForKey:@"logout"]];
+    [self.interface.content setFrame:self.interface.content.frame];
+}
+
 - (void)reloadSidebar {
     [self.interface.sidebar reloadData];
 }
@@ -112,6 +124,10 @@
             [self.interface.scrollView setContentOffset:CGPointMake([BCPCommon SIDEBAR_WIDTH], 0)];
         } completion:NULL];
     }
+}
+
+- (void)sidebarReselect {
+    [self.interface.sidebarController viewDidAppear:YES];
 }
 
 - (void)viewDidLoad {

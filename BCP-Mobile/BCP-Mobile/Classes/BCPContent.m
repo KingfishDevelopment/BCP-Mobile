@@ -17,16 +17,14 @@
         [self setBackgroundColor:[BCPCommon BLUE]];
         [BCPColor registerView:self withGetter:@"backgroundColor" withSetter:@"setBackgroundColor:"];
         
-        BCPContentViewIntro *introView = [[BCPContentViewIntro alloc] init];
-        BCPContentViewLogin *loginView = [[BCPContentViewLogin alloc] init];
-        
-        self.views = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:introView,loginView,nil] forKeys:[NSArray arrayWithObjects:@"intro",@"login",nil]];
+        self.views = [NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[[BCPContentViewIntro alloc] init],[[BCPContentViewLogin alloc] init],[[BCPContentViewLogout alloc] init],nil] forKeys:[NSArray arrayWithObjects:@"intro",@"login",@"logout",nil]];
         for(NSString *key in [self.views allKeys]) {
             [[self.views objectForKey:key] setHidden:YES];
             [self addSubview:[self.views objectForKey:key]];
         }
-        if([[BCPCommon data] objectForKey:@"lastView"])
+        if([[BCPCommon data] objectForKey:@"lastView"]) {
             [BCPCommon showContentView:[[BCPCommon data] objectForKey:@"lastView"]];
+        }
         else {
             if(![BCPCommon IS_IPAD])
                 [BCPCommon setInterfaceScrollViewEnabled:NO];

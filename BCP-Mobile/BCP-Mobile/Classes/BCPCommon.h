@@ -17,6 +17,10 @@
 @interface BCPCommon : NSObject
 
 + (UIColor *)BLUE;
++ (UIColor *)BUTTON_COLOR;
++ (UIColor *)BUTTON_DOWN_COLOR;
++ (int)BUTTON_HEIGHT;
++ (UIColor *)BUTTON_TEXT_COLOR;
 + (int)CONTENT_MIDDLE_PADDING;
 + (int)CONTENT_SIDE_PADDING;
 + (int)LOGIN_ICON_SIZE;
@@ -45,6 +49,7 @@
 + (BCPData *)data;
 + (void)dismissKeyboard;
 + (void)error:(NSString *)error;
++ (void)logout;
 + (void)reloadSidebar;
 + (void)setKeyboardOwner:(NSObject<BCPKeyboardDelegate> *)keyboardDelegate;
 + (void)setInterfaceScrollViewEnabled:(BOOL)enabled;

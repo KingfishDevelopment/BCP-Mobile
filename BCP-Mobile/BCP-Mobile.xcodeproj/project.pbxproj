@@ -21,6 +21,7 @@
 		02372D0817FFDD2A00C64B49 /* CodingIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 02372D0617FFDD2A00C64B49 /* CodingIcon.png */; };
 		02372D0917FFDD2A00C64B49 /* CodingIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02372D0717FFDD2A00C64B49 /* CodingIcon@2x.png */; };
 		02372D0C18006E9F00C64B49 /* BCPContentViewLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 02372D0B18006E9F00C64B49 /* BCPContentViewLogin.m */; };
+		0246DC89180255BD00BD71AE /* BCPContentViewLogout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0246DC88180255BD00BD71AE /* BCPContentViewLogout.m */; };
 		02860FD317FCD55800A127E6 /* BCPCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 02860FD217FCD55800A127E6 /* BCPCommon.m */; };
 		029369F017FCDC7100066178 /* BCPContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 029369EF17FCDC7100066178 /* BCPContent.m */; };
 		029369F617FCE23E00066178 /* BCPSidebarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 029369F517FCE23E00066178 /* BCPSidebarCell.m */; };
@@ -131,6 +132,8 @@
 		02372D0717FFDD2A00C64B49 /* CodingIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CodingIcon@2x.png"; sourceTree = "<group>"; };
 		02372D0A18006E9F00C64B49 /* BCPContentViewLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPContentViewLogin.h; path = Classes/BCPContentViewLogin.h; sourceTree = "<group>"; };
 		02372D0B18006E9F00C64B49 /* BCPContentViewLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPContentViewLogin.m; path = Classes/BCPContentViewLogin.m; sourceTree = "<group>"; };
+		0246DC87180255BD00BD71AE /* BCPContentViewLogout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPContentViewLogout.h; path = Classes/BCPContentViewLogout.h; sourceTree = "<group>"; };
+		0246DC88180255BD00BD71AE /* BCPContentViewLogout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPContentViewLogout.m; path = Classes/BCPContentViewLogout.m; sourceTree = "<group>"; };
 		02860FD117FCD55800A127E6 /* BCPCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPCommon.h; path = Classes/BCPCommon.h; sourceTree = "<group>"; };
 		02860FD217FCD55800A127E6 /* BCPCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPCommon.m; path = Classes/BCPCommon.m; sourceTree = "<group>"; };
 		029369EE17FCDC7100066178 /* BCPContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPContent.h; path = Classes/BCPContent.h; sourceTree = "<group>"; };
@@ -366,6 +369,8 @@
 				02372CFD17FFBC6900C64B49 /* BCPContentViewIntro.m */,
 				02372D0A18006E9F00C64B49 /* BCPContentViewLogin.h */,
 				02372D0B18006E9F00C64B49 /* BCPContentViewLogin.m */,
+				0246DC87180255BD00BD71AE /* BCPContentViewLogout.h */,
+				0246DC88180255BD00BD71AE /* BCPContentViewLogout.m */,
 				020E209217FE3F42003C071F /* BCPData.h */,
 				020E209317FE3F42003C071F /* BCPData.m */,
 				02B2C333180108B6009BF9C5 /* BCPDelegates.h */,
@@ -667,6 +672,7 @@
 				02CF53FB1800FDDD00BC9940 /* SBJsonStreamWriter.m in Sources */,
 				02A778B217FBDE0000CDFC3F /* AppDelegate.m in Sources */,
 				029369FC17FCE31900066178 /* BCPSidebarController.m in Sources */,
+				0246DC89180255BD00BD71AE /* BCPContentViewLogout.m in Sources */,
 				02CF53F61800FDDD00BC9940 /* SBJsonStreamParser.m in Sources */,
 				020E208C17FE3A0D003C071F /* BCPFont.m in Sources */,
 				02372CFB17FFBC2F00C64B49 /* BCPContentView.m in Sources */,

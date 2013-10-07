@@ -110,6 +110,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     if(self.firstRow) {
+        [BCPCommon showContentView:self.firstRow];
         if([self.firstRow isEqualToString:@"logout"])
             self.firstRow = @"login";
         for(int section=0;section<[self.sections count];section++)

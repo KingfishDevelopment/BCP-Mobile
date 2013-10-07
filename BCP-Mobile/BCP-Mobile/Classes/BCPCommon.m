@@ -20,6 +20,18 @@ static NSObject<BCPViewControllerDelegate> *viewControllerDelegate = nil;
 + (UIColor *)BLUE {
     return [BCPColor colorWithRed:0 green:0.333 blue:0.588 alpha:1];
 }
++ (UIColor *)BUTTON_COLOR {
+    return [BCPColor colorWithWhite:0.9 alpha:1];
+}
++ (UIColor *)BUTTON_DOWN_COLOR {
+    return [BCPColor colorWithWhite:0.5 alpha:1];
+}
++ (int)BUTTON_HEIGHT {
+    return 50;
+}
++ (UIColor *)BUTTON_TEXT_COLOR {
+    return [BCPColor colorWithWhite:0.1 alpha:1];
+}
 + (int)CONTENT_MIDDLE_PADDING {
     return 10;
 }
@@ -103,6 +115,17 @@ static NSObject<BCPViewControllerDelegate> *viewControllerDelegate = nil;
 
 + (void)error:(NSString *)error {
     [viewControllerDelegate error:error];
+}
+
++ (void)logout {
+    NSArray *allKeys = [self.data allKeys];
+    for(NSString *key in allKeys)
+        if(![key isEqualToString:@"lastView"])
+            [self.data removeObjectForKey:key];
+    [viewControllerDelegate reloadLoginViews];
+    [self showContentView:@"login"];
+    [self reloadSidebar];
+    [viewControllerDelegate sidebarReselect];
 }
 
 + (void)reloadSidebar {

@@ -19,9 +19,11 @@
 @protocol BCPViewControllerDelegate<NSObject>
 - (void)dismissKeyboard;
 - (void)error:(NSString *)error;
+- (void)reloadLoginViews;
 - (void)reloadSidebar;
 - (void)setKeyboardOwner:(NSObject<BCPKeyboardDelegate> *)keyboardDelegate;
 - (void)setInterfaceScrollViewEnabled:(BOOL)enabled;
 - (void)setScrollsToTop:(UIScrollView *)scrollView;
 - (void)showContentView:(NSString *)view;
+- (void)sidebarReselect;
 @end

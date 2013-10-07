@@ -28,6 +28,10 @@
     return self;
 }
 
+- (NSArray *)allKeys {
+    return [self.data allKeys];
+}
+
 - (void)changeSetting:(NSString *)setting toValue:(id)value {
     if([self.data objectForKey:@"settings"]==nil)
         [self.data setObject:[NSMutableDictionary dictionary] forKey:@"settings"];
