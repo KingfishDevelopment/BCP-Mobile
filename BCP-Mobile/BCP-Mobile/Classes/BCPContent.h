@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BCPContentViewGrades.h"
 #import "BCPContentViewIntro.h"
 #import "BCPContentViewLogin.h"
 #import "BCPContentViewLogout.h"

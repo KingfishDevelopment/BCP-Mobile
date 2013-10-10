@@ -37,6 +37,7 @@
 
 - (void)setTableView:(UITableView *)tableView {
     [super setTableView:tableView];
+    
     [tableView setBackgroundColor:[BCPCommon SIDEBAR_COLOR]];
     if([BCPCommon IS_IOS7])
         [tableView setContentInset:UIEdgeInsetsMake(20, 0, 0, 0)];
@@ -77,7 +78,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [BCPCommon dismissKeyboard];
     NSString *section = [[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    if([section isEqualToString:@"Login"]&&!![[BCPCommon data] objectForKey:@"login"])
+    if([section isEqualToString:@"Login"]&&[[BCPCommon data] objectForKey:@"login"])
         section = @"Logout";
     [BCPCommon showContentView:[[section stringByReplacingOccurrencesOfString:@" " withString:@""] lowercaseString]];
 }
@@ -121,6 +122,12 @@
                     break;
                 }
     }
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self.tableView registerClass:[BCPSidebarCell class] forCellReuseIdentifier:@"SidebarCell"];
 }
 
 @end

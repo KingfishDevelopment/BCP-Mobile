@@ -26,4 +26,5 @@
 - (void)setScrollsToTop:(UIScrollView *)scrollView;
 - (void)showContentView:(NSString *)view;
 - (void)sidebarReselect;
+- (BOOL)viewIsVisable:(NSString *)view;
 @end

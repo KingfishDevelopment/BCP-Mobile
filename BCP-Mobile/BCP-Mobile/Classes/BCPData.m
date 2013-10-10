@@ -98,6 +98,7 @@
     }
     else {
         [self.data setObject:response forKey:request];
+        [self saveDictionary];
         [delegate responseReturnedError:NO];
     }
 }

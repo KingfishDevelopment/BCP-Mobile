@@ -38,6 +38,9 @@ static NSObject<BCPViewControllerDelegate> *viewControllerDelegate = nil;
 + (int)CONTENT_SIDE_PADDING {
     return 20;
 }
++ (UIColor *)DARK_BLUE {
+    return [BCPColor colorWithRed:0 green:0.294 blue:0.490 alpha:1];
+}
 + (int)LOGIN_ICON_SIZE {
     return 96;
 }
@@ -58,6 +61,9 @@ static NSObject<BCPViewControllerDelegate> *viewControllerDelegate = nil;
 }
 + (BOOL)IS_IPAD {
     return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
+}
++ (int)NAVIGATION_BAR_HEIGHT {
+    return 65;
 }
 + (int)SHADOW_SIZE {
     return 4;
@@ -95,6 +101,21 @@ static NSObject<BCPViewControllerDelegate> *viewControllerDelegate = nil;
 + (int)SIDEBAR_WIDTH {
     return 240;
 }
++ (UIColor *)TABLEVIEW_ACCENT_COLOR {
+    return [BCPColor colorWithWhite:0.8 alpha:1];
+}
++ (int)TABLEVIEW_CELL_HEIGHT {
+    return 50;
+}
++ (int)TABLEVIEW_CELL_PADDING {
+    return 8;
+}
++ (UIColor *)TABLEVIEW_COLOR {
+    return [BCPColor colorWithWhite:0.9 alpha:1];
+}
++ (UIColor *)TABLEVIEW_TEXT_COLOR {
+    return [BCPColor colorWithWhite:0.1 alpha:1];
+}
 + (UIColor *)TEXTFIELD_COLOR {
     return [BCPColor colorWithWhite:0.9 alpha:1];
 }
@@ -115,6 +136,10 @@ static NSObject<BCPViewControllerDelegate> *viewControllerDelegate = nil;
 
 + (void)error:(NSString *)error {
     [viewControllerDelegate error:error];
+}
+
++ (BOOL)loggedIn {
+    return [data objectForKey:@"login"]!=nil;
 }
 
 + (void)logout {
@@ -150,6 +175,10 @@ static NSObject<BCPViewControllerDelegate> *viewControllerDelegate = nil;
 
 + (void)showContentView:(NSString *)view {
     [viewControllerDelegate showContentView:view];
+}
+
++ (BOOL)viewIsVisable:(NSString *)view {
+    return [viewControllerDelegate viewIsVisable:view];
 }
 
 @end

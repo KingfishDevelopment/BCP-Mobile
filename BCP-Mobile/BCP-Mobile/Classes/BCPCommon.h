@@ -13,6 +13,7 @@
 #import "BCPDelegates.h"
 #import "BCPFont.h"
 #import "BCPImage.h"
+#import "BCPNavigationBar.h"
 
 @interface BCPCommon : NSObject
 
@@ -23,6 +24,7 @@
 + (UIColor *)BUTTON_TEXT_COLOR;
 + (int)CONTENT_MIDDLE_PADDING;
 + (int)CONTENT_SIDE_PADDING;
++ (UIColor *)DARK_BLUE;
 + (int)LOGIN_ICON_SIZE;
 + (int)INTRO_DESCRIPTION_ICON_SIZE;
 + (int)INTRO_ICON_SIZE;
@@ -30,6 +32,7 @@
 + (UIColor *)INTRO_TEXT_COLOR;
 + (BOOL)IS_IOS7;
 + (BOOL)IS_IPAD;
++ (int)NAVIGATION_BAR_HEIGHT;
 + (int)SHADOW_SIZE;
 + (UIColor *)SIDEBAR_ACCENT_COLOR;
 + (int)SIDEBAR_CELL_HEIGHT;
@@ -42,6 +45,11 @@
 + (UIColor *)SIDEBAR_SELECTED_COLOR;
 + (UIColor *)SIDEBAR_TEXT_COLOR;
 + (int)SIDEBAR_WIDTH;
++ (UIColor *)TABLEVIEW_ACCENT_COLOR;
++ (int)TABLEVIEW_CELL_HEIGHT;
++ (int)TABLEVIEW_CELL_PADDING;
++ (UIColor *)TABLEVIEW_COLOR;
++ (UIColor *)TABLEVIEW_TEXT_COLOR;
 + (UIColor *)TEXTFIELD_COLOR;
 + (int)TEXTBOX_HEIGHT;
 + (int)TEXTBOX_PADDING;
@@ -49,6 +57,7 @@
 + (BCPData *)data;
 + (void)dismissKeyboard;
 + (void)error:(NSString *)error;
++ (BOOL)loggedIn;
 + (void)logout;
 + (void)reloadSidebar;
 + (void)setKeyboardOwner:(NSObject<BCPKeyboardDelegate> *)keyboardDelegate;
@@ -56,5 +65,6 @@
 + (void)setScrollsToTop:(UIScrollView *)scrollView;
 + (void)setViewControllerDelegate:(NSObject<BCPViewControllerDelegate> *)viewControllerDelegate;
 + (void)showContentView:(NSString *)view;
++ (BOOL)viewIsVisable:(NSString *)view;
 
 @end

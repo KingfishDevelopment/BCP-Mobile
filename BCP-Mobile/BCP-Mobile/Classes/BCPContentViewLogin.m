@@ -48,6 +48,11 @@
         [self.textFieldPassword setSecureTextEntry:YES];
         [self.textFieldContainer addSubview:self.textFieldPassword];
         
+        if([[BCPCommon data] objectForKey:@"login"]) {
+            [self.loggedInLabel setAlpha:1];
+            [self.icon setAlpha:0];
+            [self.textFieldContainer setAlpha:0];
+        }
     }
     return self;
 }

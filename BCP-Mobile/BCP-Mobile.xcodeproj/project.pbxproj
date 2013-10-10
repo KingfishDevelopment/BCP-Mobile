@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		020CC3E018027695003B1989 /* BCPContentViewGrades.m in Sources */ = {isa = PBXBuildFile; fileRef = 020CC3DF18027695003B1989 /* BCPContentViewGrades.m */; };
 		020E208C17FE3A0D003C071F /* BCPFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 020E208B17FE3A0D003C071F /* BCPFont.m */; };
 		020E209017FE3BF6003C071F /* ComicSansMSBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 020E208E17FE3BF6003C071F /* ComicSansMSBold.ttf */; };
 		020E209117FE3BF6003C071F /* ComicSansMS.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 020E208F17FE3BF6003C071F /* ComicSansMS.ttf */; };
 		020E209417FE3F42003C071F /* BCPData.m in Sources */ = {isa = PBXBuildFile; fileRef = 020E209317FE3F42003C071F /* BCPData.m */; };
 		020E209717FE55E6003C071F /* BCPImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 020E209617FE55E6003C071F /* BCPImage.m */; };
 		020E209A17FE584F003C071F /* BCPColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 020E209917FE584F003C071F /* BCPColor.m */; };
+		02244E1E18038A54009F5510 /* BCPContentViewGradesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02244E1D18038A54009F5510 /* BCPContentViewGradesCell.m */; };
 		02372CFB17FFBC2F00C64B49 /* BCPContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02372CFA17FFBC2F00C64B49 /* BCPContentView.m */; };
 		02372CFE17FFBC6900C64B49 /* BCPContentViewIntro.m in Sources */ = {isa = PBXBuildFile; fileRef = 02372CFD17FFBC6900C64B49 /* BCPContentViewIntro.m */; };
 		02372D0217FFC12600C64B49 /* RoundedIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 02372D0017FFC12600C64B49 /* RoundedIcon.png */; };
@@ -22,6 +24,7 @@
 		02372D0917FFDD2A00C64B49 /* CodingIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02372D0717FFDD2A00C64B49 /* CodingIcon@2x.png */; };
 		02372D0C18006E9F00C64B49 /* BCPContentViewLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 02372D0B18006E9F00C64B49 /* BCPContentViewLogin.m */; };
 		0246DC89180255BD00BD71AE /* BCPContentViewLogout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0246DC88180255BD00BD71AE /* BCPContentViewLogout.m */; };
+		027E6FA41803AF2400F0946C /* BCPNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 027E6FA31803AF2400F0946C /* BCPNavigationBar.m */; };
 		02860FD317FCD55800A127E6 /* BCPCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 02860FD217FCD55800A127E6 /* BCPCommon.m */; };
 		029369F017FCDC7100066178 /* BCPContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 029369EF17FCDC7100066178 /* BCPContent.m */; };
 		029369F617FCE23E00066178 /* BCPSidebarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 029369F517FCE23E00066178 /* BCPSidebarCell.m */; };
@@ -50,6 +53,7 @@
 		02CF53FC1800FDDD00BC9940 /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CF53F01800FDDD00BC9940 /* SBJsonStreamWriterAccumulator.m */; };
 		02CF53FD1800FDDD00BC9940 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CF53F21800FDDD00BC9940 /* SBJsonStreamWriterState.m */; };
 		02CF53FE1800FDDD00BC9940 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CF53F41800FDDD00BC9940 /* SBJsonWriter.m */; };
+		02DC53FC1803A621004C5BBE /* BCPContentViewGradesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DC53FB1803A621004C5BBE /* BCPContentViewGradesViewController.m */; };
 		02E2787917FCF4BF0072C4A1 /* TabAbout.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E2785D17FCF4BF0072C4A1 /* TabAbout.png */; };
 		02E2787A17FCF4BF0072C4A1 /* TabAbout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E2785E17FCF4BF0072C4A1 /* TabAbout@2x.png */; };
 		02E2787B17FCF4BF0072C4A1 /* TabAnnouncements.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E2785F17FCF4BF0072C4A1 /* TabAnnouncements.png */; };
@@ -111,6 +115,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		020CC3DE18027695003B1989 /* BCPContentViewGrades.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPContentViewGrades.h; path = Classes/BCPContentViewGrades.h; sourceTree = "<group>"; };
+		020CC3DF18027695003B1989 /* BCPContentViewGrades.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPContentViewGrades.m; path = Classes/BCPContentViewGrades.m; sourceTree = "<group>"; };
 		020E208A17FE3A0D003C071F /* BCPFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPFont.h; path = Classes/BCPFont.h; sourceTree = "<group>"; };
 		020E208B17FE3A0D003C071F /* BCPFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPFont.m; path = Classes/BCPFont.m; sourceTree = "<group>"; };
 		020E208E17FE3BF6003C071F /* ComicSansMSBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ComicSansMSBold.ttf; sourceTree = "<group>"; };
@@ -121,6 +127,8 @@
 		020E209617FE55E6003C071F /* BCPImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPImage.m; path = Classes/BCPImage.m; sourceTree = "<group>"; };
 		020E209817FE584F003C071F /* BCPColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPColor.h; path = Classes/BCPColor.h; sourceTree = "<group>"; };
 		020E209917FE584F003C071F /* BCPColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPColor.m; path = Classes/BCPColor.m; sourceTree = "<group>"; };
+		02244E1C18038A54009F5510 /* BCPContentViewGradesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPContentViewGradesCell.h; path = Classes/BCPContentViewGradesCell.h; sourceTree = "<group>"; };
+		02244E1D18038A54009F5510 /* BCPContentViewGradesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPContentViewGradesCell.m; path = Classes/BCPContentViewGradesCell.m; sourceTree = "<group>"; };
 		02372CF917FFBC2F00C64B49 /* BCPContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPContentView.h; path = Classes/BCPContentView.h; sourceTree = "<group>"; };
 		02372CFA17FFBC2F00C64B49 /* BCPContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPContentView.m; path = Classes/BCPContentView.m; sourceTree = "<group>"; };
 		02372CFC17FFBC6900C64B49 /* BCPContentViewIntro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPContentViewIntro.h; path = Classes/BCPContentViewIntro.h; sourceTree = "<group>"; };
@@ -134,6 +142,9 @@
 		02372D0B18006E9F00C64B49 /* BCPContentViewLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPContentViewLogin.m; path = Classes/BCPContentViewLogin.m; sourceTree = "<group>"; };
 		0246DC87180255BD00BD71AE /* BCPContentViewLogout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPContentViewLogout.h; path = Classes/BCPContentViewLogout.h; sourceTree = "<group>"; };
 		0246DC88180255BD00BD71AE /* BCPContentViewLogout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPContentViewLogout.m; path = Classes/BCPContentViewLogout.m; sourceTree = "<group>"; };
+		027E6FA21803AF2400F0946C /* BCPNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPNavigationBar.h; path = Classes/BCPNavigationBar.h; sourceTree = "<group>"; };
+		027E6FA31803AF2400F0946C /* BCPNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPNavigationBar.m; path = Classes/BCPNavigationBar.m; sourceTree = "<group>"; };
+		027E6FA91803B55900F0946C /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		02860FD117FCD55800A127E6 /* BCPCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPCommon.h; path = Classes/BCPCommon.h; sourceTree = "<group>"; };
 		02860FD217FCD55800A127E6 /* BCPCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPCommon.m; path = Classes/BCPCommon.m; sourceTree = "<group>"; };
 		029369EE17FCDC7100066178 /* BCPContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPContent.h; path = Classes/BCPContent.h; sourceTree = "<group>"; };
@@ -184,6 +195,8 @@
 		02CF53F21800FDDD00BC9940 /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
 		02CF53F31800FDDD00BC9940 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		02CF53F41800FDDD00BC9940 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		02DC53FA1803A621004C5BBE /* BCPContentViewGradesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPContentViewGradesViewController.h; path = Classes/BCPContentViewGradesViewController.h; sourceTree = "<group>"; };
+		02DC53FB1803A621004C5BBE /* BCPContentViewGradesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPContentViewGradesViewController.m; path = Classes/BCPContentViewGradesViewController.m; sourceTree = "<group>"; };
 		02E2785D17FCF4BF0072C4A1 /* TabAbout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabAbout.png; sourceTree = "<group>"; };
 		02E2785E17FCF4BF0072C4A1 /* TabAbout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabAbout@2x.png"; sourceTree = "<group>"; };
 		02E2785F17FCF4BF0072C4A1 /* TabAnnouncements.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabAnnouncements.png; sourceTree = "<group>"; };
@@ -303,6 +316,7 @@
 		02A778A017FBDE0000CDFC3F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				027E6FA91803B55900F0946C /* Accelerate.framework */,
 				02372D0417FFC83500C64B49 /* QuartzCore.framework */,
 				02A778A117FBDE0000CDFC3F /* Foundation.framework */,
 				02A778A317FBDE0000CDFC3F /* CoreGraphics.framework */,
@@ -365,6 +379,12 @@
 				029369EF17FCDC7100066178 /* BCPContent.m */,
 				02372CF917FFBC2F00C64B49 /* BCPContentView.h */,
 				02372CFA17FFBC2F00C64B49 /* BCPContentView.m */,
+				020CC3DE18027695003B1989 /* BCPContentViewGrades.h */,
+				020CC3DF18027695003B1989 /* BCPContentViewGrades.m */,
+				02244E1C18038A54009F5510 /* BCPContentViewGradesCell.h */,
+				02244E1D18038A54009F5510 /* BCPContentViewGradesCell.m */,
+				02DC53FA1803A621004C5BBE /* BCPContentViewGradesViewController.h */,
+				02DC53FB1803A621004C5BBE /* BCPContentViewGradesViewController.m */,
 				02372CFC17FFBC6900C64B49 /* BCPContentViewIntro.h */,
 				02372CFD17FFBC6900C64B49 /* BCPContentViewIntro.m */,
 				02372D0A18006E9F00C64B49 /* BCPContentViewLogin.h */,
@@ -380,6 +400,8 @@
 				020E209617FE55E6003C071F /* BCPImage.m */,
 				02AE179117FCAE1F00869A8D /* BCPInterface.h */,
 				02AE179217FCAE1F00869A8D /* BCPInterface.m */,
+				027E6FA21803AF2400F0946C /* BCPNavigationBar.h */,
+				027E6FA31803AF2400F0946C /* BCPNavigationBar.m */,
 				029369F417FCE23E00066178 /* BCPSidebarCell.h */,
 				029369F517FCE23E00066178 /* BCPSidebarCell.m */,
 				029369FA17FCE31900066178 /* BCPSidebarController.h */,
@@ -669,6 +691,7 @@
 				02CF53FA1800FDDD00BC9940 /* SBJsonStreamTokeniser.m in Sources */,
 				029369F617FCE23E00066178 /* BCPSidebarCell.m in Sources */,
 				02CF53F51800FDDD00BC9940 /* SBJsonParser.m in Sources */,
+				02DC53FC1803A621004C5BBE /* BCPContentViewGradesViewController.m in Sources */,
 				02CF53FB1800FDDD00BC9940 /* SBJsonStreamWriter.m in Sources */,
 				02A778B217FBDE0000CDFC3F /* AppDelegate.m in Sources */,
 				029369FC17FCE31900066178 /* BCPSidebarController.m in Sources */,
@@ -676,16 +699,19 @@
 				02CF53F61800FDDD00BC9940 /* SBJsonStreamParser.m in Sources */,
 				020E208C17FE3A0D003C071F /* BCPFont.m in Sources */,
 				02372CFB17FFBC2F00C64B49 /* BCPContentView.m in Sources */,
+				027E6FA41803AF2400F0946C /* BCPNavigationBar.m in Sources */,
 				02CF53FC1800FDDD00BC9940 /* SBJsonStreamWriterAccumulator.m in Sources */,
 				02CF53F91800FDDD00BC9940 /* SBJsonStreamParserState.m in Sources */,
 				02AE178F17FCA50A00869A8D /* BCPViewController.m in Sources */,
 				020E209417FE3F42003C071F /* BCPData.m in Sources */,
 				02A778AE17FBDE0000CDFC3F /* main.m in Sources */,
 				02372CFE17FFBC6900C64B49 /* BCPContentViewIntro.m in Sources */,
+				02244E1E18038A54009F5510 /* BCPContentViewGradesCell.m in Sources */,
 				02CF53FE1800FDDD00BC9940 /* SBJsonWriter.m in Sources */,
 				02CF53FD1800FDDD00BC9940 /* SBJsonStreamWriterState.m in Sources */,
 				02AE179317FCAE1F00869A8D /* BCPInterface.m in Sources */,
 				020E209717FE55E6003C071F /* BCPImage.m in Sources */,
+				020CC3E018027695003B1989 /* BCPContentViewGrades.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

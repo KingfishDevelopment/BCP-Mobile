@@ -135,6 +135,10 @@
         [self setNeedsStatusBarAppearanceUpdate];
 }
 
+- (BOOL)viewIsVisable:(NSString *)view {
+    return ((UIView *)[self.interface.content.views objectForKey:@"login"]).hidden;
+}
+
 - (BOOL)willRotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     CGRect frame;
     if(interfaceOrientation==UIInterfaceOrientationPortrait||interfaceOrientation==UIInterfaceOrientationPortraitUpsideDown)
