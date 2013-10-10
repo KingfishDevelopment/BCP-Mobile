@@ -148,9 +148,9 @@ static NSObject<BCPViewControllerDelegate> *viewControllerDelegate = nil;
         if(![key isEqualToString:@"lastView"])
             [self.data removeObjectForKey:key];
     [viewControllerDelegate reloadLoginViews];
-    [self showContentView:@"login"];
     [self reloadSidebar];
-    [viewControllerDelegate sidebarReselect];
+    [viewControllerDelegate selectLogin];
+    [self showContentView:@"login"];
 }
 
 + (void)reloadSidebar {

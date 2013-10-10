@@ -15,6 +15,7 @@
 @property (nonatomic, retain) NSArray *sections;
 @property (nonatomic, retain) NSArray *titles;
 
+- (void)selectLogin;
 - (void)selectRow:(NSString *)row;
 
 @end

@@ -31,6 +31,15 @@
     return [self.sections count];
 }
 
+- (void)selectLogin {
+    for(int section=0;section<[self.sections count];section++)
+        for(int row=0;row<[[self.sections objectAtIndex:section] count];row++)
+            if([[[self.sections objectAtIndex:section] objectAtIndex:row] isEqualToString:@"Login"]) {
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+                [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+            }
+}
+
 - (void)selectRow:(NSString *)row {
     self.firstRow = row;
 }

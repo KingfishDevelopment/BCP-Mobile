@@ -82,6 +82,10 @@
     [self.interface.sidebar reloadData];
 }
 
+- (void)selectLogin {
+    [self.interface.sidebarController selectLogin];
+}
+
 - (void)setInterfaceScrollViewEnabled:(BOOL)enabled {
     if(self.interface==nil)
         self.startInterfaceWithDisabledScrollView = true;

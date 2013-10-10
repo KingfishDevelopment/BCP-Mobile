@@ -21,6 +21,7 @@
 - (void)error:(NSString *)error;
 - (void)reloadLoginViews;
 - (void)reloadSidebar;
+- (void)selectLogin;
 - (void)setKeyboardOwner:(NSObject<BCPKeyboardDelegate> *)keyboardDelegate;
 - (void)setInterfaceScrollViewEnabled:(BOOL)enabled;
 - (void)setScrollsToTop:(UIScrollView *)scrollView;
