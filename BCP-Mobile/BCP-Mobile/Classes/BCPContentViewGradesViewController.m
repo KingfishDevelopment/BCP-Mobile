@@ -50,8 +50,17 @@
     [cell setClassLabelText:[class objectForKey:@"course"]];
     [cell setGradeLabelText:[class objectForKey:@"letter"]];
     [cell setPercentLabelText:[class objectForKey:@"percent"]];
+    [cell setSelectionStyle:(![class objectForKey:@"letter"]||![class objectForKey:@"percent"]?UITableViewCellSelectionStyleNone:UITableViewCellSelectionStyleGray)];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    NSDictionary *class = [self.classes objectAtIndex:indexPath.row];
+    if([class objectForKey:@"letter"]&&[class objectForKey:@"percent"]) {
+        NSLog(@"hi");
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

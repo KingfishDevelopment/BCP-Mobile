@@ -43,12 +43,13 @@
     return self;
 }
 
-- (void)fadeLabel:(UILabel *)label withWidth:(float)width {
+- (void)fadeLabel:(UILabel *)label withWidth:(float)width highlighted:(BOOL)highlighted {
     CGSize truncatedSize = [label.text sizeWithFont:label.font constrainedToSize:label.frame.size lineBreakMode:label.lineBreakMode];
     CGSize elipsisSize = [@"..." sizeWithFont:label.font];
     
-    CGColorRef innerColor = [[BCPCommon TABLEVIEW_COLOR] colorWithAlphaComponent:0].CGColor;
-    CGColorRef outerColor = [BCPCommon TABLEVIEW_COLOR].CGColor;
+    UIColor *color = (highlighted?[BCPColor colorWithWhite:0.85 alpha:1]:[BCPCommon TABLEVIEW_COLOR]);
+    CGColorRef innerColor = [color colorWithAlphaComponent:0].CGColor;
+    CGColorRef outerColor = color.CGColor;
     
     [self.mask removeFromSuperlayer];
     
@@ -95,7 +96,7 @@
         [self.labelClass setFrame:CGRectMake(0, 0, self.classContainer.frame.size.width, self.classContainer.frame.size.height)];
         CGSize labelClassSize = [self.labelClass.text sizeWithFont:self.labelClass.font];
         if(self.labelClass.bounds.size.width<labelClassSize.width)
-            [self fadeLabel:self.labelClass withWidth:labelClassSize.width];
+            [self fadeLabel:self.labelClass withWidth:labelClassSize.width highlighted:self.highlighted];
     }
 }
 
@@ -113,6 +114,14 @@
     }
 }
 
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+    [super setHighlighted:highlighted animated:animated];
+    
+    CGSize labelClassSize = [self.labelClass.text sizeWithFont:self.labelClass.font];
+    if(self.labelClass.bounds.size.width<labelClassSize.width)
+        [self fadeLabel:self.labelClass withWidth:labelClassSize.width highlighted:self.highlighted||self.selected];
+}
+
 - (void)setPercentLabelText:(NSString *)text {
     if(text==nil||[text isEqualToString:@""]) {
         [self.labelHyphen setText:@"     (None)"];
@@ -121,6 +130,14 @@
         [self.labelPercent setText:text];
         [self.labelHyphen setText:@"-"];
     }
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+    
+    CGSize labelClassSize = [self.labelClass.text sizeWithFont:self.labelClass.font];
+    if(self.labelClass.bounds.size.width<labelClassSize.width)
+        [self fadeLabel:self.labelClass withWidth:labelClassSize.width highlighted:self.highlighted||self.selected];
 }
 
 @end
