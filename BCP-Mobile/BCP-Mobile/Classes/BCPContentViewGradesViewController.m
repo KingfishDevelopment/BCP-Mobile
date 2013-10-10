@@ -24,6 +24,14 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    self.classes = [[[[BCPCommon data] objectForKey:@"grades"] objectForKey:@"semester1"] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+        if([[a objectForKey:@"course"] isEqualToString:@"Homeroom"])
+            return NSOrderedDescending;
+        else if([[b objectForKey:@"course"] isEqualToString:@"Homeroom"])
+            return NSOrderedAscending;
+        else
+            return [[a objectForKey:@"course"] compare:[b objectForKey:@"course"]];
+    }];
     return 1;
 }
 
@@ -38,7 +46,7 @@
     }
     [cell setDividerHidden:(indexPath.row==0)];
     
-    NSDictionary *class = [[[[BCPCommon data] objectForKey:@"grades"] objectForKey:@"semester1"] objectAtIndex:indexPath.row];
+    NSDictionary *class = [self.classes objectAtIndex:indexPath.row];
     [cell setClassLabelText:[class objectForKey:@"course"]];
     [cell setGradeLabelText:[class objectForKey:@"letter"]];
     [cell setPercentLabelText:[class objectForKey:@"percent"]];

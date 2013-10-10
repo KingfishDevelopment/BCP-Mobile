@@ -11,4 +11,6 @@
 
 @interface BCPContentViewGradesViewController : UITableViewController
 
+@property (nonatomic, retain) NSArray *classes;
+
 @end

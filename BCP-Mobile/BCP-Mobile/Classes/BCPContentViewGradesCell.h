@@ -10,11 +10,13 @@
 
 @interface BCPContentViewGradesCell : UITableViewCell
 
+@property (nonatomic, retain) UIView *classContainer;
 @property (nonatomic, retain) UIView *divider;
 @property (nonatomic, retain) UILabel *labelClass;
 @property (nonatomic, retain) UILabel *labelGrade;
 @property (nonatomic, retain) UILabel *labelHyphen;
 @property (nonatomic, retain) UILabel *labelPercent;
+@property (nonatomic, retain) CAGradientLayer *mask;
 
 - (void)setDividerHidden:(BOOL)hidden;
 - (void)setClassLabelText:(NSString *)text;
