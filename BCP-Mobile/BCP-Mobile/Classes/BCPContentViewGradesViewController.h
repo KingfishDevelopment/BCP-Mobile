@@ -12,5 +12,8 @@
 @interface BCPContentViewGradesViewController : UITableViewController
 
 @property (nonatomic, retain) NSArray *classes;
+@property (nonatomic, retain) NSObject<BCPTableViewDelegate> *delegate;
+
+- (id)initWithDelegate:(NSObject<BCPTableViewDelegate> *)delegate;;
 
 @end

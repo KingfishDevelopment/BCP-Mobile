@@ -105,8 +105,10 @@
 }
 
 - (void)setGradeLabelText:(NSString *)text {
-    if(text==nil||[text isEqualToString:@""]) {
+    if(text==nil||[text isEqualToString:@""]||[text isEqualToString:@"((NA))"]) {
         [self.labelHyphen setText:@"     (None)"];
+        [self.labelGrade setText:@""];
+        [self.labelPercent setText:@""];
     }
     else {
         [self.labelGrade setText:text];
@@ -123,8 +125,10 @@
 }
 
 - (void)setPercentLabelText:(NSString *)text {
-    if(text==nil||[text isEqualToString:@""]) {
+    if(text==nil||[text isEqualToString:@""]||[text isEqualToString:@"((NA))"]) {
         [self.labelHyphen setText:@"     (None)"];
+        [self.labelGrade setText:@""];
+        [self.labelPercent setText:@""];
     }
     else {
         [self.labelPercent setText:text];

@@ -20,6 +20,7 @@ static NSMutableArray *views = nil;
 }
 
 + (UIImage *)adjustImage:(UIImage *)image toHue:(CGFloat)hueAdjust {
+    return image;
     CIImage *inputImage = [[CIImage alloc] initWithImage:image];
     CIFilter * controlsFilter = [CIFilter filterWithName:@"CIHueAdjust"];
     [controlsFilter setValue:inputImage forKey:kCIInputImageKey];
@@ -28,12 +29,15 @@ static NSMutableArray *views = nil;
     
     CIImage *displayImage = controlsFilter.outputImage;
     UIImage *finalImage = [UIImage imageWithCIImage:displayImage];
-    
     CIContext *context = [CIContext contextWithOptions:nil];
     if (displayImage == nil || finalImage == nil)
         return  image;
-    else
-        return  [UIImage imageWithCGImage:[context createCGImage:displayImage fromRect:displayImage.extent]];
+    else {
+        CGImageRef cgImage = [context createCGImage:displayImage fromRect:displayImage.extent];
+        UIImage *returnImage = [UIImage imageWithCGImage:cgImage];
+        CGImageRelease(cgImage);
+        return returnImage;
+    }
 }
 
 + (void)registerView:(UIView *)view withGetter:(NSString *)getter withSetter:(NSString *)setter withImage:(UIImage *)image {

@@ -24,6 +24,7 @@
 		02372D0917FFDD2A00C64B49 /* CodingIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02372D0717FFDD2A00C64B49 /* CodingIcon@2x.png */; };
 		02372D0C18006E9F00C64B49 /* BCPContentViewLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 02372D0B18006E9F00C64B49 /* BCPContentViewLogin.m */; };
 		0246DC89180255BD00BD71AE /* BCPContentViewLogout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0246DC88180255BD00BD71AE /* BCPContentViewLogout.m */; };
+		02783AFD1807752700FAD53C /* BCPContentViewGradeDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02783AFC1807752700FAD53C /* BCPContentViewGradeDetailsViewController.m */; };
 		027E6FA41803AF2400F0946C /* BCPNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 027E6FA31803AF2400F0946C /* BCPNavigationBar.m */; };
 		02860FD317FCD55800A127E6 /* BCPCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 02860FD217FCD55800A127E6 /* BCPCommon.m */; };
 		029369F017FCDC7100066178 /* BCPContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 029369EF17FCDC7100066178 /* BCPContent.m */; };
@@ -142,6 +143,8 @@
 		02372D0B18006E9F00C64B49 /* BCPContentViewLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPContentViewLogin.m; path = Classes/BCPContentViewLogin.m; sourceTree = "<group>"; };
 		0246DC87180255BD00BD71AE /* BCPContentViewLogout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPContentViewLogout.h; path = Classes/BCPContentViewLogout.h; sourceTree = "<group>"; };
 		0246DC88180255BD00BD71AE /* BCPContentViewLogout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPContentViewLogout.m; path = Classes/BCPContentViewLogout.m; sourceTree = "<group>"; };
+		02783AFB1807752700FAD53C /* BCPContentViewGradeDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPContentViewGradeDetailsViewController.h; path = Classes/BCPContentViewGradeDetailsViewController.h; sourceTree = "<group>"; };
+		02783AFC1807752700FAD53C /* BCPContentViewGradeDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPContentViewGradeDetailsViewController.m; path = Classes/BCPContentViewGradeDetailsViewController.m; sourceTree = "<group>"; };
 		027E6FA21803AF2400F0946C /* BCPNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPNavigationBar.h; path = Classes/BCPNavigationBar.h; sourceTree = "<group>"; };
 		027E6FA31803AF2400F0946C /* BCPNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPNavigationBar.m; path = Classes/BCPNavigationBar.m; sourceTree = "<group>"; };
 		027E6FA91803B55900F0946C /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -379,6 +382,8 @@
 				029369EF17FCDC7100066178 /* BCPContent.m */,
 				02372CF917FFBC2F00C64B49 /* BCPContentView.h */,
 				02372CFA17FFBC2F00C64B49 /* BCPContentView.m */,
+				02783AFB1807752700FAD53C /* BCPContentViewGradeDetailsViewController.h */,
+				02783AFC1807752700FAD53C /* BCPContentViewGradeDetailsViewController.m */,
 				020CC3DE18027695003B1989 /* BCPContentViewGrades.h */,
 				020CC3DF18027695003B1989 /* BCPContentViewGrades.m */,
 				02244E1C18038A54009F5510 /* BCPContentViewGradesCell.h */,
@@ -700,6 +705,7 @@
 				020E208C17FE3A0D003C071F /* BCPFont.m in Sources */,
 				02372CFB17FFBC2F00C64B49 /* BCPContentView.m in Sources */,
 				027E6FA41803AF2400F0946C /* BCPNavigationBar.m in Sources */,
+				02783AFD1807752700FAD53C /* BCPContentViewGradeDetailsViewController.m in Sources */,
 				02CF53FC1800FDDD00BC9940 /* SBJsonStreamWriterAccumulator.m in Sources */,
 				02CF53F91800FDDD00BC9940 /* SBJsonStreamParserState.m in Sources */,
 				02AE178F17FCA50A00869A8D /* BCPViewController.m in Sources */,

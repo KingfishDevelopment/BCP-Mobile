@@ -113,6 +113,12 @@ static NSObject<BCPViewControllerDelegate> *viewControllerDelegate = nil;
 + (UIColor *)TABLEVIEW_COLOR {
     return [BCPColor colorWithWhite:0.9 alpha:1];
 }
++ (int)TABLEVIEW_HEADER_HEIGHT {
+    return 24;
+}
++ (int)TABLEVIEW_HEADER_PADDING {
+    return 4;
+}
 + (UIColor *)TABLEVIEW_TEXT_COLOR {
     return [BCPColor colorWithWhite:0.1 alpha:1];
 }

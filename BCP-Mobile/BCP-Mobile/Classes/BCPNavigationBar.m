@@ -36,7 +36,7 @@
 - (void)setFrame:(CGRect)frame {
     [super setFrame:frame];
     
-    [self.label setFrame:CGRectMake(0, 20, frame.size.width, frame.size.height-20)];
+    [self.label setFrame:CGRectMake(20, 20, frame.size.width-40, frame.size.height-20)];
     [self.shadow setFrame:CGRectMake(0, frame.size.height, frame.size.width, 2)];
 }
 

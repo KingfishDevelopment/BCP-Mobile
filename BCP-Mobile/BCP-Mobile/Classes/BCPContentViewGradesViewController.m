@@ -14,11 +14,11 @@
 
 @implementation BCPContentViewGradesViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithDelegate:(NSObject<BCPTableViewDelegate> *)delegate;
 {
-    self = [super initWithStyle:style];
+    self = [super init];
     if (self) {
-        
+        self.delegate = delegate;
     }
     return self;
 }
@@ -59,7 +59,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     NSDictionary *class = [self.classes objectAtIndex:indexPath.row];
     if([class objectForKey:@"letter"]&&[class objectForKey:@"percent"]) {
-        NSLog(@"hi");
+        [self.delegate tableView:tableView didSelectRowAtIndexPath:indexPath];
     }
 }
 

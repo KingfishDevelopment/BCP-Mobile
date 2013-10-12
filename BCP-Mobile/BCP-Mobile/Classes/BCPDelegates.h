@@ -16,6 +16,10 @@
 - (void)keyboardShown:(NSNotification*)notification;
 @end
 
+@protocol BCPTableViewDelegate<NSObject>
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+@end
+
 @protocol BCPViewControllerDelegate<NSObject>
 - (void)dismissKeyboard;
 - (void)error:(NSString *)error;

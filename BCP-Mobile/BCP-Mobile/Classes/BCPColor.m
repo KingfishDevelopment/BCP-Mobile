@@ -53,7 +53,6 @@ static NSMutableArray *views = nil;
         CGFloat green = (rawData[byteIndex + 1] * 1.0) / 255.0;
         CGFloat blue  = (rawData[byteIndex + 2] * 1.0) / 255.0;
         CGFloat alpha = (rawData[byteIndex + 3] * 1.0) / 255.0;
-        byteIndex += 4;
         
         UIColor *acolor = [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
         free(rawData);
@@ -77,6 +76,7 @@ static NSMutableArray *views = nil;
 }
 
 + (UIColor *)shiftColor:(UIColor *)color toHue:(CGFloat)hueAdjust {
+    return color;
     UIImage *pixel = [self imageWithColor:color];
     CIImage *inputImage = [[CIImage alloc] initWithImage:pixel];
     CIFilter * controlsFilter = [CIFilter filterWithName:@"CIHueAdjust"];
@@ -86,13 +86,15 @@ static NSMutableArray *views = nil;
     
     CIImage *displayImage = controlsFilter.outputImage;
     UIImage *finalImage = [UIImage imageWithCIImage:displayImage];
-    
     CIContext *context = [CIContext contextWithOptions:nil];
     UIImage *image;
     if (displayImage == nil || finalImage == nil)
         image = pixel;
-    else
-        image = [UIImage imageWithCGImage:[context createCGImage:displayImage fromRect:displayImage.extent]];
+    else {
+        CGImageRef cgImage = [context createCGImage:displayImage fromRect:displayImage.extent];
+        image = [UIImage imageWithCGImage:cgImage];
+        CGImageRelease(cgImage);
+    }
     
     return [self getRGBAsFromImage:image atX:0 andY:0 count:1];
 }
