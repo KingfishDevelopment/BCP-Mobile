@@ -58,7 +58,7 @@
 }
 
 - (void)responseReturnedError:(BOOL)error {
-    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+    [self.tableViewController.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

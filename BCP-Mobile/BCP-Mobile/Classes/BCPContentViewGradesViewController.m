@@ -32,7 +32,7 @@
         else
             return [[a objectForKey:@"course"] compare:[b objectForKey:@"course"]];
     }];
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
