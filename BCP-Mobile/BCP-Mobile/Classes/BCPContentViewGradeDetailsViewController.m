@@ -45,40 +45,41 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BCPContentViewGradesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GradeDetailsCell"];
+    BCPContentViewGradesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GradeDetailsCell2"];
     if(cell==nil) {
-        cell = [[BCPContentViewGradesCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"GradeDetailsCell"];
+        cell = [[BCPContentViewGradesCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"GradeDetailsCell3"];
         [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
     }
-    [cell setDividerHidden:(indexPath.row==0)];
     
+    NSString *title, *grade, *percent;
     if(indexPath.section==0&&[self.currentClass objectForKey:@"assignments"]) {
         NSDictionary *section = [[self.currentClass objectForKey:@"assignments"] objectAtIndex:indexPath.row];
-        [cell setClassLabelText:[section objectForKey:@"name"]];
-        [cell setGradeLabelText:[section objectForKey:@"letter"]];
+        title = [section objectForKey:@"name"];
+        grade = [section objectForKey:@"letter"];
         if([[section objectForKey:@"max"] floatValue]==0) {
             if([section objectForKey:@"grade"]&&![[section objectForKey:@"grade"] isEqualToString:@""]&&[[section objectForKey:@"grade"] floatValue]!=0) {
-                [cell setPercentLabelText:@"(NA)"];
+                percent = @"(NA)";
             }
             else {
-                [cell setGradeLabelText:@"((NA))"];
-                [cell setPercentLabelText:@"((NA))"];
+                grade = @"";
+                percent = @"";
             }
         }
         else if([section objectForKey:@"grade"]&&![[section objectForKey:@"grade"] isEqualToString:@""])
-            [cell setPercentLabelText:[NSString stringWithFormat:@"%.02f%%",[[section objectForKey:@"grade"] floatValue]*100/[[section objectForKey:@"max"] floatValue]]];
+            percent = [NSString stringWithFormat:@"%.02f%%",[[section objectForKey:@"grade"] floatValue]*100/[[section objectForKey:@"max"] floatValue]];
         else
-            [cell setPercentLabelText:@""];
+            percent = @"";
     }
     else {
         NSDictionary *section = [[self.currentClass objectForKey:@"categories"] objectAtIndex:indexPath.row];
-        [cell setClassLabelText:[section objectForKey:@"category"]];
-        [cell setGradeLabelText:[section objectForKey:@"letter"]];
+        title = [section objectForKey:@"category"];
+        grade = [section objectForKey:@"letter"];
         if([section objectForKey:@"percent"]&&![[section objectForKey:@"percent"] isEqualToString:@""])
-            [cell setPercentLabelText:[[section objectForKey:@"percent"] stringByAppendingString:@"%"]];
+            percent = [[section objectForKey:@"percent"] stringByAppendingString:@"%"];
         else
-            [cell setPercentLabelText:@""];
+            percent = @"";
     }
+    [cell setTextWithTitle:title grade:grade percent:percent withDivder:indexPath.row>0];
     return cell;
 }
 

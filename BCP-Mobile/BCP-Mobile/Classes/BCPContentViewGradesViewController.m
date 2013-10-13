@@ -32,7 +32,7 @@
         else
             return [[a objectForKey:@"course"] compare:[b objectForKey:@"course"]];
     }];
-    return 1;
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -44,12 +44,10 @@
     if(cell==nil) {
         cell = [[BCPContentViewGradesCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"GradesCell"];
     }
-    [cell setDividerHidden:(indexPath.row==0)];
     
     NSDictionary *class = [self.classes objectAtIndex:indexPath.row];
-    [cell setClassLabelText:[class objectForKey:@"course"]];
-    [cell setGradeLabelText:[class objectForKey:@"letter"]];
-    [cell setPercentLabelText:[class objectForKey:@"percent"]];
+    
+    [cell setTextWithTitle:[class objectForKey:@"course"] grade:[class objectForKey:@"letter"] percent:[class objectForKey:@"percent"] withDivder:indexPath.row>0];
     [cell setSelectionStyle:(![class objectForKey:@"letter"]||![class objectForKey:@"percent"]?UITableViewCellSelectionStyleNone:UITableViewCellSelectionStyleGray)];
     
     return cell;
