@@ -82,6 +82,12 @@
     return [[self.data objectForKey:@"settings"] objectForKey:setting];
 }
 
+- (NSData *)loadCellWithKey:(NSString *)key {
+    if([self.data objectForKey:@"cells"]==nil)
+        [self.data setObject:[NSMutableDictionary dictionary] forKey:@"cells"];
+    return [[self.data objectForKey:@"cells"] objectForKey:key];
+}
+
 - (id)objectForKey:(id)aKey {
     return [self.data objectForKey:aKey];
 }
@@ -106,6 +112,14 @@
 - (void)removeObjectForKey:(id)aKey {
     [self.data removeObjectForKey:aKey];
     [self saveDictionary];
+}
+
+- (void)saveCell:(NSData *)cell withKey:(NSString *)key saveDictionary:(BOOL)save {
+    if([self.data objectForKey:@"cells"]==nil)
+        [self.data setObject:[NSMutableDictionary dictionary] forKey:@"cells"];
+    [[self.data objectForKey:@"cells"] setObject:cell forKey:key];
+    if(save)
+        [self saveDictionary];
 }
 
 - (void)saveDictionary {

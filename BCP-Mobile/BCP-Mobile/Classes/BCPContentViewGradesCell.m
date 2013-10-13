@@ -33,19 +33,63 @@ static NSMutableDictionary *views;
     NSLog(@"%@",self.backgroundView);
 }*/
 
+- (NSData *)drawCellWithFrame:(CGRect)frame withScale:(int)scale withTitle:(NSString *)title withGrade:(NSString *)grade withPercent:(NSString *)percent withDivider:(BOOL)divider selected:(BOOL)selected {
+    UIGraphicsBeginImageContextWithOptions(frame.size, YES, scale);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context,(selected?[BCPCommon TABLEVIEW_SELECTED_COLOR]:[BCPCommon TABLEVIEW_COLOR]).CGColor);
+    CGContextFillRect(context, frame);
+    
+    if(divider) {
+        CGContextSetStrokeColorWithColor(context, [BCPCommon TABLEVIEW_ACCENT_COLOR].CGColor);
+        CGContextMoveToPoint(context, 0,0);
+        CGContextAddLineToPoint(context, frame.size.width, 0);
+        CGContextStrokePath(context);
+    }
+    
+    NSMutableParagraphStyle* style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    [style setLineBreakMode:NSLineBreakByTruncatingTail];
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[BCPCommon TABLEVIEW_TEXT_COLOR],NSForegroundColorAttributeName,[BCPFont boldSystemFontOfSize:18],NSFontAttributeName,style,NSParagraphStyleAttributeName,nil];
+    
+    CGSize labelGradeSize = [@"___" sizeWithFont:[BCPFont boldSystemFontOfSize:18]];
+    [grade drawInRect:CGRectMake(frame.size.width-[BCPCommon TABLEVIEW_CELL_PADDING]-labelGradeSize.width, (frame.size.height-labelGradeSize.height)/2, labelGradeSize.width, labelGradeSize.height) withAttributes:attributes];
+    
+    NSString *hypen = ([grade isEqualToString:@""]||[percent isEqualToString:@""]?@"     (None)":@"");
+    CGSize labelHyphenSize = [hypen sizeWithFont:[BCPFont boldSystemFontOfSize:18]];
+    [hypen drawInRect:CGRectMake(frame.size.width-[BCPCommon TABLEVIEW_CELL_PADDING]*2-labelGradeSize.width-labelHyphenSize.width, (frame.size.height-labelHyphenSize.height)/2, labelHyphenSize.width, labelHyphenSize.height) withAttributes:attributes];
+    
+    CGSize labelPercentSize = [percent sizeWithFont:[BCPFont boldSystemFontOfSize:18]];
+    [percent drawInRect:CGRectMake(frame.size.width-[BCPCommon TABLEVIEW_CELL_PADDING]*3-labelGradeSize.width-labelHyphenSize.width-labelPercentSize.width, (frame.size.height-labelPercentSize.height)/2, labelPercentSize.width, labelPercentSize.height) withAttributes:attributes];
+    
+    CGSize labelClassSize = [title sizeWithFont:[BCPFont boldSystemFontOfSize:18]];
+    [title drawInRect:CGRectMake([BCPCommon TABLEVIEW_CELL_PADDING], (frame.size.height-labelClassSize.height)/2, frame.size.width-[BCPCommon TABLEVIEW_CELL_PADDING]*6.5-labelGradeSize.width-labelHyphenSize.width-labelPercentSize.width, labelClassSize.height) withAttributes:attributes];
+    
+    //if(self.labelClass.bounds.size.width<labelClassSize.width)
+    //    [self fadeLabel:self.labelClass withWidth:labelClassSize.width highlighted:self.highlighted];
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return UIImagePNGRepresentation(image);
+}
+
 - (void)setTextWithTitle:(NSString *)title grade:(NSString *)grade percent:(NSString *)percent withDivder:(BOOL)divider {
+    int scale = 1;
+    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] == 2.0)
+        scale = 2;
     if(grade==nil)
         grade = @"";
     if(percent==nil)
         percent = @"";
-    self.view = [NSString stringWithFormat:@"%@%@%@%i%i%i",title,grade,percent,divider,(int)self.frame.size.width,[BCPCommon TABLEVIEW_CELL_HEIGHT]];
-    if([views objectForKey:self.view]==nil) {
+    self.view = [NSString stringWithFormat:@"%@%@%@%i%i%i%i",title,grade,percent,divider,(int)self.frame.size.width,[BCPCommon TABLEVIEW_CELL_HEIGHT],scale];
+    if([[BCPCommon data] loadCellWithKey:self.view]==nil) {
         CGRect frame = CGRectMake(0, 0, self.frame.size.width, [BCPCommon TABLEVIEW_CELL_HEIGHT]);
-        [views setObject:[[BCPContentViewGradesCellView alloc] initWithFrame:frame withTitle:title withGrade:grade withPercent:percent withDivider:divider selected:NO] forKey:self.view];
-        [views setObject:[[BCPContentViewGradesCellView alloc] initWithFrame:frame withTitle:title withGrade:grade withPercent:percent withDivider:divider selected:YES] forKey:[self.view stringByAppendingString:@"selected"]];
+        [[BCPCommon data] saveCell:[self drawCellWithFrame:frame withScale:scale withTitle:title withGrade:grade withPercent:percent withDivider:divider selected:NO] withKey:self.view saveDictionary:NO];
+        [[BCPCommon data] saveCell:[self drawCellWithFrame:frame withScale:scale withTitle:title withGrade:grade withPercent:percent withDivider:divider selected:YES] withKey:[self.view stringByAppendingString:@"selected"] saveDictionary:YES];
     }
-    self.backgroundView = [views objectForKey:self.view];
-    self.selectedBackgroundView = [views objectForKey:[self.view stringByAppendingString:@"selected"]];
+    UIImage *backgroundView = [UIImage imageWithData:[[BCPCommon data] loadCellWithKey:self.view]];
+    UIImage *selectedBackgroundView = [UIImage imageWithData:[[BCPCommon data] loadCellWithKey:[self.view stringByAppendingString:@"selected"]]];
+    self.backgroundView = [[UIImageView alloc] initWithImage:backgroundView];
+    self.selectedBackgroundView = [[UIImageView alloc] initWithImage:selectedBackgroundView];
 }
 
 @end

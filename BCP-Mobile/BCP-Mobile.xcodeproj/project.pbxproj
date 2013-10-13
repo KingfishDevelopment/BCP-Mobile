@@ -14,7 +14,6 @@
 		020E209417FE3F42003C071F /* BCPData.m in Sources */ = {isa = PBXBuildFile; fileRef = 020E209317FE3F42003C071F /* BCPData.m */; };
 		020E209717FE55E6003C071F /* BCPImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 020E209617FE55E6003C071F /* BCPImage.m */; };
 		020E209A17FE584F003C071F /* BCPColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 020E209917FE584F003C071F /* BCPColor.m */; };
-		02244E1E18038A54009F5510 /* BCPContentViewGradesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02244E1D18038A54009F5510 /* BCPContentViewGradesCell.m */; };
 		02372CFB17FFBC2F00C64B49 /* BCPContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02372CFA17FFBC2F00C64B49 /* BCPContentView.m */; };
 		02372CFE17FFBC6900C64B49 /* BCPContentViewIntro.m in Sources */ = {isa = PBXBuildFile; fileRef = 02372CFD17FFBC6900C64B49 /* BCPContentViewIntro.m */; };
 		02372D0217FFC12600C64B49 /* RoundedIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 02372D0017FFC12600C64B49 /* RoundedIcon.png */; };
@@ -42,6 +41,7 @@
 		02A778BD17FBDE0000CDFC3F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A778A517FBDE0000CDFC3F /* UIKit.framework */; };
 		02A778C517FBDE0000CDFC3F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02A778C317FBDE0000CDFC3F /* InfoPlist.strings */; };
 		02A778C717FBDE0000CDFC3F /* BCP_MobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A778C617FBDE0000CDFC3F /* BCP_MobileTests.m */; };
+		02AAF5F0180B2F630049176B /* BCPContentViewGradesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AAF5EF180B2F630049176B /* BCPContentViewGradesCell.m */; };
 		02AE178F17FCA50A00869A8D /* BCPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AE178E17FCA50A00869A8D /* BCPViewController.m */; };
 		02AE179317FCAE1F00869A8D /* BCPInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AE179217FCAE1F00869A8D /* BCPInterface.m */; };
 		02CF53F51800FDDD00BC9940 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CF53E21800FDDD00BC9940 /* SBJsonParser.m */; };
@@ -103,7 +103,6 @@
 		02E278BC17FD27810072C4A1 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E278AE17FD27810072C4A1 /* Icon-Small@2x.png */; };
 		02E278BD17FD27810072C4A1 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E278AF17FD27810072C4A1 /* Icon.png */; };
 		02E278BE17FD27810072C4A1 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E278B017FD27810072C4A1 /* Icon@2x.png */; };
-		02F6F786180A292D0041D832 /* BCPContentViewGradesCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F6F785180A292D0041D832 /* BCPContentViewGradesCellView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,8 +128,6 @@
 		020E209617FE55E6003C071F /* BCPImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPImage.m; path = Classes/BCPImage.m; sourceTree = "<group>"; };
 		020E209817FE584F003C071F /* BCPColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPColor.h; path = Classes/BCPColor.h; sourceTree = "<group>"; };
 		020E209917FE584F003C071F /* BCPColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPColor.m; path = Classes/BCPColor.m; sourceTree = "<group>"; };
-		02244E1C18038A54009F5510 /* BCPContentViewGradesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPContentViewGradesCell.h; path = Classes/BCPContentViewGradesCell.h; sourceTree = "<group>"; };
-		02244E1D18038A54009F5510 /* BCPContentViewGradesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPContentViewGradesCell.m; path = Classes/BCPContentViewGradesCell.m; sourceTree = "<group>"; };
 		02372CF917FFBC2F00C64B49 /* BCPContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPContentView.h; path = Classes/BCPContentView.h; sourceTree = "<group>"; };
 		02372CFA17FFBC2F00C64B49 /* BCPContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPContentView.m; path = Classes/BCPContentView.m; sourceTree = "<group>"; };
 		02372CFC17FFBC6900C64B49 /* BCPContentViewIntro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPContentViewIntro.h; path = Classes/BCPContentViewIntro.h; sourceTree = "<group>"; };
@@ -173,6 +170,8 @@
 		02A778C217FBDE0000CDFC3F /* BCP-MobileTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BCP-MobileTests-Info.plist"; sourceTree = "<group>"; };
 		02A778C417FBDE0000CDFC3F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		02A778C617FBDE0000CDFC3F /* BCP_MobileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCP_MobileTests.m; sourceTree = "<group>"; };
+		02AAF5EE180B2F630049176B /* BCPContentViewGradesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPContentViewGradesCell.h; path = Classes/BCPContentViewGradesCell.h; sourceTree = "<group>"; };
+		02AAF5EF180B2F630049176B /* BCPContentViewGradesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPContentViewGradesCell.m; path = Classes/BCPContentViewGradesCell.m; sourceTree = "<group>"; };
 		02AE178D17FCA50A00869A8D /* BCPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPViewController.h; path = Classes/BCPViewController.h; sourceTree = "<group>"; };
 		02AE178E17FCA50A00869A8D /* BCPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPViewController.m; path = Classes/BCPViewController.m; sourceTree = "<group>"; };
 		02AE179117FCAE1F00869A8D /* BCPInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPInterface.h; path = Classes/BCPInterface.h; sourceTree = "<group>"; };
@@ -249,8 +248,6 @@
 		02E278AE17FD27810072C4A1 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Resources/Icons/Icon-Small@2x.png"; sourceTree = "<group>"; };
 		02E278AF17FD27810072C4A1 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icons/Icon.png; sourceTree = "<group>"; };
 		02E278B017FD27810072C4A1 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Resources/Icons/Icon@2x.png"; sourceTree = "<group>"; };
-		02F6F784180A292D0041D832 /* BCPContentViewGradesCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPContentViewGradesCellView.h; path = Classes/BCPContentViewGradesCellView.h; sourceTree = "<group>"; };
-		02F6F785180A292D0041D832 /* BCPContentViewGradesCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPContentViewGradesCellView.m; path = Classes/BCPContentViewGradesCellView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -389,10 +386,8 @@
 				02783AFC1807752700FAD53C /* BCPContentViewGradeDetailsViewController.m */,
 				020CC3DE18027695003B1989 /* BCPContentViewGrades.h */,
 				020CC3DF18027695003B1989 /* BCPContentViewGrades.m */,
-				02244E1C18038A54009F5510 /* BCPContentViewGradesCell.h */,
-				02244E1D18038A54009F5510 /* BCPContentViewGradesCell.m */,
-				02F6F784180A292D0041D832 /* BCPContentViewGradesCellView.h */,
-				02F6F785180A292D0041D832 /* BCPContentViewGradesCellView.m */,
+				02AAF5EE180B2F630049176B /* BCPContentViewGradesCell.h */,
+				02AAF5EF180B2F630049176B /* BCPContentViewGradesCell.m */,
 				02DC53FA1803A621004C5BBE /* BCPContentViewGradesViewController.h */,
 				02DC53FB1803A621004C5BBE /* BCPContentViewGradesViewController.m */,
 				02372CFC17FFBC6900C64B49 /* BCPContentViewIntro.h */,
@@ -713,12 +708,11 @@
 				02783AFD1807752700FAD53C /* BCPContentViewGradeDetailsViewController.m in Sources */,
 				02CF53FC1800FDDD00BC9940 /* SBJsonStreamWriterAccumulator.m in Sources */,
 				02CF53F91800FDDD00BC9940 /* SBJsonStreamParserState.m in Sources */,
-				02F6F786180A292D0041D832 /* BCPContentViewGradesCellView.m in Sources */,
+				02AAF5F0180B2F630049176B /* BCPContentViewGradesCell.m in Sources */,
 				02AE178F17FCA50A00869A8D /* BCPViewController.m in Sources */,
 				020E209417FE3F42003C071F /* BCPData.m in Sources */,
 				02A778AE17FBDE0000CDFC3F /* main.m in Sources */,
 				02372CFE17FFBC6900C64B49 /* BCPContentViewIntro.m in Sources */,
-				02244E1E18038A54009F5510 /* BCPContentViewGradesCell.m in Sources */,
 				02CF53FE1800FDDD00BC9940 /* SBJsonWriter.m in Sources */,
 				02CF53FD1800FDDD00BC9940 /* SBJsonStreamWriterState.m in Sources */,
 				02AE179317FCAE1F00869A8D /* BCPInterface.m in Sources */,

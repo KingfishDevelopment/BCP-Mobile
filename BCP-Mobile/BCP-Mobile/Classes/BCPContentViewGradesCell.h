@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BCPContentViewGradesCellView.h"
 
 @interface BCPContentViewGradesCell : UITableViewCell
 
