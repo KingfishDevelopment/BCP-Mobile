@@ -24,6 +24,9 @@
         
         self.parser = [[SBJsonParser alloc] init];
         self.connectionResponses = [[NSMutableDictionary alloc] init];
+        
+        if([self.data objectForKey:@"cells"]!=nil)
+            [self.data removeObjectForKey:@"cells"];
     }
     return self;
 }

@@ -47,22 +47,20 @@ static NSMutableDictionary *views;
         CGContextStrokePath(context);
     }
     
-    NSMutableParagraphStyle* style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-    [style setLineBreakMode:NSLineBreakByTruncatingTail];
-    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[BCPCommon TABLEVIEW_TEXT_COLOR],NSForegroundColorAttributeName,[BCPFont boldSystemFontOfSize:18],NSFontAttributeName,style,NSParagraphStyleAttributeName,nil];
+    CGContextSetFillColorWithColor(context, [BCPCommon TABLEVIEW_TEXT_COLOR].CGColor);
     
     CGSize labelGradeSize = [@"___" sizeWithFont:[BCPFont boldSystemFontOfSize:18]];
-    [grade drawInRect:CGRectMake(frame.size.width-[BCPCommon TABLEVIEW_CELL_PADDING]-labelGradeSize.width, (frame.size.height-labelGradeSize.height)/2, labelGradeSize.width, labelGradeSize.height) withAttributes:attributes];
+    [grade drawInRect:CGRectMake(frame.size.width-[BCPCommon TABLEVIEW_CELL_PADDING]-labelGradeSize.width, (frame.size.height-labelGradeSize.height)/2, labelGradeSize.width, labelGradeSize.height) withFont:[BCPFont boldSystemFontOfSize:18] lineBreakMode:NSLineBreakByTruncatingTail];
     
     NSString *hypen = ([grade isEqualToString:@""]||[percent isEqualToString:@""]?@"     (None)":@"");
     CGSize labelHyphenSize = [hypen sizeWithFont:[BCPFont boldSystemFontOfSize:18]];
-    [hypen drawInRect:CGRectMake(frame.size.width-[BCPCommon TABLEVIEW_CELL_PADDING]*2-labelGradeSize.width-labelHyphenSize.width, (frame.size.height-labelHyphenSize.height)/2, labelHyphenSize.width, labelHyphenSize.height) withAttributes:attributes];
+    [hypen drawInRect:CGRectMake(frame.size.width-[BCPCommon TABLEVIEW_CELL_PADDING]*2-labelGradeSize.width-labelHyphenSize.width, (frame.size.height-labelHyphenSize.height)/2, labelHyphenSize.width, labelHyphenSize.height) withFont:[BCPFont boldSystemFontOfSize:18] lineBreakMode:NSLineBreakByTruncatingTail];
     
     CGSize labelPercentSize = [percent sizeWithFont:[BCPFont boldSystemFontOfSize:18]];
-    [percent drawInRect:CGRectMake(frame.size.width-[BCPCommon TABLEVIEW_CELL_PADDING]*3-labelGradeSize.width-labelHyphenSize.width-labelPercentSize.width, (frame.size.height-labelPercentSize.height)/2, labelPercentSize.width, labelPercentSize.height) withAttributes:attributes];
+    [percent drawInRect:CGRectMake(frame.size.width-[BCPCommon TABLEVIEW_CELL_PADDING]*3-labelGradeSize.width-labelHyphenSize.width-labelPercentSize.width, (frame.size.height-labelPercentSize.height)/2, labelPercentSize.width, labelPercentSize.height) withFont:[BCPFont boldSystemFontOfSize:18] lineBreakMode:NSLineBreakByTruncatingTail];
     
     CGSize labelClassSize = [title sizeWithFont:[BCPFont boldSystemFontOfSize:18]];
-    [title drawInRect:CGRectMake([BCPCommon TABLEVIEW_CELL_PADDING], (frame.size.height-labelClassSize.height)/2, frame.size.width-[BCPCommon TABLEVIEW_CELL_PADDING]*6.5-labelGradeSize.width-labelHyphenSize.width-labelPercentSize.width, labelClassSize.height) withAttributes:attributes];
+    [title drawInRect:CGRectMake([BCPCommon TABLEVIEW_CELL_PADDING], (frame.size.height-labelClassSize.height)/2, frame.size.width-[BCPCommon TABLEVIEW_CELL_PADDING]*6.5-labelGradeSize.width-labelHyphenSize.width-labelPercentSize.width, labelClassSize.height) withFont:[BCPFont boldSystemFontOfSize:18] lineBreakMode:NSLineBreakByTruncatingTail];
     
     //if(self.labelClass.bounds.size.width<labelClassSize.width)
     //    [self fadeLabel:self.labelClass withWidth:labelClassSize.width highlighted:self.highlighted];

@@ -149,8 +149,6 @@
         frame = self.view.frame;
     else
         frame = CGRectMake(0, 0, self.view.frame.size.height, self.view.frame.size.width);
-    if(![BCPCommon IS_IOS7])
-        frame.origin.y-=20;
     [self.interface setFrame:frame];
     return YES;
 }

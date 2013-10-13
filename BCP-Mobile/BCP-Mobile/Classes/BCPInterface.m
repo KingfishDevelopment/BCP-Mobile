@@ -80,8 +80,11 @@
 }
 
 - (void)setFrame:(CGRect)frame {
+    if(![BCPCommon IS_IOS7]) {
+        frame.origin.y-=40;
+        frame.size.height+=40;
+    }
     [super setFrame:frame];
-    
     if(![BCPCommon IS_IPAD]) {
         [self.scrollView setFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
         [self.scrollView setContentSize:CGSizeMake(frame.size.width+[BCPCommon SIDEBAR_WIDTH], frame.size.height)];

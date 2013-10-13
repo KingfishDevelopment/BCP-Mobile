@@ -63,10 +63,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self.scrollViewShadow setFrame:CGRectMake(self.frame.size.width-MAX(0,MIN([BCPCommon SHADOW_SIZE],self.scrollView.contentOffset.x)), 0, [BCPCommon SHADOW_SIZE], self.scrollView.frame.size.height)];
-}
-
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    if(targetContentOffset->x==0) {
+    if(scrollView.contentOffset.x==0) {
         [BCPCommon setInterfaceScrollViewEnabled:YES];
         [self.scrollView setUserInteractionEnabled:NO];
     }
