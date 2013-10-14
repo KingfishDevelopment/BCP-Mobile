@@ -121,6 +121,7 @@
             }
         }
     }
+    [[BCPCommon data] saveDictionary];
     [self performSelectorOnMainThread:@selector(showDetails) withObject:nil waitUntilDone:NO];
 }
 
