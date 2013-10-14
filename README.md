@@ -12,7 +12,7 @@ Get started now, or keep reading for more information on the techincal side of B
 About
 -----
 
-The version of BCP Mobile released here is currently in development, but as of commit [2fc1875b11](https://github.com/KingfishDevelopment/BCP-Mobile/commit/2fc1875b112eb301001abaa10517a6adba1d8603), it features a fully functioning grades and login system. More functionality will continue to be added, but as long as you're working with that commit or newer, the app will function for checking grades at some basic level.
+The version of BCP Mobile released here is currently in development, but as of commit [4fcf7fc3c9](https://github.com/KingfishDevelopment/BCP-Mobile/commit/4fcf7fc3c95e8cbe1fbe2cb33c2c91c2d2cce2f0), it features a fully functioning grades and login system. More functionality will continue to be added, but as long as you're working with that commit or newer, the app will function for checking grades at some basic level.
 
 More detail than this will be provided as the app makes progress, of course.
 
