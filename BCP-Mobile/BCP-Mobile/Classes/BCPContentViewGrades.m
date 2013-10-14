@@ -126,7 +126,7 @@
 }
 
 - (void)responseReturnedError:(BOOL)error {
-    [self.tableViewController.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+    [self performSelectorOnMainThread:@selector(showGrades) withObject:nil waitUntilDone:NO];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -177,6 +177,19 @@
         [BCPCommon setInterfaceScrollViewEnabled:NO];
         [self.scrollView setUserInteractionEnabled:YES];
     }];
+}
+
+- (void)showGrades {
+    self.tableView = [[UITableView alloc] init];
+    [self.tableView setBackgroundColor:[BCPCommon BLUE]];
+    [self.tableView setContentInset:UIEdgeInsetsMake([BCPCommon NAVIGATION_BAR_HEIGHT], 0, 0, 0)];
+    [self.tableView setDataSource:self.tableViewController];
+    [self.tableView setDelegate:self.tableViewController];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [self addSubview:self.tableView];
+    [self bringSubviewToFront:self.navigationBar];
+     [self bringSubviewToFront:self.scrollView];
+    [self setFrame:self.frame];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
