@@ -138,8 +138,12 @@
     [self.navigationBarDetails setFrame:CGRectMake(self.frame.size.width, 0, self.frame.size.width, [BCPCommon NAVIGATION_BAR_HEIGHT])];
     [self.scrollView setFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     [self.scrollView setContentSize:CGSizeMake(self.frame.size.width*2, self.frame.size.height)];
+    if(self.scrollView.contentOffset.x>0)
+        [self.scrollView setContentOffset:CGPointMake(self.frame.size.width, 0)];
     [self.tableView setFrame:CGRectMake(0, [BCPCommon NAVIGATION_BAR_HEIGHT], self.frame.size.width, self.frame.size.height-[BCPCommon NAVIGATION_BAR_HEIGHT])];
+    [self.tableView reloadData];
     [self.tableViewDetails setFrame:CGRectMake(self.frame.size.width, [BCPCommon NAVIGATION_BAR_HEIGHT], self.frame.size.width, self.frame.size.height-[BCPCommon NAVIGATION_BAR_HEIGHT])];
+    [self.tableViewDetails reloadData];
     [self.scrollViewShadow setFrame:CGRectMake(self.frame.size.width-MAX(0,MIN([BCPCommon SHADOW_SIZE],self.scrollView.contentOffset.x)), 0, [BCPCommon SHADOW_SIZE], self.scrollView.frame.size.height)];
 }
 
@@ -154,6 +158,8 @@
 }
 
 - (void)setupTableView {
+    if(self.tableView)
+        [self.tableView removeFromSuperview];
     self.tableView = [[UITableView alloc] init];
     [self.tableView setBackgroundColor:[BCPCommon BLUE]];
     [self.tableView setDataSource:self.tableViewController];
@@ -177,6 +183,8 @@
     [self.tableView deselectRowAtIndexPath:self.selectedPath animated:NO];
     [((BCPContentViewGradesCell *)[self.tableView cellForRowAtIndexPath:self.selectedPath]) performSelectorOnMainThread:@selector(hideSpinner) withObject:nil waitUntilDone:NO];
     
+    if(self.tableViewDetails)
+        [self.tableViewDetails removeFromSuperview];
     self.tableViewDetails = [[UITableView alloc] init];
     [self.tableViewDetails setBackgroundColor:[BCPCommon BLUE]];
     [self.tableViewDetails setDataSource:self.tableViewDetailsController];
