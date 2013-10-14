@@ -46,7 +46,12 @@
     if ([challenge previousFailureCount]==0) {
         id credentials = [[self.connectionResponses objectForKey:[NSValue valueWithNonretainedObject:connection]] objectForKey:@"credentials"];
         if(credentials == (id)[NSNull null])
-            [[challenge sender] cancelAuthenticationChallenge:challenge];
+            if([self objectForKey:@"login"]) {
+                [[self.connectionResponses objectForKey:[NSValue valueWithNonretainedObject:connection]] setObject:@"INVALID_LOGIN" forKey:@"credentials"];
+                [[challenge sender] useCredential:[NSURLCredential credentialWithUser:[[self objectForKey:@"login"] objectForKey:@"username"] password:[[self objectForKey:@"login"] objectForKey:@"encryptedPassword"] persistence:NSURLCredentialPersistenceNone] forAuthenticationChallenge:challenge];
+            }
+            else
+                [[challenge sender] cancelAuthenticationChallenge:challenge];
         else {
             [[self.connectionResponses objectForKey:[NSValue valueWithNonretainedObject:connection]] setObject:@"INVALID_LOGIN" forKey:@"credentials"];
             [[challenge sender] useCredential:[NSURLCredential credentialWithUser:[credentials objectForKey:@"username"] password:[credentials objectForKey:@"password"] persistence:NSURLCredentialPersistenceNone] forAuthenticationChallenge:challenge];
@@ -139,12 +144,8 @@
         NSString *password = [details objectForKey:@"password"];
         credentials = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:username,password,nil] forKeys:[NSArray arrayWithObjects:@"username",@"password",nil]];
     }
-    else if([self objectForKey:@"login"]) {
-        NSString *username = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)[[self objectForKey:@"login"] objectForKey:@"username"], NULL, (CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8));
-        NSString *password = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)[[self objectForKey:@"login"] objectForKey:@"encryptedPassword"], NULL, (CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8));
-        requestURL = [requestURL stringByAppendingString:[NSString stringWithFormat:@"%@:%@@",username,password]];
-    }
     requestURL = [requestURL stringByAppendingString:[@"kingfi.sh/api/bcpmobile/v2/" stringByAppendingString:[requestString stringByAppendingString:@"#"]]];
+    NSLog(@"%@",requestURL);
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:requestURL]];
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     [self.connectionResponses setObject:[NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSMutableData data],delegate,(credentials?credentials:[NSNull null]),requestString,nil] forKeys:[NSArray arrayWithObjects:@"data",@"delegate",@"credentials",@"request",nil]] forKey:[NSValue valueWithNonretainedObject:connection]];
