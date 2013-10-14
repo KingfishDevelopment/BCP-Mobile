@@ -15,6 +15,7 @@
 #import "BCPFont.h"
 #import "BCPImage.h"
 #import "BCPNavigationBar.h"
+#import "FUIAlertView.h"
 #import "UIScrollView+SVPullToRefresh.h"
 
 @interface BCPCommon : NSObject
@@ -59,6 +60,7 @@
 + (int)TEXTBOX_HEIGHT;
 + (int)TEXTBOX_PADDING;
 
++ (void)alertWithTitle:(NSString *)title withText:(NSString*)text;
 + (BCPData *)data;
 + (void)dismissKeyboard;
 + (void)error:(NSString *)error;

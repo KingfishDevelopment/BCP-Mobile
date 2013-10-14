@@ -85,6 +85,31 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setMaximumFractionDigits:2];
+    NSString *title, *text;
+    if(indexPath.section==0&&[self.currentClass objectForKey:@"assignments"]) {
+        NSDictionary *section = [[self.currentClass objectForKey:@"assignments"] objectAtIndex:indexPath.row];
+        title = [section objectForKey:@"name"];
+        NSString *percent;
+        if([[section objectForKey:@"max"] floatValue]==0) {
+            if([section objectForKey:@"grade"]&&![[section objectForKey:@"grade"] isEqualToString:@""]&&[[section objectForKey:@"grade"] floatValue]!=0)
+                percent = @"(NA)";
+            else
+                percent = @"(None)";
+        }
+        else if([section objectForKey:@"grade"]&&![[section objectForKey:@"grade"] isEqualToString:@""])
+                percent = [NSString stringWithFormat:@"%.02f%%",[[section objectForKey:@"grade"] floatValue]*100/[[section objectForKey:@"max"] floatValue]];
+        else
+            percent = @"(None)";
+        text = [NSString stringWithFormat:@"Score: %@ / %@\r\nPercentage: %@\r\nGrade: %@\r\n\r\nCategory: %@\r\nDue Date: %@",([[section objectForKey:@"grade"] isEqualToString:@""]?@"-":[formatter stringFromNumber:[NSNumber numberWithFloat:[[section objectForKey:@"grade"] floatValue]]]),[formatter stringFromNumber:[NSNumber numberWithFloat:[[section objectForKey:@"max"] floatValue]]],percent,([[section objectForKey:@"letter"] isEqualToString:@""]?@"(None)":[section objectForKey:@"letter"]),[section objectForKey:@"category"],[section objectForKey:@"due"]];
+    }
+    else {
+        NSDictionary *section = [[self.currentClass objectForKey:@"categories"] objectAtIndex:indexPath.row];
+        title = [NSString stringWithFormat:@"Category: %@\r\nWeight: %@%%\r\n\r\nPoints: %@\r\nPercentage: %@\r\nGrade: %@",[section objectForKey:@"category"],[formatter stringFromNumber:[NSNumber numberWithFloat:[[section objectForKey:@"weight"] floatValue]]],[section objectForKey:@"points"],([[section objectForKey:@"percent"] isEqualToString:@""]?@"(None)":[section objectForKey:@"percent"]),([[section objectForKey:@"letter"] isEqualToString:@""]?@"(None)":[section objectForKey:@"letter"])];
+    }
+    [BCPCommon alertWithTitle:title withText:text];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {

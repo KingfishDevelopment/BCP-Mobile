@@ -135,6 +135,21 @@ static NSObject<BCPViewControllerDelegate> *viewControllerDelegate = nil;
     return 10;
 }
 
++ (void)alertWithTitle:(NSString *)title withText:(NSString*)text {
+    FUIAlertView *alertView = [[FUIAlertView alloc] initWithTitle:title message:text delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    alertView.titleLabel.textColor = [BCPCommon TABLEVIEW_COLOR];
+    alertView.titleLabel.font = [BCPFont boldSystemFontOfSize:16];
+    alertView.messageLabel.textColor = [BCPCommon TABLEVIEW_COLOR];
+    alertView.messageLabel.font = [BCPFont boldSystemFontOfSize:14];
+    alertView.backgroundOverlay.backgroundColor = [[BCPCommon SIDEBAR_TEXT_COLOR] colorWithAlphaComponent:0.5];
+    alertView.alertContainer.backgroundColor = [BCPCommon BLUE];
+    alertView.defaultButtonColor = [BCPCommon SIDEBAR_TEXT_COLOR];
+    alertView.defaultButtonShadowColor = [BCPCommon SIDEBAR_SELECTED_COLOR];
+    alertView.defaultButtonFont = [BCPFont boldSystemFontOfSize:16];
+    alertView.defaultButtonTitleColor = [BCPCommon SIDEBAR_SELECTED_COLOR];
+    [alertView show];
+}
+
 + (BCPData *)data {
     return data;
 }

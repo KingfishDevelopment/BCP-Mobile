@@ -50,8 +50,7 @@
     }
     else
         error = @"A serious (and fatal) error has occured.\r\n\r\nPlease try again, and if the problem persists, please report it so we can get it fixed!";
-    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:title message:error delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    [errorAlertView performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES];
+    [BCPCommon alertWithTitle:title withText:error];
 }
 
 - (void)keyboardHidden:(NSNotification*)notification {

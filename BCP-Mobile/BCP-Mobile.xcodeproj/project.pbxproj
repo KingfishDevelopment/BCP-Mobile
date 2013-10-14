@@ -46,6 +46,9 @@
 		02AAF61A180B84CC0049176B /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AAF618180B84CC0049176B /* UIScrollView+SVPullToRefresh.m */; };
 		02AE178F17FCA50A00869A8D /* BCPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AE178E17FCA50A00869A8D /* BCPViewController.m */; };
 		02AE179317FCAE1F00869A8D /* BCPInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AE179217FCAE1F00869A8D /* BCPInterface.m */; };
+		02CB604F180BB2460086BB6C /* FUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CB604A180BB2460086BB6C /* FUIAlertView.m */; };
+		02CB6050180BB2460086BB6C /* FUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CB604C180BB2460086BB6C /* FUIButton.m */; };
+		02CB6051180BB2460086BB6C /* UIImage+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CB604E180BB2460086BB6C /* UIImage+FlatUI.m */; };
 		02CF53F51800FDDD00BC9940 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CF53E21800FDDD00BC9940 /* SBJsonParser.m */; };
 		02CF53F61800FDDD00BC9940 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CF53E41800FDDD00BC9940 /* SBJsonStreamParser.m */; };
 		02CF53F71800FDDD00BC9940 /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CF53E61800FDDD00BC9940 /* SBJsonStreamParserAccumulator.m */; };
@@ -184,6 +187,12 @@
 		02AE179117FCAE1F00869A8D /* BCPInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPInterface.h; path = Classes/BCPInterface.h; sourceTree = "<group>"; };
 		02AE179217FCAE1F00869A8D /* BCPInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPInterface.m; path = Classes/BCPInterface.m; sourceTree = "<group>"; };
 		02B2C333180108B6009BF9C5 /* BCPDelegates.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BCPDelegates.h; path = Classes/BCPDelegates.h; sourceTree = "<group>"; };
+		02CB6049180BB2460086BB6C /* FUIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIAlertView.h; sourceTree = "<group>"; };
+		02CB604A180BB2460086BB6C /* FUIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIAlertView.m; sourceTree = "<group>"; };
+		02CB604B180BB2460086BB6C /* FUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIButton.h; sourceTree = "<group>"; };
+		02CB604C180BB2460086BB6C /* FUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIButton.m; sourceTree = "<group>"; };
+		02CB604D180BB2460086BB6C /* UIImage+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FlatUI.h"; sourceTree = "<group>"; };
+		02CB604E180BB2460086BB6C /* UIImage+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FlatUI.m"; sourceTree = "<group>"; };
 		02CF53E01800FDDD00BC9940 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
 		02CF53E11800FDDD00BC9940 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
 		02CF53E21800FDDD00BC9940 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
@@ -437,9 +446,23 @@
 			name = Classes;
 			sourceTree = "<group>";
 		};
+		02CB6048180BB2460086BB6C /* FlatUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				02CB6049180BB2460086BB6C /* FUIAlertView.h */,
+				02CB604A180BB2460086BB6C /* FUIAlertView.m */,
+				02CB604B180BB2460086BB6C /* FUIButton.h */,
+				02CB604C180BB2460086BB6C /* FUIButton.m */,
+				02CB604D180BB2460086BB6C /* UIImage+FlatUI.h */,
+				02CB604E180BB2460086BB6C /* UIImage+FlatUI.m */,
+			);
+			path = FlatUIKit;
+			sourceTree = "<group>";
+		};
 		02CF53DE1800FDDD00BC9940 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				02CB6048180BB2460086BB6C /* FlatUIKit */,
 				02CF53DF1800FDDD00BC9940 /* JSON */,
 				02AAF613180B84CC0049176B /* SVPullToRefresh */,
 			);
@@ -720,14 +743,17 @@
 				02DC53FC1803A621004C5BBE /* BCPContentViewGradesViewController.m in Sources */,
 				02CF53FB1800FDDD00BC9940 /* SBJsonStreamWriter.m in Sources */,
 				02A778B217FBDE0000CDFC3F /* AppDelegate.m in Sources */,
+				02CB6051180BB2460086BB6C /* UIImage+FlatUI.m in Sources */,
 				02AAF619180B84CC0049176B /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				029369FC17FCE31900066178 /* BCPSidebarController.m in Sources */,
+				02CB6050180BB2460086BB6C /* FUIButton.m in Sources */,
 				0246DC89180255BD00BD71AE /* BCPContentViewLogout.m in Sources */,
 				02CF53F61800FDDD00BC9940 /* SBJsonStreamParser.m in Sources */,
 				020E208C17FE3A0D003C071F /* BCPFont.m in Sources */,
 				02372CFB17FFBC2F00C64B49 /* BCPContentView.m in Sources */,
 				027E6FA41803AF2400F0946C /* BCPNavigationBar.m in Sources */,
 				02783AFD1807752700FAD53C /* BCPContentViewGradeDetailsViewController.m in Sources */,
+				02CB604F180BB2460086BB6C /* FUIAlertView.m in Sources */,
 				02CF53FC1800FDDD00BC9940 /* SBJsonStreamWriterAccumulator.m in Sources */,
 				02CF53F91800FDDD00BC9940 /* SBJsonStreamParserState.m in Sources */,
 				02AAF5F0180B2F630049176B /* BCPContentViewGradesCell.m in Sources */,
