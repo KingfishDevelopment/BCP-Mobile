@@ -17,6 +17,7 @@
 @property (nonatomic, retain) BCPNavigationBar *navigationBarDetails;
 @property (nonatomic, retain) UIScrollView *scrollView;
 @property (nonatomic, retain) UIImageView *scrollViewShadow;
+@property (nonatomic, retain) NSIndexPath *selectedPath;
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) UITableView *tableViewDetails;
 @property (nonatomic, retain) BCPContentViewGradesViewController *tableViewController;

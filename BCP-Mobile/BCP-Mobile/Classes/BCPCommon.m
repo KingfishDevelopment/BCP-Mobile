@@ -120,7 +120,7 @@ static NSObject<BCPViewControllerDelegate> *viewControllerDelegate = nil;
     return 4;
 }
 + (UIColor *)TABLEVIEW_SELECTED_COLOR {
-    return [BCPColor colorWithWhite:0.75 alpha:1];
+    return [BCPColor colorWithWhite:0.85 alpha:1];
 }
 + (UIColor *)TABLEVIEW_TEXT_COLOR {
     return [BCPColor colorWithWhite:0.1 alpha:1];

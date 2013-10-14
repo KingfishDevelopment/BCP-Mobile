@@ -40,9 +40,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BCPContentViewGradesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GradesCell"];
+    BCPContentViewGradesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GradesCell2"];
     if(cell==nil) {
-        cell = [[BCPContentViewGradesCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"GradesCell"];
+        cell = [[BCPContentViewGradesCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"GradesCell3"];
     }
     
     NSDictionary *class = [self.classes objectAtIndex:indexPath.row];
@@ -54,7 +54,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     NSDictionary *class = [self.classes objectAtIndex:indexPath.row];
     if([class objectForKey:@"letter"]&&[class objectForKey:@"percent"]) {
         [self.delegate tableView:tableView didSelectRowAtIndexPath:indexPath];

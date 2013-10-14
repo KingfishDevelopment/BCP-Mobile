@@ -82,7 +82,7 @@
 - (void)setFrame:(CGRect)frame {
     if(![BCPCommon IS_IOS7]) {
         frame.origin.y-=40;
-        frame.size.height+=40;
+        frame.size.height+=20;
     }
     [super setFrame:frame];
     if(![BCPCommon IS_IPAD]) {

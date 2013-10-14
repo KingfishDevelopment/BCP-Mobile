@@ -17,23 +17,15 @@ static NSMutableDictionary *views;
         views = [NSMutableDictionary dictionary];
 }
 
-- (void)setFrame:(CGRect)frame {
-    [super setFrame:frame];
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if(self) {
+        
+    }
+    return self;
 }
 
-/*- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
-    [super setHighlighted:highlighted animated:animated];
-    
-    NSLog(@"%@",self.backgroundView);
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-    
-    NSLog(@"%@",self.backgroundView);
-}*/
-
-- (NSData *)drawCellWithFrame:(CGRect)frame withScale:(int)scale withTitle:(NSString *)title withGrade:(NSString *)grade withPercent:(NSString *)percent withDivider:(BOOL)divider selected:(BOOL)selected {
++ (NSData *)drawCellWithFrame:(CGRect)frame withScale:(int)scale withTitle:(NSString *)title withGrade:(NSString *)grade withPercent:(NSString *)percent withDivider:(BOOL)divider selected:(BOOL)selected {
     UIGraphicsBeginImageContextWithOptions(frame.size, YES, scale);
     CGContextRef context = UIGraphicsGetCurrentContext();
     
@@ -70,7 +62,26 @@ static NSMutableDictionary *views;
     return UIImagePNGRepresentation(image);
 }
 
+- (void)hideSpinner {
+    [self.spinnerContainer setHidden:YES];
+    [self.spinner setHidden:YES];
+    [self.spinner stopAnimating];
+}
+
+- (void)setFrame:(CGRect)frame {
+    [super setFrame:frame];
+    
+    if(self.title)
+        [self setTextWithTitle:self.title grade:self.grade percent:self.percent withDivder:self.divider];
+}
+
 - (void)setTextWithTitle:(NSString *)title grade:(NSString *)grade percent:(NSString *)percent withDivder:(BOOL)divider {
+    self.title = title;
+    self.grade = grade;
+    self.percent = percent;
+    self.divider = divider;
+    if([BCPCommon IS_IPAD]&&self.frame.size.width==320)
+        return;
     int scale = 1;
     if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] == 2.0)
         scale = 2;
@@ -81,13 +92,29 @@ static NSMutableDictionary *views;
     self.view = [NSString stringWithFormat:@"%@%@%@%i%i%i%i",title,grade,percent,divider,(int)self.frame.size.width,[BCPCommon TABLEVIEW_CELL_HEIGHT],scale];
     if([[BCPCommon data] loadCellWithKey:self.view]==nil) {
         CGRect frame = CGRectMake(0, 0, self.frame.size.width, [BCPCommon TABLEVIEW_CELL_HEIGHT]);
-        [[BCPCommon data] saveCell:[self drawCellWithFrame:frame withScale:scale withTitle:title withGrade:grade withPercent:percent withDivider:divider selected:NO] withKey:self.view saveDictionary:NO];
-        [[BCPCommon data] saveCell:[self drawCellWithFrame:frame withScale:scale withTitle:title withGrade:grade withPercent:percent withDivider:divider selected:YES] withKey:[self.view stringByAppendingString:@"selected"] saveDictionary:YES];
+        [[BCPCommon data] saveCell:[BCPContentViewGradesCell drawCellWithFrame:frame withScale:scale withTitle:title withGrade:grade withPercent:percent withDivider:divider selected:NO] withKey:self.view];
+        [[BCPCommon data] saveCell:[BCPContentViewGradesCell drawCellWithFrame:frame withScale:scale withTitle:title withGrade:grade withPercent:percent withDivider:divider selected:YES] withKey:[self.view stringByAppendingString:@"selected"]];
+        [[BCPCommon data] saveDictionary];
     }
     UIImage *backgroundView = [UIImage imageWithData:[[BCPCommon data] loadCellWithKey:self.view]];
     UIImage *selectedBackgroundView = [UIImage imageWithData:[[BCPCommon data] loadCellWithKey:[self.view stringByAppendingString:@"selected"]]];
     self.backgroundView = [[UIImageView alloc] initWithImage:backgroundView];
     self.selectedBackgroundView = [[UIImageView alloc] initWithImage:selectedBackgroundView];
+    self.spinnerContainer = [[UIView alloc] initWithFrame:CGRectMake(self.frame.size.width-self.frame.size.height, 0, self.frame.size.height, self.frame.size.height)];
+    [self.spinnerContainer setBackgroundColor:[BCPCommon TABLEVIEW_SELECTED_COLOR]];
+    [self.spinnerContainer setHidden:YES];
+    [self.selectedBackgroundView addSubview:self.spinnerContainer];
+    self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [self.spinner setFrame:CGRectMake((self.spinnerContainer.frame.size.width-self.spinner.frame.size.width)/2, (self.spinnerContainer.frame.size.height-self.spinner.frame.size.height)/2, self.spinner.frame.size.width, self.spinner.frame.size.height)];
+    [self.spinner setHidden:YES];
+    [self.spinnerContainer addSubview:self.spinner];
+}
+
+- (void)showSpinner {
+    [self.spinnerContainer setHidden:NO];
+    [self.spinnerContainer setBackgroundColor:[BCPCommon TABLEVIEW_SELECTED_COLOR]];
+    [self.spinner setHidden:NO];
+    [self.spinner startAnimating];
 }
 
 @end

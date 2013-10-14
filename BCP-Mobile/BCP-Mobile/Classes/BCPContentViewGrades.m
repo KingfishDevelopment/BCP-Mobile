@@ -57,6 +57,73 @@
     return self;
 }
 
+- (void)preloadCells:(NSDictionary *)currentClass {
+    NSIndexPath *indexPath = self.selectedPath;
+    [((BCPContentViewGradesCell *)[self.tableView cellForRowAtIndexPath:indexPath]) performSelectorOnMainThread:@selector(showSpinner) withObject:nil waitUntilDone:NO];
+    int sections = 0;
+    if(currentClass!=nil&&[currentClass objectForKey:@"assignments"])
+        sections++;
+    if(currentClass!=nil&&[currentClass objectForKey:@"categories"])
+        sections++;
+    for(int section=0;section<sections;section++) {
+        int rows = 0;
+        if(section==0&&[currentClass objectForKey:@"assignments"]) {
+            rows = [[currentClass objectForKey:@"assignments"] count];
+        }
+        else
+            rows = [[currentClass objectForKey:@"categories"] count];
+        for(int row=0;row<rows;row++) {
+            if(![indexPath isEqual:self.selectedPath]) {
+                [((BCPContentViewGradesCell *)[self.tableView cellForRowAtIndexPath:indexPath]) performSelectorOnMainThread:@selector(hideSpinner) withObject:nil waitUntilDone:NO];
+                [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+                return;
+            }
+            NSString *title, *grade, *percent;
+            if(section==0&&[currentClass objectForKey:@"assignments"]) {
+                NSDictionary *section = [[currentClass objectForKey:@"assignments"] objectAtIndex:row];
+                title = [section objectForKey:@"name"];
+                grade = [section objectForKey:@"letter"];
+                if([[section objectForKey:@"max"] floatValue]==0) {
+                    if([section objectForKey:@"grade"]&&![[section objectForKey:@"grade"] isEqualToString:@""]&&[[section objectForKey:@"grade"] floatValue]!=0) {
+                        percent = @"(NA)";
+                    }
+                    else {
+                        grade = @"";
+                        percent = @"";
+                    }
+                }
+                else if([section objectForKey:@"grade"]&&![[section objectForKey:@"grade"] isEqualToString:@""])
+                    percent = [NSString stringWithFormat:@"%.02f%%",[[section objectForKey:@"grade"] floatValue]*100/[[section objectForKey:@"max"] floatValue]];
+                else
+                    percent = @"";
+            }
+            else {
+                NSDictionary *section = [[currentClass objectForKey:@"categories"] objectAtIndex:row];
+                title = [section objectForKey:@"category"];
+                grade = [section objectForKey:@"letter"];
+                if([section objectForKey:@"percent"]&&![[section objectForKey:@"percent"] isEqualToString:@""])
+                    percent = [[section objectForKey:@"percent"] stringByAppendingString:@"%"];
+                else
+                    percent = @"";
+            }
+            CGRect frame = CGRectMake(0, 0, self.frame.size.width, [BCPCommon TABLEVIEW_CELL_HEIGHT]);
+            int scale = 1;
+            if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] == 2.0)
+                scale = 2;
+            if(grade==nil)
+                grade = @"";
+            if(percent==nil)
+                percent = @"";
+            NSString *key = [NSString stringWithFormat:@"%@%@%@%i%i%i%i",title,grade,percent,(row>0),(int)frame.size.width,[BCPCommon TABLEVIEW_CELL_HEIGHT],scale];
+            if([[BCPCommon data] loadCellWithKey:key]==nil) {
+                [[BCPCommon data] saveCell:[BCPContentViewGradesCell drawCellWithFrame:frame withScale:scale withTitle:title withGrade:grade withPercent:percent withDivider:(row>0) selected:NO] withKey:key];
+                [[BCPCommon data] saveCell:[BCPContentViewGradesCell drawCellWithFrame:frame withScale:scale withTitle:title withGrade:grade withPercent:percent withDivider:(row>0) selected:YES] withKey:[key stringByAppendingString:@"selected"]];
+            }
+        }
+    }
+    [self performSelectorOnMainThread:@selector(showDetails) withObject:nil waitUntilDone:NO];
+}
+
 - (void)responseReturnedError:(BOOL)error {
     [self.tableViewController.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
 }
@@ -90,8 +157,9 @@
     }
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.tableViewDetailsController.currentClass = [self.tableViewController.classes objectAtIndex:indexPath.row];
+- (void)showDetails {
+    [self.tableView deselectRowAtIndexPath:self.selectedPath animated:NO];
+    [((BCPContentViewGradesCell *)[self.tableView cellForRowAtIndexPath:self.selectedPath]) performSelectorOnMainThread:@selector(hideSpinner) withObject:nil waitUntilDone:NO];
     
     self.tableViewDetails = [[UITableView alloc] init];
     [self.tableViewDetails setBackgroundColor:[BCPCommon BLUE]];
@@ -101,7 +169,6 @@
     [self.tableViewDetails setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.scrollView addSubview:self.tableViewDetails];
     [self.scrollView bringSubviewToFront:self.navigationBarDetails];
-    [self.navigationBarDetails setText:[[self.tableViewController.classes objectAtIndex:indexPath.row] objectForKey:@"course"]];
     [self setFrame:self.frame];
     [UIView animateWithDuration:0.25 delay:0 options:0 animations:^ {
         [self.scrollView setContentOffset:CGPointMake(self.scrollView.frame.size.width, 0)];
@@ -109,6 +176,13 @@
         [BCPCommon setInterfaceScrollViewEnabled:NO];
         [self.scrollView setUserInteractionEnabled:YES];
     }];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.selectedPath = indexPath;
+    self.tableViewDetailsController.currentClass = [self.tableViewController.classes objectAtIndex:indexPath.row];
+    [self performSelectorInBackground:@selector(preloadCells:) withObject:[self.tableViewController.classes objectAtIndex:indexPath.row]];
+    [self.navigationBarDetails setText:[[self.tableViewController.classes objectAtIndex:indexPath.row] objectForKey:@"course"]];
 }
 
 @end

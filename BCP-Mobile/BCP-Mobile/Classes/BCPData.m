@@ -117,12 +117,10 @@
     [self saveDictionary];
 }
 
-- (void)saveCell:(NSData *)cell withKey:(NSString *)key saveDictionary:(BOOL)save {
+- (void)saveCell:(NSData *)cell withKey:(NSString *)key {
     if([self.data objectForKey:@"cells"]==nil)
         [self.data setObject:[NSMutableDictionary dictionary] forKey:@"cells"];
     [[self.data objectForKey:@"cells"] setObject:cell forKey:key];
-    if(save)
-        [self saveDictionary];
 }
 
 - (void)saveDictionary {
@@ -167,9 +165,10 @@
 - (float)unlockableValueForName:(NSString *)name {
     if([self.data objectForKey:@"unlockables"]==nil)
         [self.data setObject:[NSMutableDictionary dictionary] forKey:@"unlockables"];
-    if([[self.data objectForKey:@"unlockables"] objectForKey:name]==nil)
+    if([[self.data objectForKey:@"unlockables"] objectForKey:name]==nil) {
         [[self.data objectForKey:@"unlockables"] setObject:[NSNumber numberWithDouble:0] forKey:name];
-    [self saveDictionary];
+        [self saveDictionary];
+    }
     return [[[self.data objectForKey:@"unlockables"] objectForKey:name] floatValue];
 }
 

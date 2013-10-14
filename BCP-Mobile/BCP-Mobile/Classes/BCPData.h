@@ -23,7 +23,8 @@
 - (NSData *)loadCellWithKey:(NSString *)key;
 - (id)objectForKey:(id)aKey;
 - (void)removeObjectForKey:(id)aKey;
-- (void)saveCell:(NSData *)cell withKey:(NSString *)key saveDictionary:(BOOL)save;
+- (void)saveCell:(NSData *)cell withKey:(NSString *)key;
+- (void)saveDictionary;
 - (void)sendRequest:(NSString *)requestString withDelegate:(NSObject<BCPDataDelegate> *)delegate;
 - (void)sendRequest:(NSString *)requestString withDetails:(NSDictionary *)details withDelegate:(NSObject<BCPDataDelegate> *)delegate;
 - (void)setObject:(id)anObject forKey:(id < NSCopying >)aKey;

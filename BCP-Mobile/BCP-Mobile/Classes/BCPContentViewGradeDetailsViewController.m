@@ -91,10 +91,15 @@
     return ([self numberOfSectionsInTableView:tableView]>1?[BCPCommon TABLEVIEW_HEADER_HEIGHT]:0);
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [BCPCommon TABLEVIEW_CELL_HEIGHT];
+}
+
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if([self numberOfSectionsInTableView:tableView]>1) {
         UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, [BCPCommon TABLEVIEW_HEADER_HEIGHT])];
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake([BCPCommon TABLEVIEW_HEADER_PADDING], 0, header.frame.size.width-[BCPCommon TABLEVIEW_HEADER_PADDING]*2, header.frame.size.height)];
+        [label setBackgroundColor:[BCPCommon BLUE]];
         [label setFont:[BCPFont boldSystemFontOfSize:16]];
         [label setText:(section==0&&[self.currentClass objectForKey:@"assignments"]?@"Assignments":@"Categories")];
         [label setTextColor:[BCPColor colorWithWhite:1 alpha:1]];
@@ -106,10 +111,6 @@
         UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 0)];
         return header;
     }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [BCPCommon TABLEVIEW_CELL_HEIGHT];
 }
 
 - (void)viewDidLoad {
