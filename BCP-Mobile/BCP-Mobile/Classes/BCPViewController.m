@@ -66,6 +66,10 @@
 }
 
 - (void)reloadLoginViews {
+    [self.interface.content.views setObject:[[BCPContentViewGrades alloc] init] forKey:@"grades"];
+    [[self.interface.content.views objectForKey:@"grades"] setHidden:YES];
+    [self.interface.content addSubview:[self.interface.content.views objectForKey:@"grades"]];
+    
     [[self.interface.content.views objectForKey:@"login"] removeFromSuperview];
     [[self.interface.content.views objectForKey:@"logout"] removeFromSuperview];
     [self.interface.content.views setObject:[[BCPContentViewLogin alloc] init] forKey:@"login"];
