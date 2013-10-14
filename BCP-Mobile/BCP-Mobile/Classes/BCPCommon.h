@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>
 #import <UIKit/UIKit.h>
 #import "BCPColor.h"
 #import "BCPData.h"
@@ -14,6 +15,7 @@
 #import "BCPFont.h"
 #import "BCPImage.h"
 #import "BCPNavigationBar.h"
+#import "UIScrollView+SVPullToRefresh.h"
 
 @interface BCPCommon : NSObject
 

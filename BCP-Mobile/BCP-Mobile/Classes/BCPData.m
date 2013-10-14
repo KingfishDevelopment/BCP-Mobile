@@ -145,7 +145,6 @@
         credentials = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:username,password,nil] forKeys:[NSArray arrayWithObjects:@"username",@"password",nil]];
     }
     requestURL = [requestURL stringByAppendingString:[@"kingfi.sh/api/bcpmobile/v2/" stringByAppendingString:[requestString stringByAppendingString:@"#"]]];
-    NSLog(@"%@",requestURL);
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:requestURL]];
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     [self.connectionResponses setObject:[NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSMutableData data],delegate,(credentials?credentials:[NSNull null]),requestString,nil] forKeys:[NSArray arrayWithObjects:@"data",@"delegate",@"credentials",@"request",nil]] forKey:[NSValue valueWithNonretainedObject:connection]];

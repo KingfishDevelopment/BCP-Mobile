@@ -15,14 +15,6 @@
     if (self) {
         self.tableViewController = [[BCPContentViewGradesViewController alloc] initWithDelegate:self];
         
-        self.tableView = [[UITableView alloc] init];
-        [self.tableView setBackgroundColor:[BCPCommon BLUE]];
-        [self.tableView setContentInset:UIEdgeInsetsMake([BCPCommon NAVIGATION_BAR_HEIGHT], 0, 0, 0)];
-        [self.tableView setDataSource:self.tableViewController];
-        [self.tableView setDelegate:self.tableViewController];
-        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-        [self addSubview:self.tableView];
-        
         self.navigationBar = [[BCPNavigationBar alloc] init];
         [self.navigationBar setText:@"Grades"];
         [self addSubview:self.navigationBar];
@@ -35,11 +27,12 @@
         [self.scrollView setUserInteractionEnabled:NO];
         [self addSubview:self.scrollView];
         
+        [self setupTableView];
+        
         self.tableViewDetailsController = [[BCPContentViewGradeDetailsViewController alloc] init];
         
         self.tableViewDetails = [[UITableView alloc] init];
         [self.tableViewDetails setBackgroundColor:[BCPCommon BLUE]];
-        [self.tableViewDetails setContentInset:UIEdgeInsetsMake([BCPCommon NAVIGATION_BAR_HEIGHT], 0, 0, 0)];
         [self.tableViewDetails setDataSource:self.tableViewDetailsController];
         [self.tableViewDetails setDelegate:self.tableViewDetailsController];
         [self.tableViewDetails setSeparatorStyle:UITableViewCellSeparatorStyleNone];
@@ -126,7 +119,8 @@
 }
 
 - (void)responseReturnedError:(BOOL)error {
-    [self performSelectorOnMainThread:@selector(showGrades) withObject:nil waitUntilDone:NO];
+    [self.tableView.pullToRefreshView stopAnimating];
+    [self performSelector:@selector(setupTableView) withObject:nil afterDelay:0.25];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -144,8 +138,8 @@
     [self.navigationBarDetails setFrame:CGRectMake(self.frame.size.width, 0, self.frame.size.width, [BCPCommon NAVIGATION_BAR_HEIGHT])];
     [self.scrollView setFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     [self.scrollView setContentSize:CGSizeMake(self.frame.size.width*2, self.frame.size.height)];
-    [self.tableView setFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-    [self.tableViewDetails setFrame:CGRectMake(self.frame.size.width, 0, self.frame.size.width, self.frame.size.height)];
+    [self.tableView setFrame:CGRectMake(0, [BCPCommon NAVIGATION_BAR_HEIGHT], self.frame.size.width, self.frame.size.height-[BCPCommon NAVIGATION_BAR_HEIGHT])];
+    [self.tableViewDetails setFrame:CGRectMake(self.frame.size.width, [BCPCommon NAVIGATION_BAR_HEIGHT], self.frame.size.width, self.frame.size.height-[BCPCommon NAVIGATION_BAR_HEIGHT])];
     [self.scrollViewShadow setFrame:CGRectMake(self.frame.size.width-MAX(0,MIN([BCPCommon SHADOW_SIZE],self.scrollView.contentOffset.x)), 0, [BCPCommon SHADOW_SIZE], self.scrollView.frame.size.height)];
 }
 
@@ -155,7 +149,28 @@
     if(!hidden&&[BCPCommon loggedIn]&&!self.loaded) {
         self.loaded = true;
         [[BCPCommon data] sendRequest:@"grades" withDelegate:self];
+        [self.tableView triggerPullToRefresh];
     }
+}
+
+- (void)setupTableView {
+    self.tableView = [[UITableView alloc] init];
+    [self.tableView setBackgroundColor:[BCPCommon BLUE]];
+    [self.tableView setDataSource:self.tableViewController];
+    [self.tableView setDelegate:self.tableViewController];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [self addSubview:self.tableView];
+    [self bringSubviewToFront:self.navigationBar];
+    [self bringSubviewToFront:self.scrollView];
+    [self setFrame:self.frame];
+    __unsafe_unretained typeof(self) weakSelf = self;
+    [self.tableView addPullToRefreshWithActionHandler:^{
+        [[BCPCommon data] sendRequest:@"grades" withDelegate:weakSelf];
+    }];
+    self.tableView.pullToRefreshView.arrowColor = [BCPCommon TABLEVIEW_COLOR];
+    self.tableView.pullToRefreshView.textColor = [BCPCommon TABLEVIEW_COLOR];
+    self.tableView.pullToRefreshView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
+    [self setFrame:self.frame];
 }
 
 - (void)showDetails {
@@ -164,7 +179,6 @@
     
     self.tableViewDetails = [[UITableView alloc] init];
     [self.tableViewDetails setBackgroundColor:[BCPCommon BLUE]];
-    [self.tableViewDetails setContentInset:UIEdgeInsetsMake([BCPCommon NAVIGATION_BAR_HEIGHT], 0, 0, 0)];
     [self.tableViewDetails setDataSource:self.tableViewDetailsController];
     [self.tableViewDetails setDelegate:self.tableViewDetailsController];
     [self.tableViewDetails setSeparatorStyle:UITableViewCellSeparatorStyleNone];
@@ -177,19 +191,6 @@
         [BCPCommon setInterfaceScrollViewEnabled:NO];
         [self.scrollView setUserInteractionEnabled:YES];
     }];
-}
-
-- (void)showGrades {
-    self.tableView = [[UITableView alloc] init];
-    [self.tableView setBackgroundColor:[BCPCommon BLUE]];
-    [self.tableView setContentInset:UIEdgeInsetsMake([BCPCommon NAVIGATION_BAR_HEIGHT], 0, 0, 0)];
-    [self.tableView setDataSource:self.tableViewController];
-    [self.tableView setDelegate:self.tableViewController];
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    [self addSubview:self.tableView];
-    [self bringSubviewToFront:self.navigationBar];
-     [self bringSubviewToFront:self.scrollView];
-    [self setFrame:self.frame];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
