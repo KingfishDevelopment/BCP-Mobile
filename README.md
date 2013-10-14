@@ -25,4 +25,4 @@ Thanks
 -----
 
 Thank you to everyone who contributes here, to everyone who is helping to test the app, and to everyone who uses the app in general.
-But in particular, a huge thank you to the original authors and many contributors of [SBJson](https://github.com/stig/json-framework/) and [SVPullToRefresh](https://github.com/samvermette/SVPullToRefresh), two open-source frameworks that help make BCP-Mobile work. Frameworks like these are what make open-source so awesome.
+But in particular, a huge thank you to the original authors and many contributors of [FlatUIKit](https://github.com/Grouper/FlatUIKit), [SBJson](https://github.com/stig/json-framework/), and [SVPullToRefresh](https://github.com/samvermette/SVPullToRefresh), three open-source frameworks that help make BCP-Mobile work. Frameworks like these are what make open-source so awesome.
