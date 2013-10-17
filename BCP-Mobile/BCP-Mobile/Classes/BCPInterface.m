@@ -23,7 +23,10 @@
         
         self.sidebarHeader = [[UIView alloc] init];
         [self.sidebarHeader setBackgroundColor:[BCPCommon SIDEBAR_COLOR]];
-        [self.sidebarHeader setHidden:![BCPCommon IS_IOS7]];
+        if(![BCPCommon IS_IOS7]) {
+            [self.sidebarHeader setHidden:YES];
+            [self.sidebar setContentInset:UIEdgeInsetsMake(20, 0, 0, 0)];
+        }
         [self addSubview:self.sidebarHeader];
         
         self.scrollView = [[UIScrollView alloc] init];

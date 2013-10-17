@@ -28,7 +28,7 @@
         [self addSubview:self.icon];
         
         self.label = [[UILabel alloc] init];
-        [self.label setFont:[BCPFont boldSystemFontOfSize:18]];
+        [self.label setFont:[BCPFont systemFontOfSize:18]];
         [self.label setBackgroundColor:[BCPCommon SIDEBAR_COLOR]];
         [self.label setOpaque:YES];
         [self.label setTextColor:[BCPCommon SIDEBAR_TEXT_COLOR]];

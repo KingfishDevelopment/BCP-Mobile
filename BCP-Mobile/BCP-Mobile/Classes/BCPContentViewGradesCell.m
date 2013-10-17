@@ -41,21 +41,47 @@ static NSMutableDictionary *views;
     
     CGContextSetFillColorWithColor(context, [BCPCommon TABLEVIEW_TEXT_COLOR].CGColor);
     
-    CGSize labelGradeSize = [@"___" sizeWithFont:[BCPFont boldSystemFontOfSize:18]];
-    [grade drawInRect:CGRectMake(frame.size.width-[BCPCommon TABLEVIEW_CELL_PADDING]-labelGradeSize.width, (frame.size.height-labelGradeSize.height)/2, labelGradeSize.width, labelGradeSize.height) withFont:[BCPFont boldSystemFontOfSize:18] lineBreakMode:NSLineBreakByTruncatingTail];
+    CGSize labelGradeSize = [@"___" sizeWithFont:[BCPFont systemFontOfSize:18]];
+    [grade drawInRect:CGRectMake(frame.size.width-[BCPCommon TABLEVIEW_CELL_PADDING]-labelGradeSize.width, (frame.size.height-labelGradeSize.height)/2, labelGradeSize.width, labelGradeSize.height) withFont:[BCPFont systemFontOfSize:18] lineBreakMode:NSLineBreakByTruncatingTail];
     
     NSString *hypen = ([grade isEqualToString:@""]||[percent isEqualToString:@""]?@"     (None)":@"");
-    CGSize labelHyphenSize = [hypen sizeWithFont:[BCPFont boldSystemFontOfSize:18]];
-    [hypen drawInRect:CGRectMake(frame.size.width-[BCPCommon TABLEVIEW_CELL_PADDING]*2-labelGradeSize.width-labelHyphenSize.width, (frame.size.height-labelHyphenSize.height)/2, labelHyphenSize.width, labelHyphenSize.height) withFont:[BCPFont boldSystemFontOfSize:18] lineBreakMode:NSLineBreakByTruncatingTail];
+    CGSize labelHyphenSize = [hypen sizeWithFont:[BCPFont systemFontOfSize:18]];
+    [hypen drawInRect:CGRectMake(frame.size.width-[BCPCommon TABLEVIEW_CELL_PADDING]*2-labelGradeSize.width-labelHyphenSize.width, (frame.size.height-labelHyphenSize.height)/2, labelHyphenSize.width, labelHyphenSize.height) withFont:[BCPFont systemFontOfSize:18] lineBreakMode:NSLineBreakByTruncatingTail];
     
-    CGSize labelPercentSize = [percent sizeWithFont:[BCPFont boldSystemFontOfSize:18]];
-    [percent drawInRect:CGRectMake(frame.size.width-[BCPCommon TABLEVIEW_CELL_PADDING]*3-labelGradeSize.width-labelHyphenSize.width-labelPercentSize.width, (frame.size.height-labelPercentSize.height)/2, labelPercentSize.width, labelPercentSize.height) withFont:[BCPFont boldSystemFontOfSize:18] lineBreakMode:NSLineBreakByTruncatingTail];
+    CGSize labelPercentSize = [percent sizeWithFont:[BCPFont systemFontOfSize:18]];
+    [percent drawInRect:CGRectMake(frame.size.width-[BCPCommon TABLEVIEW_CELL_PADDING]*3-labelGradeSize.width-labelHyphenSize.width-labelPercentSize.width, (frame.size.height-labelPercentSize.height)/2, labelPercentSize.width, labelPercentSize.height) withFont:[BCPFont systemFontOfSize:18] lineBreakMode:NSLineBreakByTruncatingTail];
     
-    CGSize labelClassSize = [title sizeWithFont:[BCPFont boldSystemFontOfSize:18]];
-    [title drawInRect:CGRectMake([BCPCommon TABLEVIEW_CELL_PADDING], (frame.size.height-labelClassSize.height)/2, frame.size.width-[BCPCommon TABLEVIEW_CELL_PADDING]*6.5-labelGradeSize.width-labelHyphenSize.width-labelPercentSize.width, labelClassSize.height) withFont:[BCPFont boldSystemFontOfSize:18] lineBreakMode:NSLineBreakByTruncatingTail];
+    CGSize labelClassSize = [title sizeWithFont:[BCPFont systemFontOfSize:18]];
+    CGFloat classLabelWidth = frame.size.width-[BCPCommon TABLEVIEW_CELL_PADDING]*6.5-labelGradeSize.width-labelHyphenSize.width-labelPercentSize.width;
+    [title drawInRect:CGRectMake([BCPCommon TABLEVIEW_CELL_PADDING], (frame.size.height-labelClassSize.height)/2, classLabelWidth, labelClassSize.height) withFont:[BCPFont systemFontOfSize:18] lineBreakMode:NSLineBreakByTruncatingTail];
     
-    //if(self.labelClass.bounds.size.width<labelClassSize.width)
-    //    [self fadeLabel:self.labelClass withWidth:labelClassSize.width highlighted:self.highlighted];
+    CGSize labelClassSizeRestrained = [title sizeWithFont:[BCPFont systemFontOfSize:18] forWidth:classLabelWidth lineBreakMode:NSLineBreakByTruncatingTail];
+    if(labelClassSize.width-labelClassSizeRestrained.width>1) {
+        CGSize ellipsisSize = [@"..." sizeWithFont:[BCPFont systemFontOfSize:18]];
+        
+        CGFloat colors[8];
+        
+        CGColorRef color = (selected?[BCPCommon TABLEVIEW_SELECTED_COLOR]:[BCPCommon TABLEVIEW_COLOR]).CGColor;
+        const CGFloat *colorComponents = CGColorGetComponents(color);
+        if (CGColorGetNumberOfComponents(color) == 2) {
+            for (int i=0; i<7; i++)
+                colors[i] = colorComponents[0];
+            colors[3] = 0;
+            colors[7] = colorComponents[1];
+        }
+        else {
+            for (int i=0; i<8; i++)
+                colors[i] = colorComponents[i];
+            colors[3] = 0;
+        }
+        
+        CGColorSpaceRef rgb = CGColorSpaceCreateDeviceRGB();
+        CGGradientRef gradientRef = CGGradientCreateWithColorComponents(rgb, colors, NULL, sizeof(colors) / (sizeof(colors[0]) * 4));
+        
+        CGPoint start = CGPointMake([BCPCommon TABLEVIEW_CELL_PADDING]+labelClassSizeRestrained.width-ellipsisSize.width, 0);
+        CGPoint end = CGPointMake([BCPCommon TABLEVIEW_CELL_PADDING]+labelClassSizeRestrained.width, 0);
+        CGContextDrawLinearGradient(context, gradientRef, start, end, 0);
+    }
     
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
