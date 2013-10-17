@@ -43,13 +43,15 @@
 }
 
 - (void)error:(NSString *)error {
-    NSString *title = @"Fatal Error";
+    NSString *title = @"Error";
     if([error isEqualToString:@"INVALID_LOGIN"]) {
-        error = @"Your username and password appear to be incorrect.\r\n\r\nPlease try again.";
         title = @"Invalid Login";
+        error = @"Your username and password appear to be incorrect.\r\n\r\nPlease try again.";
     }
-    else
+    else if([error rangeOfString:@" "].location==NSNotFound) {
+        title = @"Fatal Error";
         error = @"A serious (and fatal) error has occured.\r\n\r\nPlease try again, and if the problem persists, please report it so we can get it fixed!";
+    }
     [BCPCommon alertWithTitle:title withText:error];
 }
 
