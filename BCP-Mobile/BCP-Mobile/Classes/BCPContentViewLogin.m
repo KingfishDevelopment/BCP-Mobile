@@ -96,8 +96,9 @@
     
     [self.icon setFrame:CGRectMake((frame.size.width-[BCPCommon LOGIN_ICON_SIZE])/2, frame.size.height/2-[BCPCommon LOGIN_ICON_SIZE]-[BCPCommon CONTENT_MIDDLE_PADDING], [BCPCommon LOGIN_ICON_SIZE], [BCPCommon LOGIN_ICON_SIZE])];
     
-    [self.textFieldContainer setFrame:CGRectMake([BCPCommon CONTENT_SIDE_PADDING], frame.size.height/2+[BCPCommon CONTENT_MIDDLE_PADDING], frame.size.width-([BCPCommon CONTENT_SIDE_PADDING]*2), [BCPCommon TEXTBOX_HEIGHT]*2)];
-
+    CGFloat textContainerWidth = MIN(350,frame.size.width-([BCPCommon CONTENT_SIDE_PADDING]*2));
+    [self.textFieldContainer setFrame:CGRectMake((frame.size.width-textContainerWidth)/2, frame.size.height/2+[BCPCommon CONTENT_MIDDLE_PADDING], textContainerWidth, [BCPCommon TEXTBOX_HEIGHT]*2)];
+    
     [self.textFieldUsername setFrame:CGRectMake([BCPCommon TEXTBOX_PADDING], [BCPCommon TEXTBOX_PADDING], self.textFieldContainer.frame.size.width-[BCPCommon TEXTBOX_PADDING]*2, self.textFieldContainer.frame.size.height/2-[BCPCommon TEXTBOX_PADDING])];
     [self.textFieldPassword setFrame:CGRectMake([BCPCommon TEXTBOX_PADDING], self.textFieldContainer.frame.size.height/2, self.textFieldContainer.frame.size.width-[BCPCommon TEXTBOX_PADDING]*2, self.textFieldContainer.frame.size.height/2-[BCPCommon TEXTBOX_PADDING])];
 }

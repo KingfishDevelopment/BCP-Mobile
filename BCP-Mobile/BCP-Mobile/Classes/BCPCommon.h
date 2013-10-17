@@ -16,6 +16,7 @@
 #import "BCPImage.h"
 #import "BCPNavigationBar.h"
 #import "FUIAlertView.h"
+#import "FUIButton.h"
 #import "UIScrollView+SVPullToRefresh.h"
 
 @interface BCPCommon : NSObject

@@ -18,14 +18,16 @@
         [self formatLabel:self.label];
         [self addSubview:self.label];
         
-        self.button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.button addTarget:self action:@selector(logout:) forControlEvents:UIControlEventTouchDown];
-        [self.button setBackgroundColor:[BCPCommon BUTTON_COLOR]];
-        
+        self.button = [[FUIButton alloc] init];
+        self.button.buttonColor = [BCPCommon TEXTFIELD_COLOR];
+        self.button.shadowColor = [UIColor blackColor];
+        self.button.shadowHeight = 3.0f;
+        self.button.cornerRadius = 6.0f;
+        self.button.titleLabel.font = [BCPFont systemFontOfSize:18];
+        [self.button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [self.button setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
         [self.button setTitle:@"Logout" forState:UIControlStateNormal];
-        [self.button setTitleColor:[BCPCommon BUTTON_TEXT_COLOR] forState:UIControlStateNormal];
-        [self.button setTitleColor:[BCPCommon BUTTON_DOWN_COLOR] forState:UIControlStateHighlighted];
-        [self addShadowToView:self.button];
+        [self.button addTarget:self action:@selector(logout:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.button];
     }
     return self;
@@ -40,8 +42,9 @@
     
     CGSize labelSize = [self.label.text sizeWithFont:[self.label font] constrainedToSize:CGSizeMake(frame.size.width-[BCPCommon CONTENT_SIDE_PADDING]*2, 10000) lineBreakMode:self.label.lineBreakMode];
     [self.label setFrame:CGRectMake([BCPCommon CONTENT_SIDE_PADDING], frame.size.height/2-labelSize.height-[BCPCommon CONTENT_MIDDLE_PADDING], frame.size.width-[BCPCommon CONTENT_SIDE_PADDING]*2, labelSize.height)];
-
-    [self.button setFrame:CGRectMake([BCPCommon CONTENT_SIDE_PADDING], frame.size.height/2+[BCPCommon CONTENT_MIDDLE_PADDING], frame.size.width-[BCPCommon CONTENT_SIDE_PADDING]*2, [BCPCommon BUTTON_HEIGHT])];
+    
+    CGFloat buttonWidth = MIN(350,frame.size.width-[BCPCommon CONTENT_SIDE_PADDING]*2);
+    [self.button setFrame:CGRectMake((frame.size.width-buttonWidth)/2, frame.size.height/2+[BCPCommon CONTENT_MIDDLE_PADDING], buttonWidth, [BCPCommon BUTTON_HEIGHT])];
 }
 
 @end

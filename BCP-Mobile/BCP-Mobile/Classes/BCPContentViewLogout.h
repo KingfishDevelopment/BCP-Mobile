@@ -10,7 +10,7 @@
 
 @interface BCPContentViewLogout : BCPContentView
 
-@property (nonatomic, retain) UIButton *button;
+@property (nonatomic, retain) FUIButton *button;
 @property (nonatomic, retain) UILabel *label;
 
 @end
