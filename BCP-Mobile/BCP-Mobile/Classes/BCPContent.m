@@ -17,7 +17,7 @@
         [self setBackgroundColor:[BCPCommon BLUE]];
         [BCPColor registerView:self withGetter:@"backgroundColor" withSetter:@"setBackgroundColor:"];
         
-        self.views = [NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[[BCPContentViewIntro alloc] init],[[BCPContentViewLogin alloc] init],[[BCPContentViewLogout alloc] init],[[BCPContentViewGrades alloc] init],nil] forKeys:[NSArray arrayWithObjects:@"intro",@"login",@"logout",@"grades",nil]];
+        self.views = [NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[[BCPContentViewIntro alloc] init],[[BCPContentViewLogin alloc] init],[[BCPContentViewLogout alloc] init],[[BCPContentViewGrades alloc] init],[[BCPContentViewAnnouncements alloc] init],nil] forKeys:[NSArray arrayWithObjects:@"intro",@"login",@"logout",@"grades",@"announcements",nil]];
         for(NSString *key in [self.views allKeys]) {
             [[self.views objectForKey:key] setHidden:YES];
             [self addSubview:[self.views objectForKey:key]];

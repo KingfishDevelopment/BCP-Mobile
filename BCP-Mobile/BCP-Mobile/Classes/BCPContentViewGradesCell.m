@@ -8,14 +8,7 @@
 
 #import "BCPContentViewGradesCell.h"
 
-static NSMutableDictionary *views;
-
 @implementation BCPContentViewGradesCell
-
-+ (void)initialize {
-    if(views==nil)
-        views = [NSMutableDictionary dictionary];
-}
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];

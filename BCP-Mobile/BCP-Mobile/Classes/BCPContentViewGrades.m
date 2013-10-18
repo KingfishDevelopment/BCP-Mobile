@@ -27,7 +27,22 @@
         [self.scrollView setUserInteractionEnabled:NO];
         [self addSubview:self.scrollView];
         
-        [self setupTableView];
+        self.tableView = [[UITableView alloc] init];
+        [self.tableView setBackgroundColor:[BCPCommon BLUE]];
+        [self.tableView setDataSource:self.tableViewController];
+        [self.tableView setDelegate:self.tableViewController];
+        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+        [self addSubview:self.tableView];
+        [self bringSubviewToFront:self.navigationBar];
+        [self bringSubviewToFront:self.scrollView];
+        [self setFrame:self.frame];
+        __unsafe_unretained typeof(self) weakSelf = self;
+        [self.tableView addPullToRefreshWithActionHandler:^{
+            [[BCPCommon data] sendRequest:@"grades" withDelegate:weakSelf];
+        }];
+        self.tableView.pullToRefreshView.arrowColor = [BCPCommon TABLEVIEW_COLOR];
+        self.tableView.pullToRefreshView.textColor = [BCPCommon TABLEVIEW_COLOR];
+        self.tableView.pullToRefreshView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
         
         self.tableViewDetailsController = [[BCPContentViewGradeDetailsViewController alloc] init];
         
@@ -120,7 +135,7 @@
 
 - (void)responseReturnedError:(BOOL)error {
     [self.tableView.pullToRefreshView stopAnimating];
-    [self performSelector:@selector(setupTableView) withObject:nil afterDelay:0.25];
+    [self.tableView reloadData];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -155,28 +170,6 @@
         [[BCPCommon data] sendRequest:@"grades" withDelegate:self];
         [self.tableView triggerPullToRefresh];
     }
-}
-
-- (void)setupTableView {
-    if(self.tableView)
-        [self.tableView removeFromSuperview];
-    self.tableView = [[UITableView alloc] init];
-    [self.tableView setBackgroundColor:[BCPCommon BLUE]];
-    [self.tableView setDataSource:self.tableViewController];
-    [self.tableView setDelegate:self.tableViewController];
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    [self addSubview:self.tableView];
-    [self bringSubviewToFront:self.navigationBar];
-    [self bringSubviewToFront:self.scrollView];
-    [self setFrame:self.frame];
-    __unsafe_unretained typeof(self) weakSelf = self;
-    [self.tableView addPullToRefreshWithActionHandler:^{
-        [[BCPCommon data] sendRequest:@"grades" withDelegate:weakSelf];
-    }];
-    self.tableView.pullToRefreshView.arrowColor = [BCPCommon TABLEVIEW_COLOR];
-    self.tableView.pullToRefreshView.textColor = [BCPCommon TABLEVIEW_COLOR];
-    self.tableView.pullToRefreshView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
-    [self setFrame:self.frame];
 }
 
 - (void)showDetails {

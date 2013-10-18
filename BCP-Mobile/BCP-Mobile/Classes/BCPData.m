@@ -25,8 +25,8 @@
         self.parser = [[SBJsonParser alloc] init];
         self.connectionResponses = [[NSMutableDictionary alloc] init];
         
-        if([self.data objectForKey:@"cells"]!=nil)
-            [self.data removeObjectForKey:@"cells"];
+        //if([self.data objectForKey:@"cells"]!=nil)
+        //    [self.data removeObjectForKey:@"cells"];
     }
     return self;
 }
@@ -91,8 +91,9 @@
 }
 
 - (NSData *)loadCellWithKey:(NSString *)key {
-    if([self.data objectForKey:@"cells"]==nil)
+    if([self.data objectForKey:@"cells"]==nil) {
         [self.data setObject:[NSMutableDictionary dictionary] forKey:@"cells"];
+    }
     return [[self.data objectForKey:@"cells"] objectForKey:key];
 }
 
@@ -106,7 +107,7 @@
         [BCPCommon error:nil];
         [delegate responseReturnedError:YES];
     }
-    else if([response objectForKey:@"error"]) {
+    else if([response respondsToSelector:@selector(objectForKey:)]&&[response objectForKey:@"error"]) {
         [BCPCommon error:[response objectForKey:@"error"]];
         [delegate responseReturnedError:YES];
     }
@@ -129,7 +130,12 @@
 }
 
 - (void)saveDictionary {
-    [self.data writeToFile:self.path atomically:YES];
+    @try {
+        [self.data writeToFile:self.path atomically:YES];
+    }
+    @catch (NSException *e) {
+        NSLog(@"%@",self.data);
+    }
 }
 
 - (void)sendRequest:(NSString *)requestString withDelegate:(NSObject<BCPDataDelegate> *)delegate {

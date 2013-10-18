@@ -147,6 +147,8 @@ static NSObject<BCPViewControllerDelegate> *viewControllerDelegate = nil;
     alertView.defaultButtonShadowColor = [BCPCommon SIDEBAR_SELECTED_COLOR];
     alertView.defaultButtonFont = [BCPFont boldSystemFontOfSize:16];
     alertView.defaultButtonTitleColor = [BCPCommon SIDEBAR_SELECTED_COLOR];
+    alertView.maxHeight = 380;
+    
     [alertView show];
 }
 
