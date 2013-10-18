@@ -85,11 +85,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [BCPCommon dismissKeyboard];
     NSString *section = [[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     if([section isEqualToString:@"Login"]&&[[BCPCommon data] objectForKey:@"login"])
         section = @"Logout";
     [BCPCommon showContentView:[[section stringByReplacingOccurrencesOfString:@" " withString:@""] lowercaseString]];
+    [BCPCommon dismissKeyboard];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

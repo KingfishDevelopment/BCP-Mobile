@@ -18,7 +18,7 @@
         self.path = [documentsDirectory stringByAppendingPathComponent:@"data"];
         
         if([[NSFileManager defaultManager] fileExistsAtPath:self.path])
-            self.data = [NSMutableDictionary dictionaryWithContentsOfFile:self.path];
+            self.data = [NSKeyedUnarchiver unarchiveObjectWithData:[NSData dataWithContentsOfFile:self.path]];
         else
             self.data = [NSMutableDictionary dictionary];
         
@@ -130,12 +130,8 @@
 }
 
 - (void)saveDictionary {
-    @try {
-        [self.data writeToFile:self.path atomically:YES];
-    }
-    @catch (NSException *e) {
-        NSLog(@"%@",self.data);
-    }
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.data];
+    [data writeToFile:self.path atomically:YES];
 }
 
 - (void)sendRequest:(NSString *)requestString withDelegate:(NSObject<BCPDataDelegate> *)delegate {
