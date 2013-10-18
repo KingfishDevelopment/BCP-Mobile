@@ -33,6 +33,7 @@
         [self.textFieldUsername setAutocapitalizationType:UITextAutocapitalizationTypeNone];
         [self.textFieldUsername setAutocorrectionType:UITextAutocorrectionTypeNo];
         [self.textFieldUsername setClearButtonMode:UITextFieldViewModeWhileEditing];
+        [self.textFieldUsername setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
         [self.textFieldUsername setDelegate:self];
         [self.textFieldUsername setPlaceholder:@"Username"];
         [self.textFieldUsername setReturnKeyType:UIReturnKeyNext];
@@ -42,10 +43,11 @@
         [self.textFieldPassword setAutocapitalizationType:UITextAutocapitalizationTypeNone];
         [self.textFieldPassword setAutocorrectionType:UITextAutocorrectionTypeNo];
         [self.textFieldPassword setClearButtonMode:UITextFieldViewModeWhileEditing];
+        [self.textFieldPassword setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
         [self.textFieldPassword setDelegate:self];
         [self.textFieldPassword setPlaceholder:@"Password"];
         [self.textFieldPassword setReturnKeyType:UIReturnKeyGo];
-        [self.textFieldPassword setSecureTextEntry:YES];
+        [self.textFieldPassword setSecureTextEntry:YES];;
         [self.textFieldContainer addSubview:self.textFieldPassword];
         
         if([[BCPCommon data] objectForKey:@"login"]) {

@@ -17,8 +17,14 @@
         NSString *documentsDirectory = [paths objectAtIndex:0];
         self.path = [documentsDirectory stringByAppendingPathComponent:@"data"];
         
-        if([[NSFileManager defaultManager] fileExistsAtPath:self.path])
-            self.data = [NSKeyedUnarchiver unarchiveObjectWithData:[NSData dataWithContentsOfFile:self.path]];
+        if([[NSFileManager defaultManager] fileExistsAtPath:self.path]) {
+            @try {
+                self.data = [NSKeyedUnarchiver unarchiveObjectWithData:[NSData dataWithContentsOfFile:self.path]];
+            }
+            @catch (NSException *exception) {
+                self.data = [NSMutableDictionary dictionary];
+            }
+        }
         else
             self.data = [NSMutableDictionary dictionary];
         
