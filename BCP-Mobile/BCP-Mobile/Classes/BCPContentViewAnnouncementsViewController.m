@@ -29,11 +29,11 @@
     BCPContentViewAnnouncementsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AnnouncementsCell2"];
     if(cell==nil) {
         cell = [[BCPContentViewAnnouncementsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"AnnouncementsCell3"];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
     }
     
     NSDictionary *announcement = [[[[[BCPCommon data] objectForKey:@"announcements"] objectAtIndex:indexPath.section] objectForKey:@"announcements"] objectAtIndex:indexPath.row];
     [cell setTextWithAnnouncement:[announcement objectForKey:@"announcement"] withDivder:indexPath.row>0];
-    [cell setSelectionStyle:([announcement objectForKey:@"details"]&&![[announcement objectForKey:@"details"] isEqualToString:@""]?UITableViewCellSelectionStyleGray:UITableViewCellSelectionStyleNone)];
     
     return cell;
 }
@@ -41,8 +41,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     NSDictionary *announcement = [[[[[BCPCommon data] objectForKey:@"announcements"] objectAtIndex:indexPath.section] objectForKey:@"announcements"] objectAtIndex:indexPath.row];
-    if([announcement objectForKey:@"details"]&&![[announcement objectForKey:@"details"] isEqualToString:@""])
-        [BCPCommon alertWithTitle:[announcement objectForKey:@"announcement"] withText:[announcement objectForKey:@"details"]];
+    [BCPCommon alertWithTitle:[announcement objectForKey:@"announcement"] withText:([announcement objectForKey:@"details"]&&![[announcement objectForKey:@"details"] isEqualToString:@""]?[announcement objectForKey:@"details"]:@"No details were provided for this announcement.")];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
