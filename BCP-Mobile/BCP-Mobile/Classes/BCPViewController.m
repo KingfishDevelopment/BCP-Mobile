@@ -48,9 +48,12 @@
         title = @"Invalid Login";
         error = @"Your username and password appear to be incorrect.\r\n\r\nPlease try again.";
     }
-    else if([error rangeOfString:@" "].location==NSNotFound) {
+    else if([error length]<4||![[error substringToIndex:4] isEqualToString:@"msg:"]) {
         title = @"Fatal Error";
         error = @"A serious (and fatal) error has occured.\r\n\r\nPlease try again, and if the problem persists, please report it so we can get it fixed!";
+    }
+    else {
+        error = [error substringFromIndex:4];
     }
     [BCPCommon alertWithTitle:title withText:error];
 }
