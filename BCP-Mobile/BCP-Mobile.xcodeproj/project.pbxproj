@@ -51,8 +51,6 @@
 		02A778C517FBDE0000CDFC3F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02A778C317FBDE0000CDFC3F /* InfoPlist.strings */; };
 		02A778C717FBDE0000CDFC3F /* BCP_MobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A778C617FBDE0000CDFC3F /* BCP_MobileTests.m */; };
 		02AAF5F0180B2F630049176B /* BCPContentViewGradesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AAF5EF180B2F630049176B /* BCPContentViewGradesCell.m */; };
-		02AAF619180B84CC0049176B /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AAF616180B84CC0049176B /* UIScrollView+SVInfiniteScrolling.m */; };
-		02AAF61A180B84CC0049176B /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AAF618180B84CC0049176B /* UIScrollView+SVPullToRefresh.m */; };
 		02AE178F17FCA50A00869A8D /* BCPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AE178E17FCA50A00869A8D /* BCPViewController.m */; };
 		02AE179317FCAE1F00869A8D /* BCPInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AE179217FCAE1F00869A8D /* BCPInterface.m */; };
 		02CB604F180BB2460086BB6C /* FUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CB604A180BB2460086BB6C /* FUIAlertView.m */; };
@@ -68,6 +66,8 @@
 		02CF53FC1800FDDD00BC9940 /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CF53F01800FDDD00BC9940 /* SBJsonStreamWriterAccumulator.m */; };
 		02CF53FD1800FDDD00BC9940 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CF53F21800FDDD00BC9940 /* SBJsonStreamWriterState.m */; };
 		02CF53FE1800FDDD00BC9940 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CF53F41800FDDD00BC9940 /* SBJsonWriter.m */; };
+		02D6CD47181B926300548B10 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D6CD44181B926300548B10 /* UIScrollView+SVInfiniteScrolling.m */; };
+		02D6CD48181B926300548B10 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D6CD46181B926300548B10 /* UIScrollView+SVPullToRefresh.m */; };
 		02DC53FC1803A621004C5BBE /* BCPContentViewGradesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DC53FB1803A621004C5BBE /* BCPContentViewGradesViewController.m */; };
 		02E2787917FCF4BF0072C4A1 /* TabAbout.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E2785D17FCF4BF0072C4A1 /* TabAbout.png */; };
 		02E2787A17FCF4BF0072C4A1 /* TabAbout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E2785E17FCF4BF0072C4A1 /* TabAbout@2x.png */; };
@@ -192,11 +192,6 @@
 		02A778C617FBDE0000CDFC3F /* BCP_MobileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCP_MobileTests.m; sourceTree = "<group>"; };
 		02AAF5EE180B2F630049176B /* BCPContentViewGradesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPContentViewGradesCell.h; path = Classes/BCPContentViewGradesCell.h; sourceTree = "<group>"; };
 		02AAF5EF180B2F630049176B /* BCPContentViewGradesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPContentViewGradesCell.m; path = Classes/BCPContentViewGradesCell.m; sourceTree = "<group>"; };
-		02AAF614180B84CC0049176B /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
-		02AAF615180B84CC0049176B /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
-		02AAF616180B84CC0049176B /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
-		02AAF617180B84CC0049176B /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
-		02AAF618180B84CC0049176B /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 		02AE178D17FCA50A00869A8D /* BCPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPViewController.h; path = Classes/BCPViewController.h; sourceTree = "<group>"; };
 		02AE178E17FCA50A00869A8D /* BCPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPViewController.m; path = Classes/BCPViewController.m; sourceTree = "<group>"; };
 		02AE179117FCAE1F00869A8D /* BCPInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPInterface.h; path = Classes/BCPInterface.h; sourceTree = "<group>"; };
@@ -229,6 +224,11 @@
 		02CF53F21800FDDD00BC9940 /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
 		02CF53F31800FDDD00BC9940 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		02CF53F41800FDDD00BC9940 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		02D6CD42181B926300548B10 /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
+		02D6CD43181B926300548B10 /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
+		02D6CD44181B926300548B10 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
+		02D6CD45181B926300548B10 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
+		02D6CD46181B926300548B10 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 		02DC53FA1803A621004C5BBE /* BCPContentViewGradesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPContentViewGradesViewController.h; path = Classes/BCPContentViewGradesViewController.h; sourceTree = "<group>"; };
 		02DC53FB1803A621004C5BBE /* BCPContentViewGradesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPContentViewGradesViewController.m; path = Classes/BCPContentViewGradesViewController.m; sourceTree = "<group>"; };
 		02E2785D17FCF4BF0072C4A1 /* TabAbout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabAbout.png; sourceTree = "<group>"; };
@@ -410,19 +410,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		02AAF613180B84CC0049176B /* SVPullToRefresh */ = {
-			isa = PBXGroup;
-			children = (
-				02AAF614180B84CC0049176B /* SVPullToRefresh.h */,
-				02AAF615180B84CC0049176B /* UIScrollView+SVInfiniteScrolling.h */,
-				02AAF616180B84CC0049176B /* UIScrollView+SVInfiniteScrolling.m */,
-				02AAF617180B84CC0049176B /* UIScrollView+SVPullToRefresh.h */,
-				02AAF618180B84CC0049176B /* UIScrollView+SVPullToRefresh.m */,
-			);
-			name = SVPullToRefresh;
-			path = JSON/SVPullToRefresh;
-			sourceTree = "<group>";
-		};
 		02AE178917FCA3C000869A8D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -493,7 +480,7 @@
 			children = (
 				02CB6048180BB2460086BB6C /* FlatUIKit */,
 				02CF53DF1800FDDD00BC9940 /* JSON */,
-				02AAF613180B84CC0049176B /* SVPullToRefresh */,
+				02D6CD41181B926300548B10 /* SVPullToRefresh */,
 			);
 			name = Frameworks;
 			path = Resources/Frameworks;
@@ -525,6 +512,18 @@
 				02CF53F41800FDDD00BC9940 /* SBJsonWriter.m */,
 			);
 			path = JSON;
+			sourceTree = "<group>";
+		};
+		02D6CD41181B926300548B10 /* SVPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				02D6CD42181B926300548B10 /* SVPullToRefresh.h */,
+				02D6CD43181B926300548B10 /* UIScrollView+SVInfiniteScrolling.h */,
+				02D6CD44181B926300548B10 /* UIScrollView+SVInfiniteScrolling.m */,
+				02D6CD45181B926300548B10 /* UIScrollView+SVPullToRefresh.h */,
+				02D6CD46181B926300548B10 /* UIScrollView+SVPullToRefresh.m */,
+			);
+			path = SVPullToRefresh;
 			sourceTree = "<group>";
 		};
 		02E2785B17FCF4AD0072C4A1 /* Resources */ = {
@@ -644,6 +643,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Kingfish;
 				TargetAttributes = {
+					02A7789D17FBDE0000CDFC3F = {
+						DevelopmentTeam = FGFSR7EX83;
+					};
 					02A778B817FBDE0000CDFC3F = {
 						TestTargetID = 02A7789D17FBDE0000CDFC3F;
 					};
@@ -754,17 +756,18 @@
 				02CF53F81800FDDD00BC9940 /* SBJsonStreamParserAdapter.m in Sources */,
 				02CF53FA1800FDDD00BC9940 /* SBJsonStreamTokeniser.m in Sources */,
 				029369F617FCE23E00066178 /* BCPSidebarCell.m in Sources */,
+				02D6CD48181B926300548B10 /* UIScrollView+SVPullToRefresh.m in Sources */,
 				02CF53F51800FDDD00BC9940 /* SBJsonParser.m in Sources */,
 				02DC53FC1803A621004C5BBE /* BCPContentViewGradesViewController.m in Sources */,
 				02CF53FB1800FDDD00BC9940 /* SBJsonStreamWriter.m in Sources */,
 				02A778B217FBDE0000CDFC3F /* AppDelegate.m in Sources */,
 				02CB6051180BB2460086BB6C /* UIImage+FlatUI.m in Sources */,
-				02AAF619180B84CC0049176B /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				029369FC17FCE31900066178 /* BCPSidebarController.m in Sources */,
 				02CB6050180BB2460086BB6C /* FUIButton.m in Sources */,
 				0246DC89180255BD00BD71AE /* BCPContentViewLogout.m in Sources */,
 				02CF53F61800FDDD00BC9940 /* SBJsonStreamParser.m in Sources */,
 				024A2AD4181092C500EB89CC /* BCPContentViewAnnouncementsViewController.m in Sources */,
+				02D6CD47181B926300548B10 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				020E208C17FE3A0D003C071F /* BCPFont.m in Sources */,
 				02372CFB17FFBC2F00C64B49 /* BCPContentView.m in Sources */,
 				027E6FA41803AF2400F0946C /* BCPNavigationBar.m in Sources */,
@@ -774,7 +777,6 @@
 				02CF53F91800FDDD00BC9940 /* SBJsonStreamParserState.m in Sources */,
 				024A2ACE18108ABA00EB89CC /* BCPContentViewAnnouncements.m in Sources */,
 				02AAF5F0180B2F630049176B /* BCPContentViewGradesCell.m in Sources */,
-				02AAF61A180B84CC0049176B /* UIScrollView+SVPullToRefresh.m in Sources */,
 				024A2AD71810949900EB89CC /* BCPContentViewAnnouncementsCell.m in Sources */,
 				02AE178F17FCA50A00869A8D /* BCPViewController.m in Sources */,
 				020E209417FE3F42003C071F /* BCPData.m in Sources */,
@@ -904,11 +906,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Brian Pauken (UG55A7S2M6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Brian Pauken (UG55A7S2M6)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BCP-Mobile/BCP-Mobile-Prefix.pch";
 				INFOPLIST_FILE = "BCP-Mobile/BCP-Mobile-Info.plist";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
@@ -918,10 +923,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Brian Pauken (UG55A7S2M6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Brian Pauken (UG55A7S2M6)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BCP-Mobile/BCP-Mobile-Prefix.pch";
 				INFOPLIST_FILE = "BCP-Mobile/BCP-Mobile-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};

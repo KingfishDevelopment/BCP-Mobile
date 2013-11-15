@@ -253,7 +253,7 @@
                         }
 
                         case sbjson_token_string: {
-                            NSString *string = [self parseHTMLWithString:[[NSString alloc] initWithBytes:token length:token_len encoding:NSUTF8StringEncoding]];
+                            NSString *string = [[NSString alloc] initWithBytes:token length:token_len encoding:NSUTF8StringEncoding];
                             if ([state needKey])
                                 [delegate parser:self foundObjectKey:string];
                             else
@@ -333,69 +333,6 @@
         }
     }
     return string;
-}
-
-NSDictionary *knownEntities;
-
-- (NSString *)parseHTMLWithString:(NSString *)string {
-    NSUInteger myLength = [string length];
-    NSUInteger ampIndex = [string rangeOfString:@"&" options:NSLiteralSearch].location;
-    if (ampIndex == NSNotFound)
-        return string;
-    NSMutableString *result = [NSMutableString stringWithCapacity:(myLength * 1.25)];
-    NSScanner *scanner = [NSScanner scannerWithString:string];
-    [scanner setCaseSensitive:YES];
-    [scanner setCharactersToBeSkipped:nil];
-    NSCharacterSet *boundaryCharacterSet = [NSCharacterSet characterSetWithCharactersInString:@" \t\n\r;"];
-    do {
-        NSString *nonEntityString;
-        if ([scanner scanUpToString:@"&" intoString:&nonEntityString]) {
-            [result appendString:nonEntityString];}
-        if ([scanner isAtEnd]) {
-            goto finish;}
-        bool entityFound = false;
-        if(knownEntities==nil)
-            knownEntities = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"&",@"'",@"\"",@"<",@">",@"'",@"é",@"ë",@"è",@"ô",@"á",@"â",@"É",@"Ñ",@"í",@"è",@"“",@"”",@"Ä",@"ü",@"‘",@"’",@"—",@"Ç",@"î",@"ñ",@"Â",@"ä",@"È",nil] forKeys:[NSArray arrayWithObjects:@"&amp;",@"&apos;",@"&quot;",@"&lt;",@"&gt;",@"&rsquo;",@"&eacute;",@"&euml;",@"&egrave;",@"&ocirc;",@"&aacute;",@"&acirc;",@"&Eacute;",@"&Ntilde;",@"&iacute;",@"&eagrave",@"&ldquo;",@"&rdquo;",@"&Auml;",@"&uuml;",@"&lsquo;",@"&rsquo;",@"&mdash;",@"&ccedil;",@"&icirc;",@"&ntilde;",@"&Acirc;",@"&auml;",@"&Egrave;",nil]];
-        for(NSString *entity in knownEntities) {
-            if ([scanner scanString:entity intoString:NULL]) {
-                [result appendString:[knownEntities objectForKey:entity]];
-                entityFound = true;
-                break;
-            }
-        }
-        if(!entityFound) {
-            if ([scanner scanString:@"&#" intoString:NULL]) {
-                BOOL gotNumber; unsigned charCode; NSString *xForHex = @"";
-                if ([scanner scanString:@"x" intoString:&xForHex]) {
-                    gotNumber = [scanner scanHexInt:&charCode];}
-                else {
-                    gotNumber = [scanner scanInt:(int*)&charCode];}
-                if (gotNumber) {
-                    unsigned short newChar = charCode;
-                    [result appendFormat:@"%C", newChar];
-                    [scanner scanString:@";" intoString:NULL];}
-                else {
-                    NSString *unknownEntity = @"";
-                    [scanner scanUpToCharactersFromSet:boundaryCharacterSet intoString:&unknownEntity];
-                    [result appendFormat:@"&#%@%@", xForHex, unknownEntity];}}
-            else {
-                NSString *entity;
-                if ([scanner scanUpToString:@";" intoString:&entity]) {
-                    if([entity length]>32)
-                        [result appendString:entity];
-                }
-                else {
-                    NSString *amp;
-                    [scanner scanString:@"&" intoString:&amp];
-                    if(amp!=nil)
-                        [result appendString:amp];
-                }
-            }
-        }
-    }
-    while (![scanner isAtEnd]);
-finish:
-    return [result stringByReplacingOccurrencesOfString:@"â" withString:@"'"];
 }
 
 @end
