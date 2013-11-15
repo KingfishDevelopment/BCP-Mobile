@@ -25,10 +25,12 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShown:) name:UIKeyboardWillShowNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardHidden:) name:UIKeyboardDidHideNotification object:nil];
         
-        self.interface = [[BCPInterface alloc] init];
+        self.interface = [[BCPInterface alloc] initWithFrame:self.view.bounds];
+        [self.interface setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
         if(self.startInterfaceWithDisabledScrollView)
             [self.interface.scrollView setScrollEnabled:NO];
         [self.view addSubview:self.interface];
+        [self.interface setFrame:self.view.bounds];
         
         if(self.firstView)
             [self.interface.sidebarController selectRow:self.firstView];
@@ -118,15 +120,6 @@
     }
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return YES;
-}
-
--(BOOL)shouldAutorotate {
-    [self willRotateToInterfaceOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
-    return YES;
-}
-
 - (void)showContentView:(NSString *)view {
     [[BCPCommon data] setObject:view forKey:@"lastView"];
     [self.interface.content showContentView:view];
@@ -149,16 +142,6 @@
 
 - (BOOL)viewIsVisable:(NSString *)view {
     return ((UIView *)[self.interface.content.views objectForKey:@"login"]).hidden;
-}
-
-- (BOOL)willRotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    CGRect frame;
-    if(interfaceOrientation==UIInterfaceOrientationPortrait||interfaceOrientation==UIInterfaceOrientationPortraitUpsideDown)
-        frame = self.view.frame;
-    else
-        frame = CGRectMake(0, 0, self.view.frame.size.height, self.view.frame.size.width);
-    [self.interface setFrame:frame];
-    return YES;
 }
 
 @end
