@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		020B92EB1839B44800F610DB /* BCPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 020B92EA1839B44800F610DB /* BCPViewController.m */; };
+		020B92EE1839B85200F610DB /* BCPInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 020B92ED1839B85200F610DB /* BCPInterface.m */; };
+		020B92F21839C0B200F610DB /* UIColor+BCPColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 020B92F11839C0B200F610DB /* UIColor+BCPColors.m */; };
+		020B92F51839D0F700F610DB /* BCPConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 020B92F41839D0F700F610DB /* BCPConstants.m */; };
+		020B92F81839D24800F610DB /* BCPCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 020B92F71839D24800F610DB /* BCPCommon.m */; };
+		020B92FC1839DE5300F610DB /* BCPContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 020B92FB1839DE5300F610DB /* BCPContent.m */; };
 		0267ECF51839ABB400E3B08B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0267ECF41839ABB400E3B08B /* Foundation.framework */; };
 		0267ECF71839ABB400E3B08B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0267ECF61839ABB400E3B08B /* CoreGraphics.framework */; };
 		0267ECF91839ABB400E3B08B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0267ECF81839ABB400E3B08B /* UIKit.framework */; };
@@ -14,24 +20,22 @@
 		0267ED011839ABB400E3B08B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0267ED001839ABB400E3B08B /* main.m */; };
 		0267ED051839ABB400E3B08B /* BCPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0267ED041839ABB400E3B08B /* BCPAppDelegate.m */; };
 		0267ED071839ABB400E3B08B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0267ED061839ABB400E3B08B /* Images.xcassets */; };
-		0267ED0E1839ABB400E3B08B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0267ED0D1839ABB400E3B08B /* XCTest.framework */; };
-		0267ED0F1839ABB400E3B08B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0267ECF41839ABB400E3B08B /* Foundation.framework */; };
-		0267ED101839ABB400E3B08B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0267ECF81839ABB400E3B08B /* UIKit.framework */; };
-		0267ED181839ABB400E3B08B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0267ED161839ABB400E3B08B /* InfoPlist.strings */; };
-		0267ED1A1839ABB400E3B08B /* BCP_MobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0267ED191839ABB400E3B08B /* BCP_MobileTests.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		0267ED111839ABB400E3B08B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0267ECE91839ABB400E3B08B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0267ECF01839ABB400E3B08B;
-			remoteInfo = "BCP-Mobile";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		020B92E91839B44800F610DB /* BCPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCPViewController.h; sourceTree = "<group>"; };
+		020B92EA1839B44800F610DB /* BCPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCPViewController.m; sourceTree = "<group>"; };
+		020B92EC1839B85200F610DB /* BCPInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCPInterface.h; sourceTree = "<group>"; };
+		020B92ED1839B85200F610DB /* BCPInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCPInterface.m; sourceTree = "<group>"; };
+		020B92F01839C0B200F610DB /* UIColor+BCPColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BCPColors.h"; sourceTree = "<group>"; };
+		020B92F11839C0B200F610DB /* UIColor+BCPColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BCPColors.m"; sourceTree = "<group>"; };
+		020B92F31839D0F700F610DB /* BCPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCPConstants.h; sourceTree = "<group>"; };
+		020B92F41839D0F700F610DB /* BCPConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCPConstants.m; sourceTree = "<group>"; };
+		020B92F61839D24800F610DB /* BCPCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCPCommon.h; sourceTree = "<group>"; };
+		020B92F71839D24800F610DB /* BCPCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCPCommon.m; sourceTree = "<group>"; };
+		020B92F91839D2C600F610DB /* BCPDelegates.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCPDelegates.h; sourceTree = "<group>"; };
+		020B92FA1839DE5300F610DB /* BCPContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCPContent.h; sourceTree = "<group>"; };
+		020B92FB1839DE5300F610DB /* BCPContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCPContent.m; sourceTree = "<group>"; };
 		0267ECF11839ABB400E3B08B /* BCP-Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BCP-Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0267ECF41839ABB400E3B08B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0267ECF61839ABB400E3B08B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -40,14 +44,9 @@
 		0267ECFE1839ABB400E3B08B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0267ED001839ABB400E3B08B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0267ED021839ABB400E3B08B /* BCP-Mobile-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BCP-Mobile-Prefix.pch"; sourceTree = "<group>"; };
-		0267ED031839ABB400E3B08B /* BCPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCPAppDelegate.h; sourceTree = "<group>"; };
-		0267ED041839ABB400E3B08B /* BCPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCPAppDelegate.m; sourceTree = "<group>"; };
+		0267ED031839ABB400E3B08B /* BCPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BCPAppDelegate.h; path = ../BCPAppDelegate.h; sourceTree = "<group>"; };
+		0267ED041839ABB400E3B08B /* BCPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BCPAppDelegate.m; path = ../BCPAppDelegate.m; sourceTree = "<group>"; };
 		0267ED061839ABB400E3B08B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		0267ED0C1839ABB400E3B08B /* BCP-MobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BCP-MobileTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0267ED0D1839ABB400E3B08B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		0267ED151839ABB400E3B08B /* BCP-MobileTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BCP-MobileTests-Info.plist"; sourceTree = "<group>"; };
-		0267ED171839ABB400E3B08B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		0267ED191839ABB400E3B08B /* BCP_MobileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCP_MobileTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,24 +60,42 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0267ED091839ABB400E3B08B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0267ED0E1839ABB400E3B08B /* XCTest.framework in Frameworks */,
-				0267ED101839ABB400E3B08B /* UIKit.framework in Frameworks */,
-				0267ED0F1839ABB400E3B08B /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		020B92E71839B3CC00F610DB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		020B92E81839B3D200F610DB /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0267ED031839ABB400E3B08B /* BCPAppDelegate.h */,
+				0267ED041839ABB400E3B08B /* BCPAppDelegate.m */,
+				020B92F61839D24800F610DB /* BCPCommon.h */,
+				020B92F71839D24800F610DB /* BCPCommon.m */,
+				020B92F31839D0F700F610DB /* BCPConstants.h */,
+				020B92F41839D0F700F610DB /* BCPConstants.m */,
+				020B92FA1839DE5300F610DB /* BCPContent.h */,
+				020B92FB1839DE5300F610DB /* BCPContent.m */,
+				020B92F91839D2C600F610DB /* BCPDelegates.h */,
+				020B92EC1839B85200F610DB /* BCPInterface.h */,
+				020B92ED1839B85200F610DB /* BCPInterface.m */,
+				020B92E91839B44800F610DB /* BCPViewController.h */,
+				020B92EA1839B44800F610DB /* BCPViewController.m */,
+				020B92F01839C0B200F610DB /* UIColor+BCPColors.h */,
+				020B92F11839C0B200F610DB /* UIColor+BCPColors.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		0267ECE81839ABB400E3B08B = {
 			isa = PBXGroup;
 			children = (
 				0267ECFA1839ABB400E3B08B /* BCP-Mobile */,
-				0267ED131839ABB400E3B08B /* BCP-MobileTests */,
 				0267ECF31839ABB400E3B08B /* Frameworks */,
 				0267ECF21839ABB400E3B08B /* Products */,
 			);
@@ -88,7 +105,6 @@
 			isa = PBXGroup;
 			children = (
 				0267ECF11839ABB400E3B08B /* BCP-Mobile.app */,
-				0267ED0C1839ABB400E3B08B /* BCP-MobileTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -96,10 +112,9 @@
 		0267ECF31839ABB400E3B08B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0267ECF41839ABB400E3B08B /* Foundation.framework */,
 				0267ECF61839ABB400E3B08B /* CoreGraphics.framework */,
+				0267ECF41839ABB400E3B08B /* Foundation.framework */,
 				0267ECF81839ABB400E3B08B /* UIKit.framework */,
-				0267ED0D1839ABB400E3B08B /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -107,10 +122,10 @@
 		0267ECFA1839ABB400E3B08B /* BCP-Mobile */ = {
 			isa = PBXGroup;
 			children = (
-				0267ED031839ABB400E3B08B /* BCPAppDelegate.h */,
-				0267ED041839ABB400E3B08B /* BCPAppDelegate.m */,
-				0267ED061839ABB400E3B08B /* Images.xcassets */,
+				020B92E81839B3D200F610DB /* Classes */,
+				020B92E71839B3CC00F610DB /* Resources */,
 				0267ECFB1839ABB400E3B08B /* Supporting Files */,
+				0267ED061839ABB400E3B08B /* Images.xcassets */,
 			);
 			path = "BCP-Mobile";
 			sourceTree = "<group>";
@@ -122,24 +137,6 @@
 				0267ECFD1839ABB400E3B08B /* InfoPlist.strings */,
 				0267ED001839ABB400E3B08B /* main.m */,
 				0267ED021839ABB400E3B08B /* BCP-Mobile-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		0267ED131839ABB400E3B08B /* BCP-MobileTests */ = {
-			isa = PBXGroup;
-			children = (
-				0267ED191839ABB400E3B08B /* BCP_MobileTests.m */,
-				0267ED141839ABB400E3B08B /* Supporting Files */,
-			);
-			path = "BCP-MobileTests";
-			sourceTree = "<group>";
-		};
-		0267ED141839ABB400E3B08B /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				0267ED151839ABB400E3B08B /* BCP-MobileTests-Info.plist */,
-				0267ED161839ABB400E3B08B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -164,24 +161,6 @@
 			productReference = 0267ECF11839ABB400E3B08B /* BCP-Mobile.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0267ED0B1839ABB400E3B08B /* BCP-MobileTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0267ED201839ABB400E3B08B /* Build configuration list for PBXNativeTarget "BCP-MobileTests" */;
-			buildPhases = (
-				0267ED081839ABB400E3B08B /* Sources */,
-				0267ED091839ABB400E3B08B /* Frameworks */,
-				0267ED0A1839ABB400E3B08B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0267ED121839ABB400E3B08B /* PBXTargetDependency */,
-			);
-			name = "BCP-MobileTests";
-			productName = "BCP-MobileTests";
-			productReference = 0267ED0C1839ABB400E3B08B /* BCP-MobileTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -192,8 +171,8 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Kingfish;
 				TargetAttributes = {
-					0267ED0B1839ABB400E3B08B = {
-						TestTargetID = 0267ECF01839ABB400E3B08B;
+					0267ECF01839ABB400E3B08B = {
+						DevelopmentTeam = FGFSR7EX83;
 					};
 				};
 			};
@@ -210,7 +189,6 @@
 			projectRoot = "";
 			targets = (
 				0267ECF01839ABB400E3B08B /* BCP-Mobile */,
-				0267ED0B1839ABB400E3B08B /* BCP-MobileTests */,
 			);
 		};
 /* End PBXProject section */
@@ -225,14 +203,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0267ED0A1839ABB400E3B08B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0267ED181839ABB400E3B08B /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -240,42 +210,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				020B92F81839D24800F610DB /* BCPCommon.m in Sources */,
+				020B92F21839C0B200F610DB /* UIColor+BCPColors.m in Sources */,
 				0267ED051839ABB400E3B08B /* BCPAppDelegate.m in Sources */,
+				020B92EB1839B44800F610DB /* BCPViewController.m in Sources */,
 				0267ED011839ABB400E3B08B /* main.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0267ED081839ABB400E3B08B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0267ED1A1839ABB400E3B08B /* BCP_MobileTests.m in Sources */,
+				020B92EE1839B85200F610DB /* BCPInterface.m in Sources */,
+				020B92F51839D0F700F610DB /* BCPConstants.m in Sources */,
+				020B92FC1839DE5300F610DB /* BCPContent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		0267ED121839ABB400E3B08B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0267ECF01839ABB400E3B08B /* BCP-Mobile */;
-			targetProxy = 0267ED111839ABB400E3B08B /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0267ECFD1839ABB400E3B08B /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				0267ECFE1839ABB400E3B08B /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		0267ED161839ABB400E3B08B /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0267ED171839ABB400E3B08B /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -362,6 +314,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BCP-Mobile/BCP-Mobile-Prefix.pch";
 				INFOPLIST_FILE = "BCP-Mobile/BCP-Mobile-Info.plist";
@@ -375,53 +328,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BCP-Mobile/BCP-Mobile-Prefix.pch";
 				INFOPLIST_FILE = "BCP-Mobile/BCP-Mobile-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		0267ED211839ABB400E3B08B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BCP-Mobile.app/BCP-Mobile";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BCP-Mobile/BCP-Mobile-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "BCP-MobileTests/BCP-MobileTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		0267ED221839ABB400E3B08B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BCP-Mobile.app/BCP-Mobile";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BCP-Mobile/BCP-Mobile-Prefix.pch";
-				INFOPLIST_FILE = "BCP-MobileTests/BCP-MobileTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -444,14 +356,7 @@
 				0267ED1F1839ABB400E3B08B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		0267ED201839ABB400E3B08B /* Build configuration list for PBXNativeTarget "BCP-MobileTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0267ED211839ABB400E3B08B /* Debug */,
-				0267ED221839ABB400E3B08B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
