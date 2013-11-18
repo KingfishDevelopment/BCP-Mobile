@@ -1,14 +1,14 @@
 //
-//  AppDelegate.h
+//  BCPAppDelegate.h
 //  BCP-Mobile
 //
-//  Created by Bryce Pauken on 10/1/13.
+//  Created by Bryce Pauken on 11/17/13.
 //  Copyright (c) 2013 Kingfish. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface BCPAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
