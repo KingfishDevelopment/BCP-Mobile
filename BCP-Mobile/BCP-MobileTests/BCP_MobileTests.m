@@ -2,7 +2,7 @@
 //  BCP_MobileTests.m
 //  BCP-MobileTests
 //
-//  Created by Bryce Pauken on 10/1/13.
+//  Created by Bryce Pauken on 11/17/13.
 //  Copyright (c) 2013 Kingfish. All rights reserved.
 //
 
