@@ -12,6 +12,8 @@
 @interface BCPViewController : UIViewController <BCPViewControllerDelegate>
 
 @property (nonatomic, retain) BCPInterface *interface;
-@property (nonatomic, retain) NSMutableArray *registeredBlocks;
+@property (nonatomic, retain) NSMutableArray *registeredAfterBlocks;
+@property (nonatomic, retain) NSMutableArray *registeredBeforeAnimationBlocks;
+@property (nonatomic, retain) NSMutableArray *registeredBeforeBlocks;
 
 @end

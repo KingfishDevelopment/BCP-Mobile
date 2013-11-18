@@ -14,19 +14,38 @@
 
 @implementation BCPViewController
 
+typedef void (^RotationBlock)(void);
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [BCPCommon setViewControllerDelegate:self];
-    self.registeredBlocks = [[NSMutableArray alloc] init];
+    self.registeredAfterBlocks = [[NSMutableArray alloc] init];
+    self.registeredBeforeAnimationBlocks = [[NSMutableArray alloc] init];
+    self.registeredBeforeBlocks = [[NSMutableArray alloc] init];
 	
     self.interface = [[BCPInterface alloc] initWithFrame:self.view.bounds];
     [self.interface setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
     [self.view addSubview:self.interface];
 }
 
-- (void)registerViewForRotation:(UIView *)view withBlock:(void (^)())block {
-    [self.registeredBlocks addObject:block];
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    for (RotationBlock block in self.registeredAfterBlocks)
+        block();
+}
+
+- (void)registerViewForAfterRotation:(UIView *)view withBlock:(void (^)())block {
+    [self.registeredAfterBlocks addObject:block];
+    block();
+}
+
+- (void)registerViewForBeforeAnimationRotation:(UIView *)view withBlock:(void (^)())block {
+    [self.registeredBeforeAnimationBlocks addObject:block];
+    block();
+}
+
+- (void)registerViewForBeforeRotation:(UIView *)view withBlock:(void (^)())block {
+    [self.registeredBeforeBlocks addObject:block];
     block();
 }
 
@@ -39,12 +58,14 @@
     return YES;
 }
 
-typedef void (^RotationBlock)(void);
-- (BOOL)willRotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    for (RotationBlock block in self.registeredBlocks) {
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)orientation duration:(NSTimeInterval)duration {
+    for (RotationBlock block in self.registeredBeforeAnimationBlocks)
         block();
-    }
-    return YES;
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    for (RotationBlock block in self.registeredBeforeBlocks)
+        block();
 }
 
 @end

@@ -13,7 +13,6 @@
 
 @property (nonatomic, retain) BCPContent *content;
 @property (nonatomic, retain) UIScrollView *scrollView;
-
-@property (nonatomic) int i;
+@property (nonatomic, retain) UIView *sideBar;
 
 @end
