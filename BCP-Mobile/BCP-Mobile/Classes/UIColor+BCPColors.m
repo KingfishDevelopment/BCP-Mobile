@@ -17,6 +17,13 @@
     return color;
 }
 
++ (UIColor *)BCPGray {
+    static UIColor *color = nil;
+    if (!color)
+        color = [UIColor colorWithRed:(150/255.0) green:(150/255.0) blue:(150/255.0) alpha:1];
+    return color;
+}
+
 + (UIColor *)BCPLightBlue {
     static UIColor *color = nil;
     if (!color)
@@ -28,6 +35,27 @@
     static UIColor *color = nil;
     if (!color)
         color = [UIColor colorWithRed:(243/255.0) green:(247/255.0) blue:(250/255.0) alpha:1];
+    return color;
+}
+
++ (UIColor *)BCPSidebarAccentColor {
+    static UIColor *color = nil;
+    if (!color)
+        color = [UIColor colorWithRed:(150/255.0) green:(150/255.0) blue:(150/255.0) alpha:1];
+    return color;
+}
+
++ (UIColor *)BCPSidebarColor {
+    static UIColor *color = nil;
+    if (!color)
+        color = [UIColor colorWithRed:(243/255.0) green:(247/255.0) blue:(250/255.0) alpha:1];
+    return color;
+}
+
++ (UIColor *)BCPSidebarSelectedColor {
+    static UIColor *color = nil;
+    if (!color)
+        color = [UIColor colorWithRed:(150/255.0) green:(150/255.0) blue:(150/255.0) alpha:1];
     return color;
 }
 

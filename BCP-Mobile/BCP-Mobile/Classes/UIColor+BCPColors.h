@@ -11,5 +11,8 @@
 @interface UIColor (BCPColors)
 
 + (UIColor *)BCPOffWhite;
++ (UIColor *)BCPSidebarColor;
++ (UIColor *)BCPSidebarAccentColor;
++ (UIColor *)BCPSidebarSelectedColor;
 
 @end

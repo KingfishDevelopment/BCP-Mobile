@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "BCPConstants.h"
+#import "BCPData.h"
 #import "BCPDelegates.h"
 #import "UIColor+BCPColors.h"
 

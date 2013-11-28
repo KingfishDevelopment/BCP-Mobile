@@ -13,6 +13,11 @@
 		020B92F51839D0F700F610DB /* BCPConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 020B92F41839D0F700F610DB /* BCPConstants.m */; };
 		020B92F81839D24800F610DB /* BCPCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 020B92F71839D24800F610DB /* BCPCommon.m */; };
 		020B92FC1839DE5300F610DB /* BCPContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 020B92FB1839DE5300F610DB /* BCPContent.m */; };
+		020B92FF1839F80E00F610DB /* BCPSidebarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 020B92FE1839F80E00F610DB /* BCPSidebarController.m */; };
+		020EFA9E1846EC630011C9D1 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 020EFA9C1846EC630011C9D1 /* Background.png */; };
+		020EFA9F1846EC630011C9D1 /* Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 020EFA9D1846EC630011C9D1 /* Background@2x.png */; };
+		025D835E18418EA100DF5537 /* BCPSidebarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 025D835D18418EA100DF5537 /* BCPSidebarCell.m */; };
+		025D83611841AEF800DF5537 /* BCPData.m in Sources */ = {isa = PBXBuildFile; fileRef = 025D83601841AEF800DF5537 /* BCPData.m */; };
 		0267ECF51839ABB400E3B08B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0267ECF41839ABB400E3B08B /* Foundation.framework */; };
 		0267ECF71839ABB400E3B08B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0267ECF61839ABB400E3B08B /* CoreGraphics.framework */; };
 		0267ECF91839ABB400E3B08B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0267ECF81839ABB400E3B08B /* UIKit.framework */; };
@@ -20,6 +25,13 @@
 		0267ED011839ABB400E3B08B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0267ED001839ABB400E3B08B /* main.m */; };
 		0267ED051839ABB400E3B08B /* BCPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0267ED041839ABB400E3B08B /* BCPAppDelegate.m */; };
 		0267ED071839ABB400E3B08B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0267ED061839ABB400E3B08B /* Images.xcassets */; };
+		029C1EAB1841D6C3007AD575 /* SBJson4Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 029C1E9E1841D6C3007AD575 /* SBJson4Parser.m */; };
+		029C1EAC1841D6C3007AD575 /* SBJson4StreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 029C1EA01841D6C3007AD575 /* SBJson4StreamParser.m */; };
+		029C1EAD1841D6C3007AD575 /* SBJson4StreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 029C1EA21841D6C3007AD575 /* SBJson4StreamParserState.m */; };
+		029C1EAE1841D6C3007AD575 /* SBJson4StreamTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 029C1EA41841D6C3007AD575 /* SBJson4StreamTokeniser.m */; };
+		029C1EAF1841D6C3007AD575 /* SBJson4StreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 029C1EA61841D6C3007AD575 /* SBJson4StreamWriter.m */; };
+		029C1EB01841D6C3007AD575 /* SBJson4StreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 029C1EA81841D6C3007AD575 /* SBJson4StreamWriterState.m */; };
+		029C1EB11841D6C3007AD575 /* SBJson4Writer.m in Sources */ = {isa = PBXBuildFile; fileRef = 029C1EAA1841D6C3007AD575 /* SBJson4Writer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +48,14 @@
 		020B92F91839D2C600F610DB /* BCPDelegates.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCPDelegates.h; sourceTree = "<group>"; };
 		020B92FA1839DE5300F610DB /* BCPContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCPContent.h; sourceTree = "<group>"; };
 		020B92FB1839DE5300F610DB /* BCPContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCPContent.m; sourceTree = "<group>"; };
+		020B92FD1839F80E00F610DB /* BCPSidebarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCPSidebarController.h; sourceTree = "<group>"; };
+		020B92FE1839F80E00F610DB /* BCPSidebarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCPSidebarController.m; sourceTree = "<group>"; };
+		020EFA9C1846EC630011C9D1 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
+		020EFA9D1846EC630011C9D1 /* Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background@2x.png"; sourceTree = "<group>"; };
+		025D835C18418EA100DF5537 /* BCPSidebarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCPSidebarCell.h; sourceTree = "<group>"; };
+		025D835D18418EA100DF5537 /* BCPSidebarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCPSidebarCell.m; sourceTree = "<group>"; };
+		025D835F1841AEF800DF5537 /* BCPData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCPData.h; sourceTree = "<group>"; };
+		025D83601841AEF800DF5537 /* BCPData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCPData.m; sourceTree = "<group>"; };
 		0267ECF11839ABB400E3B08B /* BCP-Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BCP-Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0267ECF41839ABB400E3B08B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0267ECF61839ABB400E3B08B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -47,6 +67,21 @@
 		0267ED031839ABB400E3B08B /* BCPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BCPAppDelegate.h; path = ../BCPAppDelegate.h; sourceTree = "<group>"; };
 		0267ED041839ABB400E3B08B /* BCPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BCPAppDelegate.m; path = ../BCPAppDelegate.m; sourceTree = "<group>"; };
 		0267ED061839ABB400E3B08B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		029C1E9C1841D6C3007AD575 /* SBJson4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson4.h; sourceTree = "<group>"; };
+		029C1E9D1841D6C3007AD575 /* SBJson4Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson4Parser.h; sourceTree = "<group>"; };
+		029C1E9E1841D6C3007AD575 /* SBJson4Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJson4Parser.m; sourceTree = "<group>"; };
+		029C1E9F1841D6C3007AD575 /* SBJson4StreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson4StreamParser.h; sourceTree = "<group>"; };
+		029C1EA01841D6C3007AD575 /* SBJson4StreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJson4StreamParser.m; sourceTree = "<group>"; };
+		029C1EA11841D6C3007AD575 /* SBJson4StreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson4StreamParserState.h; sourceTree = "<group>"; };
+		029C1EA21841D6C3007AD575 /* SBJson4StreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJson4StreamParserState.m; sourceTree = "<group>"; };
+		029C1EA31841D6C3007AD575 /* SBJson4StreamTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson4StreamTokeniser.h; sourceTree = "<group>"; };
+		029C1EA41841D6C3007AD575 /* SBJson4StreamTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJson4StreamTokeniser.m; sourceTree = "<group>"; };
+		029C1EA51841D6C3007AD575 /* SBJson4StreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson4StreamWriter.h; sourceTree = "<group>"; };
+		029C1EA61841D6C3007AD575 /* SBJson4StreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJson4StreamWriter.m; sourceTree = "<group>"; };
+		029C1EA71841D6C3007AD575 /* SBJson4StreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson4StreamWriterState.h; sourceTree = "<group>"; };
+		029C1EA81841D6C3007AD575 /* SBJson4StreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJson4StreamWriterState.m; sourceTree = "<group>"; };
+		029C1EA91841D6C3007AD575 /* SBJson4Writer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson4Writer.h; sourceTree = "<group>"; };
+		029C1EAA1841D6C3007AD575 /* SBJson4Writer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJson4Writer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,13 +98,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		020B92E71839B3CC00F610DB /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		020B92E81839B3D200F610DB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,15 +109,30 @@
 				020B92F41839D0F700F610DB /* BCPConstants.m */,
 				020B92FA1839DE5300F610DB /* BCPContent.h */,
 				020B92FB1839DE5300F610DB /* BCPContent.m */,
+				025D835F1841AEF800DF5537 /* BCPData.h */,
+				025D83601841AEF800DF5537 /* BCPData.m */,
 				020B92F91839D2C600F610DB /* BCPDelegates.h */,
 				020B92EC1839B85200F610DB /* BCPInterface.h */,
 				020B92ED1839B85200F610DB /* BCPInterface.m */,
+				025D835C18418EA100DF5537 /* BCPSidebarCell.h */,
+				025D835D18418EA100DF5537 /* BCPSidebarCell.m */,
+				020B92FD1839F80E00F610DB /* BCPSidebarController.h */,
+				020B92FE1839F80E00F610DB /* BCPSidebarController.m */,
 				020B92E91839B44800F610DB /* BCPViewController.h */,
 				020B92EA1839B44800F610DB /* BCPViewController.m */,
 				020B92F01839C0B200F610DB /* UIColor+BCPColors.h */,
 				020B92F11839C0B200F610DB /* UIColor+BCPColors.m */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		020EFA9B1846EC630011C9D1 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				020EFA9C1846EC630011C9D1 /* Background.png */,
+				020EFA9D1846EC630011C9D1 /* Background@2x.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		0267ECE81839ABB400E3B08B = {
@@ -123,7 +166,8 @@
 			isa = PBXGroup;
 			children = (
 				020B92E81839B3D200F610DB /* Classes */,
-				020B92E71839B3CC00F610DB /* Resources */,
+				029C1E9A1841D6C3007AD575 /* Frameworks */,
+				020EFA9B1846EC630011C9D1 /* Images */,
 				0267ECFB1839ABB400E3B08B /* Supporting Files */,
 				0267ED061839ABB400E3B08B /* Images.xcassets */,
 			);
@@ -139,6 +183,36 @@
 				0267ED021839ABB400E3B08B /* BCP-Mobile-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		029C1E9A1841D6C3007AD575 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				029C1E9B1841D6C3007AD575 /* SBJson */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		029C1E9B1841D6C3007AD575 /* SBJson */ = {
+			isa = PBXGroup;
+			children = (
+				029C1E9C1841D6C3007AD575 /* SBJson4.h */,
+				029C1E9D1841D6C3007AD575 /* SBJson4Parser.h */,
+				029C1E9E1841D6C3007AD575 /* SBJson4Parser.m */,
+				029C1E9F1841D6C3007AD575 /* SBJson4StreamParser.h */,
+				029C1EA01841D6C3007AD575 /* SBJson4StreamParser.m */,
+				029C1EA11841D6C3007AD575 /* SBJson4StreamParserState.h */,
+				029C1EA21841D6C3007AD575 /* SBJson4StreamParserState.m */,
+				029C1EA31841D6C3007AD575 /* SBJson4StreamTokeniser.h */,
+				029C1EA41841D6C3007AD575 /* SBJson4StreamTokeniser.m */,
+				029C1EA51841D6C3007AD575 /* SBJson4StreamWriter.h */,
+				029C1EA61841D6C3007AD575 /* SBJson4StreamWriter.m */,
+				029C1EA71841D6C3007AD575 /* SBJson4StreamWriterState.h */,
+				029C1EA81841D6C3007AD575 /* SBJson4StreamWriterState.m */,
+				029C1EA91841D6C3007AD575 /* SBJson4Writer.h */,
+				029C1EAA1841D6C3007AD575 /* SBJson4Writer.m */,
+			);
+			path = SBJson;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,7 +272,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				020EFA9E1846EC630011C9D1 /* Background.png in Resources */,
 				0267ECFF1839ABB400E3B08B /* InfoPlist.strings in Resources */,
+				020EFA9F1846EC630011C9D1 /* Background@2x.png in Resources */,
 				0267ED071839ABB400E3B08B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,11 +286,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				029C1EAD1841D6C3007AD575 /* SBJson4StreamParserState.m in Sources */,
+				020B92FF1839F80E00F610DB /* BCPSidebarController.m in Sources */,
 				020B92F81839D24800F610DB /* BCPCommon.m in Sources */,
+				025D835E18418EA100DF5537 /* BCPSidebarCell.m in Sources */,
+				029C1EB11841D6C3007AD575 /* SBJson4Writer.m in Sources */,
 				020B92F21839C0B200F610DB /* UIColor+BCPColors.m in Sources */,
+				029C1EAC1841D6C3007AD575 /* SBJson4StreamParser.m in Sources */,
 				0267ED051839ABB400E3B08B /* BCPAppDelegate.m in Sources */,
 				020B92EB1839B44800F610DB /* BCPViewController.m in Sources */,
+				029C1EAB1841D6C3007AD575 /* SBJson4Parser.m in Sources */,
 				0267ED011839ABB400E3B08B /* main.m in Sources */,
+				025D83611841AEF800DF5537 /* BCPData.m in Sources */,
+				029C1EAE1841D6C3007AD575 /* SBJson4StreamTokeniser.m in Sources */,
+				029C1EB01841D6C3007AD575 /* SBJson4StreamWriterState.m in Sources */,
+				029C1EAF1841D6C3007AD575 /* SBJson4StreamWriter.m in Sources */,
 				020B92EE1839B85200F610DB /* BCPInterface.m in Sources */,
 				020B92F51839D0F700F610DB /* BCPConstants.m in Sources */,
 				020B92FC1839DE5300F610DB /* BCPContent.m in Sources */,
@@ -312,13 +398,16 @@
 		0267ED1E1839ABB400E3B08B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BCP-Mobile/BCP-Mobile-Prefix.pch";
 				INFOPLIST_FILE = "BCP-Mobile/BCP-Mobile-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -326,13 +415,16 @@
 		0267ED1F1839ABB400E3B08B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BCP-Mobile/BCP-Mobile-Prefix.pch";
 				INFOPLIST_FILE = "BCP-Mobile/BCP-Mobile-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

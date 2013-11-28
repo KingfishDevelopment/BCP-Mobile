@@ -8,8 +8,10 @@
 
 @protocol BCPViewControllerDelegate<NSObject>
 
-- (void)registerViewForAfterRotation:(UIView *)view withBlock:(void (^)())block;
-- (void)registerViewForBeforeAnimationRotation:(UIView *)view withBlock:(void (^)())block;
-- (void)registerViewForBeforeRotation:(UIView *)view withBlock:(void (^)())block;
+- (void)errorWithCode:(int)code;
+- (void)errorWithMessage:(NSString *)message;
+- (void)registerBlockForAfterRotation:(void (^)())block;
+- (void)registerBlockForBeforeAnimationRotation:(void (^)())block;
+- (void)registerBlockForBeforeRotation:(void (^)())block;
 
 @end

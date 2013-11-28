@@ -34,17 +34,25 @@ typedef void (^RotationBlock)(void);
         block();
 }
 
-- (void)registerViewForAfterRotation:(UIView *)view withBlock:(void (^)())block {
+- (void)errorWithCode:(int)code {
+    
+}
+
+- (void)errorWithMessage:(NSString *)message {
+    
+}
+
+- (void)registerBlockForAfterRotation:(void (^)())block {
     [self.registeredAfterBlocks addObject:block];
     block();
 }
 
-- (void)registerViewForBeforeAnimationRotation:(UIView *)view withBlock:(void (^)())block {
+- (void)registerBlockForBeforeAnimationRotation:(void (^)())block {
     [self.registeredBeforeAnimationBlocks addObject:block];
     block();
 }
 
-- (void)registerViewForBeforeRotation:(UIView *)view withBlock:(void (^)())block {
+- (void)registerBlockForBeforeRotation:(void (^)())block {
     [self.registeredBeforeBlocks addObject:block];
     block();
 }
