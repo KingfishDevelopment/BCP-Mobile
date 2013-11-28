@@ -25,7 +25,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.titles.count;
+    return self.titles.count*2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -35,28 +35,35 @@
         cell = [[BCPSidebarCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     [cell setDividerHidden:indexPath.row==0];
-    [cell setText:[[self.sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
+    [cell setText:[[self.sections objectAtIndex:indexPath.section/2] objectAtIndex:indexPath.row]];
     
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 60;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //[tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return section%2==0?60:0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [[self.sections objectAtIndex:section] count];
+    return section%2==0?0:[[self.sections objectAtIndex:section/2] count];
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SIDEBAR_WIDTH, [self tableView:tableView heightForHeaderInSection:section])];
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(SIDEBAR_CELL_PADDING, header.frame.size.height-20, SIDEBAR_WIDTH-SIDEBAR_CELL_PADDING*2, 20)];
-    [label setBackgroundColor:[UIColor clearColor]];
-    [label setFont:[UIFont systemFontOfSize:14]];
-    [label setText:[self.titles objectAtIndex:section]];
-    [label setTextColor:[UIColor whiteColor]];
-    [header addSubview:label];
-    return header;
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    if(section%2==0) {
+        UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SIDEBAR_WIDTH, [self tableView:tableView heightForFooterInSection:section])];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(SIDEBAR_CELL_PADDING, header.frame.size.height-20, SIDEBAR_WIDTH-SIDEBAR_CELL_PADDING*2, 20)];
+        [label setBackgroundColor:[UIColor clearColor]];
+        [label setFont:[UIFont systemFontOfSize:14]];
+        [label setText:[self.titles objectAtIndex:section/2]];
+        [label setTextColor:[UIColor whiteColor]];
+        [header addSubview:label];
+        return header;
+    }
+    return nil;
 }
 
 @end

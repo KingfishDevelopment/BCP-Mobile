@@ -14,8 +14,17 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        [[self contentView] setClipsToBounds:NO];
+        [[[self contentView] superview] setClipsToBounds:NO];
         [self setBackgroundColor:[UIColor clearColor]];
+        [self setClipsToBounds:NO];
         [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+        
+        self.highlight = [[UIView alloc] initWithFrame:CGRectMake(-1000, 0, 4000, self.bounds.size.height)];
+        [self.highlight setAlpha:0.2];
+        [self.highlight setBackgroundColor:[UIColor whiteColor]];
+        [self.highlight setHidden:YES];
+        [self addSubview:self.highlight];
         
         self.divider = [[UILabel alloc] initWithFrame:CGRectMake(SIDEBAR_CELL_PADDING, 0, self.bounds.size.width-SIDEBAR_CELL_PADDING*2, 1)];
         [self.divider setAlpha:0.1];
@@ -34,15 +43,22 @@
     return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
 - (void)setDividerHidden:(BOOL)hidden {
     [self.divider setHidden:hidden];
+}
+
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+    if(highlighted!=self.highlighted) {
+        [super setHighlighted:highlighted animated:animated];
+        [self.highlight setHidden:!highlighted];
+    }
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    if(selected!=self.selected) {
+        [super setSelected:selected animated:animated];
+        [self.highlight setHidden:!selected];
+    }
 }
 
 - (void)setText:(NSString *)text {

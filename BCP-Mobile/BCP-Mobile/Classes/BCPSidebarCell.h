@@ -11,6 +11,7 @@
 @interface BCPSidebarCell : UITableViewCell
 
 @property (nonatomic, retain) UIView *divider;
+@property (nonatomic, retain) UIView *highlight;
 @property (nonatomic, retain) UIImageView *icon;
 @property (nonatomic, retain) UILabel *label;
 

@@ -19,6 +19,8 @@ typedef void (^RotationBlock)(void);
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setNeedsStatusBarAppearanceUpdate];
+    
     [BCPCommon setViewControllerDelegate:self];
     self.registeredAfterBlocks = [[NSMutableArray alloc] init];
     self.registeredBeforeAnimationBlocks = [[NSMutableArray alloc] init];
@@ -40,6 +42,10 @@ typedef void (^RotationBlock)(void);
 
 - (void)errorWithMessage:(NSString *)message {
     
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)registerBlockForAfterRotation:(void (^)())block {
