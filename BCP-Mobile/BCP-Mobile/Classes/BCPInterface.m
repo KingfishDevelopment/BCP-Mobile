@@ -22,7 +22,8 @@
         
         self.sidebarController = [[BCPSidebarController alloc] init];
         self.sidebar = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SIDEBAR_WIDTH, self.bounds.size.height)];
-        [self.sidebar registerClass:[BCPSidebarCell class] forCellReuseIdentifier:@"SidebarCell"];
+        if([BCPCommon IS_IOS7])
+            [self.sidebar registerClass:[BCPSidebarCell class] forCellReuseIdentifier:@"SidebarCell"];
         [self.sidebar setBackgroundColor:[UIColor clearColor]];
         [self.sidebar setClipsToBounds:NO];
         [self.sidebar setContentInset:UIEdgeInsetsMake(SIDEBAR_VERTICAL_PADDING, 0, SIDEBAR_VERTICAL_PADDING, 0)];
@@ -59,7 +60,7 @@
 }
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
-    if(self.scrollView.contentOffset.x==0&&point.x<SIDEBAR_WIDTH)
+    if(self.scrollView.contentOffset.x==0&&point.x<MIN(self.content.frame.origin.x,SIDEBAR_WIDTH*1.25))
         return self.sidebar;
     return self.scrollView;
 }
@@ -67,11 +68,6 @@
 - (void)layoutContent {
     CGFloat scale = CONTENT_MIN_SCALE+(self.scrollView.contentOffset.x/(SIDEBAR_WIDTH*(1/(1-CONTENT_MIN_SCALE))));
     self.content.transform = CGAffineTransformScale(CGAffineTransformIdentity, scale, scale);
-    /*CGRect frame = self.content.frame;
-    CGFloat offset = -(1-(self.scrollView.contentOffset.x/SIDEBAR_WIDTH))*(CONTENT_MIN_SCALE*self.bounds.size.width/4);
-    CGFloat offset = (scale-1)*(frame.size.width/(1/CONTENT_MIN_SCALE));
-    frame.origin.x=SIDEBAR_WIDTH+offset;
-    self.content.frame = frame;*/
 }
 
 - (void)layoutSidebar {
@@ -92,8 +88,10 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self layoutContent];
     [self layoutSidebar];
-    if(scrollView.contentOffset.x==0)
+    if(scrollView.contentOffset.x==0) {
+        [[BCPCommon viewController] setScrollsToTop:self.sidebar];
         [self.content setUserInteractionEnabled:NO];
+    }
     else if(scrollView.contentOffset.x==SIDEBAR_WIDTH)
         [self.content setUserInteractionEnabled:YES];
 }

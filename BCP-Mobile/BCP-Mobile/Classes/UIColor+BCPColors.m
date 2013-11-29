@@ -14,6 +14,15 @@
     static UIColor *color = nil;
     if (!color)
         color = [UIColor colorWithRed:(0/255.0) green:(85/255.0) blue:(150/255.0) alpha:1];
+        //color = [UIColor colorWithRed:(51/255.0) green:(125/255.0) blue:(193/255.0) alpha:1];
+    return color;
+}
+
++ (UIColor *)BCPDarkBlue {
+    static UIColor *color = nil;
+    if (!color)
+        //color = [UIColor colorWithRed:0 green:0.294 blue:0.490 alpha:1];
+        color = [UIColor colorWithRed:(15/255.0) green:(54/255.0) blue:(83/255.0) alpha:1];
     return color;
 }
 

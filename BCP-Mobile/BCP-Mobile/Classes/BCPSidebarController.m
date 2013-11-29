@@ -41,7 +41,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    //[tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [[BCPCommon viewController] showContentView:[[self.sections objectAtIndex:indexPath.section/2] objectAtIndex:indexPath.row]];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {

@@ -11,6 +11,7 @@
 @implementation BCPConstants
 
 const double CONTENT_MIN_SCALE = .4;
+const double NAVIGATION_BAR_HEIGHT = 45;
 const double SIDEBAR_CELL_PADDING = 8;
 const double SIDEBAR_DISABLED_ALPHA = 0.6;
 const double SIDEBAR_VERTICAL_PADDING = 50;

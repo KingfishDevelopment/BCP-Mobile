@@ -13,5 +13,7 @@
 - (void)registerBlockForAfterRotation:(void (^)())block;
 - (void)registerBlockForBeforeAnimationRotation:(void (^)())block;
 - (void)registerBlockForBeforeRotation:(void (^)())block;
+- (void)setScrollsToTop:(UIScrollView *)scrollView;
+- (void)showContentView:(NSString *)view;
 
 @end

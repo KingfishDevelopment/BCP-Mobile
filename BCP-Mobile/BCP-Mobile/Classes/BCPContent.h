@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BCPContentLogin.h"
 
 @interface BCPContent : UIView
+
+@property (nonatomic, retain) NSDictionary *views;
+
+- (void)showContentView:(NSString *)view;
 
 @end

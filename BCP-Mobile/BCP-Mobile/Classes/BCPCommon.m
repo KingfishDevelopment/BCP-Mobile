@@ -12,6 +12,14 @@ static NSObject<BCPViewControllerDelegate> *viewController = nil;
 
 @implementation BCPCommon
 
++ (BOOL)IS_IOS7 {
+    return ([[[UIDevice currentDevice] systemVersion] compare:@"7" options:NSNumericSearch] != NSOrderedAscending);
+}
+
++ (BOOL)IS_IPAD {
+    return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
+}
+
 + (void)setViewControllerDelegate:(NSObject<BCPViewControllerDelegate> *)viewControllerDelegate {
     viewController = viewControllerDelegate;
 }

@@ -37,6 +37,7 @@
         self.label = [[UILabel alloc] initWithFrame:CGRectMake(self.icon.bounds.size.width+SIDEBAR_CELL_PADDING*2, SIDEBAR_CELL_PADDING, self.bounds.size.width-self.icon.bounds.size.width+SIDEBAR_CELL_PADDING*3, self.bounds.size.height-SIDEBAR_CELL_PADDING*2)];
         [self.label setBackgroundColor:[UIColor clearColor]];
         [self.label setFont:[UIFont systemFontOfSize:16]];
+        [self.label setOpaque:NO];
         [self.label setTextColor:[UIColor whiteColor]];
         [self addSubview:self.label];
     }

@@ -16,6 +16,18 @@
 		020B92FF1839F80E00F610DB /* BCPSidebarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 020B92FE1839F80E00F610DB /* BCPSidebarController.m */; };
 		020EFA9E1846EC630011C9D1 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 020EFA9C1846EC630011C9D1 /* Background.png */; };
 		020EFA9F1846EC630011C9D1 /* Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 020EFA9D1846EC630011C9D1 /* Background@2x.png */; };
+		020EFAA11847CA5B0011C9D1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 020EFAA01847CA5B0011C9D1 /* QuartzCore.framework */; };
+		020EFAA51847DE390011C9D1 /* BCPContentLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 020EFAA41847DE390011C9D1 /* BCPContentLogin.m */; };
+		020EFAA81847E6730011C9D1 /* BCPNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 020EFAA71847E6730011C9D1 /* BCPNavigationBar.m */; };
+		020EFAAB1847E9B30011C9D1 /* BCPContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 020EFAAA1847E9B30011C9D1 /* BCPContentView.m */; };
+		020EFAB21847EC1D0011C9D1 /* ShadowAbove.png in Resources */ = {isa = PBXBuildFile; fileRef = 020EFAAC1847EC1D0011C9D1 /* ShadowAbove.png */; };
+		020EFAB31847EC1D0011C9D1 /* ShadowAbove@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 020EFAAD1847EC1D0011C9D1 /* ShadowAbove@2x.png */; };
+		020EFAB41847EC1D0011C9D1 /* ShadowBelow.png in Resources */ = {isa = PBXBuildFile; fileRef = 020EFAAE1847EC1D0011C9D1 /* ShadowBelow.png */; };
+		020EFAB51847EC1D0011C9D1 /* ShadowBelow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 020EFAAF1847EC1D0011C9D1 /* ShadowBelow@2x.png */; };
+		020EFAB61847EC1D0011C9D1 /* ShadowRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 020EFAB01847EC1D0011C9D1 /* ShadowRight.png */; };
+		020EFAB71847EC1D0011C9D1 /* ShadowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 020EFAB11847EC1D0011C9D1 /* ShadowRight@2x.png */; };
+		020EFABA1847F1020011C9D1 /* PlainBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 020EFAB81847F1020011C9D1 /* PlainBackground.png */; };
+		020EFABB1847F1020011C9D1 /* PlainBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 020EFAB91847F1020011C9D1 /* PlainBackground@2x.png */; };
 		025D835E18418EA100DF5537 /* BCPSidebarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 025D835D18418EA100DF5537 /* BCPSidebarCell.m */; };
 		025D83611841AEF800DF5537 /* BCPData.m in Sources */ = {isa = PBXBuildFile; fileRef = 025D83601841AEF800DF5537 /* BCPData.m */; };
 		0267ECF51839ABB400E3B08B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0267ECF41839ABB400E3B08B /* Foundation.framework */; };
@@ -52,6 +64,21 @@
 		020B92FE1839F80E00F610DB /* BCPSidebarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCPSidebarController.m; sourceTree = "<group>"; };
 		020EFA9C1846EC630011C9D1 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
 		020EFA9D1846EC630011C9D1 /* Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background@2x.png"; sourceTree = "<group>"; };
+		020EFAA01847CA5B0011C9D1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		020EFAA31847DE390011C9D1 /* BCPContentLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPContentLogin.h; path = "Content Views/BCPContentLogin.h"; sourceTree = "<group>"; };
+		020EFAA41847DE390011C9D1 /* BCPContentLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPContentLogin.m; path = "Content Views/BCPContentLogin.m"; sourceTree = "<group>"; };
+		020EFAA61847E6730011C9D1 /* BCPNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCPNavigationBar.h; sourceTree = "<group>"; };
+		020EFAA71847E6730011C9D1 /* BCPNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCPNavigationBar.m; sourceTree = "<group>"; };
+		020EFAA91847E9B30011C9D1 /* BCPContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCPContentView.h; sourceTree = "<group>"; };
+		020EFAAA1847E9B30011C9D1 /* BCPContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCPContentView.m; sourceTree = "<group>"; };
+		020EFAAC1847EC1D0011C9D1 /* ShadowAbove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShadowAbove.png; sourceTree = "<group>"; };
+		020EFAAD1847EC1D0011C9D1 /* ShadowAbove@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShadowAbove@2x.png"; sourceTree = "<group>"; };
+		020EFAAE1847EC1D0011C9D1 /* ShadowBelow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShadowBelow.png; sourceTree = "<group>"; };
+		020EFAAF1847EC1D0011C9D1 /* ShadowBelow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShadowBelow@2x.png"; sourceTree = "<group>"; };
+		020EFAB01847EC1D0011C9D1 /* ShadowRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShadowRight.png; sourceTree = "<group>"; };
+		020EFAB11847EC1D0011C9D1 /* ShadowRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShadowRight@2x.png"; sourceTree = "<group>"; };
+		020EFAB81847F1020011C9D1 /* PlainBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlainBackground.png; sourceTree = "<group>"; };
+		020EFAB91847F1020011C9D1 /* PlainBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlainBackground@2x.png"; sourceTree = "<group>"; };
 		025D835C18418EA100DF5537 /* BCPSidebarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCPSidebarCell.h; sourceTree = "<group>"; };
 		025D835D18418EA100DF5537 /* BCPSidebarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCPSidebarCell.m; sourceTree = "<group>"; };
 		025D835F1841AEF800DF5537 /* BCPData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCPData.h; sourceTree = "<group>"; };
@@ -89,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				020EFAA11847CA5B0011C9D1 /* QuartzCore.framework in Frameworks */,
 				0267ECF71839ABB400E3B08B /* CoreGraphics.framework in Frameworks */,
 				0267ECF91839ABB400E3B08B /* UIKit.framework in Frameworks */,
 				0267ECF51839ABB400E3B08B /* Foundation.framework in Frameworks */,
@@ -101,6 +129,7 @@
 		020B92E81839B3D200F610DB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				020EFAA21847DD790011C9D1 /* Content Views */,
 				0267ED031839ABB400E3B08B /* BCPAppDelegate.h */,
 				0267ED041839ABB400E3B08B /* BCPAppDelegate.m */,
 				020B92F61839D24800F610DB /* BCPCommon.h */,
@@ -109,11 +138,15 @@
 				020B92F41839D0F700F610DB /* BCPConstants.m */,
 				020B92FA1839DE5300F610DB /* BCPContent.h */,
 				020B92FB1839DE5300F610DB /* BCPContent.m */,
+				020EFAA91847E9B30011C9D1 /* BCPContentView.h */,
+				020EFAAA1847E9B30011C9D1 /* BCPContentView.m */,
 				025D835F1841AEF800DF5537 /* BCPData.h */,
 				025D83601841AEF800DF5537 /* BCPData.m */,
 				020B92F91839D2C600F610DB /* BCPDelegates.h */,
 				020B92EC1839B85200F610DB /* BCPInterface.h */,
 				020B92ED1839B85200F610DB /* BCPInterface.m */,
+				020EFAA61847E6730011C9D1 /* BCPNavigationBar.h */,
+				020EFAA71847E6730011C9D1 /* BCPNavigationBar.m */,
 				025D835C18418EA100DF5537 /* BCPSidebarCell.h */,
 				025D835D18418EA100DF5537 /* BCPSidebarCell.m */,
 				020B92FD1839F80E00F610DB /* BCPSidebarController.h */,
@@ -131,8 +164,25 @@
 			children = (
 				020EFA9C1846EC630011C9D1 /* Background.png */,
 				020EFA9D1846EC630011C9D1 /* Background@2x.png */,
+				020EFAB81847F1020011C9D1 /* PlainBackground.png */,
+				020EFAB91847F1020011C9D1 /* PlainBackground@2x.png */,
+				020EFAAC1847EC1D0011C9D1 /* ShadowAbove.png */,
+				020EFAAD1847EC1D0011C9D1 /* ShadowAbove@2x.png */,
+				020EFAAE1847EC1D0011C9D1 /* ShadowBelow.png */,
+				020EFAAF1847EC1D0011C9D1 /* ShadowBelow@2x.png */,
+				020EFAB01847EC1D0011C9D1 /* ShadowRight.png */,
+				020EFAB11847EC1D0011C9D1 /* ShadowRight@2x.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		020EFAA21847DD790011C9D1 /* Content Views */ = {
+			isa = PBXGroup;
+			children = (
+				020EFAA31847DE390011C9D1 /* BCPContentLogin.h */,
+				020EFAA41847DE390011C9D1 /* BCPContentLogin.m */,
+			);
+			name = "Content Views";
 			sourceTree = "<group>";
 		};
 		0267ECE81839ABB400E3B08B = {
@@ -155,6 +205,7 @@
 		0267ECF31839ABB400E3B08B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				020EFAA01847CA5B0011C9D1 /* QuartzCore.framework */,
 				0267ECF61839ABB400E3B08B /* CoreGraphics.framework */,
 				0267ECF41839ABB400E3B08B /* Foundation.framework */,
 				0267ECF81839ABB400E3B08B /* UIKit.framework */,
@@ -272,9 +323,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				020EFABA1847F1020011C9D1 /* PlainBackground.png in Resources */,
+				020EFAB61847EC1D0011C9D1 /* ShadowRight.png in Resources */,
 				020EFA9E1846EC630011C9D1 /* Background.png in Resources */,
+				020EFABB1847F1020011C9D1 /* PlainBackground@2x.png in Resources */,
+				020EFAB21847EC1D0011C9D1 /* ShadowAbove.png in Resources */,
+				020EFAB41847EC1D0011C9D1 /* ShadowBelow.png in Resources */,
 				0267ECFF1839ABB400E3B08B /* InfoPlist.strings in Resources */,
 				020EFA9F1846EC630011C9D1 /* Background@2x.png in Resources */,
+				020EFAB31847EC1D0011C9D1 /* ShadowAbove@2x.png in Resources */,
+				020EFAB71847EC1D0011C9D1 /* ShadowRight@2x.png in Resources */,
+				020EFAB51847EC1D0011C9D1 /* ShadowBelow@2x.png in Resources */,
 				0267ED071839ABB400E3B08B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,7 +352,9 @@
 				029C1EB11841D6C3007AD575 /* SBJson4Writer.m in Sources */,
 				020B92F21839C0B200F610DB /* UIColor+BCPColors.m in Sources */,
 				029C1EAC1841D6C3007AD575 /* SBJson4StreamParser.m in Sources */,
+				020EFAA81847E6730011C9D1 /* BCPNavigationBar.m in Sources */,
 				0267ED051839ABB400E3B08B /* BCPAppDelegate.m in Sources */,
+				020EFAA51847DE390011C9D1 /* BCPContentLogin.m in Sources */,
 				020B92EB1839B44800F610DB /* BCPViewController.m in Sources */,
 				029C1EAB1841D6C3007AD575 /* SBJson4Parser.m in Sources */,
 				0267ED011839ABB400E3B08B /* main.m in Sources */,
@@ -301,6 +362,7 @@
 				029C1EAE1841D6C3007AD575 /* SBJson4StreamTokeniser.m in Sources */,
 				029C1EB01841D6C3007AD575 /* SBJson4StreamWriterState.m in Sources */,
 				029C1EAF1841D6C3007AD575 /* SBJson4StreamWriter.m in Sources */,
+				020EFAAB1847E9B30011C9D1 /* BCPContentView.m in Sources */,
 				020B92EE1839B85200F610DB /* BCPInterface.m in Sources */,
 				020B92F51839D0F700F610DB /* BCPConstants.m in Sources */,
 				020B92FC1839DE5300F610DB /* BCPContent.m in Sources */,

@@ -19,7 +19,8 @@ typedef void (^RotationBlock)(void);
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setNeedsStatusBarAppearanceUpdate];
+    if([BCPCommon IS_IOS7])
+        [self setNeedsStatusBarAppearanceUpdate];
     
     [BCPCommon setViewControllerDelegate:self];
     self.registeredAfterBlocks = [[NSMutableArray alloc] init];
@@ -63,13 +64,36 @@ typedef void (^RotationBlock)(void);
     block();
 }
 
+- (void)setScrollsToTop:(UIScrollView *)scrollView {
+    [self setScrollsToTop:scrollView fromView:self.view];
+}
+
+- (void)setScrollsToTop:(UIScrollView *)scrollView fromView:(UIView *)view {
+    if([view isKindOfClass:[UIScrollView class]]) {
+        [(UIScrollView*)view setScrollsToTop:[view isEqual:scrollView]];
+    }
+    for (UIView *subview in [view subviews]) {
+        [self setScrollsToTop:scrollView fromView:subview];
+    }
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
 }
 
--(BOOL)shouldAutorotate {
+- (BOOL)shouldAutorotate {
     [self willRotateToInterfaceOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
     return YES;
+}
+
+- (void)showContentView:(NSString *)view {
+    [[self.interface content] showContentView:view];
+    [[self.interface scrollView] setContentOffset:CGPointMake(SIDEBAR_WIDTH, 0) animated:YES];
+    /*
+     [UIView animateWithDuration:0.25 animations:^{
+     [[self.interface scrollView] setContentOffset:CGPointMake(SIDEBAR_WIDTH, 0)];
+     }];
+     */
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)orientation duration:(NSTimeInterval)duration {

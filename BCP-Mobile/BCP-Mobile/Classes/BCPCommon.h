@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>
 #import "BCPConstants.h"
 #import "BCPData.h"
 #import "BCPDelegates.h"
@@ -14,6 +15,8 @@
 
 @interface BCPCommon : NSObject
 
++ (BOOL)IS_IOS7;
++ (BOOL)IS_IPAD;
 + (void)setViewControllerDelegate:(NSObject<BCPViewControllerDelegate> *)viewControllerDelegate;
 + (NSObject<BCPViewControllerDelegate> *) viewController;
 
