@@ -12,6 +12,7 @@
 
 + (UIColor *)BCPBlue;
 + (UIColor *)BCPDarkBlue;
++ (UIColor *)BCPOffBlack;
 + (UIColor *)BCPOffWhite;
 + (UIColor *)BCPSidebarColor;
 + (UIColor *)BCPSidebarAccentColor;

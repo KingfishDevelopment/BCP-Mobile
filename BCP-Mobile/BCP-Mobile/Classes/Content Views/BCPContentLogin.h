@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "BCPContentView.h"
 
-@interface BCPContentLogin : BCPContentView
+@interface BCPContentLogin : BCPContentView <UITextFieldDelegate>
 
+@property (nonatomic, retain) UIImageView *icon;
 @property (nonatomic, retain) BCPNavigationBar *navigationBar;
+@property (nonatomic, retain) UIView *textFieldContainer;
+@property (nonatomic, retain) UITextField *textFieldPassword;
+@property (nonatomic, retain) UITextField *textFieldUsername;
 
 @end

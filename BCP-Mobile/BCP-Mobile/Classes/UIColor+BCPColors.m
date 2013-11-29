@@ -40,10 +40,17 @@
     return color;
 }
 
++ (UIColor *)BCPOffBlack {
+    static UIColor *color = nil;
+    if (!color)
+        color = [UIColor colorWithWhite:0.1 alpha:1];
+    return color;
+}
+
 + (UIColor *)BCPOffWhite {
     static UIColor *color = nil;
     if (!color)
-        color = [UIColor colorWithRed:(243/255.0) green:(247/255.0) blue:(250/255.0) alpha:1];
+        color = [UIColor colorWithWhite:0.9 alpha:1];
     return color;
 }
 
