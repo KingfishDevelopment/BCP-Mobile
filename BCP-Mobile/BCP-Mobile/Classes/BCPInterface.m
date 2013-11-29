@@ -60,7 +60,7 @@
 }
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
-    if(self.scrollView.contentOffset.x==0&&point.x<MIN(self.content.frame.origin.x,SIDEBAR_WIDTH*1.25))
+    if(self.scrollView.contentOffset.x==0&&point.x<MIN(self.content.frame.origin.x,self.bounds.size.width-100))
         return self.sidebar;
     return self.scrollView;
 }
