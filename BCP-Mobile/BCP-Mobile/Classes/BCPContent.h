@@ -11,7 +11,7 @@
 
 @interface BCPContent : UIView
 
-@property (nonatomic, retain) NSDictionary *views;
+@property (nonatomic, strong) NSDictionary *views;
 
 - (void)showContentView:(NSString *)view;
 

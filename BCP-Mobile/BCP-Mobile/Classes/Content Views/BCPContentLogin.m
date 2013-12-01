@@ -86,9 +86,8 @@
     else if([textField isEqual:self.textFieldPassword]&&[[self.textFieldUsername text] length]>0&&[[self.textFieldPassword text] length]>0) {
         [self.textFieldPassword resignFirstResponder];
         [BCPData sendRequest:@"login" withDetails:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[self.textFieldUsername text],[self.textFieldPassword text],nil] forKeys:[NSArray arrayWithObjects:@"username",@"password",nil]] onCompletion:^(BOOL errorOccurred) {
-            if(!errorOccurred) {
-                NSLog(@"%i %@",errorOccurred,[BCPData data]);
-            }
+            if(!errorOccurred)
+                [[BCPCommon viewController] loggedIn];
         }];
     }
     return YES;

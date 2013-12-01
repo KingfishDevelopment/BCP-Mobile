@@ -14,11 +14,11 @@
 typedef void (^RotationBlock)(void);
 typedef void (^KeyboardBlock)(void);
 
-@property (nonatomic, retain) BCPInterface *interface;
+@property (nonatomic, strong) BCPInterface *interface;
 @property (nonatomic, copy) KeyboardBlock keyboardShown;
 @property (nonatomic, copy) KeyboardBlock keyboardHidden;
-@property (nonatomic, retain) NSMutableArray *registeredAfterBlocks;
-@property (nonatomic, retain) NSMutableArray *registeredBeforeAnimationBlocks;
-@property (nonatomic, retain) NSMutableArray *registeredBeforeBlocks;
+@property (nonatomic, strong) NSMutableArray *registeredAfterBlocks;
+@property (nonatomic, strong) NSMutableArray *registeredBeforeAnimationBlocks;
+@property (nonatomic, strong) NSMutableArray *registeredBeforeBlocks;
 
 @end

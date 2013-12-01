@@ -12,8 +12,8 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface FUISwitch()
-@property(unsafe_unretained, readwrite, nonatomic) UIView *thumbView;
-@property(unsafe_unretained, readwrite, nonatomic) UIScrollView *internalContainer;
+@property(weak, readwrite, nonatomic) UIView *thumbView;
+@property(weak, readwrite, nonatomic) UIScrollView *internalContainer;
 @end
 
 @implementation FUISwitch

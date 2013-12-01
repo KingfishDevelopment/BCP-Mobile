@@ -10,9 +10,9 @@
 
 @interface BCPNavigationBar : UIView
 
-@property (nonatomic, retain) UIImageView *background;
-@property (nonatomic, retain) UILabel *label;
-@property (nonatomic, retain) UIImageView *shadow;
+@property (nonatomic, strong) UIImageView *background;
+@property (nonatomic, strong) UILabel *label;
+@property (nonatomic, strong) UIImageView *shadow;
 
 - (void)setText:(NSString *)text;
 

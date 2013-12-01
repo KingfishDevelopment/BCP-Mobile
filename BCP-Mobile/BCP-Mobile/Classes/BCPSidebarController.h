@@ -11,7 +11,7 @@
 
 @interface BCPSidebarController : UITableViewController
 
-@property (nonatomic, retain) NSArray *sections;
-@property (nonatomic, retain) NSArray *titles;
+@property (nonatomic, strong) NSArray *sections;
+@property (nonatomic, strong) NSArray *titles;
 
 @end

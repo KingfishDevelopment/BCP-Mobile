@@ -10,10 +10,10 @@
 
 @interface BCPSidebarCell : UITableViewCell
 
-@property (nonatomic, retain) UIView *divider;
-@property (nonatomic, retain) UIView *highlight;
-@property (nonatomic, retain) UIImageView *icon;
-@property (nonatomic, retain) UILabel *label;
+@property (nonatomic, strong) UIView *divider;
+@property (nonatomic, strong) UIView *highlight;
+@property (nonatomic, strong) UIImageView *icon;
+@property (nonatomic, strong) UILabel *label;
 
 - (void)setDividerHidden:(BOOL)hidden;
 - (void)setText:(NSString *)text;

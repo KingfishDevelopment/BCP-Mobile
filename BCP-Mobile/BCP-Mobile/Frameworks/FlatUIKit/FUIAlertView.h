@@ -55,10 +55,10 @@
 - (void)clickButtonAtIndex:(NSInteger)buttonIndex;
 
 @property(nonatomic, strong) NSMutableArray *buttons;
-@property(nonatomic, unsafe_unretained, readonly) UILabel *titleLabel;
-@property(nonatomic, unsafe_unretained, readonly) UILabel *messageLabel;
-@property(nonatomic, unsafe_unretained, readonly) UIView *backgroundOverlay;
-@property(nonatomic, unsafe_unretained, readonly) UIView *alertContainer;
+@property(nonatomic, weak, readonly) UILabel *titleLabel;
+@property(nonatomic, weak, readonly) UILabel *messageLabel;
+@property(nonatomic, weak, readonly) UIView *backgroundOverlay;
+@property(nonatomic, weak, readonly) UIView *alertContainer;
 @property(nonatomic) CGFloat buttonSpacing UI_APPEARANCE_SELECTOR;
 @property(nonatomic) CGFloat animationDuration UI_APPEARANCE_SELECTOR;
 @property(nonatomic) BOOL hasCancelButton;

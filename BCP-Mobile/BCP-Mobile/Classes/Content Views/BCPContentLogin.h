@@ -11,11 +11,11 @@
 
 @interface BCPContentLogin : BCPContentView <UITextFieldDelegate>
 
-@property (nonatomic, retain) UIImageView *icon;
+@property (nonatomic, strong) UIImageView *icon;
 @property (nonatomic) BOOL keyboardVisible;
-@property (nonatomic, retain) BCPNavigationBar *navigationBar;
-@property (nonatomic, retain) UIView *textFieldContainer;
-@property (nonatomic, retain) UITextField *textFieldPassword;
-@property (nonatomic, retain) UITextField *textFieldUsername;
+@property (nonatomic, strong) BCPNavigationBar *navigationBar;
+@property (nonatomic, strong) UIView *textFieldContainer;
+@property (nonatomic, strong) UITextField *textFieldPassword;
+@property (nonatomic, strong) UITextField *textFieldUsername;
 
 @end

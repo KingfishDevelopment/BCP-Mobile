@@ -65,6 +65,12 @@
     self.keyboardShown();
 }
 
+- (void)loggedIn {
+    [UIView animateWithDuration:0.25 animations:^(void) {
+        [((BCPContentLogin *)[self.interface.content.views objectForKey:@"Login"]).textFieldContainer setAlpha:0];
+    }];
+}
+
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }

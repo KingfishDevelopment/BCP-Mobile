@@ -11,7 +11,7 @@
 
 @interface FUIAlertView()
 
-@property(nonatomic, unsafe_unretained) UIView *alertContentContainer;
+@property(nonatomic, weak) UIView *alertContentContainer;
 
 @end
 

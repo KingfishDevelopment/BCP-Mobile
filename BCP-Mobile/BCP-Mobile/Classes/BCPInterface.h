@@ -13,10 +13,10 @@
 
 @interface BCPInterface : UIView <UIScrollViewDelegate>
 
-@property (nonatomic, retain) UIImageView *background;
-@property (nonatomic, retain) BCPContent *content;
-@property (nonatomic, retain) BCPScrollView *scrollView;
-@property (nonatomic, retain) UITableView *sidebar;
-@property (nonatomic, retain) UITableViewController *sidebarController;
+@property (nonatomic, strong) UIImageView *background;
+@property (nonatomic, strong) BCPContent *content;
+@property (nonatomic, strong) BCPScrollView *scrollView;
+@property (nonatomic, strong) UITableView *sidebar;
+@property (nonatomic, strong) UITableViewController *sidebarController;
 
 @end

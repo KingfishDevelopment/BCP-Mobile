@@ -18,8 +18,8 @@
 @property(nonatomic, strong, readwrite) UIColor *highlightedColor UI_APPEARANCE_SELECTOR;
 @property(nonatomic, readwrite) CGFloat switchCornerRadius UI_APPEARANCE_SELECTOR;
 @property(nonatomic, readwrite) CGFloat percentOn;
-@property(unsafe_unretained, readwrite, nonatomic) UILabel *offLabel;
-@property(unsafe_unretained, readwrite, nonatomic) UILabel *onLabel;
+@property(weak, readwrite, nonatomic) UILabel *offLabel;
+@property(weak, readwrite, nonatomic) UILabel *onLabel;
 
 - (void)setOn:(BOOL)on animated:(BOOL)animated; // does not send action
 

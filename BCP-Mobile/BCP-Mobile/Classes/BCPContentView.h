@@ -11,7 +11,7 @@
 
 @interface BCPContentView : UIView
 
-@property (nonatomic, retain) UIImageView *background;
+@property (nonatomic, strong) UIImageView *background;
 
 - (void)shown;
 

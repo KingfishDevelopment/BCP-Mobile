@@ -10,6 +10,7 @@
 
 - (void)errorWithCode:(int)code;
 - (void)errorWithMessage:(NSString *)message;
+- (void)loggedIn;
 - (void)registerBlockForAfterRotation:(void (^)())block;
 - (void)registerBlockForBeforeAnimationRotation:(void (^)())block;
 - (void)registerBlockForBeforeRotation:(void (^)())block;
