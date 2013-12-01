@@ -38,11 +38,23 @@
 }
 
 - (void)errorWithCode:(int)code {
-    
+    [self errorWithMessage:[NSString stringWithFormat:@"msg:A fatal error has occurred.\r\n\r\n[Error Code: %i]",code]];
 }
 
 - (void)errorWithMessage:(NSString *)message {
-    
+    NSString *title = @"Error";
+    if([message isEqualToString:@"INVALID_LOGIN"]) {
+        title = @"Invalid Login";
+        message = @"Your username and password appear to be incorrect.\r\n\r\nPlease try again.";
+    }
+    else if([message length]<4||![[message substringToIndex:4] isEqualToString:@"msg:"]) {
+        title = @"Error";
+        message = @"A serious (and fatal) error has occured.\r\n\r\nPlease try again, and if the problem persists, please report it so we can get it fixed!";
+    }
+    else {
+        message = [message substringFromIndex:4];
+    }
+    [BCPCommon alertWithTitle:title withText:message];
 }
 
 - (void)keyboardHidden:(NSNotification*)notification {

@@ -12,7 +12,6 @@
 
 static NSMutableDictionary *connectionResponses;
 static NSMutableDictionary *data = nil;
-static SBJson4Parser *parser = nil;
 static NSString *path = nil;
 
 + (void)initialize {
@@ -20,7 +19,7 @@ static NSString *path = nil;
     NSString *documentsDirectory = [paths objectAtIndex:0];
     path = [documentsDirectory stringByAppendingPathComponent:@"data"];
     
-    if([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+    if(false&&[[NSFileManager defaultManager] fileExistsAtPath:path]) {
         @try {
             data = [NSKeyedUnarchiver unarchiveObjectWithData:[NSData dataWithContentsOfFile:path]];
         }
@@ -31,7 +30,6 @@ static NSString *path = nil;
     else
         data = [NSMutableDictionary dictionary];
     
-    parser = [[SBJson4Parser alloc] init];
     connectionResponses = [[NSMutableDictionary alloc] init];
 }
 
@@ -64,12 +62,12 @@ static NSString *path = nil;
     if([[[connectionResponses objectForKey:[NSValue valueWithNonretainedObject:connection]] objectForKey:@"credentials"] isEqual:@"INVALID_LOGIN"])
         [[BCPCommon viewController] errorWithMessage:@"INVALID_LOGIN"];
     else
-        [[BCPCommon viewController] errorWithCode:1];
+        [[BCPCommon viewController] errorWithCode:1454];
     [connectionResponses removeObjectForKey:[NSValue valueWithNonretainedObject:connection]];
 }
 
 + (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    [self parseResponse:[[NSString alloc] initWithData:[[connectionResponses objectForKey:[NSValue valueWithNonretainedObject:connection]] objectForKey:@"data"] encoding:NSUTF8StringEncoding] withCompletionBlock:[[connectionResponses objectForKey:[NSValue valueWithNonretainedObject:connection]] objectForKey:@"completionBlock"] withRequest:[[connectionResponses objectForKey:[NSValue valueWithNonretainedObject:connection]] objectForKey:@"request"]];
+    [self parseResponse:[[connectionResponses objectForKey:[NSValue valueWithNonretainedObject:connection]] objectForKey:@"data"] withCompletionBlock:[[connectionResponses objectForKey:[NSValue valueWithNonretainedObject:connection]] objectForKey:@"completionBlock"] withRequest:[[connectionResponses objectForKey:[NSValue valueWithNonretainedObject:connection]] objectForKey:@"request"]];
     [connectionResponses removeObjectForKey:[NSValue valueWithNonretainedObject:connection]];
 }
 
@@ -77,25 +75,25 @@ static NSString *path = nil;
     return data;
 }
 
-+ (void)parseResponse:(NSString *)responseString withCompletionBlock:(void (^)(BOOL errorOccurred))completionBlock withRequest:(NSString *)request {
-    NSLog(@"%@",responseString);
-    //id response = [self.parser objectWithString:responseString];
-    /*if(response==nil) {
-        [[BCPCommon viewController] errorWithCode:2];
++ (void)parseResponse:(NSData *)responseString withCompletionBlock:(void (^)(BOOL errorOccurred))completionBlock withRequest:(NSString *)request {
+    NSError *e = nil;
+    id response = [NSJSONSerialization JSONObjectWithData:responseString options:NSJSONReadingMutableContainers error:&e];
+    if(response==nil) {
+        [[BCPCommon viewController] errorWithCode:8179];
         completionBlock(YES);
     }
     else if([response respondsToSelector:@selector(objectForKey:)]&&[response objectForKey:@"error"]) {
-        [BCPCommon error:[response objectForKey:@"error"]];
+        [[BCPCommon viewController] errorWithMessage:[response objectForKey:@"error"]];
         completionBlock(YES);
     }
     else {
         [data setObject:response forKey:request];
         [self saveDictionary];
         completionBlock(NO);
-    }*/
+    }
 }
 
-- (void)saveDictionary {
++ (void)saveDictionary {
     NSData *writeData = [NSKeyedArchiver archivedDataWithRootObject:data];
     [writeData writeToFile:path atomically:YES];
 }

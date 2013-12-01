@@ -59,13 +59,8 @@
 		0267ED011839ABB400E3B08B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0267ED001839ABB400E3B08B /* main.m */; };
 		0267ED051839ABB400E3B08B /* BCPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0267ED041839ABB400E3B08B /* BCPAppDelegate.m */; };
 		0267ED071839ABB400E3B08B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0267ED061839ABB400E3B08B /* Images.xcassets */; };
-		029C1EAB1841D6C3007AD575 /* SBJson4Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 029C1E9E1841D6C3007AD575 /* SBJson4Parser.m */; };
-		029C1EAC1841D6C3007AD575 /* SBJson4StreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 029C1EA01841D6C3007AD575 /* SBJson4StreamParser.m */; };
-		029C1EAD1841D6C3007AD575 /* SBJson4StreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 029C1EA21841D6C3007AD575 /* SBJson4StreamParserState.m */; };
-		029C1EAE1841D6C3007AD575 /* SBJson4StreamTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 029C1EA41841D6C3007AD575 /* SBJson4StreamTokeniser.m */; };
-		029C1EAF1841D6C3007AD575 /* SBJson4StreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 029C1EA61841D6C3007AD575 /* SBJson4StreamWriter.m */; };
-		029C1EB01841D6C3007AD575 /* SBJson4StreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 029C1EA81841D6C3007AD575 /* SBJson4StreamWriterState.m */; };
-		029C1EB11841D6C3007AD575 /* SBJson4Writer.m in Sources */ = {isa = PBXBuildFile; fileRef = 029C1EAA1841D6C3007AD575 /* SBJson4Writer.m */; };
+		02D99611184BC418009E7A44 /* NavigationBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 02D9960F184BC418009E7A44 /* NavigationBar.png */; };
+		02D99612184BC418009E7A44 /* NavigationBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02D99610184BC418009E7A44 /* NavigationBar@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -159,21 +154,8 @@
 		0267ED031839ABB400E3B08B /* BCPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BCPAppDelegate.h; path = ../BCPAppDelegate.h; sourceTree = "<group>"; };
 		0267ED041839ABB400E3B08B /* BCPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BCPAppDelegate.m; path = ../BCPAppDelegate.m; sourceTree = "<group>"; };
 		0267ED061839ABB400E3B08B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		029C1E9C1841D6C3007AD575 /* SBJson4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson4.h; sourceTree = "<group>"; };
-		029C1E9D1841D6C3007AD575 /* SBJson4Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson4Parser.h; sourceTree = "<group>"; };
-		029C1E9E1841D6C3007AD575 /* SBJson4Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJson4Parser.m; sourceTree = "<group>"; };
-		029C1E9F1841D6C3007AD575 /* SBJson4StreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson4StreamParser.h; sourceTree = "<group>"; };
-		029C1EA01841D6C3007AD575 /* SBJson4StreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJson4StreamParser.m; sourceTree = "<group>"; };
-		029C1EA11841D6C3007AD575 /* SBJson4StreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson4StreamParserState.h; sourceTree = "<group>"; };
-		029C1EA21841D6C3007AD575 /* SBJson4StreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJson4StreamParserState.m; sourceTree = "<group>"; };
-		029C1EA31841D6C3007AD575 /* SBJson4StreamTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson4StreamTokeniser.h; sourceTree = "<group>"; };
-		029C1EA41841D6C3007AD575 /* SBJson4StreamTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJson4StreamTokeniser.m; sourceTree = "<group>"; };
-		029C1EA51841D6C3007AD575 /* SBJson4StreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson4StreamWriter.h; sourceTree = "<group>"; };
-		029C1EA61841D6C3007AD575 /* SBJson4StreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJson4StreamWriter.m; sourceTree = "<group>"; };
-		029C1EA71841D6C3007AD575 /* SBJson4StreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson4StreamWriterState.h; sourceTree = "<group>"; };
-		029C1EA81841D6C3007AD575 /* SBJson4StreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJson4StreamWriterState.m; sourceTree = "<group>"; };
-		029C1EA91841D6C3007AD575 /* SBJson4Writer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson4Writer.h; sourceTree = "<group>"; };
-		029C1EAA1841D6C3007AD575 /* SBJson4Writer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJson4Writer.m; sourceTree = "<group>"; };
+		02D9960F184BC418009E7A44 /* NavigationBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavigationBar.png; sourceTree = "<group>"; };
+		02D99610184BC418009E7A44 /* NavigationBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavigationBar@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +213,8 @@
 			children = (
 				020EFA9C1846EC630011C9D1 /* Background.png */,
 				020EFA9D1846EC630011C9D1 /* Background@2x.png */,
+				02D9960F184BC418009E7A44 /* NavigationBar.png */,
+				02D99610184BC418009E7A44 /* NavigationBar@2x.png */,
 				020EFAB81847F1020011C9D1 /* PlainBackground.png */,
 				020EFAB91847F1020011C9D1 /* PlainBackground@2x.png */,
 				023DD4AE184914BF00B03F75 /* RoundedIcon.png */,
@@ -355,31 +339,8 @@
 			isa = PBXGroup;
 			children = (
 				023DD473184910E900B03F75 /* FlatUIKit */,
-				029C1E9B1841D6C3007AD575 /* SBJson */,
 			);
 			path = Frameworks;
-			sourceTree = "<group>";
-		};
-		029C1E9B1841D6C3007AD575 /* SBJson */ = {
-			isa = PBXGroup;
-			children = (
-				029C1E9C1841D6C3007AD575 /* SBJson4.h */,
-				029C1E9D1841D6C3007AD575 /* SBJson4Parser.h */,
-				029C1E9E1841D6C3007AD575 /* SBJson4Parser.m */,
-				029C1E9F1841D6C3007AD575 /* SBJson4StreamParser.h */,
-				029C1EA01841D6C3007AD575 /* SBJson4StreamParser.m */,
-				029C1EA11841D6C3007AD575 /* SBJson4StreamParserState.h */,
-				029C1EA21841D6C3007AD575 /* SBJson4StreamParserState.m */,
-				029C1EA31841D6C3007AD575 /* SBJson4StreamTokeniser.h */,
-				029C1EA41841D6C3007AD575 /* SBJson4StreamTokeniser.m */,
-				029C1EA51841D6C3007AD575 /* SBJson4StreamWriter.h */,
-				029C1EA61841D6C3007AD575 /* SBJson4StreamWriter.m */,
-				029C1EA71841D6C3007AD575 /* SBJson4StreamWriterState.h */,
-				029C1EA81841D6C3007AD575 /* SBJson4StreamWriterState.m */,
-				029C1EA91841D6C3007AD575 /* SBJson4Writer.h */,
-				029C1EAA1841D6C3007AD575 /* SBJson4Writer.m */,
-			);
-			path = SBJson;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -442,8 +403,10 @@
 				020EFABA1847F1020011C9D1 /* PlainBackground.png in Resources */,
 				020EFAB61847EC1D0011C9D1 /* ShadowRight.png in Resources */,
 				023DD4B0184914BF00B03F75 /* RoundedIcon.png in Resources */,
+				02D99611184BC418009E7A44 /* NavigationBar.png in Resources */,
 				020EFA9E1846EC630011C9D1 /* Background.png in Resources */,
 				020EFABB1847F1020011C9D1 /* PlainBackground@2x.png in Resources */,
+				02D99612184BC418009E7A44 /* NavigationBar@2x.png in Resources */,
 				020EFAB21847EC1D0011C9D1 /* ShadowAbove.png in Resources */,
 				020EFAB41847EC1D0011C9D1 /* ShadowBelow.png in Resources */,
 				0267ECFF1839ABB400E3B08B /* InfoPlist.strings in Resources */,
@@ -463,7 +426,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				029C1EAD1841D6C3007AD575 /* SBJson4StreamParserState.m in Sources */,
 				020B92FF1839F80E00F610DB /* BCPSidebarController.m in Sources */,
 				023DD4A8184910E900B03F75 /* UIProgressView+FlatUI.m in Sources */,
 				023DD4AA184910E900B03F75 /* UIStepper+FlatUI.m in Sources */,
@@ -471,9 +433,7 @@
 				023DD4A2184910E900B03F75 /* UIBarButtonItem+FlatUI.m in Sources */,
 				023DD4AD184910E900B03F75 /* UIToolbar+FlatUI.m in Sources */,
 				025D835E18418EA100DF5537 /* BCPSidebarCell.m in Sources */,
-				029C1EB11841D6C3007AD575 /* SBJson4Writer.m in Sources */,
 				020B92F21839C0B200F610DB /* UIColor+BCPColors.m in Sources */,
-				029C1EAC1841D6C3007AD575 /* SBJson4StreamParser.m in Sources */,
 				020EFAA81847E6730011C9D1 /* BCPNavigationBar.m in Sources */,
 				023DD4A0184910E900B03F75 /* FUISwitch.m in Sources */,
 				023DD49B184910E900B03F75 /* FUIAlertView.m in Sources */,
@@ -484,15 +444,11 @@
 				020EFAA51847DE390011C9D1 /* BCPContentLogin.m in Sources */,
 				023DD4A4184910E900B03F75 /* UIFont+FlatUI.m in Sources */,
 				020B92EB1839B44800F610DB /* BCPViewController.m in Sources */,
-				029C1EAB1841D6C3007AD575 /* SBJson4Parser.m in Sources */,
 				023DD4A7184910E900B03F75 /* UIPopoverController+FlatUI.m in Sources */,
 				0267ED011839ABB400E3B08B /* main.m in Sources */,
 				025D83611841AEF800DF5537 /* BCPData.m in Sources */,
-				029C1EAE1841D6C3007AD575 /* SBJson4StreamTokeniser.m in Sources */,
 				023DD4A3184910E900B03F75 /* UIColor+FlatUI.m in Sources */,
 				023DD49E184910E900B03F75 /* FUIPopoverBackgroundView.m in Sources */,
-				029C1EB01841D6C3007AD575 /* SBJson4StreamWriterState.m in Sources */,
-				029C1EAF1841D6C3007AD575 /* SBJson4StreamWriter.m in Sources */,
 				023DD49C184910E900B03F75 /* FUIButton.m in Sources */,
 				023DD4AC184910E900B03F75 /* UITableViewCell+FlatUI.m in Sources */,
 				020EFAAB1847E9B30011C9D1 /* BCPContentView.m in Sources */,
@@ -605,7 +561,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BCP-Mobile/BCP-Mobile-Prefix.pch";
 				INFOPLIST_FILE = "BCP-Mobile/BCP-Mobile-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -622,7 +578,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BCP-Mobile/BCP-Mobile-Prefix.pch";
 				INFOPLIST_FILE = "BCP-Mobile/BCP-Mobile-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;

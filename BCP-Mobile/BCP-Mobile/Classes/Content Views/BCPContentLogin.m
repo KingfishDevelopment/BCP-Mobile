@@ -25,10 +25,9 @@
         self.textFieldContainer = [[UIView alloc] init];
         [self.textFieldContainer setBackgroundColor:[UIColor BCPOffWhite]];
         self.textFieldContainer.layer.shadowColor = [UIColor BCPOffBlack].CGColor;
-        self.textFieldContainer.layer.shadowOffset = CGSizeMake(0, 4);
-        self.textFieldContainer.layer.shadowOpacity = 0.8;
-        [[self.textFieldContainer layer] setShadowPath:[UIBezierPath bezierPathWithRect:self.textFieldContainer.bounds].CGPath];
-        self.textFieldContainer.layer.shadowRadius = 4;
+        self.textFieldContainer.layer.shadowOffset = CGSizeMake(0, 2);
+        self.textFieldContainer.layer.shadowOpacity = 0.4;
+        self.textFieldContainer.layer.shadowRadius = 2;
         self.textFieldContainer.clipsToBounds = NO;
         [self addSubview:self.textFieldContainer];
         
@@ -59,7 +58,7 @@
 }
 
 - (void)layoutSubviews {
-    CGFloat keyboardDifference = self.keyboardVisible?120:0;
+    CGFloat keyboardDifference = self.keyboardVisible?(120+([BCPCommon IS_IOS7]?0:12)):0;
     [self.icon setFrame:CGRectMake((self.bounds.size.width-LOGIN_ICON_WIDTH)/2, (self.navigationBar.bounds.size.height+self.bounds.size.height)/2-LOGIN_ICON_WIDTH-CONTENT_MIDDLE_PADDING-keyboardDifference, LOGIN_ICON_WIDTH, LOGIN_ICON_WIDTH)];
     CGFloat textContainerWidth = MIN(320,self.bounds.size.width-(CONTENT_SIDE_PADDING*2));
     [self.textFieldContainer setFrame:CGRectMake((self.bounds.size.width-textContainerWidth)/2, self.bounds.size.height/2+CONTENT_MIDDLE_PADDING-keyboardDifference, textContainerWidth, TEXTBOX_HEIGHT*2)];
@@ -79,6 +78,20 @@
             [self layoutSubviews];
         }];
     }];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if([textField isEqual:self.textFieldUsername])
+        [self.textFieldPassword becomeFirstResponder];
+    else if([textField isEqual:self.textFieldPassword]&&[[self.textFieldUsername text] length]>0&&[[self.textFieldPassword text] length]>0) {
+        [self.textFieldPassword resignFirstResponder];
+        [BCPData sendRequest:@"login" withDetails:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[self.textFieldUsername text],[self.textFieldPassword text],nil] forKeys:[NSArray arrayWithObjects:@"username",@"password",nil]] onCompletion:^(BOOL errorOccurred) {
+            if(!errorOccurred) {
+                NSLog(@"%i %@",errorOccurred,[BCPData data]);
+            }
+        }];
+    }
+    return YES;
 }
 
 @end

@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SBJson4.h"
 
 @interface BCPData : NSObject
 
++ (NSMutableDictionary *)data;
 + (void)sendRequest:(NSString *)requestString onCompletion:(void (^)(BOOL errorOccurred))completionBlock;
 + (void)sendRequest:(NSString *)requestString withDetails:(NSDictionary *)details onCompletion:(void (^)(BOOL errorOccurred))completionBlock;
 

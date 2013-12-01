@@ -17,11 +17,15 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
-        [self setBackgroundColor:[UIColor colorWithWhite:0.8 alpha:0.2]];
         [self setClipsToBounds:NO];
         
-        self.label = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, frame.size.width-40, frame.size.height-20)];
-        [self.label setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+        self.background = [[UIImageView alloc] initWithFrame:self.bounds];
+        [self.background setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
+        [self.background setImage:[UIImage imageNamed:@"NavigationBar"]];
+        [self addSubview:self.background];
+        
+        self.label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, frame.size.width-20, frame.size.height-([BCPCommon IS_IOS7]?0:20))];
+        [self.label setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
         [self.label setBackgroundColor:[UIColor clearColor]];
         [self.label setFont:[UIFont boldSystemFontOfSize:20]];
         [self.label setShadowColor:[UIColor colorWithWhite:0.2 alpha:0.8]];

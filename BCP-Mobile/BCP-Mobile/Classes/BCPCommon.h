@@ -11,10 +11,13 @@
 #import "BCPConstants.h"
 #import "BCPData.h"
 #import "BCPDelegates.h"
+#import "FUIAlertView.h"
+#import "FUIButton.h"
 #import "UIColor+BCPColors.h"
 
 @interface BCPCommon : NSObject
 
++ (void)alertWithTitle:(NSString *)title withText:(NSString*)text;
 + (BOOL)IS_IOS7;
 + (BOOL)IS_IPAD;
 + (void)setViewControllerDelegate:(NSObject<BCPViewControllerDelegate> *)viewControllerDelegate;

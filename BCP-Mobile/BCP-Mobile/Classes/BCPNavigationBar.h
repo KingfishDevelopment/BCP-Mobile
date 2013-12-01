@@ -10,6 +10,7 @@
 
 @interface BCPNavigationBar : UIView
 
+@property (nonatomic, retain) UIImageView *background;
 @property (nonatomic, retain) UILabel *label;
 @property (nonatomic, retain) UIImageView *shadow;
 

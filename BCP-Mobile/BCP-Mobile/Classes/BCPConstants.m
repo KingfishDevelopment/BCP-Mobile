@@ -12,7 +12,7 @@
 
 const int CONTENT_MIDDLE_PADDING = 25;
 const double CONTENT_MIN_SCALE = .4;
-const int CONTENT_SIDE_PADDING = 20;
+const int CONTENT_SIDE_PADDING = 25;
 const int LOGIN_ICON_WIDTH = 80;
 const int NAVIGATION_BAR_HEIGHT = 45;
 const int SIDEBAR_CELL_PADDING = 8;
