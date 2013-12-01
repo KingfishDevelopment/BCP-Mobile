@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "BCPContent.h"
+#import "BCPScrollView.h"
 #import "BCPSidebarController.h"
 
 @interface BCPInterface : UIView <UIScrollViewDelegate>
 
 @property (nonatomic, retain) UIImageView *background;
 @property (nonatomic, retain) BCPContent *content;
-@property (nonatomic, retain) UIScrollView *scrollView;
+@property (nonatomic, retain) BCPScrollView *scrollView;
 @property (nonatomic, retain) UITableView *sidebar;
 @property (nonatomic, retain) UITableViewController *sidebarController;
 

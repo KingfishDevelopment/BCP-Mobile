@@ -13,6 +13,8 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        self.keyboardVisible = NO;
+        
         self.navigationBar = [[BCPNavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, NAVIGATION_BAR_HEIGHT)];
         [self.navigationBar setText:@"Login"];
         
@@ -25,6 +27,7 @@
         self.textFieldContainer.layer.shadowColor = [UIColor BCPOffBlack].CGColor;
         self.textFieldContainer.layer.shadowOffset = CGSizeMake(0, 4);
         self.textFieldContainer.layer.shadowOpacity = 0.8;
+        [[self.textFieldContainer layer] setShadowPath:[UIBezierPath bezierPathWithRect:self.textFieldContainer.bounds].CGPath];
         self.textFieldContainer.layer.shadowRadius = 4;
         self.textFieldContainer.clipsToBounds = NO;
         [self addSubview:self.textFieldContainer];
@@ -56,11 +59,26 @@
 }
 
 - (void)layoutSubviews {
-    [self.icon setFrame:CGRectMake((self.bounds.size.width-LOGIN_ICON_WIDTH)/2, (self.navigationBar.bounds.size.height+self.bounds.size.height)/2-LOGIN_ICON_WIDTH-CONTENT_MIDDLE_PADDING, LOGIN_ICON_WIDTH, LOGIN_ICON_WIDTH)];
+    CGFloat keyboardDifference = self.keyboardVisible?120:0;
+    [self.icon setFrame:CGRectMake((self.bounds.size.width-LOGIN_ICON_WIDTH)/2, (self.navigationBar.bounds.size.height+self.bounds.size.height)/2-LOGIN_ICON_WIDTH-CONTENT_MIDDLE_PADDING-keyboardDifference, LOGIN_ICON_WIDTH, LOGIN_ICON_WIDTH)];
     CGFloat textContainerWidth = MIN(320,self.bounds.size.width-(CONTENT_SIDE_PADDING*2));
-    [self.textFieldContainer setFrame:CGRectMake((self.bounds.size.width-textContainerWidth)/2, self.bounds.size.height/2+CONTENT_MIDDLE_PADDING, textContainerWidth, TEXTBOX_HEIGHT*2)];
+    [self.textFieldContainer setFrame:CGRectMake((self.bounds.size.width-textContainerWidth)/2, self.bounds.size.height/2+CONTENT_MIDDLE_PADDING-keyboardDifference, textContainerWidth, TEXTBOX_HEIGHT*2)];
     [self.textFieldPassword setFrame:CGRectMake(TEXTBOX_PADDING, self.textFieldContainer.frame.size.height/2, self.textFieldContainer.frame.size.width-TEXTBOX_PADDING*2, self.textFieldContainer.frame.size.height/2-TEXTBOX_PADDING)];
     [self.textFieldUsername setFrame:CGRectMake(TEXTBOX_PADDING, TEXTBOX_PADDING, self.textFieldContainer.frame.size.width-TEXTBOX_PADDING*2, self.textFieldContainer.frame.size.height/2-TEXTBOX_PADDING)];
+}
+
+- (void)shown {
+    [[BCPCommon viewController] registerKeyboardWithShown:^(void) {
+        self.keyboardVisible = YES;
+        [UIView animateWithDuration:0.25 animations:^(void) {
+            [self layoutSubviews];
+        }];
+    } hidden:^(void) {
+        self.keyboardVisible = NO;
+        [UIView animateWithDuration:0.25 animations:^(void) {
+            [self layoutSubviews];
+        }];
+    }];
 }
 
 @end

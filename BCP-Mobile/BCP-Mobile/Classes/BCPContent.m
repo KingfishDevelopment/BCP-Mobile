@@ -16,8 +16,10 @@
         [[self layer] setMasksToBounds:NO];
         [[self layer] setShadowOffset:CGSizeMake(0, 2)];
         [[self layer] setShadowOpacity:0.5];
+        [[self layer] setShadowPath:[UIBezierPath bezierPathWithRect:self.bounds].CGPath];
         [[self layer] setShadowRadius:6];
         [self setBackgroundColor:[UIColor BCPOffWhite]];
+        [self setUserInteractionEnabled:YES];
         
         /*UIView *block = [[UIView alloc] initWithFrame:CGRectMake((self.bounds.size.width-50)/2, (self.bounds.size.height-50)/2, 50, 50)];
         [block setAutoresizingMask:UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin];
@@ -41,7 +43,7 @@
     for(NSString *key in [self.views allKeys]) {
         [[self.views objectForKey:key] setHidden:![key isEqualToString:view]];
         if([key isEqualToString:view]) {
-            //[BCPCommon setKeyboardOwner:[self.views objectForKey:key]];
+            [[self.views objectForKey:key] shown];
         }
     }
 }

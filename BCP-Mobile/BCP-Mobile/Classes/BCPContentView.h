@@ -13,4 +13,6 @@
 
 @property (nonatomic, retain) UIImageView *background;
 
+- (void)shown;
+
 @end

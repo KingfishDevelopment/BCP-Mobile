@@ -14,8 +14,6 @@
 
 @implementation BCPViewController
 
-typedef void (^RotationBlock)(void);
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -26,7 +24,9 @@ typedef void (^RotationBlock)(void);
     self.registeredAfterBlocks = [[NSMutableArray alloc] init];
     self.registeredBeforeAnimationBlocks = [[NSMutableArray alloc] init];
     self.registeredBeforeBlocks = [[NSMutableArray alloc] init];
-	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShown:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardHidden:) name:UIKeyboardWillHideNotification object:nil];
+    
     self.interface = [[BCPInterface alloc] initWithFrame:self.view.bounds];
     [self.interface setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
     [self.view addSubview:self.interface];
@@ -43,6 +43,14 @@ typedef void (^RotationBlock)(void);
 
 - (void)errorWithMessage:(NSString *)message {
     
+}
+
+- (void)keyboardHidden:(NSNotification*)notification {
+    self.keyboardHidden();
+}
+
+- (void)keyboardShown:(NSNotification*)notification {
+    self.keyboardShown();
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -62,6 +70,11 @@ typedef void (^RotationBlock)(void);
 - (void)registerBlockForBeforeRotation:(void (^)())block {
     [self.registeredBeforeBlocks addObject:block];
     block();
+}
+
+- (void)registerKeyboardWithShown:(void (^)())shown hidden:(void (^)())hidden {
+    self.keyboardHidden = hidden;
+    self.keyboardShown = shown;
 }
 
 - (void)setScrollsToTop:(UIScrollView *)scrollView {
@@ -89,11 +102,6 @@ typedef void (^RotationBlock)(void);
 - (void)showContentView:(NSString *)view {
     [[self.interface content] showContentView:view];
     [[self.interface scrollView] setContentOffset:CGPointMake(SIDEBAR_WIDTH, 0) animated:YES];
-    /*
-     [UIView animateWithDuration:0.25 animations:^{
-     [[self.interface scrollView] setContentOffset:CGPointMake(SIDEBAR_WIDTH, 0)];
-     }];
-     */
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)orientation duration:(NSTimeInterval)duration {

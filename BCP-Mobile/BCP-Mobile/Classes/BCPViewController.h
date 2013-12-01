@@ -11,7 +11,12 @@
 
 @interface BCPViewController : UIViewController <BCPViewControllerDelegate>
 
+typedef void (^RotationBlock)(void);
+typedef void (^KeyboardBlock)(void);
+
 @property (nonatomic, retain) BCPInterface *interface;
+@property (nonatomic, copy) KeyboardBlock keyboardShown;
+@property (nonatomic, copy) KeyboardBlock keyboardHidden;
 @property (nonatomic, retain) NSMutableArray *registeredAfterBlocks;
 @property (nonatomic, retain) NSMutableArray *registeredBeforeAnimationBlocks;
 @property (nonatomic, retain) NSMutableArray *registeredBeforeBlocks;

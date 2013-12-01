@@ -16,6 +16,7 @@
     if (self) {
         [self setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
         [self setBackgroundColor:[UIColor BCPBlue]];
+        [self setUserInteractionEnabled:YES];
         
         self.background = [[UIImageView alloc] initWithFrame:self.bounds];
         [self.background setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
@@ -23,6 +24,10 @@
         [self addSubview:self.background];
     }
     return self;
+}
+
+- (void)shown {
+    
 }
 
 @end

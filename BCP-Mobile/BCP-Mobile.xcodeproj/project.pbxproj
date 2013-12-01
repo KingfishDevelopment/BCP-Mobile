@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0206C2FA184AF84D003A14F1 /* BCPScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0206C2F9184AF84D003A14F1 /* BCPScrollView.m */; };
 		020B92EB1839B44800F610DB /* BCPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 020B92EA1839B44800F610DB /* BCPViewController.m */; };
 		020B92EE1839B85200F610DB /* BCPInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 020B92ED1839B85200F610DB /* BCPInterface.m */; };
 		020B92F21839C0B200F610DB /* UIColor+BCPColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 020B92F11839C0B200F610DB /* UIColor+BCPColors.m */; };
@@ -68,6 +69,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0206C2F8184AF84D003A14F1 /* BCPScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCPScrollView.h; sourceTree = "<group>"; };
+		0206C2F9184AF84D003A14F1 /* BCPScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCPScrollView.m; sourceTree = "<group>"; };
 		020B92E91839B44800F610DB /* BCPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCPViewController.h; sourceTree = "<group>"; };
 		020B92EA1839B44800F610DB /* BCPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCPViewController.m; sourceTree = "<group>"; };
 		020B92EC1839B85200F610DB /* BCPInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCPInterface.h; sourceTree = "<group>"; };
@@ -209,6 +212,8 @@
 				020B92ED1839B85200F610DB /* BCPInterface.m */,
 				020EFAA61847E6730011C9D1 /* BCPNavigationBar.h */,
 				020EFAA71847E6730011C9D1 /* BCPNavigationBar.m */,
+				0206C2F8184AF84D003A14F1 /* BCPScrollView.h */,
+				0206C2F9184AF84D003A14F1 /* BCPScrollView.m */,
 				025D835C18418EA100DF5537 /* BCPSidebarCell.h */,
 				025D835D18418EA100DF5537 /* BCPSidebarCell.m */,
 				020B92FD1839F80E00F610DB /* BCPSidebarController.h */,
@@ -491,6 +496,7 @@
 				023DD49C184910E900B03F75 /* FUIButton.m in Sources */,
 				023DD4AC184910E900B03F75 /* UITableViewCell+FlatUI.m in Sources */,
 				020EFAAB1847E9B30011C9D1 /* BCPContentView.m in Sources */,
+				0206C2FA184AF84D003A14F1 /* BCPScrollView.m in Sources */,
 				020B92EE1839B85200F610DB /* BCPInterface.m in Sources */,
 				023DD4AB184910E900B03F75 /* UITabBar+FlatUI.m in Sources */,
 				023DD4A5184910E900B03F75 /* UIImage+FlatUI.m in Sources */,

@@ -18,7 +18,7 @@
         [self.background setImage:[UIImage imageNamed:@"Background"]];
         [self addSubview:self.background];
         
-        self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SIDEBAR_WIDTH, self.bounds.size.height)];
+        self.scrollView = [[BCPScrollView alloc] initWithFrame:CGRectMake(0, 0, SIDEBAR_WIDTH, self.bounds.size.height)];
         
         self.sidebarController = [[BCPSidebarController alloc] init];
         self.sidebar = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SIDEBAR_WIDTH, self.bounds.size.height)];
@@ -62,7 +62,10 @@
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
     if(self.scrollView.contentOffset.x==0&&point.x<MIN(self.content.frame.origin.x,self.bounds.size.width-100))
         return self.sidebar;
-    return self.scrollView;
+    UIView *view = [super hitTest:point withEvent:event];
+    if (view == self)
+        return self.scrollView;
+    return view;
 }
 
 - (void)layoutContent {
@@ -88,6 +91,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self layoutContent];
     [self layoutSidebar];
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
     if(scrollView.contentOffset.x==0) {
         [[BCPCommon viewController] setScrollsToTop:self.sidebar];
         [self.content setUserInteractionEnabled:NO];
