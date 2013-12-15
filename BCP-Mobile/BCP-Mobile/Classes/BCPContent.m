@@ -17,11 +17,18 @@
         [[self layer] setShadowOffset:CGSizeMake(0, 2)];
         [[self layer] setShadowOpacity:0.4];
         [[self layer] setShadowPath:[UIBezierPath bezierPathWithRect:self.bounds].CGPath];
+        [[BCPCommon viewController] registerBlockForBeforeAnimationRotation:^(void) {
+            [[self layer] setShadowPath:[UIBezierPath bezierPathWithRect:self.bounds].CGPath];
+            [[self layer] setShadowOpacity:0];
+        }];
+        [[BCPCommon viewController] registerBlockForAfterRotation:^(void) {
+            [[self layer] setShadowPath:[UIBezierPath bezierPathWithRect:self.bounds].CGPath];
+            [[self layer] setShadowOpacity:0.4];
+        }];
         [[self layer] setShadowRadius:2];
         [self setBackgroundColor:[UIColor BCPOffWhite]];
         [self setUserInteractionEnabled:YES];
-        
-        self.views = [NSDictionary dictionaryWithObjectsAndKeys:[[BCPContentLogin alloc] initWithFrame:self.bounds],@"Login",nil];
+        self.views = [NSDictionary dictionaryWithObjectsAndKeys:[[BCPContentLogin alloc] initWithFrame:self.bounds],@"Login",[[BCPContentLogout alloc] initWithFrame:self.bounds],@"Logout",nil];
         for(NSString *key in [self.views allKeys]) {
             [[self.views objectForKey:key] setHidden:YES];
             [self addSubview:[self.views objectForKey:key]];

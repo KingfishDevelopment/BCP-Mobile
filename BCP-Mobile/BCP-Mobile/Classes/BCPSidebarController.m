@@ -35,13 +35,31 @@
         cell = [[BCPSidebarCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     [cell setDividerHidden:indexPath.row==0];
-    [cell setText:[[self.sections objectAtIndex:indexPath.section/2] objectAtIndex:indexPath.row]];
+    NSString *row = [[self.sections objectAtIndex:indexPath.section/2] objectAtIndex:indexPath.row];
+    bool disableCell = false;
+    if([[BCPData data] objectForKey:@"login"]&&[row isEqualToString:@"Login"]) {
+        if([row isEqualToString:@"Login"])
+            row = @"Logout";
+    }
+    if(indexPath.section==1) {
+        if([row isEqualToString:@"Login"]) {
+            if([[BCPData data] objectForKey:@"login"])
+                row = @"Logout";
+        }
+        else if(![[BCPData data] objectForKey:@"login"])
+            disableCell = true;
+    }
+    [cell setUserInteractionEnabled:!disableCell];
+    [cell setText:row];
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [[BCPCommon viewController] showContentView:[[self.sections objectAtIndex:indexPath.section/2] objectAtIndex:indexPath.row]];
+    NSString *row = [[self.sections objectAtIndex:indexPath.section/2] objectAtIndex:indexPath.row];
+    if([row isEqualToString:@"Login"]&&[[BCPData data] objectForKey:@"login"])
+        row = @"Logout";
+    [[BCPCommon viewController] showContentView:row];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {

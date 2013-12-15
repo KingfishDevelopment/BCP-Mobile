@@ -29,6 +29,7 @@
 		020EFAB71847EC1D0011C9D1 /* ShadowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 020EFAB11847EC1D0011C9D1 /* ShadowRight@2x.png */; };
 		020EFABA1847F1020011C9D1 /* PlainBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 020EFAB81847F1020011C9D1 /* PlainBackground.png */; };
 		020EFABB1847F1020011C9D1 /* PlainBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 020EFAB91847F1020011C9D1 /* PlainBackground@2x.png */; };
+		0232FF66185E578C00377C24 /* BCPContentLogout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0232FF65185E578C00377C24 /* BCPContentLogout.m */; };
 		023DD49B184910E900B03F75 /* FUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 023DD476184910E900B03F75 /* FUIAlertView.m */; };
 		023DD49C184910E900B03F75 /* FUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 023DD478184910E900B03F75 /* FUIButton.m */; };
 		023DD49D184910E900B03F75 /* FUICellBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 023DD47A184910E900B03F75 /* FUICellBackgroundView.m */; };
@@ -98,6 +99,8 @@
 		020EFAB11847EC1D0011C9D1 /* ShadowRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShadowRight@2x.png"; sourceTree = "<group>"; };
 		020EFAB81847F1020011C9D1 /* PlainBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlainBackground.png; sourceTree = "<group>"; };
 		020EFAB91847F1020011C9D1 /* PlainBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlainBackground@2x.png"; sourceTree = "<group>"; };
+		0232FF64185E578C00377C24 /* BCPContentLogout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCPContentLogout.h; sourceTree = "<group>"; };
+		0232FF65185E578C00377C24 /* BCPContentLogout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCPContentLogout.m; sourceTree = "<group>"; };
 		023DD474184910E900B03F75 /* FlatUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatUIKit.h; sourceTree = "<group>"; };
 		023DD475184910E900B03F75 /* FUIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIAlertView.h; sourceTree = "<group>"; };
 		023DD476184910E900B03F75 /* FUIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIAlertView.m; sourceTree = "<group>"; };
@@ -234,6 +237,8 @@
 			children = (
 				020EFAA31847DE390011C9D1 /* BCPContentLogin.h */,
 				020EFAA41847DE390011C9D1 /* BCPContentLogin.m */,
+				0232FF64185E578C00377C24 /* BCPContentLogout.h */,
+				0232FF65185E578C00377C24 /* BCPContentLogout.m */,
 			);
 			name = "Content Views";
 			sourceTree = "<group>";
@@ -455,6 +460,7 @@
 				0206C2FA184AF84D003A14F1 /* BCPScrollView.m in Sources */,
 				020B92EE1839B85200F610DB /* BCPInterface.m in Sources */,
 				023DD4AB184910E900B03F75 /* UITabBar+FlatUI.m in Sources */,
+				0232FF66185E578C00377C24 /* BCPContentLogout.m in Sources */,
 				023DD4A5184910E900B03F75 /* UIImage+FlatUI.m in Sources */,
 				023DD4A6184910E900B03F75 /* UINavigationBar+FlatUI.m in Sources */,
 				020B92F51839D0F700F610DB /* BCPConstants.m in Sources */,

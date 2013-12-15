@@ -68,4 +68,10 @@
     [self.icon setImage:tabImage];
 }
 
+- (void)setUserInteractionEnabled:(BOOL)userInteractionEnabled {
+    [super setUserInteractionEnabled:userInteractionEnabled];
+    [self.icon setAlpha:userInteractionEnabled?1:0.5];
+    [self.label setAlpha:userInteractionEnabled?1:0.5];
+}
+
 @end

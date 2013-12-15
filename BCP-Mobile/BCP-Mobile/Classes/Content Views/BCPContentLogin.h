@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) UIImageView *icon;
 @property (nonatomic) BOOL keyboardVisible;
+@property (nonatomic, strong) UILabel *loggedInLabel;
 @property (nonatomic, strong) BCPNavigationBar *navigationBar;
 @property (nonatomic, strong) UIView *textFieldContainer;
 @property (nonatomic, strong) UITextField *textFieldPassword;

@@ -75,6 +75,10 @@
     return UIStatusBarStyleLightContent;
 }
 
+- (void)reloadSidebar {
+    [[[self interface] sidebar] performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+}
+
 - (void)registerBlockForAfterRotation:(void (^)())block {
     [self.registeredAfterBlocks addObject:block];
     block();

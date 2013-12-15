@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BCPContentLogin.h"
+#import "BCPContentLogout.h"
 
 @interface BCPContent : UIView
 
