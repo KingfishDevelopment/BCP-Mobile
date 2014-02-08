@@ -30,6 +30,8 @@
     self.interface = [[BCPInterface alloc] initWithFrame:self.view.bounds];
     [self.interface setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
     [self.view addSubview:self.interface];
+    
+    [TSMessage setDefaultViewController:self];
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
@@ -57,6 +59,13 @@
     [BCPCommon alertWithTitle:title withText:message];
 }
 
+- (void)insertSubviewBelowNavigationBar:(UIView *)view {
+    if([self.interface.content.currentView respondsToSelector:@selector(navigationBar)])
+        [self.interface.content.currentView insertSubview:view belowSubview:[self.interface.content.currentView valueForKey:@"navigationBar"]];
+    else
+        [self.interface.content.currentView addSubview:view];
+}
+
 - (void)keyboardHidden:(NSNotification*)notification {
     self.keyboardHidden();
 }
@@ -66,9 +75,17 @@
 }
 
 - (void)loggedIn {
+    //[TSMessage showNotificationInViewController:self title:@"Logged In!" subtitle:@"You may now access new sections from the sidebar." image:nil type:TSMessageNotificationTypeSuccess duration:5 callback:nil buttonTitle:nil buttonCallback:nil atPosition:TSMessageNotificationPositionBottom canBeDismisedByUser:YES];
+    [TSMessage showNotificationWithTitle:@"Logged In!" subtitle:@"You may now access new sections from the sidebar." type:TSMessageNotificationTypeSuccess];
     [UIView animateWithDuration:0.25 animations:^(void) {
         [((BCPContentLogin *)[self.interface.content.views objectForKey:@"Login"]).textFieldContainer setAlpha:0];
     }];
+}
+
+- (int)navigationBarHeight {
+    if([self.interface.content.currentView respondsToSelector:@selector(navigationBar)])
+        return ((BCPNavigationBar *)[self.interface.content.currentView valueForKey:@"navigationBar"]).frame.size.height;
+    return 0;
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {

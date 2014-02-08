@@ -12,8 +12,10 @@
 
 @interface BCPContent : UIView
 
+@property (nonatomic, strong) NSString *currentViewName;
 @property (nonatomic, strong) NSDictionary *views;
 
+- (UIView *)currentView;
 - (void)showContentView:(NSString *)view;
 
 @end

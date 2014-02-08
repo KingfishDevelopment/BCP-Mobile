@@ -10,10 +10,12 @@
 
 @interface UIColor (BCPColors)
 
++ (UIColor *)BCPBackgroundColor;
 + (UIColor *)BCPBlue;
 + (UIColor *)BCPDarkBlue;
 + (UIColor *)BCPOffBlack;
 + (UIColor *)BCPOffWhite;
++ (UIColor *)BCPNavigationBarColor;
 + (UIColor *)BCPSidebarColor;
 + (UIColor *)BCPSidebarAccentColor;
 + (UIColor *)BCPSidebarSelectedColor;

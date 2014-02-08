@@ -13,6 +13,7 @@
 #import "BCPDelegates.h"
 #import "FUIAlertView.h"
 #import "FUIButton.h"
+#import "TSMessage.h"
 #import "UIColor+BCPColors.h"
 
 @interface BCPCommon : NSObject

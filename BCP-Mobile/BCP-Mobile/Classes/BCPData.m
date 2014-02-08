@@ -110,7 +110,7 @@ static NSString *path = nil;
         NSString *password = [details objectForKey:@"password"];
         credentials = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:username,password,nil] forKeys:[NSArray arrayWithObjects:@"username",@"password",nil]];
     }
-    requestURL = [requestURL stringByAppendingString:[@"kingfi.sh/api/bcpmobile/v2/" stringByAppendingString:[requestString stringByAppendingString:@"#"]]];
+    requestURL = [requestURL stringByAppendingString:[@"kingfi.sh/api/bcpmobile/2.0/" stringByAppendingString:[requestString stringByAppendingString:@"#"]]];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:requestURL]];
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     [connectionResponses setObject:[NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSMutableData data],completionBlock,(credentials?credentials:[NSNull null]),requestString,nil] forKeys:[NSArray arrayWithObjects:@"data",@"completionBlock",@"credentials",@"request",nil]] forKey:[NSValue valueWithNonretainedObject:connection]];

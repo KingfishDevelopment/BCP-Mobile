@@ -57,6 +57,27 @@
 		020EFAB71847EC1D0011C9D1 /* ShadowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 020EFAB11847EC1D0011C9D1 /* ShadowRight@2x.png */; };
 		020EFABA1847F1020011C9D1 /* PlainBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 020EFAB81847F1020011C9D1 /* PlainBackground.png */; };
 		020EFABB1847F1020011C9D1 /* PlainBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 020EFAB91847F1020011C9D1 /* PlainBackground@2x.png */; };
+		0220D7C1188B1DC1000C063D /* TSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0220D7A8188B1DC1000C063D /* TSMessage.m */; };
+		0220D7C2188B1DC1000C063D /* NotificationBackgroundError.png in Resources */ = {isa = PBXBuildFile; fileRef = 0220D7AB188B1DC1000C063D /* NotificationBackgroundError.png */; };
+		0220D7C3188B1DC1000C063D /* NotificationBackgroundError@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0220D7AC188B1DC1000C063D /* NotificationBackgroundError@2x.png */; };
+		0220D7C4188B1DC1000C063D /* NotificationBackgroundErrorIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0220D7AD188B1DC1000C063D /* NotificationBackgroundErrorIcon.png */; };
+		0220D7C5188B1DC1000C063D /* NotificationBackgroundErrorIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0220D7AE188B1DC1000C063D /* NotificationBackgroundErrorIcon@2x.png */; };
+		0220D7C6188B1DC1000C063D /* NotificationBackgroundMessage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0220D7AF188B1DC1000C063D /* NotificationBackgroundMessage.png */; };
+		0220D7C7188B1DC1000C063D /* NotificationBackgroundMessage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0220D7B0188B1DC1000C063D /* NotificationBackgroundMessage@2x.png */; };
+		0220D7C8188B1DC1000C063D /* NotificationBackgroundSuccess.png in Resources */ = {isa = PBXBuildFile; fileRef = 0220D7B1188B1DC1000C063D /* NotificationBackgroundSuccess.png */; };
+		0220D7C9188B1DC1000C063D /* NotificationBackgroundSuccess@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0220D7B2188B1DC1000C063D /* NotificationBackgroundSuccess@2x.png */; };
+		0220D7CA188B1DC1000C063D /* NotificationBackgroundSuccessIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0220D7B3188B1DC1000C063D /* NotificationBackgroundSuccessIcon.png */; };
+		0220D7CB188B1DC1000C063D /* NotificationBackgroundSuccessIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0220D7B4188B1DC1000C063D /* NotificationBackgroundSuccessIcon@2x.png */; };
+		0220D7CC188B1DC1000C063D /* NotificationBackgroundWarning.png in Resources */ = {isa = PBXBuildFile; fileRef = 0220D7B5188B1DC1000C063D /* NotificationBackgroundWarning.png */; };
+		0220D7CD188B1DC1000C063D /* NotificationBackgroundWarning@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0220D7B6188B1DC1000C063D /* NotificationBackgroundWarning@2x.png */; };
+		0220D7CE188B1DC1000C063D /* NotificationBackgroundWarningIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0220D7B7188B1DC1000C063D /* NotificationBackgroundWarningIcon.png */; };
+		0220D7CF188B1DC1000C063D /* NotificationBackgroundWarningIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0220D7B8188B1DC1000C063D /* NotificationBackgroundWarningIcon@2x.png */; };
+		0220D7D0188B1DC1000C063D /* NotificationButtonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 0220D7B9188B1DC1000C063D /* NotificationButtonBackground.png */; };
+		0220D7D1188B1DC1000C063D /* NotificationButtonBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0220D7BA188B1DC1000C063D /* NotificationButtonBackground@2x.png */; };
+		0220D7D2188B1DC1000C063D /* TSMessagesDefaultDesign.json in Resources */ = {isa = PBXBuildFile; fileRef = 0220D7BB188B1DC1000C063D /* TSMessagesDefaultDesign.json */; };
+		0220D7D3188B1DC1000C063D /* TSBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0220D7BE188B1DC1000C063D /* TSBlurView.m */; };
+		0220D7D4188B1DC1000C063D /* TSMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0220D7C0188B1DC1000C063D /* TSMessageView.m */; };
+		0220D7D7188B1E4E000C063D /* HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0220D7D6188B1E4E000C063D /* HexColor.m */; };
 		0232FF66185E578C00377C24 /* BCPContentLogout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0232FF65185E578C00377C24 /* BCPContentLogout.m */; };
 		023DD49B184910E900B03F75 /* FUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 023DD476184910E900B03F75 /* FUIAlertView.m */; };
 		023DD49C184910E900B03F75 /* FUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 023DD478184910E900B03F75 /* FUIButton.m */; };
@@ -155,6 +176,31 @@
 		020EFAB11847EC1D0011C9D1 /* ShadowRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShadowRight@2x.png"; sourceTree = "<group>"; };
 		020EFAB81847F1020011C9D1 /* PlainBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlainBackground.png; sourceTree = "<group>"; };
 		020EFAB91847F1020011C9D1 /* PlainBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlainBackground@2x.png"; sourceTree = "<group>"; };
+		0220D7A7188B1DC1000C063D /* TSMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMessage.h; sourceTree = "<group>"; };
+		0220D7A8188B1DC1000C063D /* TSMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMessage.m; sourceTree = "<group>"; };
+		0220D7AB188B1DC1000C063D /* NotificationBackgroundError.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundError.png; sourceTree = "<group>"; };
+		0220D7AC188B1DC1000C063D /* NotificationBackgroundError@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundError@2x.png"; sourceTree = "<group>"; };
+		0220D7AD188B1DC1000C063D /* NotificationBackgroundErrorIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundErrorIcon.png; sourceTree = "<group>"; };
+		0220D7AE188B1DC1000C063D /* NotificationBackgroundErrorIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundErrorIcon@2x.png"; sourceTree = "<group>"; };
+		0220D7AF188B1DC1000C063D /* NotificationBackgroundMessage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundMessage.png; sourceTree = "<group>"; };
+		0220D7B0188B1DC1000C063D /* NotificationBackgroundMessage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundMessage@2x.png"; sourceTree = "<group>"; };
+		0220D7B1188B1DC1000C063D /* NotificationBackgroundSuccess.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundSuccess.png; sourceTree = "<group>"; };
+		0220D7B2188B1DC1000C063D /* NotificationBackgroundSuccess@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundSuccess@2x.png"; sourceTree = "<group>"; };
+		0220D7B3188B1DC1000C063D /* NotificationBackgroundSuccessIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundSuccessIcon.png; sourceTree = "<group>"; };
+		0220D7B4188B1DC1000C063D /* NotificationBackgroundSuccessIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundSuccessIcon@2x.png"; sourceTree = "<group>"; };
+		0220D7B5188B1DC1000C063D /* NotificationBackgroundWarning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundWarning.png; sourceTree = "<group>"; };
+		0220D7B6188B1DC1000C063D /* NotificationBackgroundWarning@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundWarning@2x.png"; sourceTree = "<group>"; };
+		0220D7B7188B1DC1000C063D /* NotificationBackgroundWarningIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundWarningIcon.png; sourceTree = "<group>"; };
+		0220D7B8188B1DC1000C063D /* NotificationBackgroundWarningIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundWarningIcon@2x.png"; sourceTree = "<group>"; };
+		0220D7B9188B1DC1000C063D /* NotificationButtonBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationButtonBackground.png; sourceTree = "<group>"; };
+		0220D7BA188B1DC1000C063D /* NotificationButtonBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationButtonBackground@2x.png"; sourceTree = "<group>"; };
+		0220D7BB188B1DC1000C063D /* TSMessagesDefaultDesign.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TSMessagesDefaultDesign.json; sourceTree = "<group>"; };
+		0220D7BD188B1DC1000C063D /* TSBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSBlurView.h; sourceTree = "<group>"; };
+		0220D7BE188B1DC1000C063D /* TSBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSBlurView.m; sourceTree = "<group>"; };
+		0220D7BF188B1DC1000C063D /* TSMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMessageView.h; sourceTree = "<group>"; };
+		0220D7C0188B1DC1000C063D /* TSMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMessageView.m; sourceTree = "<group>"; };
+		0220D7D5188B1E4E000C063D /* HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexColor.h; sourceTree = "<group>"; };
+		0220D7D6188B1E4E000C063D /* HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexColor.m; sourceTree = "<group>"; };
 		0232FF64185E578C00377C24 /* BCPContentLogout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCPContentLogout.h; sourceTree = "<group>"; };
 		0232FF65185E578C00377C24 /* BCPContentLogout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCPContentLogout.m; sourceTree = "<group>"; };
 		023DD474184910E900B03F75 /* FlatUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatUIKit.h; sourceTree = "<group>"; };
@@ -335,6 +381,70 @@
 			name = "Content Views";
 			sourceTree = "<group>";
 		};
+		0220D7A5188B1DC1000C063D /* TSMessages */ = {
+			isa = PBXGroup;
+			children = (
+				0220D7A6188B1DC1000C063D /* Classes */,
+				0220D7A9188B1DC1000C063D /* Resources */,
+				0220D7BC188B1DC1000C063D /* Views */,
+			);
+			path = TSMessages;
+			sourceTree = "<group>";
+		};
+		0220D7A6188B1DC1000C063D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0220D7D5188B1E4E000C063D /* HexColor.h */,
+				0220D7D6188B1E4E000C063D /* HexColor.m */,
+				0220D7A7188B1DC1000C063D /* TSMessage.h */,
+				0220D7A8188B1DC1000C063D /* TSMessage.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		0220D7A9188B1DC1000C063D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0220D7AA188B1DC1000C063D /* Images */,
+				0220D7BB188B1DC1000C063D /* TSMessagesDefaultDesign.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0220D7AA188B1DC1000C063D /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				0220D7AB188B1DC1000C063D /* NotificationBackgroundError.png */,
+				0220D7AC188B1DC1000C063D /* NotificationBackgroundError@2x.png */,
+				0220D7AD188B1DC1000C063D /* NotificationBackgroundErrorIcon.png */,
+				0220D7AE188B1DC1000C063D /* NotificationBackgroundErrorIcon@2x.png */,
+				0220D7AF188B1DC1000C063D /* NotificationBackgroundMessage.png */,
+				0220D7B0188B1DC1000C063D /* NotificationBackgroundMessage@2x.png */,
+				0220D7B1188B1DC1000C063D /* NotificationBackgroundSuccess.png */,
+				0220D7B2188B1DC1000C063D /* NotificationBackgroundSuccess@2x.png */,
+				0220D7B3188B1DC1000C063D /* NotificationBackgroundSuccessIcon.png */,
+				0220D7B4188B1DC1000C063D /* NotificationBackgroundSuccessIcon@2x.png */,
+				0220D7B5188B1DC1000C063D /* NotificationBackgroundWarning.png */,
+				0220D7B6188B1DC1000C063D /* NotificationBackgroundWarning@2x.png */,
+				0220D7B7188B1DC1000C063D /* NotificationBackgroundWarningIcon.png */,
+				0220D7B8188B1DC1000C063D /* NotificationBackgroundWarningIcon@2x.png */,
+				0220D7B9188B1DC1000C063D /* NotificationButtonBackground.png */,
+				0220D7BA188B1DC1000C063D /* NotificationButtonBackground@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		0220D7BC188B1DC1000C063D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0220D7BD188B1DC1000C063D /* TSBlurView.h */,
+				0220D7BE188B1DC1000C063D /* TSBlurView.m */,
+				0220D7BF188B1DC1000C063D /* TSMessageView.h */,
+				0220D7C0188B1DC1000C063D /* TSMessageView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		023DD473184910E900B03F75 /* FlatUIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +546,7 @@
 			isa = PBXGroup;
 			children = (
 				023DD473184910E900B03F75 /* FlatUIKit */,
+				0220D7A5188B1DC1000C063D /* TSMessages */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -499,46 +610,63 @@
 			files = (
 				020EFABA1847F1020011C9D1 /* PlainBackground.png in Resources */,
 				020EFAB61847EC1D0011C9D1 /* ShadowRight.png in Resources */,
+				0220D7CB188B1DC1000C063D /* NotificationBackgroundSuccessIcon@2x.png in Resources */,
 				0206598E188A330B00EA6BD6 /* TabLogin.png in Resources */,
 				023DD4B0184914BF00B03F75 /* RoundedIcon.png in Resources */,
 				02065997188A330B00EA6BD6 /* TabRateThisApp@2x.png in Resources */,
 				02D99611184BC418009E7A44 /* NavigationBar.png in Resources */,
+				0220D7C3188B1DC1000C063D /* NotificationBackgroundError@2x.png in Resources */,
 				020EFA9E1846EC630011C9D1 /* Background.png in Resources */,
 				02065984188A330B00EA6BD6 /* TabAnnouncements.png in Resources */,
+				0220D7CA188B1DC1000C063D /* NotificationBackgroundSuccessIcon.png in Resources */,
+				0220D7C9188B1DC1000C063D /* NotificationBackgroundSuccess@2x.png in Resources */,
 				02065988188A330B00EA6BD6 /* TabCSPHours.png in Resources */,
 				02065998188A330B00EA6BD6 /* TabSchedule.png in Resources */,
 				02065990188A330B00EA6BD6 /* TabLogout.png in Resources */,
 				0206598C188A330B00EA6BD6 /* TabGrades.png in Resources */,
 				020EFABB1847F1020011C9D1 /* PlainBackground@2x.png in Resources */,
 				02065996188A330B00EA6BD6 /* TabRateThisApp.png in Resources */,
+				0220D7D0188B1DC1000C063D /* NotificationButtonBackground.png in Resources */,
 				02065994188A330B00EA6BD6 /* TabPlanner.png in Resources */,
 				02D99612184BC418009E7A44 /* NavigationBar@2x.png in Resources */,
 				0206599A188A330B00EA6BD6 /* TabSettings.png in Resources */,
 				02065995188A330B00EA6BD6 /* TabPlanner@2x.png in Resources */,
+				0220D7CD188B1DC1000C063D /* NotificationBackgroundWarning@2x.png in Resources */,
 				0206598D188A330B00EA6BD6 /* TabGrades@2x.png in Resources */,
 				0206598F188A330B00EA6BD6 /* TabLogin@2x.png in Resources */,
 				02065999188A330B00EA6BD6 /* TabSchedule@2x.png in Resources */,
 				02065982188A330B00EA6BD6 /* TabAbout.png in Resources */,
+				0220D7C7188B1DC1000C063D /* NotificationBackgroundMessage@2x.png in Resources */,
 				02065992188A330B00EA6BD6 /* TabNews.png in Resources */,
 				020EFAB21847EC1D0011C9D1 /* ShadowAbove.png in Resources */,
 				020EFAB41847EC1D0011C9D1 /* ShadowBelow.png in Resources */,
 				0267ECFF1839ABB400E3B08B /* InfoPlist.strings in Resources */,
+				0220D7C4188B1DC1000C063D /* NotificationBackgroundErrorIcon.png in Resources */,
+				0220D7D2188B1DC1000C063D /* TSMessagesDefaultDesign.json in Resources */,
 				02065989188A330B00EA6BD6 /* TabCSPHours@2x.png in Resources */,
+				0220D7D1188B1DC1000C063D /* NotificationButtonBackground@2x.png in Resources */,
 				02065987188A330B00EA6BD6 /* TabCalendar@2x.png in Resources */,
 				020EFA9F1846EC630011C9D1 /* Background@2x.png in Resources */,
 				02065986188A330B00EA6BD6 /* TabCalendar.png in Resources */,
+				0220D7CF188B1DC1000C063D /* NotificationBackgroundWarningIcon@2x.png in Resources */,
+				0220D7C6188B1DC1000C063D /* NotificationBackgroundMessage.png in Resources */,
 				020EFAB31847EC1D0011C9D1 /* ShadowAbove@2x.png in Resources */,
+				0220D7CE188B1DC1000C063D /* NotificationBackgroundWarningIcon.png in Resources */,
 				020EFAB71847EC1D0011C9D1 /* ShadowRight@2x.png in Resources */,
+				0220D7C8188B1DC1000C063D /* NotificationBackgroundSuccess.png in Resources */,
 				0206599D188A330B00EA6BD6 /* TabSportsResults@2x.png in Resources */,
 				02065983188A330B00EA6BD6 /* TabAbout@2x.png in Resources */,
 				023DD4B1184914BF00B03F75 /* RoundedIcon@2x.png in Resources */,
 				02065985188A330B00EA6BD6 /* TabAnnouncements@2x.png in Resources */,
 				0206599C188A330B00EA6BD6 /* TabSportsResults.png in Resources */,
+				0220D7CC188B1DC1000C063D /* NotificationBackgroundWarning.png in Resources */,
 				0206598A188A330B00EA6BD6 /* TabEmail.png in Resources */,
 				02065993188A330B00EA6BD6 /* TabNews@2x.png in Resources */,
 				020EFAB51847EC1D0011C9D1 /* ShadowBelow@2x.png in Resources */,
 				0267ED071839ABB400E3B08B /* Images.xcassets in Resources */,
 				02065991188A330B00EA6BD6 /* TabLogout@2x.png in Resources */,
+				0220D7C2188B1DC1000C063D /* NotificationBackgroundError.png in Resources */,
+				0220D7C5188B1DC1000C063D /* NotificationBackgroundErrorIcon@2x.png in Resources */,
 				0206598B188A330B00EA6BD6 /* TabEmail@2x.png in Resources */,
 				0206599B188A330B00EA6BD6 /* TabSettings@2x.png in Resources */,
 			);
@@ -570,6 +698,9 @@
 				023DD4A4184910E900B03F75 /* UIFont+FlatUI.m in Sources */,
 				020B92EB1839B44800F610DB /* BCPViewController.m in Sources */,
 				023DD4A7184910E900B03F75 /* UIPopoverController+FlatUI.m in Sources */,
+				0220D7D4188B1DC1000C063D /* TSMessageView.m in Sources */,
+				0220D7D7188B1E4E000C063D /* HexColor.m in Sources */,
+				0220D7D3188B1DC1000C063D /* TSBlurView.m in Sources */,
 				0267ED011839ABB400E3B08B /* main.m in Sources */,
 				025D83611841AEF800DF5537 /* BCPData.m in Sources */,
 				023DD4A3184910E900B03F75 /* UIColor+FlatUI.m in Sources */,
@@ -581,6 +712,7 @@
 				020B92EE1839B85200F610DB /* BCPInterface.m in Sources */,
 				023DD4AB184910E900B03F75 /* UITabBar+FlatUI.m in Sources */,
 				0232FF66185E578C00377C24 /* BCPContentLogout.m in Sources */,
+				0220D7C1188B1DC1000C063D /* TSMessage.m in Sources */,
 				023DD4A5184910E900B03F75 /* UIImage+FlatUI.m in Sources */,
 				023DD4A6184910E900B03F75 /* UINavigationBar+FlatUI.m in Sources */,
 				020B92F51839D0F700F610DB /* BCPConstants.m in Sources */,

@@ -37,10 +37,15 @@
     return self;
 }
 
+- (UIView *)currentView {
+    return [self.views objectForKey:self.currentViewName];
+}
+
 - (void)showContentView:(NSString *)view {
     for(NSString *key in [self.views allKeys]) {
         [[self.views objectForKey:key] setHidden:![key isEqualToString:view]];
         if([key isEqualToString:view]) {
+            self.currentViewName = key;
             [[self.views objectForKey:key] shown];
         }
     }

@@ -7,10 +7,11 @@
 //
 
 @protocol BCPViewControllerDelegate<NSObject>
-
 - (void)errorWithCode:(int)code;
 - (void)errorWithMessage:(NSString *)message;
+- (void)insertSubviewBelowNavigationBar:(UIView *)view;
 - (void)loggedIn;
+- (int)navigationBarHeight;
 - (void)reloadSidebar;
 - (void)registerBlockForAfterRotation:(void (^)())block;
 - (void)registerBlockForBeforeAnimationRotation:(void (^)())block;
@@ -18,5 +19,4 @@
 - (void)registerKeyboardWithShown:(void (^)())shown hidden:(void (^)())hidden;
 - (void)setScrollsToTop:(UIScrollView *)scrollView;
 - (void)showContentView:(NSString *)view;
-
 @end
