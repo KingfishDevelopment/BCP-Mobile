@@ -3,7 +3,7 @@
 //  BCP-Mobile
 //
 //  Created by Bryce Pauken on 4/5/14.
-//  Copyright (c) 2014 sobryapps. All rights reserved.
+//  Copyright (c) 2014 Kingfish. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -12,5 +12,8 @@
 
 extern const int UIViewAutoresizingFlexibleMargins;
 extern const int UIViewAutoresizingFlexibleSize;
+
+extern const double BCP_CONTENT_MIN_SCALE;
+extern const int BCP_SIDEBAR_WIDTH;
 
 @end

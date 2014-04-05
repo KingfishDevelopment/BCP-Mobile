@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		020A627F18F05FC3003CF941 /* BCPConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 020A627E18F05FC3003CF941 /* BCPConstants.m */; };
+		020A628218F07142003CF941 /* BCPSidebar.m in Sources */ = {isa = PBXBuildFile; fileRef = 020A628118F07142003CF941 /* BCPSidebar.m */; };
+		020A628518F07167003CF941 /* BCPContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 020A628418F07167003CF941 /* BCPContent.m */; };
 		0289ACC818F05BA200763150 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0289ACC718F05BA200763150 /* Foundation.framework */; };
 		0289ACCA18F05BA200763150 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0289ACC918F05BA200763150 /* CoreGraphics.framework */; };
 		0289ACCC18F05BA200763150 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0289ACCB18F05BA200763150 /* UIKit.framework */; };
@@ -23,6 +25,10 @@
 /* Begin PBXFileReference section */
 		020A627D18F05FC3003CF941 /* BCPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPConstants.h; path = Classes/BCPConstants.h; sourceTree = "<group>"; };
 		020A627E18F05FC3003CF941 /* BCPConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPConstants.m; path = Classes/BCPConstants.m; sourceTree = "<group>"; };
+		020A628018F07142003CF941 /* BCPSidebar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPSidebar.h; path = Classes/BCPSidebar.h; sourceTree = "<group>"; };
+		020A628118F07142003CF941 /* BCPSidebar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPSidebar.m; path = Classes/BCPSidebar.m; sourceTree = "<group>"; };
+		020A628318F07167003CF941 /* BCPContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPContent.h; path = Classes/BCPContent.h; sourceTree = "<group>"; };
+		020A628418F07167003CF941 /* BCPContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPContent.m; path = Classes/BCPContent.m; sourceTree = "<group>"; };
 		0289ACC418F05BA200763150 /* BCP-Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BCP-Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0289ACC718F05BA200763150 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0289ACC918F05BA200763150 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -115,8 +121,12 @@
 				0289ACFB18F05E5F00763150 /* BCPCommon.m */,
 				020A627D18F05FC3003CF941 /* BCPConstants.h */,
 				020A627E18F05FC3003CF941 /* BCPConstants.m */,
+				020A628318F07167003CF941 /* BCPContent.h */,
+				020A628418F07167003CF941 /* BCPContent.m */,
 				0289ACFD18F05EA100763150 /* BCPInterface.h */,
 				0289ACFE18F05EA100763150 /* BCPInterface.m */,
+				020A628018F07142003CF941 /* BCPSidebar.h */,
+				020A628118F07142003CF941 /* BCPSidebar.m */,
 				0289ACF718F05D4E00763150 /* BCPViewController.h */,
 				0289ACF818F05D4E00763150 /* BCPViewController.m */,
 			);
@@ -151,7 +161,7 @@
 			attributes = {
 				CLASSPREFIX = BCP;
 				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = sobryapps;
+				ORGANIZATIONNAME = Kingfish;
 			};
 			buildConfigurationList = 0289ACBF18F05BA200763150 /* Build configuration list for PBXProject "BCP-Mobile" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -193,6 +203,8 @@
 				0289ACD418F05BA200763150 /* main.m in Sources */,
 				0289ACFF18F05EA100763150 /* BCPInterface.m in Sources */,
 				020A627F18F05FC3003CF941 /* BCPConstants.m in Sources */,
+				020A628218F07142003CF941 /* BCPSidebar.m in Sources */,
+				020A628518F07167003CF941 /* BCPContent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
