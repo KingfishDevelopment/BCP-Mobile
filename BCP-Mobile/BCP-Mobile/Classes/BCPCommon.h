@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "BCPConstants.h"
 
+@class BCPViewController;
+
 @interface BCPCommon : NSObject
+
++ (BOOL)isIOS7;
++ (void)setViewController:(BCPViewController *)newViewController;
++ (BCPViewController *)viewController;
 
 @end

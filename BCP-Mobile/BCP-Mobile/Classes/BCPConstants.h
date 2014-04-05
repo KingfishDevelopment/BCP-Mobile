@@ -14,6 +14,9 @@ extern const int UIViewAutoresizingFlexibleMargins;
 extern const int UIViewAutoresizingFlexibleSize;
 
 extern const double BCP_CONTENT_MIN_SCALE;
-extern const int BCP_SIDEBAR_WIDTH;
+extern const int    BCP_SIDEBAR_CELL_PADDING;
+extern const int    BCP_SIDEBAR_WIDTH;
+extern const int    BCP_SIDEBAR_VERTICAL_PADDING;
+extern const double BCP_TRANSITION_DURATION;
 
 @end

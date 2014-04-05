@@ -14,6 +14,9 @@ const int UIViewAutoresizingFlexibleMargins = UIViewAutoresizingFlexibleBottomMa
 const int UIViewAutoresizingFlexibleSize = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
 
 const double BCP_CONTENT_MIN_SCALE = 0.4;
-const int BCP_SIDEBAR_WIDTH = 200;
+const int    BCP_SIDEBAR_CELL_PADDING = 8;
+const int    BCP_SIDEBAR_WIDTH = 200;
+const int    BCP_SIDEBAR_VERTICAL_PADDING = 50;
+const double BCP_TRANSITION_DURATION = 0.3;
 
 @end

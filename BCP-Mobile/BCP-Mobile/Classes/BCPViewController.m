@@ -17,6 +17,8 @@
 - (id)init {
     self = [super init];
     if (self) {
+        [BCPCommon setViewController:self];
+        
         self.interface = [[BCPInterface alloc] initWithFrame:self.view.bounds];
         [self.interface setAutoresizingMask:UIViewAutoresizingFlexibleSize];
         [self.view addSubview:self.interface];

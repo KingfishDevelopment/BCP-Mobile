@@ -14,10 +14,22 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        __unsafe_unretained typeof(self) weakSelf = self;
+        
+        UIImageView *background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background"]];
+        [background setAutoresizingMask:UIViewAutoresizingFlexibleMargins];
+        [background setFrame:CGRectMake((self.bounds.size.width-background.image.size.width)/2, (self.bounds.size.height-background.image.size.height)/2, background.image.size.width, background.image.size.height)];
+        [self addSubview:background];
+        
         self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, BCP_SIDEBAR_WIDTH, self.bounds.size.height)];
         
         self.sideBar = [[BCPSidebar alloc] initWithFrame:CGRectMake(0, 0, BCP_SIDEBAR_WIDTH, self.bounds.size.height)];
-        [self.sideBar setClipsToBounds:NO];
+        [self.sideBar setSelectBlock:^(NSString *name) {
+            NSLog(@"%@",name);
+            [UIView animateWithDuration:BCP_TRANSITION_DURATION animations:^{
+                [weakSelf.scrollView setContentOffset:CGPointMake(BCP_SIDEBAR_WIDTH, 0)];
+            }];
+        }];
         [self addSubview:self.sideBar];
         
         [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleHeight];
