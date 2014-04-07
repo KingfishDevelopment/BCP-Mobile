@@ -34,7 +34,7 @@
 }
 
 - (void)showSideBar {
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:BCP_TRANSITION_DURATION animations:^{
         [self.interface.scrollView setContentOffset:CGPointZero];
     }];
 }

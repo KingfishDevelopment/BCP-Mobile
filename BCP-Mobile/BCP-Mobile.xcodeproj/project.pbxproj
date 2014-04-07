@@ -73,6 +73,8 @@
 		028DB29818F0D2BD00D14EE6 /* BCPContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 028DB29718F0D2BD00D14EE6 /* BCPContentView.m */; };
 		028DB29D18F1DC9D00D14EE6 /* BCPWelcomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 028DB29C18F1DC9D00D14EE6 /* BCPWelcomeView.m */; };
 		028DB2A018F1E0D600D14EE6 /* BCPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 028DB29F18F1E0D600D14EE6 /* BCPNavigationController.m */; };
+		028DB2A318F22BFB00D14EE6 /* BCPLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 028DB2A218F22BFB00D14EE6 /* BCPLoginView.m */; };
+		028DB2A518F22DA500D14EE6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028DB2A418F22DA500D14EE6 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -159,6 +161,9 @@
 		028DB29C18F1DC9D00D14EE6 /* BCPWelcomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPWelcomeView.m; path = Classes/BCPWelcomeView.m; sourceTree = "<group>"; };
 		028DB29E18F1E0D600D14EE6 /* BCPNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPNavigationController.h; path = Classes/BCPNavigationController.h; sourceTree = "<group>"; };
 		028DB29F18F1E0D600D14EE6 /* BCPNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPNavigationController.m; path = Classes/BCPNavigationController.m; sourceTree = "<group>"; };
+		028DB2A118F22BFB00D14EE6 /* BCPLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPLoginView.h; path = Classes/BCPLoginView.h; sourceTree = "<group>"; };
+		028DB2A218F22BFB00D14EE6 /* BCPLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPLoginView.m; path = Classes/BCPLoginView.m; sourceTree = "<group>"; };
+		028DB2A418F22DA500D14EE6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +171,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				028DB2A518F22DA500D14EE6 /* QuartzCore.framework in Frameworks */,
 				0289ACCA18F05BA200763150 /* CoreGraphics.framework in Frameworks */,
 				0289ACCC18F05BA200763150 /* UIKit.framework in Frameworks */,
 				0289ACC818F05BA200763150 /* Foundation.framework in Frameworks */,
@@ -242,6 +248,7 @@
 		0289ACC618F05BA200763150 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				028DB2A418F22DA500D14EE6 /* QuartzCore.framework */,
 				0289ACC718F05BA200763150 /* Foundation.framework */,
 				0289ACC918F05BA200763150 /* CoreGraphics.framework */,
 				0289ACCB18F05BA200763150 /* UIKit.framework */,
@@ -338,6 +345,8 @@
 		028DB29918F1DC7D00D14EE6 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				028DB2A118F22BFB00D14EE6 /* BCPLoginView.h */,
+				028DB2A218F22BFB00D14EE6 /* BCPLoginView.m */,
 				028DB29B18F1DC9D00D14EE6 /* BCPWelcomeView.h */,
 				028DB29C18F1DC9D00D14EE6 /* BCPWelcomeView.m */,
 			);
@@ -456,6 +465,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				028DB29D18F1DC9D00D14EE6 /* BCPWelcomeView.m in Sources */,
+				028DB2A318F22BFB00D14EE6 /* BCPLoginView.m in Sources */,
 				028DB2A018F1E0D600D14EE6 /* BCPNavigationController.m in Sources */,
 				0289ACFC18F05E5F00763150 /* BCPCommon.m in Sources */,
 				020A628818F078B8003CF941 /* BCPSidebarCell.m in Sources */,

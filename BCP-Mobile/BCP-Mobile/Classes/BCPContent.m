@@ -8,6 +8,7 @@
 
 #import "BCPContent.h"
 
+#import "BCPLoginView.h"
 #import "BCPNavigationBar.h"
 #import "BCPWelcomeView.h"
 
@@ -35,6 +36,10 @@
         BCPWelcomeView *welcomeView = [[BCPWelcomeView alloc] initWithFrame:self.container.bounds];
         [self.container addSubview:welcomeView];
         [self.views setObject:welcomeView forKey:@"Welcome"];
+        
+        BCPLoginView *loginView = [[BCPLoginView alloc] initWithFrame:self.container.bounds];
+        [self.container addSubview:loginView];
+        [self.views setObject:loginView forKey:@"Login"];
         
         [self showViewWithKey:@"Welcome"];
     }

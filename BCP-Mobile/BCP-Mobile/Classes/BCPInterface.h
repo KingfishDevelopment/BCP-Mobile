@@ -12,9 +12,9 @@
 @class BCPSidebar;
 @interface BCPInterface : UIView <UIScrollViewDelegate>
 
-
 @property (nonatomic, retain) BCPContent *content;
 @property (nonatomic, retain) UIScrollView *scrollView;
+@property (nonatomic, retain) UITapGestureRecognizer *scrollViewTapRecognizer;
 @property (nonatomic, retain) BCPSidebar *sideBar;
 
 @end

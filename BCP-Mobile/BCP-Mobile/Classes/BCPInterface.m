@@ -35,6 +35,9 @@
         }];
         [self addSubview:self.sideBar];
         
+        self.content = [[BCPContent alloc] initWithFrame:CGRectMake(BCP_SIDEBAR_WIDTH, 0, self.bounds.size.width, self.bounds.size.height)];
+        [self.scrollView addSubview:self.content];
+        
         [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleHeight];
         [self.scrollView setBounces:NO];
         [self.scrollView setClipsToBounds:NO];
@@ -44,12 +47,10 @@
         [self.scrollView setShowsHorizontalScrollIndicator:NO];
         [self.scrollView setShowsVerticalScrollIndicator:NO];
         [self addSubview:self.scrollView];
-        UITapGestureRecognizer *scrollViewTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewTapped:)];
-        [scrollViewTapRecognizer setCancelsTouchesInView:YES];
-        [self.scrollView addGestureRecognizer:scrollViewTapRecognizer];
-        
-        self.content = [[BCPContent alloc] initWithFrame:CGRectMake(BCP_SIDEBAR_WIDTH, 0, self.bounds.size.width, self.bounds.size.height)];
-        [self.scrollView addSubview:self.content];
+        self.scrollViewTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewTapped:)];
+        [self.scrollViewTapRecognizer setCancelsTouchesInView:NO];
+        [self.scrollViewTapRecognizer setEnabled:NO];
+        [self.scrollView addGestureRecognizer:self.scrollViewTapRecognizer];
     }
     return self;
 }
@@ -57,10 +58,10 @@
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
     if(self.scrollView.contentOffset.x==0&&point.x<MIN(self.content.frame.origin.x,self.bounds.size.width-100))
         return self.sideBar;
-    UIView *view = [super hitTest:point withEvent:event];
-    if (view == self)
-        return self.scrollView;
-    return view;
+    if(self.content.userInteractionEnabled&&CGRectContainsPoint(self.content.frame, [self.scrollView convertPoint:point fromView:self])) {
+        return [self.content hitTest:[self.content convertPoint:point fromView:self] withEvent:event];
+    }
+    return self.scrollView;
 }
 
 - (void)layoutSubviews {
@@ -88,12 +89,8 @@
     [self scaleContent];
     [self scaleSidebar];
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
-    if(scrollView.contentOffset.x==0) {
-        [self.content setUserInteractionEnabled:NO];
-    }
-    else {
-        [self.content setUserInteractionEnabled:YES];
-    }
+    [self.content setUserInteractionEnabled:scrollView.contentOffset.x>0];
+    [self.scrollViewTapRecognizer setEnabled:scrollView.contentOffset.x==0];
 }
 
 - (void)scrollViewTapped:(UIGestureRecognizer *)tap {
