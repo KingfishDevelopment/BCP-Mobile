@@ -25,6 +25,12 @@
         self.interface = [[BCPInterface alloc] initWithFrame:self.view.bounds];
         [self.interface setAutoresizingMask:UIViewAutoresizingFlexibleSize];
         [self.view addSubview:self.interface];
+        
+        UITextField *field = [UITextField new];
+        [[[[UIApplication sharedApplication] windows] lastObject] addSubview:field];
+        [field becomeFirstResponder];
+        [field resignFirstResponder];
+        [field removeFromSuperview];
     }
     return self;
 }

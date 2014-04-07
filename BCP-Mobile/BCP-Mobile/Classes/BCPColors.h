@@ -11,6 +11,8 @@
 @interface UIColor (BCPColors)
 
 + (UIColor *)BCPBlueColor;
++ (UIColor *)BCPLightGrayColor;
++ (UIColor *)BCPOffBlackColor;
 + (UIColor *)BCPOffWhiteColor;
 
 @end

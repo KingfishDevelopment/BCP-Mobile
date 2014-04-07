@@ -14,6 +14,7 @@ extern const int UIViewAutoresizingFlexibleMargins;
 extern const int UIViewAutoresizingFlexibleSize;
 
 extern const double BCP_CONTENT_MIN_SCALE;
+extern const int    BCP_ICON_SIZE;
 extern const int    BCP_LOGIN_CONTAINER_WIDTH;
 extern const int    BCP_NAVIGATION_BAR_HEIGHT;
 extern const int    BCP_NAVIGATION_BUTTON_SIZE;

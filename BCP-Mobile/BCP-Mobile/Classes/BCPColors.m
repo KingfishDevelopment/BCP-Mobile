@@ -18,6 +18,22 @@
     return color;
 }
 
++ (UIColor *)BCPLightGrayColor {
+    static UIColor *color = nil;
+    if(!color) {
+        color = [UIColor colorWithWhite:0.75 alpha:1];
+    }
+    return color;
+}
+
++ (UIColor *)BCPOffBlackColor {
+    static UIColor *color = nil;
+    if(!color) {
+        color = [UIColor colorWithWhite:0.05 alpha:1];
+    }
+    return color;
+}
+
 + (UIColor *)BCPOffWhiteColor {
     static UIColor *color = nil;
     if(!color) {

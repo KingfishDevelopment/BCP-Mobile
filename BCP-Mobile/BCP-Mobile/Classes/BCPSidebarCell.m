@@ -25,7 +25,7 @@
         [self.highlight setHidden:YES];
         [self addSubview:self.highlight];
         
-        self.divider = [[UILabel alloc] initWithFrame:CGRectMake(BCP_SIDEBAR_CELL_PADDING, 0, self.bounds.size.width-BCP_SIDEBAR_CELL_PADDING*2, 1)];
+        self.divider = [[UIView alloc] initWithFrame:CGRectMake(BCP_SIDEBAR_CELL_PADDING, 0, self.bounds.size.width-BCP_SIDEBAR_CELL_PADDING*2, 1)];
         [self.divider setAlpha:0.1];
         [self.divider setBackgroundColor:[UIColor whiteColor]];
         [self addSubview:self.divider];

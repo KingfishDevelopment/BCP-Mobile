@@ -18,6 +18,7 @@
 @interface BCPCommon : NSObject
 
 + (BOOL)isIOS7;
++ (BOOL)isIPad;
 + (void)setViewController:(NSObject<BCPViewControllerDelegate> *)newViewController;
 + (CGSize)sizeOfText:(NSString *)text withFont:(UIFont *)font;
 + (CGSize)sizeOfText:(NSString *)text withFont:(UIFont *)font constrainedToWidth:(CGFloat)width;

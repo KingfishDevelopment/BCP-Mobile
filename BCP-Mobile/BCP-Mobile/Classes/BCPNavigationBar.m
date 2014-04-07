@@ -21,7 +21,7 @@
         [self.label setAutoresizingMask:UIViewAutoresizingFlexibleSize];
         [self.label setBackgroundColor:[UIColor clearColor]];
         [self.label setFont:[UIFont boldSystemFontOfSize:20]];
-        [self.label setShadowColor:[UIColor colorWithWhite:0.2 alpha:0.8]];
+        [self.label setShadowColor:[UIColor BCPOffBlackColor]];
         [self.label setShadowOffset:CGSizeMake(0,2)];
         [self.label setTextAlignment:NSTextAlignmentCenter];
         [self.label setTextColor:[UIColor whiteColor]];

@@ -14,6 +14,7 @@ const int UIViewAutoresizingFlexibleMargins = UIViewAutoresizingFlexibleBottomMa
 const int UIViewAutoresizingFlexibleSize = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
 
 const double BCP_CONTENT_MIN_SCALE = 0.4;
+const int    BCP_ICON_SIZE = 100;
 const int    BCP_LOGIN_CONTAINER_WIDTH = 300;
 const int    BCP_NAVIGATION_BAR_HEIGHT = 44;
 const int    BCP_NAVIGATION_BUTTON_SIZE = 30;

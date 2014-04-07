@@ -16,6 +16,10 @@ static NSObject<BCPViewControllerDelegate> *viewController = nil;
     return ([[[UIDevice currentDevice] systemVersion] compare:@"7" options:NSNumericSearch] != NSOrderedAscending);
 }
 
++ (BOOL)isIPad {
+    return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
+}
+
 + (void)setViewController:(NSObject<BCPViewControllerDelegate> *)newViewController {
     viewController = newViewController;
 }
