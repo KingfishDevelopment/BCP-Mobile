@@ -44,6 +44,9 @@
         [self.scrollView setShowsHorizontalScrollIndicator:NO];
         [self.scrollView setShowsVerticalScrollIndicator:NO];
         [self addSubview:self.scrollView];
+        UITapGestureRecognizer *scrollViewTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewTapped:)];
+        [scrollViewTapRecognizer setCancelsTouchesInView:YES];
+        [self.scrollView addGestureRecognizer:scrollViewTapRecognizer];
         
         self.content = [[BCPContent alloc] initWithFrame:CGRectMake(BCP_SIDEBAR_WIDTH, 0, self.bounds.size.width, self.bounds.size.height)];
         [self.scrollView addSubview:self.content];
@@ -90,6 +93,15 @@
     }
     else {
         [self.content setUserInteractionEnabled:YES];
+    }
+}
+
+- (void)scrollViewTapped:(UIGestureRecognizer *)tap {
+    CGPoint touchPoint = [tap locationInView:self.scrollView];
+    if(CGRectContainsPoint(self.content.frame, touchPoint)) {
+        [UIView animateWithDuration:BCP_TRANSITION_DURATION animations:^{
+            [self.scrollView setContentOffset:CGPointMake(BCP_SIDEBAR_WIDTH, 0)];
+        }];
     }
 }
 
