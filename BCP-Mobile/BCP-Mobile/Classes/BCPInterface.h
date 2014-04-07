@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BCPContent.h"
-#import "BCPSidebar.h"
 
+@class BCPContent;
+@class BCPSidebar;
 @interface BCPInterface : UIView <UIScrollViewDelegate>
 
 

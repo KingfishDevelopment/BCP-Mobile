@@ -8,6 +8,8 @@
 
 #import "BCPSidebar.h"
 
+#import "BCPSidebarCell.h"
+
 @implementation BCPSidebar
 
 - (id)initWithFrame:(CGRect)frame {

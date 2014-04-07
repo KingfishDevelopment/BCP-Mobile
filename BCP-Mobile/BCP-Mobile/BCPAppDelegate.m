@@ -8,6 +8,8 @@
 
 #import "BCPAppDelegate.h"
 
+#import "BCPViewController.h"
+
 @implementation BCPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class BCPNavigationBar;
 @interface BCPContent : UIView
+
+@property (nonatomic, retain) UIView *container;
+@property (nonatomic, retain) BCPNavigationBar *navigationBar;
+@property (nonatomic, retain) NSMutableDictionary *views;
+
+- (void)showViewWithKey:(NSString *)showKey;
 
 @end

@@ -8,6 +8,9 @@
 
 #import "BCPInterface.h"
 
+#import "BCPContent.h"
+#import "BCPSidebar.h"
+
 @implementation BCPInterface
 
 - (id)initWithFrame:(CGRect)frame
@@ -25,7 +28,7 @@
         
         self.sideBar = [[BCPSidebar alloc] initWithFrame:CGRectMake(0, 0, BCP_SIDEBAR_WIDTH, self.bounds.size.height)];
         [self.sideBar setSelectBlock:^(NSString *name) {
-            NSLog(@"%@",name);
+            [weakSelf.content showViewWithKey:name];
             [UIView animateWithDuration:BCP_TRANSITION_DURATION animations:^{
                 [weakSelf.scrollView setContentOffset:CGPointMake(BCP_SIDEBAR_WIDTH, 0)];
             }];

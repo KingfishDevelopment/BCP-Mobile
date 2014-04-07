@@ -8,6 +8,8 @@
 
 #import "BCPViewController.h"
 
+#import "BCPInterface.h"
+
 @interface BCPViewController ()
 
 @end
@@ -18,12 +20,31 @@
     self = [super init];
     if (self) {
         [BCPCommon setViewController:self];
+        [self.view setClipsToBounds:YES];
         
         self.interface = [[BCPInterface alloc] initWithFrame:self.view.bounds];
         [self.interface setAutoresizingMask:UIViewAutoresizingFlexibleSize];
         [self.view addSubview:self.interface];
     }
     return self;
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
+
+- (void)showSideBar {
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.interface.scrollView setContentOffset:CGPointZero];
+    }];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    if([BCPCommon isIOS7]) {
+        [self setNeedsStatusBarAppearanceUpdate];
+    }
 }
 
 @end

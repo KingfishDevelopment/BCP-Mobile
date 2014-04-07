@@ -10,17 +10,33 @@
 
 @implementation BCPCommon
 
-static BCPViewController *viewController = nil;
+static NSObject<BCPViewControllerDelegate> *viewController = nil;
 
 + (BOOL)isIOS7 {
     return ([[[UIDevice currentDevice] systemVersion] compare:@"7" options:NSNumericSearch] != NSOrderedAscending);
 }
 
-+ (void)setViewController:(BCPViewController *)newViewController {
++ (void)setViewController:(NSObject<BCPViewControllerDelegate> *)newViewController {
     viewController = newViewController;
 }
 
-+ (BCPViewController *)viewController {
++ (CGSize)sizeOfText:(NSString *)text withFont:(UIFont *)font {
+    return [BCPCommon sizeOfText:text withFont:font constrainedToWidth:MAXFLOAT];
+}
+
++ (CGSize)sizeOfText:(NSString *)text withFont:(UIFont *)font constrainedToWidth:(CGFloat)width {
+    if([BCPCommon isIOS7]) {
+        CGRect labelRect = [text boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil];
+        labelRect.size.width = ceil(labelRect.size.width);
+        labelRect.size.height = ceil(labelRect.size.height);
+        return labelRect.size;
+    }
+    else {
+        return [text sizeWithFont:font constrainedToSize:CGSizeMake(width, MAXFLOAT)];
+    }
+}
+
++ (NSObject<BCPViewControllerDelegate> *)viewController {
     return viewController;
 }
 

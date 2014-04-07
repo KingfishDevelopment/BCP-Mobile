@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BCPInterface.h"
 
-@interface BCPViewController : UIViewController
+@class BCPInterface;
+@interface BCPViewController : UIViewController <BCPViewControllerDelegate>
 
 @property (nonatomic, retain) BCPInterface *interface;
 

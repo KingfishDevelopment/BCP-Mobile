@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BCPViewController.h"
 
 @interface BCPAppDelegate : UIResponder <UIApplicationDelegate>
 

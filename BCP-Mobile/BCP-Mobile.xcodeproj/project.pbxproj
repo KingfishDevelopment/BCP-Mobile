@@ -41,6 +41,8 @@
 		020A62C418F07AB2003CF941 /* TabSettings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 020A62A618F07AB2003CF941 /* TabSettings@2x.png */; };
 		020A62C518F07AB2003CF941 /* TabSportsResults.png in Resources */ = {isa = PBXBuildFile; fileRef = 020A62A718F07AB2003CF941 /* TabSportsResults.png */; };
 		020A62C618F07AB2003CF941 /* TabSportsResults@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 020A62A818F07AB2003CF941 /* TabSportsResults@2x.png */; };
+		020A62C918F0AB50003CF941 /* BCPNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 020A62C818F0AB50003CF941 /* BCPNavigationBar.m */; };
+		020A62CC18F0AC31003CF941 /* BCPColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 020A62CB18F0AC31003CF941 /* BCPColors.m */; };
 		0289ACC818F05BA200763150 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0289ACC718F05BA200763150 /* Foundation.framework */; };
 		0289ACCA18F05BA200763150 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0289ACC918F05BA200763150 /* CoreGraphics.framework */; };
 		0289ACCC18F05BA200763150 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0289ACCB18F05BA200763150 /* UIKit.framework */; };
@@ -51,6 +53,26 @@
 		0289ACF918F05D4E00763150 /* BCPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0289ACF818F05D4E00763150 /* BCPViewController.m */; };
 		0289ACFC18F05E5F00763150 /* BCPCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0289ACFB18F05E5F00763150 /* BCPCommon.m */; };
 		0289ACFF18F05EA100763150 /* BCPInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 0289ACFE18F05EA100763150 /* BCPInterface.m */; };
+		028DB28118F0CA6200D14EE6 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 028DB27118F0CA6200D14EE6 /* Icon-29.png */; };
+		028DB28218F0CA6200D14EE6 /* Icon-29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 028DB27218F0CA6200D14EE6 /* Icon-29@2x.png */; };
+		028DB28318F0CA6200D14EE6 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 028DB27318F0CA6200D14EE6 /* Icon-40.png */; };
+		028DB28418F0CA6200D14EE6 /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 028DB27418F0CA6200D14EE6 /* Icon-40@2x.png */; };
+		028DB28518F0CA6200D14EE6 /* Icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 028DB27518F0CA6200D14EE6 /* Icon-50.png */; };
+		028DB28618F0CA6200D14EE6 /* Icon-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 028DB27618F0CA6200D14EE6 /* Icon-50@2x.png */; };
+		028DB28718F0CA6200D14EE6 /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 028DB27718F0CA6200D14EE6 /* Icon-57.png */; };
+		028DB28818F0CA6200D14EE6 /* Icon-57@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 028DB27818F0CA6200D14EE6 /* Icon-57@2x.png */; };
+		028DB28A18F0CA6200D14EE6 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 028DB27A18F0CA6200D14EE6 /* Icon-60@2x.png */; };
+		028DB28B18F0CA6200D14EE6 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 028DB27B18F0CA6200D14EE6 /* Icon-72.png */; };
+		028DB28C18F0CA6200D14EE6 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 028DB27C18F0CA6200D14EE6 /* Icon-72@2x.png */; };
+		028DB28D18F0CA6200D14EE6 /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 028DB27D18F0CA6200D14EE6 /* Icon-76.png */; };
+		028DB28E18F0CA6200D14EE6 /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 028DB27E18F0CA6200D14EE6 /* Icon-76@2x.png */; };
+		028DB28F18F0CA6200D14EE6 /* IconLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = 028DB27F18F0CA6200D14EE6 /* IconLarge.png */; };
+		028DB29018F0CA6200D14EE6 /* IconLarge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 028DB28018F0CA6200D14EE6 /* IconLarge@2x.png */; };
+		028DB29418F0CF7500D14EE6 /* Sidebar.png in Resources */ = {isa = PBXBuildFile; fileRef = 028DB29218F0CF7500D14EE6 /* Sidebar.png */; };
+		028DB29518F0CF7500D14EE6 /* Sidebar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 028DB29318F0CF7500D14EE6 /* Sidebar@2x.png */; };
+		028DB29818F0D2BD00D14EE6 /* BCPContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 028DB29718F0D2BD00D14EE6 /* BCPContentView.m */; };
+		028DB29D18F1DC9D00D14EE6 /* BCPWelcomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 028DB29C18F1DC9D00D14EE6 /* BCPWelcomeView.m */; };
+		028DB2A018F1E0D600D14EE6 /* BCPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 028DB29F18F1E0D600D14EE6 /* BCPNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +114,10 @@
 		020A62A618F07AB2003CF941 /* TabSettings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabSettings@2x.png"; sourceTree = "<group>"; };
 		020A62A718F07AB2003CF941 /* TabSportsResults.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabSportsResults.png; sourceTree = "<group>"; };
 		020A62A818F07AB2003CF941 /* TabSportsResults@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabSportsResults@2x.png"; sourceTree = "<group>"; };
+		020A62C718F0AB50003CF941 /* BCPNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPNavigationBar.h; path = Classes/BCPNavigationBar.h; sourceTree = "<group>"; };
+		020A62C818F0AB50003CF941 /* BCPNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPNavigationBar.m; path = Classes/BCPNavigationBar.m; sourceTree = "<group>"; };
+		020A62CA18F0AC31003CF941 /* BCPColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPColors.h; path = Classes/BCPColors.h; sourceTree = "<group>"; };
+		020A62CB18F0AC31003CF941 /* BCPColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPColors.m; path = Classes/BCPColors.m; sourceTree = "<group>"; };
 		0289ACC418F05BA200763150 /* BCP-Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BCP-Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0289ACC718F05BA200763150 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0289ACC918F05BA200763150 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -110,6 +136,29 @@
 		0289ACFB18F05E5F00763150 /* BCPCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPCommon.m; path = Classes/BCPCommon.m; sourceTree = "<group>"; };
 		0289ACFD18F05EA100763150 /* BCPInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPInterface.h; path = Classes/BCPInterface.h; sourceTree = "<group>"; };
 		0289ACFE18F05EA100763150 /* BCPInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPInterface.m; path = Classes/BCPInterface.m; sourceTree = "<group>"; };
+		028DB27118F0CA6200D14EE6 /* Icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29.png"; sourceTree = "<group>"; };
+		028DB27218F0CA6200D14EE6 /* Icon-29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29@2x.png"; sourceTree = "<group>"; };
+		028DB27318F0CA6200D14EE6 /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40.png"; sourceTree = "<group>"; };
+		028DB27418F0CA6200D14EE6 /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@2x.png"; sourceTree = "<group>"; };
+		028DB27518F0CA6200D14EE6 /* Icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-50.png"; sourceTree = "<group>"; };
+		028DB27618F0CA6200D14EE6 /* Icon-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-50@2x.png"; sourceTree = "<group>"; };
+		028DB27718F0CA6200D14EE6 /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-57.png"; sourceTree = "<group>"; };
+		028DB27818F0CA6200D14EE6 /* Icon-57@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-57@2x.png"; sourceTree = "<group>"; };
+		028DB27A18F0CA6200D14EE6 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
+		028DB27B18F0CA6200D14EE6 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		028DB27C18F0CA6200D14EE6 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
+		028DB27D18F0CA6200D14EE6 /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
+		028DB27E18F0CA6200D14EE6 /* Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76@2x.png"; sourceTree = "<group>"; };
+		028DB27F18F0CA6200D14EE6 /* IconLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconLarge.png; sourceTree = "<group>"; };
+		028DB28018F0CA6200D14EE6 /* IconLarge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IconLarge@2x.png"; sourceTree = "<group>"; };
+		028DB29218F0CF7500D14EE6 /* Sidebar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sidebar.png; sourceTree = "<group>"; };
+		028DB29318F0CF7500D14EE6 /* Sidebar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sidebar@2x.png"; sourceTree = "<group>"; };
+		028DB29618F0D2BD00D14EE6 /* BCPContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPContentView.h; path = Classes/BCPContentView.h; sourceTree = "<group>"; };
+		028DB29718F0D2BD00D14EE6 /* BCPContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPContentView.m; path = Classes/BCPContentView.m; sourceTree = "<group>"; };
+		028DB29B18F1DC9D00D14EE6 /* BCPWelcomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPWelcomeView.h; path = Classes/BCPWelcomeView.h; sourceTree = "<group>"; };
+		028DB29C18F1DC9D00D14EE6 /* BCPWelcomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPWelcomeView.m; path = Classes/BCPWelcomeView.m; sourceTree = "<group>"; };
+		028DB29E18F1E0D600D14EE6 /* BCPNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPNavigationController.h; path = Classes/BCPNavigationController.h; sourceTree = "<group>"; };
+		028DB29F18F1E0D600D14EE6 /* BCPNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPNavigationController.m; path = Classes/BCPNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +180,8 @@
 			children = (
 				020A628A18F07AB2003CF941 /* Background.png */,
 				020A628B18F07AB2003CF941 /* Background@2x.png */,
+				028DB29118F0CF7500D14EE6 /* Buttons */,
+				028DB27018F0CA6200D14EE6 /* Icons */,
 				020A628C18F07AB2003CF941 /* Tabs */,
 			);
 			path = Images;
@@ -224,16 +275,25 @@
 		0289ACF618F05CE100763150 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				028DB29918F1DC7D00D14EE6 /* Sections */,
 				0289ACD618F05BA200763150 /* BCPAppDelegate.h */,
 				0289ACD718F05BA200763150 /* BCPAppDelegate.m */,
+				020A62CA18F0AC31003CF941 /* BCPColors.h */,
+				020A62CB18F0AC31003CF941 /* BCPColors.m */,
 				0289ACFA18F05E5F00763150 /* BCPCommon.h */,
 				0289ACFB18F05E5F00763150 /* BCPCommon.m */,
 				020A627D18F05FC3003CF941 /* BCPConstants.h */,
 				020A627E18F05FC3003CF941 /* BCPConstants.m */,
 				020A628318F07167003CF941 /* BCPContent.h */,
 				020A628418F07167003CF941 /* BCPContent.m */,
+				028DB29618F0D2BD00D14EE6 /* BCPContentView.h */,
+				028DB29718F0D2BD00D14EE6 /* BCPContentView.m */,
 				0289ACFD18F05EA100763150 /* BCPInterface.h */,
 				0289ACFE18F05EA100763150 /* BCPInterface.m */,
+				020A62C718F0AB50003CF941 /* BCPNavigationBar.h */,
+				020A62C818F0AB50003CF941 /* BCPNavigationBar.m */,
+				028DB29E18F1E0D600D14EE6 /* BCPNavigationController.h */,
+				028DB29F18F1E0D600D14EE6 /* BCPNavigationController.m */,
 				020A628018F07142003CF941 /* BCPSidebar.h */,
 				020A628118F07142003CF941 /* BCPSidebar.m */,
 				020A628618F078B8003CF941 /* BCPSidebarCell.h */,
@@ -242,6 +302,46 @@
 				0289ACF818F05D4E00763150 /* BCPViewController.m */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		028DB27018F0CA6200D14EE6 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				028DB27118F0CA6200D14EE6 /* Icon-29.png */,
+				028DB27218F0CA6200D14EE6 /* Icon-29@2x.png */,
+				028DB27318F0CA6200D14EE6 /* Icon-40.png */,
+				028DB27418F0CA6200D14EE6 /* Icon-40@2x.png */,
+				028DB27518F0CA6200D14EE6 /* Icon-50.png */,
+				028DB27618F0CA6200D14EE6 /* Icon-50@2x.png */,
+				028DB27718F0CA6200D14EE6 /* Icon-57.png */,
+				028DB27818F0CA6200D14EE6 /* Icon-57@2x.png */,
+				028DB27A18F0CA6200D14EE6 /* Icon-60@2x.png */,
+				028DB27B18F0CA6200D14EE6 /* Icon-72.png */,
+				028DB27C18F0CA6200D14EE6 /* Icon-72@2x.png */,
+				028DB27D18F0CA6200D14EE6 /* Icon-76.png */,
+				028DB27E18F0CA6200D14EE6 /* Icon-76@2x.png */,
+				028DB27F18F0CA6200D14EE6 /* IconLarge.png */,
+				028DB28018F0CA6200D14EE6 /* IconLarge@2x.png */,
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
+		028DB29118F0CF7500D14EE6 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				028DB29218F0CF7500D14EE6 /* Sidebar.png */,
+				028DB29318F0CF7500D14EE6 /* Sidebar@2x.png */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		028DB29918F1DC7D00D14EE6 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				028DB29B18F1DC9D00D14EE6 /* BCPWelcomeView.h */,
+				028DB29C18F1DC9D00D14EE6 /* BCPWelcomeView.m */,
+			);
+			name = Sections;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,34 +397,51 @@
 			buildActionMask = 2147483647;
 			files = (
 				020A62BF18F07AB2003CF941 /* TabRateThisApp.png in Resources */,
+				028DB29018F0CA6200D14EE6 /* IconLarge@2x.png in Resources */,
 				020A62BB18F07AB2003CF941 /* TabNews.png in Resources */,
 				020A62B818F07AB2003CF941 /* TabLogin@2x.png in Resources */,
 				020A62C218F07AB2003CF941 /* TabSchedule@2x.png in Resources */,
 				020A62A918F07AB2003CF941 /* Background.png in Resources */,
+				028DB28818F0CA6200D14EE6 /* Icon-57@2x.png in Resources */,
 				020A62C318F07AB2003CF941 /* TabSettings.png in Resources */,
+				028DB28218F0CA6200D14EE6 /* Icon-29@2x.png in Resources */,
 				020A62B218F07AB2003CF941 /* TabCSPHours@2x.png in Resources */,
+				028DB28C18F0CA6200D14EE6 /* Icon-72@2x.png in Resources */,
+				028DB28618F0CA6200D14EE6 /* Icon-50@2x.png in Resources */,
 				020A62AE18F07AB2003CF941 /* TabAnnouncements@2x.png in Resources */,
 				020A62C618F07AB2003CF941 /* TabSportsResults@2x.png in Resources */,
 				0289ACD218F05BA200763150 /* InfoPlist.strings in Resources */,
 				020A62C518F07AB2003CF941 /* TabSportsResults.png in Resources */,
 				020A62B318F07AB2003CF941 /* TabEmail.png in Resources */,
+				028DB28D18F0CA6200D14EE6 /* Icon-76.png in Resources */,
 				020A62BA18F07AB2003CF941 /* TabLogout@2x.png in Resources */,
+				028DB28A18F0CA6200D14EE6 /* Icon-60@2x.png in Resources */,
 				020A62BD18F07AB2003CF941 /* TabPlanner.png in Resources */,
 				020A62C018F07AB2003CF941 /* TabRateThisApp@2x.png in Resources */,
 				020A62AD18F07AB2003CF941 /* TabAnnouncements.png in Resources */,
+				028DB28B18F0CA6200D14EE6 /* Icon-72.png in Resources */,
+				028DB29418F0CF7500D14EE6 /* Sidebar.png in Resources */,
 				020A62C118F07AB2003CF941 /* TabSchedule.png in Resources */,
 				020A62AF18F07AB2003CF941 /* TabCalendar.png in Resources */,
 				020A62B918F07AB2003CF941 /* TabLogout.png in Resources */,
 				020A62AC18F07AB2003CF941 /* TabAbout@2x.png in Resources */,
+				028DB28418F0CA6200D14EE6 /* Icon-40@2x.png in Resources */,
 				020A62BE18F07AB2003CF941 /* TabPlanner@2x.png in Resources */,
 				020A62B018F07AB2003CF941 /* TabCalendar@2x.png in Resources */,
 				020A62AA18F07AB2003CF941 /* Background@2x.png in Resources */,
+				028DB28718F0CA6200D14EE6 /* Icon-57.png in Resources */,
+				028DB28F18F0CA6200D14EE6 /* IconLarge.png in Resources */,
+				028DB29518F0CF7500D14EE6 /* Sidebar@2x.png in Resources */,
+				028DB28318F0CA6200D14EE6 /* Icon-40.png in Resources */,
 				020A62B718F07AB2003CF941 /* TabLogin.png in Resources */,
 				020A62B618F07AB2003CF941 /* TabGrades@2x.png in Resources */,
 				020A62C418F07AB2003CF941 /* TabSettings@2x.png in Resources */,
 				020A62B118F07AB2003CF941 /* TabCSPHours.png in Resources */,
 				020A62AB18F07AB2003CF941 /* TabAbout.png in Resources */,
 				0289ACDA18F05BA200763150 /* Images.xcassets in Resources */,
+				028DB28E18F0CA6200D14EE6 /* Icon-76@2x.png in Resources */,
+				028DB28118F0CA6200D14EE6 /* Icon-29.png in Resources */,
+				028DB28518F0CA6200D14EE6 /* Icon-50.png in Resources */,
 				020A62B518F07AB2003CF941 /* TabGrades.png in Resources */,
 				020A62B418F07AB2003CF941 /* TabEmail@2x.png in Resources */,
 				020A62BC18F07AB2003CF941 /* TabNews@2x.png in Resources */,
@@ -338,13 +455,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				028DB29D18F1DC9D00D14EE6 /* BCPWelcomeView.m in Sources */,
+				028DB2A018F1E0D600D14EE6 /* BCPNavigationController.m in Sources */,
 				0289ACFC18F05E5F00763150 /* BCPCommon.m in Sources */,
 				020A628818F078B8003CF941 /* BCPSidebarCell.m in Sources */,
+				028DB29818F0D2BD00D14EE6 /* BCPContentView.m in Sources */,
 				0289ACD818F05BA200763150 /* BCPAppDelegate.m in Sources */,
+				020A62CC18F0AC31003CF941 /* BCPColors.m in Sources */,
 				0289ACF918F05D4E00763150 /* BCPViewController.m in Sources */,
 				0289ACD418F05BA200763150 /* main.m in Sources */,
 				0289ACFF18F05EA100763150 /* BCPInterface.m in Sources */,
 				020A627F18F05FC3003CF941 /* BCPConstants.m in Sources */,
+				020A62C918F0AB50003CF941 /* BCPNavigationBar.m in Sources */,
 				020A628218F07142003CF941 /* BCPSidebar.m in Sources */,
 				020A628518F07167003CF941 /* BCPContent.m in Sources */,
 			);

@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BCPSidebarCell.h"
 
 @interface BCPSidebar : UITableView <UITableViewDataSource, UITableViewDelegate>
 
