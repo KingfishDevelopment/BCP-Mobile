@@ -33,10 +33,6 @@
     return self;
 }
 
-- (BOOL)loggedIn {
-    return NO;
-}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.titles.count*2;
 }
@@ -50,16 +46,16 @@
     [cell setDividerHidden:indexPath.row==0];
     NSString *row = [[self.sections objectAtIndex:indexPath.section/2] objectAtIndex:indexPath.row];
     bool disableCell = false;
-    if([self loggedIn]&&[row isEqualToString:@"Login"]) {
+    if([[BCPCommon viewController] loggedIn]&&[row isEqualToString:@"Login"]) {
         if([row isEqualToString:@"Login"])
             row = @"Logout";
     }
     if(indexPath.section==1) {
         if([row isEqualToString:@"Login"]) {
-            if([self loggedIn])
+            if([[BCPCommon viewController] loggedIn])
                 row = @"Logout";
         }
-        else if(![self loggedIn])
+        else if(![[BCPCommon viewController] loggedIn])
             disableCell = true;
     }
     [cell setUserInteractionEnabled:!disableCell];
@@ -70,7 +66,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *row = [[self.sections objectAtIndex:indexPath.section/2] objectAtIndex:indexPath.row];
-    if([row isEqualToString:@"Login"]&&[self loggedIn])
+    if([row isEqualToString:@"Login"]&&[[BCPCommon viewController] loggedIn])
         row = @"Logout";
     if(self.selectBlock) {
         self.selectBlock(row);

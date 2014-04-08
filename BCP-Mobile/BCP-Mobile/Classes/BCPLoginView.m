@@ -73,6 +73,16 @@
     return self;
 }
 
+- (void)animateLoginButton {
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
+    [animation setDuration:0.08];
+    [animation setRepeatCount:4];
+    [animation setAutoreverses:YES];
+    [animation setFromValue:[NSValue valueWithCGPoint:CGPointMake(self.loginButton.center.x-5, self.loginButton.center.y)]];
+    [animation setToValue:[NSValue valueWithCGPoint:CGPointMake(self.loginButton.center.x+5, self.loginButton.center.y)]];
+    [self.loginButton.layer addAnimation:animation forKey:@"position"];
+}
+
 - (void)keyboardDidShow:(NSNotification *)notification {
     CGRect keyboardRect;
     [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardRect];
@@ -104,7 +114,15 @@
 - (void)login {
     [self.usernameField resignFirstResponder];
     [self.passwordField resignFirstResponder];
-    NSLog(@"login");
+    __unsafe_unretained typeof(self) weakSelf = self;
+    [BCPData sendRequest:@"login" withDetails:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:self.usernameField.text,self.passwordField.text,nil] forKeys:[NSArray arrayWithObjects:@"username",@"password",nil]] onCompletion:^(NSString *error) {
+        if(!error&&[[BCPData data] objectForKey:@"login"]&&[[[BCPData data] objectForKey:@"login"] objectForKey:@"token"]) {
+            [[BCPCommon viewController] setLoggedIn:YES];
+        }
+        else {
+            [weakSelf performSelectorOnMainThread:@selector(animateLoginButton) withObject:nil waitUntilDone:NO];
+        }
+    }];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

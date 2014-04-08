@@ -9,6 +9,7 @@
 #import "BCPViewController.h"
 
 #import "BCPInterface.h"
+#import "BCPSidebar.h"
 
 @interface BCPViewController ()
 
@@ -20,6 +21,7 @@
     self = [super init];
     if (self) {
         [BCPCommon setViewController:self];
+        [BCPData initialize];
         [self.view setClipsToBounds:YES];
         
         self.interface = [[BCPInterface alloc] initWithFrame:self.view.bounds];
@@ -37,6 +39,11 @@
 
 - (UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
+}
+
+- (void)setLoggedIn:(BOOL)loggedIn {
+    _loggedIn = loggedIn;
+    [self.interface.sideBar performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
 }
 
 - (void)showSideBar {

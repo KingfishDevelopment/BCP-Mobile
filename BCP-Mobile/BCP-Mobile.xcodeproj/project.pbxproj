@@ -75,6 +75,7 @@
 		028DB2A018F1E0D600D14EE6 /* BCPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 028DB29F18F1E0D600D14EE6 /* BCPNavigationController.m */; };
 		028DB2A318F22BFB00D14EE6 /* BCPLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 028DB2A218F22BFB00D14EE6 /* BCPLoginView.m */; };
 		028DB2A518F22DA500D14EE6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028DB2A418F22DA500D14EE6 /* QuartzCore.framework */; };
+		028DB2A818F2FD2500D14EE6 /* BCPData.m in Sources */ = {isa = PBXBuildFile; fileRef = 028DB2A718F2FD2500D14EE6 /* BCPData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -164,6 +165,8 @@
 		028DB2A118F22BFB00D14EE6 /* BCPLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPLoginView.h; path = Classes/BCPLoginView.h; sourceTree = "<group>"; };
 		028DB2A218F22BFB00D14EE6 /* BCPLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPLoginView.m; path = Classes/BCPLoginView.m; sourceTree = "<group>"; };
 		028DB2A418F22DA500D14EE6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		028DB2A618F2FD2500D14EE6 /* BCPData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPData.h; path = Classes/BCPData.h; sourceTree = "<group>"; };
+		028DB2A718F2FD2500D14EE6 /* BCPData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPData.m; path = Classes/BCPData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,6 +298,8 @@
 				020A628418F07167003CF941 /* BCPContent.m */,
 				028DB29618F0D2BD00D14EE6 /* BCPContentView.h */,
 				028DB29718F0D2BD00D14EE6 /* BCPContentView.m */,
+				028DB2A618F2FD2500D14EE6 /* BCPData.h */,
+				028DB2A718F2FD2500D14EE6 /* BCPData.m */,
 				0289ACFD18F05EA100763150 /* BCPInterface.h */,
 				0289ACFE18F05EA100763150 /* BCPInterface.m */,
 				020A62C718F0AB50003CF941 /* BCPNavigationBar.h */,
@@ -467,6 +472,7 @@
 				028DB29D18F1DC9D00D14EE6 /* BCPWelcomeView.m in Sources */,
 				028DB2A318F22BFB00D14EE6 /* BCPLoginView.m in Sources */,
 				028DB2A018F1E0D600D14EE6 /* BCPNavigationController.m in Sources */,
+				028DB2A818F2FD2500D14EE6 /* BCPData.m in Sources */,
 				0289ACFC18F05E5F00763150 /* BCPCommon.m in Sources */,
 				020A628818F078B8003CF941 /* BCPSidebarCell.m in Sources */,
 				028DB29818F0D2BD00D14EE6 /* BCPContentView.m in Sources */,

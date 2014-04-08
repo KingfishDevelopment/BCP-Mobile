@@ -9,9 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "BCPColors.h"
 #import "BCPConstants.h"
+#import "BCPData.h"
 #import "BCPNavigationController.h"
 
 @protocol BCPViewControllerDelegate<NSObject>
+- (BOOL)loggedIn;
+- (void)setLoggedIn:(BOOL)loggedIn;
 - (void)showSideBar;
 @end
 
