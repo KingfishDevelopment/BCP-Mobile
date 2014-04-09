@@ -60,11 +60,25 @@
     }
     [cell setUserInteractionEnabled:!disableCell];
     [cell setText:row];
+    if([indexPath isEqual:self.selectedIndexPath]) {
+        [cell.highlight setHidden:NO];
+    }
+    else {
+        [cell.highlight setHidden:YES];
+    }
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if([indexPath isEqual:self.selectedIndexPath]) {
+        return;
+    }
+    if(self.selectedIndexPath) {
+        [((BCPSidebarCell *)[self cellForRowAtIndexPath:self.selectedIndexPath]).highlight setHidden:YES];
+    }
+    self.selectedIndexPath = indexPath;
+    [((BCPSidebarCell *)[self cellForRowAtIndexPath:self.selectedIndexPath]).highlight setHidden:NO];
     NSString *row = [[self.sections objectAtIndex:indexPath.section/2] objectAtIndex:indexPath.row];
     if([row isEqualToString:@"Login"]&&[[BCPCommon viewController] loggedIn])
         row = @"Logout";

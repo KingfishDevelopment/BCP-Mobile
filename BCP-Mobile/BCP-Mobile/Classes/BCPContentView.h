@@ -13,5 +13,6 @@
 @property (nonatomic, retain) BCPNavigationController *navigationController;
 
 + (void)setUpdateNavigationBlock:(void (^)(BCPNavigationController *navigationController))newUpdateNavigationBlock;
+- (void)updateNavigation;
 
 @end

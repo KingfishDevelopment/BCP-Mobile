@@ -12,6 +12,5 @@
 @interface BCPViewController : UIViewController <BCPViewControllerDelegate>
 
 @property (nonatomic, retain) BCPInterface *interface;
-@property (nonatomic) BOOL loggedIn;
 
 @end

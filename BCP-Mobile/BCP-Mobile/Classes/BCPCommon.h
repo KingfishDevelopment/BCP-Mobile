@@ -11,9 +11,13 @@
 #import "BCPConstants.h"
 #import "BCPData.h"
 #import "BCPNavigationController.h"
+#import "TSMessage.h"
 
 @protocol BCPViewControllerDelegate<NSObject>
+- (UIView *)currentNotification;
+- (void)insertSubviewBelowNavigationBar:(UIView *)view;
 - (BOOL)loggedIn;
+- (int)navigationBarHeight;
 - (void)setLoggedIn:(BOOL)loggedIn;
 - (void)showSideBar;
 @end
@@ -25,6 +29,8 @@
 + (void)setViewController:(NSObject<BCPViewControllerDelegate> *)newViewController;
 + (CGSize)sizeOfText:(NSString *)text withFont:(UIFont *)font;
 + (CGSize)sizeOfText:(NSString *)text withFont:(UIFont *)font constrainedToWidth:(CGFloat)width;
++ (CGSize)sizeOfText:(NSString *)text withFont:(UIFont *)font constrainedToWidth:(CGFloat)width singleLine:(BOOL)singleLine;
++ (CGSize)sizeOfText:(NSString *)text withFont:(UIFont *)font singleLine:(BOOL)singleLine;
 + (NSObject<BCPViewControllerDelegate> *)viewController;
 
 @end

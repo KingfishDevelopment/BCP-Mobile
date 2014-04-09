@@ -17,7 +17,8 @@
         [self setBackgroundColor:[UIColor BCPBlueColor]];
         
         NSInteger offset = [BCPCommon isIOS7]?20:0;
-        self.label = [[UILabel alloc] initWithFrame:CGRectMake(10, offset, self.bounds.size.width-20, self.bounds.size.height-offset)];
+        CGFloat buttonPadding = (self.bounds.size.height-offset-BCP_NAVIGATION_BUTTON_SIZE)/2;
+        self.label = [[UILabel alloc] initWithFrame:CGRectMake(buttonPadding+BCP_NAVIGATION_BUTTON_SIZE+10, offset, self.bounds.size.width-buttonPadding*2-BCP_NAVIGATION_BUTTON_SIZE*2-20, self.bounds.size.height-offset)];
         [self.label setAutoresizingMask:UIViewAutoresizingFlexibleSize];
         [self.label setBackgroundColor:[UIColor clearColor]];
         [self.label setFont:[UIFont boldSystemFontOfSize:20]];
@@ -27,7 +28,6 @@
         [self.label setTextColor:[UIColor whiteColor]];
         [self addSubview:self.label];
         
-        CGFloat buttonPadding = (self.bounds.size.height-offset-BCP_NAVIGATION_BUTTON_SIZE)/2;
         for(int i=0;i<2;i++) {
             UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(i==0?buttonPadding:self.bounds.size.width-buttonPadding-BCP_NAVIGATION_BUTTON_SIZE, offset+buttonPadding, BCP_NAVIGATION_BUTTON_SIZE, BCP_NAVIGATION_BUTTON_SIZE)];
             [button addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];

@@ -26,12 +26,18 @@ static void (^updateNavigationBlock)(BCPNavigationController *navigationControll
 - (void)setHidden:(BOOL)hidden {
     [super setHidden:hidden];
     if(!hidden&&updateNavigationBlock) {
-        updateNavigationBlock(self.navigationController);
+        [self updateNavigation];
     }
 }
 
 + (void)setUpdateNavigationBlock:(void (^)(BCPNavigationController *navigationController))newUpdateNavigationBlock {
     updateNavigationBlock = newUpdateNavigationBlock;
+}
+
+- (void)updateNavigation {
+    if(!self.hidden) {
+        updateNavigationBlock(self.navigationController);
+    }
 }
 
 @end

@@ -37,6 +37,27 @@
         
         self.content = [[BCPContent alloc] initWithFrame:CGRectMake(BCP_SIDEBAR_WIDTH, 0, self.bounds.size.width, self.bounds.size.height)];
         [self.scrollView addSubview:self.content];
+        NSString *lastViewKey = [[BCPData data] objectForKey:@"lastView"];
+        if(lastViewKey) {
+            [self.content showViewWithKey:lastViewKey];
+            BOOL sectionFound = NO;
+            for(int i=0;i<[self.sideBar.sections count];i++) {
+                for(int j=0;j<[[self.sideBar.sections objectAtIndex:i] count];j++) {
+                    if([[[self.sideBar.sections objectAtIndex:i] objectAtIndex:j] isEqualToString:lastViewKey]) {
+                        [self.sideBar setSelectedIndexPath:[NSIndexPath indexPathForRow:j inSection:i*2+1]];
+                        sectionFound = YES;
+                        break;
+                    }
+                }
+                if(sectionFound) {
+                    break;
+                }
+            }
+            [self.sideBar reloadData];
+        }
+        else {
+            [self.content showViewWithKey:@"Welcome"];
+        }
         
         [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleHeight];
         [self.scrollView setBounces:NO];

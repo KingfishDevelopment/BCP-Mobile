@@ -11,6 +11,8 @@
 @interface BCPData : NSObject
 
 + (NSMutableDictionary *)data;
++ (void)deleteData;
++ (void)saveDictionary;
 + (void)sendRequest:(NSString *)requestString onCompletion:(void (^)(NSString *error))completionBlock;
 + (void)sendRequest:(NSString *)requestString withDetails:(NSDictionary *)details onCompletion:(void (^)(NSString *error))completionBlock;
 

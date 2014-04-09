@@ -19,7 +19,7 @@ static NSString *path = nil;
     NSString *documentsDirectory = [paths objectAtIndex:0];
     path = [documentsDirectory stringByAppendingPathComponent:@"data"];
     
-    if(false&&[[NSFileManager defaultManager] fileExistsAtPath:path]) {
+    if([[NSFileManager defaultManager] fileExistsAtPath:path]) {
         @try {
             data = [NSKeyedUnarchiver unarchiveObjectWithData:[NSData dataWithContentsOfFile:path]];
         }
@@ -80,6 +80,15 @@ static NSString *path = nil;
     return data;
 }
 
++ (void)deleteData {
+    NSString *lastView = [data objectForKey:@"lastView"];
+    data = [NSMutableDictionary dictionary];
+    if(lastView) {
+        [data setObject:lastView forKey:@"lastView"];
+    }
+    [self saveDictionary];
+}
+
 + (void)parseResponse:(NSData *)responseString withCompletionBlock:(void (^)(NSString *error))completionBlock withRequest:(NSString *)request {
     NSError *e = nil;
     id response = [NSJSONSerialization JSONObjectWithData:responseString options:NSJSONReadingMutableContainers error:&e];
@@ -108,13 +117,23 @@ static NSString *path = nil;
 + (void)sendRequest:(NSString *)requestString withDetails:(NSDictionary *)details onCompletion:(void (^)(NSString *error))completionBlock {
     NSString *requestURL = @"https://";
     NSDictionary *credentials;
-    if([details objectForKey:@"username"]&&[details objectForKey:@"password"]) {
+    if(details&&[details objectForKey:@"username"]&&[details objectForKey:@"password"]) {
         NSString *username = [details objectForKey:@"username"];
         NSString *password = [details objectForKey:@"password"];
         credentials = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:username,password,nil] forKeys:[NSArray arrayWithObjects:@"username",@"password",nil]];
     }
     requestURL = [requestURL stringByAppendingString:[@"kingfi.sh/api/bellarmine/v2/" stringByAppendingString:[requestString stringByAppendingString:@"#"]]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:requestURL]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestURL]];
+    if(!credentials&&details&&[details count]>0) {
+        [request setHTTPMethod:@"POST"];
+        NSMutableString *postFields = [NSMutableString string];
+        BOOL firstKey = YES;
+        for(NSString *key in [details allKeys]) {
+            [postFields appendFormat:@"%@%@=%@",firstKey?@"":@"&",[key stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"],[[details objectForKey:key] stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"]];
+            firstKey = NO;
+        }
+        [request setHTTPBody:[postFields dataUsingEncoding:NSUTF8StringEncoding]];
+    }
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     void (^completionBlockCopy)(NSString *error) = [completionBlock copy];
     NSMutableDictionary *newConnection = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSMutableData data],@"data",completionBlockCopy,@"completionBlock",(credentials?credentials:[NSNull null]),@"credentials",requestString,@"request",nil];

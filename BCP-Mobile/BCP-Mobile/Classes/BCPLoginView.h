@@ -12,9 +12,11 @@
 
 @property (nonatomic, retain) UIView *container;
 @property (nonatomic) CGFloat keyboardHeight;
+@property (nonatomic) BOOL loggedIn;
 @property (nonatomic, retain) UIButton *loginButton;
 @property (nonatomic, retain) UIImageView *icon;
 @property (nonatomic, retain) UITextField *passwordField;
+@property (nonatomic, retain) UIView *textFieldContainer;
 @property (nonatomic, retain) UITextField *usernameField;
 
 @end

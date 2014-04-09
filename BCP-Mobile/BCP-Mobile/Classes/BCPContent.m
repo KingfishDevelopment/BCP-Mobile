@@ -8,7 +8,9 @@
 
 #import "BCPContent.h"
 
+#import "BCPGradesView.h"
 #import "BCPLoginView.h"
+#import "BCPLogoutView.h"
 #import "BCPNavigationBar.h"
 #import "BCPWelcomeView.h"
 
@@ -18,6 +20,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setBackgroundColor:[UIColor BCPOffWhiteColor]];
+        [self setClipsToBounds:YES];
         __unsafe_unretained typeof(self) weakSelf = self;
         
         CGFloat navigationBarHeight = BCP_NAVIGATION_BAR_HEIGHT+([BCPCommon isIOS7]?20:0);
@@ -33,15 +36,21 @@
         
         self.views = [[NSMutableDictionary alloc] init];
         
-        BCPWelcomeView *welcomeView = [[BCPWelcomeView alloc] initWithFrame:self.container.bounds];
-        [self.container addSubview:welcomeView];
-        [self.views setObject:welcomeView forKey:@"Welcome"];
+        BCPGradesView *gradesView = [[BCPGradesView alloc] initWithFrame:self.container.bounds];
+        [self.container addSubview:gradesView];
+        [self.views setObject:gradesView forKey:@"Grades"];
         
         BCPLoginView *loginView = [[BCPLoginView alloc] initWithFrame:self.container.bounds];
         [self.container addSubview:loginView];
         [self.views setObject:loginView forKey:@"Login"];
         
-        [self showViewWithKey:@"Welcome"];
+        BCPLogoutView *logoutView = [[BCPLogoutView alloc] initWithFrame:self.container.bounds];
+        [self.container addSubview:logoutView];
+        [self.views setObject:logoutView forKey:@"Logout"];
+        
+        BCPWelcomeView *welcomeView = [[BCPWelcomeView alloc] initWithFrame:self.container.bounds];
+        [self.container addSubview:welcomeView];
+        [self.views setObject:welcomeView forKey:@"Welcome"];
     }
     return self;
 }
@@ -52,6 +61,22 @@
 }
 
 - (void)showViewWithKey:(NSString *)showKey {
+    if([showKey isEqualToString:@"Login"]&&[[BCPCommon viewController] loggedIn]) {
+        showKey = @"Logout";
+    }
+    else if([showKey isEqualToString:@"Logout"]&&![[BCPCommon viewController] loggedIn]) {
+        showKey = @"Login";
+    }
+    if([showKey isEqualToString:@"Login"]) {
+        BCPLoginView *loginView = [[BCPLoginView alloc] initWithFrame:self.container.bounds];
+        [self.container addSubview:loginView];
+        [self.views setObject:loginView forKey:@"Login"];
+    }
+    else if([showKey isEqualToString:@"Logout"]) {
+        BCPLogoutView *logoutView = [[BCPLogoutView alloc] initWithFrame:self.container.bounds];
+        [self.container addSubview:logoutView];
+        [self.views setObject:logoutView forKey:@"Logout"];
+    }
     __block BOOL viewFound = NO;
     [self.views enumerateKeysAndObjectsUsingBlock:^(NSString *key, UIView *view, BOOL *stop) {
         [view setHidden:![key isEqualToString:showKey]];
@@ -62,6 +87,8 @@
     if(!viewFound) {
         [self updateNavigationBarWithController:[[BCPNavigationController alloc] init]];
     }
+    [[BCPData data] setObject:showKey forKey:@"lastView"];
+    [BCPData saveDictionary];
 }
 
 - (void)updateNavigationBarWithController:(BCPNavigationController *)navigationController {

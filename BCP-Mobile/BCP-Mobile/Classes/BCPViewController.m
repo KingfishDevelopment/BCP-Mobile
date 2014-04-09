@@ -8,8 +8,11 @@
 
 #import "BCPViewController.h"
 
+#import "BCPContent.h"
 #import "BCPInterface.h"
+#import "BCPNavigationBar.h"
 #import "BCPSidebar.h"
+#import "TSMessageView.h"
 
 @interface BCPViewController ()
 
@@ -33,8 +36,40 @@
         [field becomeFirstResponder];
         [field resignFirstResponder];
         [field removeFromSuperview];
+        
+        [TSMessage setDefaultViewController:self];
     }
     return self;
+}
+
+- (UIView *)currentNotification {
+    for(UIView *view in [self.interface.content subviews]) {
+        if([view isKindOfClass:[TSMessageView class]]) {
+            return view;
+        }
+    }
+    return nil;
+}
+
+- (void)insertSubviewBelowNavigationBar:(UIView *)view {
+    if(!self.interface.content.navigationBar.hidden) {
+        [self.interface.content insertSubview:view belowSubview:self.interface.content.navigationBar];
+    }
+    else {
+        [self.interface.content addSubview:view];
+    }
+}
+
+- (BOOL)loggedIn {
+    return [[BCPData data] objectForKey:@"login"]&&[[[BCPData data] objectForKey:@"login"] objectForKey:@"token"];
+}
+
+- (int)navigationBarHeight {
+    UIView *navigationBar = self.interface.content.navigationBar;
+    if(!navigationBar.hidden) {
+        return navigationBar.frame.size.height;
+    }
+    return 0;
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle{
@@ -42,8 +77,14 @@
 }
 
 - (void)setLoggedIn:(BOOL)loggedIn {
-    _loggedIn = loggedIn;
+    [self.interface.sideBar setSelectedIndexPath:nil];
     [self.interface.sideBar performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+    if(loggedIn) {
+        [TSMessage showNotificationWithTitle:@"Logged In" subtitle:@"You may now access new sections from the sidebar." type:TSMessageNotificationTypeSuccess];
+    }
+    else {
+        [TSMessage showNotificationWithTitle:@"Logged Out" subtitle:@"You must login again to access the 'My BCP' sections." type:TSMessageNotificationTypeMessage];
+    }
 }
 
 - (void)showSideBar {

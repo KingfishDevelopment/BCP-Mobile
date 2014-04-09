@@ -15,6 +15,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.loggedIn = NO;
         self.keyboardHeight = 0;
         
         self.container = [[UIView alloc] init];
@@ -23,12 +24,12 @@
         [self.icon setImage:[UIImage imageNamed:@"IconLarge"]];
         [self.container addSubview:self.icon];
         
-        UIView *textFieldContainer = [[UIView alloc] initWithFrame:CGRectMake(0, self.icon.frame.size.height+20, BCP_LOGIN_CONTAINER_WIDTH, BCP_TEXTFIELD_HEIGHT*2)];
-        [textFieldContainer.layer setBorderColor:[UIColor BCPLightGrayColor].CGColor];
-        [textFieldContainer.layer setBorderWidth:1.0f];
-        [textFieldContainer.layer setCornerRadius:5.0f];
-        [textFieldContainer.layer setMasksToBounds:YES];
-        [self.container addSubview:textFieldContainer];
+        self.textFieldContainer = [[UIView alloc] initWithFrame:CGRectMake(0, self.icon.frame.size.height+20, BCP_LOGIN_CONTAINER_WIDTH, BCP_TEXTFIELD_HEIGHT*2)];
+        [self.textFieldContainer.layer setBorderColor:[UIColor BCPLightGrayColor].CGColor];
+        [self.textFieldContainer.layer setBorderWidth:1.0f];
+        [self.textFieldContainer.layer setCornerRadius:5.0f];
+        [self.textFieldContainer.layer setMasksToBounds:YES];
+        [self.container addSubview:self.textFieldContainer];
         
         for(int i=0;i<2;i++) {
             UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(10, BCP_TEXTFIELD_HEIGHT*i, BCP_LOGIN_CONTAINER_WIDTH-20, BCP_TEXTFIELD_HEIGHT)];
@@ -38,7 +39,7 @@
             [textField setDelegate:self];
             [textField setPlaceholder:i==0?@"Username":@"Password"];
             [textField setSecureTextEntry:i==1];
-            [textFieldContainer addSubview:textField];
+            [self.textFieldContainer addSubview:textField];
             if(i==0) {
                 self.usernameField = textField;
             }
@@ -49,9 +50,9 @@
         
         UIView *textFieldContainerDivider = [[UIView alloc] initWithFrame:CGRectMake(0, BCP_TEXTFIELD_HEIGHT-0.5f, BCP_LOGIN_CONTAINER_WIDTH, 1)];
         [textFieldContainerDivider setBackgroundColor:[UIColor BCPLightGrayColor]];
-        [textFieldContainer addSubview:textFieldContainerDivider];
+        [self.textFieldContainer addSubview:textFieldContainerDivider];
         
-        self.loginButton = [[UIButton alloc] initWithFrame:CGRectMake(0, textFieldContainer.frame.origin.y+textFieldContainer.frame.size.height+20, BCP_LOGIN_CONTAINER_WIDTH, BCP_TEXTFIELD_HEIGHT)];
+        self.loginButton = [[UIButton alloc] initWithFrame:CGRectMake(0, self.textFieldContainer.frame.origin.y+self.textFieldContainer.frame.size.height+20, BCP_LOGIN_CONTAINER_WIDTH, BCP_TEXTFIELD_HEIGHT)];
         [self.loginButton addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
         [self.loginButton setTitle:@"Login" forState:UIControlStateNormal];
         [self.loginButton setTitleColor:[UIColor BCPOffBlackColor] forState:UIControlStateNormal];
@@ -61,8 +62,8 @@
         [self.loginButton.layer setMasksToBounds:YES];
         [self.container addSubview:self.loginButton];
         
-        CGFloat containerHeight = self.icon.frame.size.height+textFieldContainer.frame.size.height+self.loginButton.frame.size.height+40;
-        [self.container setFrame:CGRectMake((self.frame.size.width-BCP_LOGIN_CONTAINER_WIDTH)/2, (self.frame.size.height-self.keyboardHeight)/2-textFieldContainer.frame.origin.y-BCP_TEXTFIELD_HEIGHT-(BCP_NAVIGATION_BAR_HEIGHT+([BCPCommon isIOS7]?20:0))*(self.keyboardHeight>0?0:1)/2, BCP_LOGIN_CONTAINER_WIDTH, containerHeight)];
+        CGFloat containerHeight = self.icon.frame.size.height+self.textFieldContainer.frame.size.height+self.loginButton.frame.size.height+40;
+        [self.container setFrame:CGRectMake((self.frame.size.width-BCP_LOGIN_CONTAINER_WIDTH)/2, (self.frame.size.height-self.keyboardHeight)/2-self.textFieldContainer.frame.origin.y-BCP_TEXTFIELD_HEIGHT-(BCP_NAVIGATION_BAR_HEIGHT+([BCPCommon isIOS7]?20:0))*(self.keyboardHeight>0?0:1)/2, BCP_LOGIN_CONTAINER_WIDTH, containerHeight)];
         [self addSubview:self.container];
         
         [self.navigationController setNavigationBarText:@"Login"];
@@ -103,11 +104,15 @@
     [UIView animateWithDuration:duration animations:^{
         [self layoutSubviews];
     }];
-    
 }
 
 - (void)layoutSubviews {
-    [self.container setFrame:CGRectMake((self.frame.size.width-BCP_LOGIN_CONTAINER_WIDTH)/2, (self.frame.size.height-self.keyboardHeight)/2-BCP_ICON_SIZE-20-BCP_TEXTFIELD_HEIGHT-(BCP_NAVIGATION_BAR_HEIGHT+([BCPCommon isIOS7]?20:0))*(self.keyboardHeight>0?0:1)/2, BCP_LOGIN_CONTAINER_WIDTH, self.container.frame.size.height)];
+    if(!self.loggedIn) {
+        [self.container setFrame:CGRectMake((self.frame.size.width-BCP_LOGIN_CONTAINER_WIDTH)/2, (self.frame.size.height-self.keyboardHeight)/2-BCP_ICON_SIZE-20-BCP_TEXTFIELD_HEIGHT-(BCP_NAVIGATION_BAR_HEIGHT+([BCPCommon isIOS7]?20:0))*(self.keyboardHeight>0?0:1)/2, BCP_LOGIN_CONTAINER_WIDTH, self.container.frame.size.height)];
+    }
+    else {
+        [self.container setFrame:CGRectMake((self.frame.size.width-BCP_LOGIN_CONTAINER_WIDTH)/2, self.frame.size.height/2-self.icon.frame.size.height/2-self.icon.frame.origin.y, BCP_LOGIN_CONTAINER_WIDTH, self.container.frame.size.height)];
+    }
     [self.icon setAlpha:[self convertPoint:self.icon.frame.origin fromView:self.container].y<20?0:1];
 }
 
@@ -118,8 +123,17 @@
     [BCPData sendRequest:@"login" withDetails:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:self.usernameField.text,self.passwordField.text,nil] forKeys:[NSArray arrayWithObjects:@"username",@"password",nil]] onCompletion:^(NSString *error) {
         if(!error&&[[BCPData data] objectForKey:@"login"]&&[[[BCPData data] objectForKey:@"login"] objectForKey:@"token"]) {
             [[BCPCommon viewController] setLoggedIn:YES];
+            self.loggedIn = YES;
+            [self.textFieldContainer setUserInteractionEnabled:NO];
+            [self.loginButton setUserInteractionEnabled:NO];
+            [UIView animateWithDuration:BCP_TRANSITION_DURATION animations:^{
+                [self.textFieldContainer setAlpha:0];
+                [self.loginButton setAlpha:0];
+                [self.container setFrame:CGRectMake((self.frame.size.width-BCP_LOGIN_CONTAINER_WIDTH)/2, self.frame.size.height/2-self.icon.frame.size.height/2-self.icon.frame.origin.y, BCP_LOGIN_CONTAINER_WIDTH, self.container.frame.size.height)];
+            }];
         }
         else {
+            [TSMessage showNotificationWithTitle:@"Invalid Username or Password" subtitle:@"Please check the credentials you entered and try again." type:TSMessageNotificationTypeError];
             [weakSelf performSelectorOnMainThread:@selector(animateLoginButton) withObject:nil waitUntilDone:NO];
         }
     }];

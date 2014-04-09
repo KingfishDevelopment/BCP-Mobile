@@ -18,7 +18,7 @@
         [container setAutoresizingMask:UIViewAutoresizingFlexibleMargins];
         
         UILabel *topLabel = [[UILabel alloc] init];
-        [topLabel setBackgroundColor:[UIColor clearColor]];
+        [topLabel setBackgroundColor:[UIColor BCPOffWhiteColor]];
         [topLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:24]];
         [topLabel setNumberOfLines:0];
         [topLabel setText:@"Welcome to\nBCP Mobile!"];
@@ -33,7 +33,7 @@
         [container addSubview:icon];
         
         UILabel *bottomLabel = [[UILabel alloc] init];
-        [bottomLabel setBackgroundColor:[UIColor clearColor]];
+        [bottomLabel setBackgroundColor:[UIColor BCPOffWhiteColor]];
         [bottomLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:18]];
         [bottomLabel setNumberOfLines:0];
         [bottomLabel setText:@"Swipe to the right\n(or tap the button at the top)\nto get started."];

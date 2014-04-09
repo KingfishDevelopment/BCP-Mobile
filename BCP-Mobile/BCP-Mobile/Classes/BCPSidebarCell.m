@@ -48,17 +48,11 @@
 }
 
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
-    if(highlighted!=self.highlighted) {
-        [super setHighlighted:highlighted animated:animated];
-        [self.highlight setHidden:!highlighted];
-    }
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    if(selected!=self.selected) {
-        [super setSelected:selected animated:animated];
-        [self.highlight setHidden:!selected];
-    }
+    
 }
 
 - (void)setText:(NSString *)text {

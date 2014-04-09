@@ -11,6 +11,7 @@
 @interface BCPSidebar : UITableView <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSArray *sections;
+@property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 @property (nonatomic, copy) void (^selectBlock)(NSString *name);
 @property (nonatomic, strong) NSArray *titles;
 
