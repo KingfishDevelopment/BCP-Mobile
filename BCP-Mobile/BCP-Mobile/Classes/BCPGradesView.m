@@ -30,7 +30,7 @@
             [scrollView setScrollEnabled:NO];
             [scrollView setShowsHorizontalScrollIndicator:NO];
             [scrollView setShowsVerticalScrollIndicator:NO];
-            [scrollView setTag:i==0?[self currentSemester]*2:0];
+            [scrollView setTag:i==0?[self currentSemester]*3:0];
             [self.scrollViews addObject:scrollView];
             if(i==0) {
                 [self addSubview:scrollView];
@@ -62,10 +62,10 @@
         }
         
         self.dividers = [[NSMutableArray alloc] init];
-        for(int i=0;i<3;i++) {
+        for(int i=0;i<5;i++) {
             UIView *divider = [[UIView alloc] init];
             [divider setBackgroundColor:[UIColor BCPLightGrayColor]];
-            [[self.scrollViews objectAtIndex:i] addSubview:divider];
+            [[self.scrollViews objectAtIndex:i==0?0:(i-1)/2+1] addSubview:divider];
             [self.dividers addObject:divider];
         }
         
@@ -87,7 +87,7 @@
     [self.navigationController setNavigationBarText:[NSString stringWithFormat:@"Grades (Semester %i)",newSemester+1]];
     self.navigationController.rightButtonImageName = newSemester==0?@"ArrowDown":@"ArrowUp";
     [self updateNavigation];
-    [[self.scrollViews objectAtIndex:0] setTag:newSemester*2];
+    [[self.scrollViews objectAtIndex:0] setTag:newSemester*3];
     [UIView animateWithDuration:BCP_TRANSITION_DURATION animations:^{
         [self layoutSubviews];
     }];
@@ -111,17 +111,17 @@
             [[self.scrollViews objectAtIndex:i] setContentSize:CGSizeMake(self.bounds.size.width, self.bounds.size.height*2+1)];
         }
         else {
-            [[self.scrollViews objectAtIndex:i] setContentSize:CGSizeMake(self.bounds.size.width*2+1, self.bounds.size.height)];
+            [[self.scrollViews objectAtIndex:i] setContentSize:CGSizeMake(MAX(0,(self.bounds.size.width+1)*(self.selectedDetail?3:2)-1), self.bounds.size.height)];
         }
     }
     for(int i=0;i<[self.tableViews count];i++) {
         [[self.tableViews objectAtIndex:i] setFrame:CGRectMake((self.bounds.size.width+1)*(i%2), 0, self.bounds.size.width, self.bounds.size.height)];
     }
     for(int i=0;i<[self.dividers count];i++) {
-        [[self.dividers objectAtIndex:i] setFrame:CGRectMake(i==0?0:self.bounds.size.width, i==0?self.bounds.size.height:0, i==0?self.bounds.size.width*2+1:1, i==0?1:self.bounds.size.height)];
+        [[self.dividers objectAtIndex:i] setFrame:CGRectMake(i==0?0:self.bounds.size.width*((i-1)%2+1)+(i%2==1?0:1), i==0?self.bounds.size.height:0, i==0?self.bounds.size.width*2+1:1, i==0?1:self.bounds.size.height)];
     }
     for(UIScrollView *scrollView in self.scrollViews) {
-        [scrollView setContentOffset:CGPointMake((scrollView.bounds.size.width+1)*(scrollView.tag%2), (scrollView.bounds.size.height+1)*(scrollView.tag/2))];
+        [scrollView setContentOffset:CGPointMake((scrollView.bounds.size.width+1)*(scrollView.tag%3), (scrollView.bounds.size.height+1)*(scrollView.tag/3))];
     }
 }
 
@@ -183,6 +183,9 @@
                 [self layoutSubviews];
             }];
         }
+        else if(currentIndex>0&&scrollView.tag>1) {
+            [[self.scrollViews objectAtIndex:[self currentSemester]+1] setTag:1];
+        }
     }
 }
 
@@ -214,12 +217,18 @@
         }];
     }
     else if(nearestIndex>0) {
-        *targetContentOffset = CGPointMake(scrollView.bounds.size.width+1, targetContentOffset->y);
+        *targetContentOffset = CGPointMake((scrollView.bounds.size.width+1)*nearestIndex, targetContentOffset->y);
         dispatch_async(dispatch_get_main_queue(), ^{
-            [scrollView setContentOffset:CGPointMake(scrollView.bounds.size.width+1, targetContentOffset->y) animated:YES];
+            [scrollView setContentOffset:CGPointMake((scrollView.bounds.size.width+1)*nearestIndex, targetContentOffset->y) animated:YES];
         });
     }
-    
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if(scrollView.contentOffset.x==scrollView.bounds.size.width+1) {
+        self.selectedDetail = nil;
+        [self layoutSubviews];
+    }
 }
 
 - (void)setHidden:(BOOL)hidden {
@@ -285,18 +294,21 @@
         [self.navigationController setNavigationBarText:[self.selectedCourse objectForKey:@"course"]];
         [self.navigationController setLeftButtonImageName:@"ArrowLeft"];
         [self.navigationController setLeftButtonTapped:^{
-            [weakSelf.navigationController setNavigationBarText:[NSString stringWithFormat:@"Grades (Semester %i)",[weakSelf currentSemester]+1]];
-            weakSelf.navigationController.leftButtonImageName = @"Sidebar";
-            weakSelf.navigationController.leftButtonTapped = ^{
-                [[BCPCommon viewController] showSideBar];
-            };
-            weakSelf.navigationController.rightButtonImageName = [weakSelf currentSemester]==0?@"ArrowDown":@"ArrowUp";
-            weakSelf.navigationController.rightButtonTapped = ^{
-                [weakSelf changeSemester];
-            };
-            [weakSelf updateNavigation];
-            [[weakSelf.scrollViews objectAtIndex:[weakSelf currentSemester]+1] setScrollEnabled:NO];
-            [[weakSelf.scrollViews objectAtIndex:[weakSelf currentSemester]+1] setTag:0];
+            int newTag = (int)[[weakSelf.scrollViews objectAtIndex:[weakSelf currentSemester]+1] tag]-1;
+            if(newTag==0) {
+                [weakSelf.navigationController setNavigationBarText:[NSString stringWithFormat:@"Grades (Semester %i)",[weakSelf currentSemester]+1]];
+                weakSelf.navigationController.leftButtonImageName = @"Sidebar";
+                weakSelf.navigationController.leftButtonTapped = ^{
+                    [[BCPCommon viewController] showSideBar];
+                };
+                weakSelf.navigationController.rightButtonImageName = [weakSelf currentSemester]==0?@"ArrowDown":@"ArrowUp";
+                weakSelf.navigationController.rightButtonTapped = ^{
+                    [weakSelf changeSemester];
+                };
+                [weakSelf updateNavigation];
+                [[weakSelf.scrollViews objectAtIndex:[weakSelf currentSemester]+1] setScrollEnabled:NO];
+            }
+            [[weakSelf.scrollViews objectAtIndex:[weakSelf currentSemester]+1] setTag:newTag];
             [UIView animateWithDuration:BCP_TRANSITION_DURATION animations:^{
                 [weakSelf layoutSubviews];
             }];
@@ -307,6 +319,15 @@
         
         [[self.scrollViews objectAtIndex:tableView.tag/2+1] setScrollEnabled:YES];
         [[self.scrollViews objectAtIndex:tableView.tag/2+1] setTag:1];
+        [UIView animateWithDuration:BCP_TRANSITION_DURATION animations:^{
+            [self layoutSubviews];
+        }];
+    }
+    else {
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        self.selectedDetail = [NSMutableDictionary dictionary];
+        [[self.scrollViews objectAtIndex:tableView.tag/2+1] setScrollEnabled:YES];
+        [[self.scrollViews objectAtIndex:tableView.tag/2+1] setTag:2];
         [UIView animateWithDuration:BCP_TRANSITION_DURATION animations:^{
             [self layoutSubviews];
         }];

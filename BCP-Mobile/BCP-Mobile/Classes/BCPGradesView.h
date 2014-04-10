@@ -14,6 +14,7 @@
 @property (nonatomic) BOOL firstLoadCompleted;
 @property (nonatomic, retain) NSMutableArray *scrollViews;
 @property (nonatomic, retain) NSMutableDictionary *selectedCourse;
+@property (nonatomic, retain) NSMutableDictionary *selectedDetail;
 @property (nonatomic, retain) NSMutableArray *tableViews;
 
 @end
