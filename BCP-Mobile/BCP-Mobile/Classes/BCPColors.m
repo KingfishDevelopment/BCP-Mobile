@@ -26,6 +26,14 @@
     return color;
 }
 
++ (UIColor *)BCPMoreOffWhiteColor {
+    static UIColor *color = nil;
+    if(!color) {
+        color = [UIColor colorWithWhite:0.85 alpha:1];
+    }
+    return color;
+}
+
 + (UIColor *)BCPOffBlackColor {
     static UIColor *color = nil;
     if(!color) {

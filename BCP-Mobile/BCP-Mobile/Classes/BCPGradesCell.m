@@ -74,7 +74,7 @@ static CGFloat gradeWidth;
 
 - (void)layoutSubviews {
     [self.titleLabel setFrame:CGRectMake(10, 4, self.bounds.size.width-gradeWidth-40, self.bounds.size.height-8)];
-    [self.gradeLabel setFrame:CGRectMake(self.bounds.size.width-gradeWidth-10, 4, gradeWidth, self.bounds.size.height-8)];
+    [self.gradeLabel setFrame:CGRectMake(self.bounds.size.width-gradeWidth-10+([self.gradeLabel.text isEqualToString:@"X"]?2:([self.gradeLabel.text isEqualToString:@"∅"]?1:0)), 4, gradeWidth, self.bounds.size.height-8)];
     
     CGSize titleLabelSize = [BCPCommon sizeOfText:self.titleLabel.text withFont:self.titleLabel.font constrainedToWidth:self.titleLabel.bounds.size.width singleLine:YES];
     CGSize titleLabelSizeMax = [BCPCommon sizeOfText:self.titleLabel.text withFont:self.titleLabel.font singleLine:YES];
@@ -103,7 +103,19 @@ static CGFloat gradeWidth;
 
 - (void)setTitle:(NSString *)title withGrade:(NSString *)grade {
     [self.titleLabel setText:title];
+    if(!grade||[grade length]==0) {
+        grade = @"∅";
+    }
+    if([grade isEqualToString:@"X"]||[grade isEqualToString:@"∅"]) {
+        [self.gradeLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:14]];
+        [self.gradeLabel setTextColor:[UIColor lightGrayColor]];
+    }
+    else {
+        [self.gradeLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:18]];
+        [self.gradeLabel setTextColor:[UIColor BCPOffBlackColor]];
+    }
     [self.gradeLabel setText:grade];
+    
     [self setNeedsLayout];
 }
 

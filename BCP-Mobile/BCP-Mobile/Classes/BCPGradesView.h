@@ -8,10 +8,11 @@
 
 #import "BCPContentView.h"
 
-@interface BCPGradesView : BCPContentView <UITableViewDataSource, UITableViewDelegate>
+@interface BCPGradesView : BCPContentView <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, retain) NSMutableArray *dividers;
 @property (nonatomic) BOOL firstLoadCompleted;
-@property (nonatomic, retain) UIScrollView *scrollView;
+@property (nonatomic, retain) NSMutableArray *scrollViews;
 @property (nonatomic, retain) NSMutableDictionary *selectedCourse;
 @property (nonatomic, retain) NSMutableArray *tableViews;
 

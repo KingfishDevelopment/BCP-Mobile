@@ -12,6 +12,7 @@
 
 + (UIColor *)BCPBlueColor;
 + (UIColor *)BCPLightGrayColor;
++ (UIColor *)BCPMoreOffWhiteColor;
 + (UIColor *)BCPOffBlackColor;
 + (UIColor *)BCPOffWhiteColor;
 
