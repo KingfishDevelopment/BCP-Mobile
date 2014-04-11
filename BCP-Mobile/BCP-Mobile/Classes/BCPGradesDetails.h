@@ -11,6 +11,7 @@
 @interface BCPGradesDetails : UIView
 
 @property (nonatomic, retain) NSMutableArray *labels;
+@property (nonatomic, retain) UIScrollView *scrollView;
 
 - (void)setTitle:(NSString *)title withDetails:(NSArray *)details;
 

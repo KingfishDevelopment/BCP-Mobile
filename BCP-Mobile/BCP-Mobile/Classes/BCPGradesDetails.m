@@ -14,11 +14,15 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setBackgroundColor:[UIColor BCPOffWhiteColor]];
+        self.scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
+        [self addSubview:self.scrollView];
     }
     return self;
 }
 
 - (void)layoutSubviews {
+    [self.scrollView setFrame:self.bounds];
+    
     CGFloat largestFieldWidth = 0;
     for(int i=1;i<[self.labels count];i+=2) {
         CGSize labelSize = [BCPCommon sizeOfText:[[self.labels objectAtIndex:i] text] withFont:[[self.labels objectAtIndex:i] font]];
@@ -29,11 +33,13 @@
     CGRect lastLabelFrame = CGRectMake(0, 30, 0, 0);
     for(int i=0;i<[self.labels count];i++) {
         CGSize labelSize = [BCPCommon sizeOfText:[[self.labels objectAtIndex:i] text] withFont:[[self.labels objectAtIndex:i] font] constrainedToWidth:self.bounds.size.width-20];
-        [[self.labels objectAtIndex:i] setFrame:CGRectMake(10+(i==0||i%2==1?0:largestFieldWidth+20), lastLabelFrame.origin.y+lastLabelFrame.size.height+10, labelSize.width, labelSize.height)];
+        [[self.labels objectAtIndex:i] setFrame:CGRectMake(20+(i==0||i%2==1?0:largestFieldWidth+20), lastLabelFrame.origin.y+lastLabelFrame.size.height+10, labelSize.width, labelSize.height)];
         if(i==0||i%2==0) {
             lastLabelFrame = [[self.labels objectAtIndex:i] frame];
         }
     }
+    
+    [self.scrollView setContentSize:CGSizeMake(self.scrollView.bounds.size.width, lastLabelFrame.origin.y+lastLabelFrame.size.height+20)];
 }
 
 - (void)setTitle:(NSString *)title withDetails:(NSArray *)details {
@@ -52,7 +58,7 @@
         NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:i==0?title:(i==1||i==2||[[details objectAtIndex:i-3] length]==0||[[details objectAtIndex:i-3+(i%2==0?-1:1)] length]==0?@" ":(i%2==1?[[details objectAtIndex:i-2] stringByAppendingString:@":"]:[details objectAtIndex:i-4]))];
         [text addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0,[text length])];
         [label setAttributedText:text];
-        [self addSubview:label];
+        [self.scrollView addSubview:label];
         [self.labels addObject:label];
     }
     [self layoutSubviews];
