@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSMutableArray *dividers;
 @property (nonatomic) BOOL firstLoadCompleted;
 @property (nonatomic, retain) NSMutableArray *scrollViews;
+@property (nonatomic) BOOL scrollingBack;
 @property (nonatomic, retain) NSMutableDictionary *selectedCourse;
 @property (nonatomic) BOOL selectedDetail;
 @property (nonatomic, retain) NSMutableArray *tableViews;

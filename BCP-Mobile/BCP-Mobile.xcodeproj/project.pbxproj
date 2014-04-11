@@ -88,15 +88,8 @@
 		028DB2A818F2FD2500D14EE6 /* BCPData.m in Sources */ = {isa = PBXBuildFile; fileRef = 028DB2A718F2FD2500D14EE6 /* BCPData.m */; };
 		02E821F218F6EEFE003C1208 /* BCPGradesDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E821F118F6EEFE003C1208 /* BCPGradesDetails.m */; };
 		02E821F518F727F3003C1208 /* BCPHTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E821F418F727F3003C1208 /* BCPHTMLParser.m */; };
-		02E8220418F76F21003C1208 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E821FA18F76F21003C1208 /* EGORefreshTableHeaderView.m */; };
-		02E8220518F76F21003C1208 /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E821FC18F76F21003C1208 /* blackArrow.png */; };
-		02E8220618F76F21003C1208 /* blackArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E821FD18F76F21003C1208 /* blackArrow@2x.png */; };
-		02E8220718F76F21003C1208 /* blueArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E821FE18F76F21003C1208 /* blueArrow.png */; };
-		02E8220818F76F21003C1208 /* blueArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E821FF18F76F21003C1208 /* blueArrow@2x.png */; };
-		02E8220918F76F21003C1208 /* grayArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E8220018F76F21003C1208 /* grayArrow.png */; };
-		02E8220A18F76F21003C1208 /* grayArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E8220118F76F21003C1208 /* grayArrow@2x.png */; };
-		02E8220B18F76F21003C1208 /* whiteArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E8220218F76F21003C1208 /* whiteArrow.png */; };
-		02E8220C18F76F21003C1208 /* whiteArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E8220318F76F21003C1208 /* whiteArrow@2x.png */; };
+		02E8221318F771EE003C1208 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E8221018F771EE003C1208 /* UIScrollView+SVInfiniteScrolling.m */; };
+		02E8221418F771EE003C1208 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E8221218F771EE003C1208 /* UIScrollView+SVPullToRefresh.m */; };
 		02FCB2FC18F44D780036B15B /* TSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FCB2E118F44D780036B15B /* TSMessage.m */; };
 		02FCB2FE18F44D780036B15B /* NotificationBackgroundError.png in Resources */ = {isa = PBXBuildFile; fileRef = 02FCB2E618F44D780036B15B /* NotificationBackgroundError.png */; };
 		02FCB2FF18F44D780036B15B /* NotificationBackgroundError@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02FCB2E718F44D780036B15B /* NotificationBackgroundError@2x.png */; };
@@ -226,16 +219,11 @@
 		02E821F118F6EEFE003C1208 /* BCPGradesDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPGradesDetails.m; path = Classes/BCPGradesDetails.m; sourceTree = "<group>"; };
 		02E821F318F727F3003C1208 /* BCPHTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPHTMLParser.h; path = Classes/BCPHTMLParser.h; sourceTree = "<group>"; };
 		02E821F418F727F3003C1208 /* BCPHTMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPHTMLParser.m; path = Classes/BCPHTMLParser.m; sourceTree = "<group>"; };
-		02E821F918F76F21003C1208 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
-		02E821FA18F76F21003C1208 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
-		02E821FC18F76F21003C1208 /* blackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackArrow.png; sourceTree = "<group>"; };
-		02E821FD18F76F21003C1208 /* blackArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blackArrow@2x.png"; sourceTree = "<group>"; };
-		02E821FE18F76F21003C1208 /* blueArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrow.png; sourceTree = "<group>"; };
-		02E821FF18F76F21003C1208 /* blueArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueArrow@2x.png"; sourceTree = "<group>"; };
-		02E8220018F76F21003C1208 /* grayArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grayArrow.png; sourceTree = "<group>"; };
-		02E8220118F76F21003C1208 /* grayArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grayArrow@2x.png"; sourceTree = "<group>"; };
-		02E8220218F76F21003C1208 /* whiteArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteArrow.png; sourceTree = "<group>"; };
-		02E8220318F76F21003C1208 /* whiteArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteArrow@2x.png"; sourceTree = "<group>"; };
+		02E8220E18F771EE003C1208 /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
+		02E8220F18F771EE003C1208 /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
+		02E8221018F771EE003C1208 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
+		02E8221118F771EE003C1208 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
+		02E8221218F771EE003C1208 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 		02FCB2E018F44D780036B15B /* TSMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMessage.h; sourceTree = "<group>"; };
 		02FCB2E118F44D780036B15B /* TSMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMessage.m; sourceTree = "<group>"; };
 		02FCB2E618F44D780036B15B /* NotificationBackgroundError.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundError.png; sourceTree = "<group>"; };
@@ -473,51 +461,22 @@
 			name = Sections;
 			sourceTree = "<group>";
 		};
-		02E821F618F76F21003C1208 /* EGOTableViewPullRefresh */ = {
+		02E8220D18F771EE003C1208 /* SVPullToRefresh */ = {
 			isa = PBXGroup;
 			children = (
-				02E821F718F76F21003C1208 /* Classes */,
-				02E821FB18F76F21003C1208 /* Resources */,
+				02E8220E18F771EE003C1208 /* SVPullToRefresh.h */,
+				02E8220F18F771EE003C1208 /* UIScrollView+SVInfiniteScrolling.h */,
+				02E8221018F771EE003C1208 /* UIScrollView+SVInfiniteScrolling.m */,
+				02E8221118F771EE003C1208 /* UIScrollView+SVPullToRefresh.h */,
+				02E8221218F771EE003C1208 /* UIScrollView+SVPullToRefresh.m */,
 			);
-			path = EGOTableViewPullRefresh;
-			sourceTree = "<group>";
-		};
-		02E821F718F76F21003C1208 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				02E821F818F76F21003C1208 /* View */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		02E821F818F76F21003C1208 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				02E821F918F76F21003C1208 /* EGORefreshTableHeaderView.h */,
-				02E821FA18F76F21003C1208 /* EGORefreshTableHeaderView.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		02E821FB18F76F21003C1208 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				02E821FC18F76F21003C1208 /* blackArrow.png */,
-				02E821FD18F76F21003C1208 /* blackArrow@2x.png */,
-				02E821FE18F76F21003C1208 /* blueArrow.png */,
-				02E821FF18F76F21003C1208 /* blueArrow@2x.png */,
-				02E8220018F76F21003C1208 /* grayArrow.png */,
-				02E8220118F76F21003C1208 /* grayArrow@2x.png */,
-				02E8220218F76F21003C1208 /* whiteArrow.png */,
-				02E8220318F76F21003C1208 /* whiteArrow@2x.png */,
-			);
-			path = Resources;
+			path = SVPullToRefresh;
 			sourceTree = "<group>";
 		};
 		02FCB2DD18F44D780036B15B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				02E821F618F76F21003C1208 /* EGOTableViewPullRefresh */,
+				02E8220D18F771EE003C1208 /* SVPullToRefresh */,
 				02FCB2DE18F44D780036B15B /* TSMessages */,
 			);
 			path = Frameworks;
@@ -639,7 +598,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02E8220818F76F21003C1208 /* blueArrow@2x.png in Resources */,
 				02FCB30D18F44D780036B15B /* NotificationButtonBackground@2x.png in Resources */,
 				020A62BF18F07AB2003CF941 /* TabRateThisApp.png in Resources */,
 				028DB29018F0CA6200D14EE6 /* IconLarge@2x.png in Resources */,
@@ -647,7 +605,6 @@
 				02FCB30318F44D780036B15B /* NotificationBackgroundMessage@2x.png in Resources */,
 				020A62B818F07AB2003CF941 /* TabLogin@2x.png in Resources */,
 				020A62C218F07AB2003CF941 /* TabSchedule@2x.png in Resources */,
-				02E8220518F76F21003C1208 /* blackArrow.png in Resources */,
 				020A62A918F07AB2003CF941 /* Background.png in Resources */,
 				028DB28818F0CA6200D14EE6 /* Icon-57@2x.png in Resources */,
 				020A62C318F07AB2003CF941 /* TabSettings.png in Resources */,
@@ -658,7 +615,6 @@
 				0222FEC118F5018F00D97BE1 /* ArrowUp.png in Resources */,
 				0222FECB18F5050B00D97BE1 /* ArrowLeft.png in Resources */,
 				028DB28C18F0CA6200D14EE6 /* Icon-72@2x.png in Resources */,
-				02E8220718F76F21003C1208 /* blueArrow.png in Resources */,
 				02FCB30118F44D780036B15B /* NotificationBackgroundErrorIcon@2x.png in Resources */,
 				028DB28618F0CA6200D14EE6 /* Icon-50@2x.png in Resources */,
 				0222FECC18F5050B00D97BE1 /* ArrowLeft@2x.png in Resources */,
@@ -682,7 +638,6 @@
 				020A62AD18F07AB2003CF941 /* TabAnnouncements.png in Resources */,
 				028DB28B18F0CA6200D14EE6 /* Icon-72.png in Resources */,
 				0222FECA18F5050B00D97BE1 /* ArrowDown@2x.png in Resources */,
-				02E8220A18F76F21003C1208 /* grayArrow@2x.png in Resources */,
 				028DB29418F0CF7500D14EE6 /* Sidebar.png in Resources */,
 				020A62C118F07AB2003CF941 /* TabSchedule.png in Resources */,
 				020A62AF18F07AB2003CF941 /* TabCalendar.png in Resources */,
@@ -697,10 +652,8 @@
 				0222FEC918F5050B00D97BE1 /* ArrowDown.png in Resources */,
 				02FCB30018F44D780036B15B /* NotificationBackgroundErrorIcon.png in Resources */,
 				02FCB30C18F44D780036B15B /* NotificationButtonBackground.png in Resources */,
-				02E8220918F76F21003C1208 /* grayArrow.png in Resources */,
 				020A62B018F07AB2003CF941 /* TabCalendar@2x.png in Resources */,
 				020A62AA18F07AB2003CF941 /* Background@2x.png in Resources */,
-				02E8220B18F76F21003C1208 /* whiteArrow.png in Resources */,
 				028DB28718F0CA6200D14EE6 /* Icon-57.png in Resources */,
 				028DB28F18F0CA6200D14EE6 /* IconLarge.png in Resources */,
 				028DB29518F0CF7500D14EE6 /* Sidebar@2x.png in Resources */,
@@ -718,8 +671,6 @@
 				020A62B518F07AB2003CF941 /* TabGrades.png in Resources */,
 				02FCB2FE18F44D780036B15B /* NotificationBackgroundError.png in Resources */,
 				020A62B418F07AB2003CF941 /* TabEmail@2x.png in Resources */,
-				02E8220618F76F21003C1208 /* blackArrow@2x.png in Resources */,
-				02E8220C18F76F21003C1208 /* whiteArrow@2x.png in Resources */,
 				020A62BC18F07AB2003CF941 /* TabNews@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -736,11 +687,13 @@
 				028DB2A318F22BFB00D14EE6 /* BCPLoginView.m in Sources */,
 				0222FEBE18F4E37D00D97BE1 /* BCPGradesCell.m in Sources */,
 				028DB2A018F1E0D600D14EE6 /* BCPNavigationController.m in Sources */,
+				02E8221418F771EE003C1208 /* UIScrollView+SVPullToRefresh.m in Sources */,
 				028DB2A818F2FD2500D14EE6 /* BCPData.m in Sources */,
 				02FCB31318F44F690036B15B /* HexColor.m in Sources */,
 				0289ACFC18F05E5F00763150 /* BCPCommon.m in Sources */,
 				02FCB30F18F44D780036B15B /* TSBlurView.m in Sources */,
 				020A628818F078B8003CF941 /* BCPSidebarCell.m in Sources */,
+				02E8221318F771EE003C1208 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				028DB29818F0D2BD00D14EE6 /* BCPContentView.m in Sources */,
 				0222FEBB18F4C70100D97BE1 /* BCPGradesView.m in Sources */,
 				02FCB31018F44D780036B15B /* TSMessageView.m in Sources */,
@@ -755,7 +708,6 @@
 				02FCB31618F465C40036B15B /* BCPLogoutView.m in Sources */,
 				020A628218F07142003CF941 /* BCPSidebar.m in Sources */,
 				02E821F218F6EEFE003C1208 /* BCPGradesDetails.m in Sources */,
-				02E8220418F76F21003C1208 /* EGORefreshTableHeaderView.m in Sources */,
 				020A628518F07167003CF941 /* BCPContent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

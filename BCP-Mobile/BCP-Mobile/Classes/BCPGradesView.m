@@ -17,6 +17,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.firstLoadCompleted = NO;
+        self.scrollingBack = NO;
         __unsafe_unretained typeof(self) weakSelf = self;
         
         self.scrollViews = [[NSMutableArray alloc] init];
@@ -54,12 +55,17 @@
             
             UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 0)];
             [header setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
-            [tableView setTableHeaderView:header];
-            
             UIView *divider = [[UIView alloc] initWithFrame:CGRectMake(0, -1, tableView.bounds.size.width, 1)];
             [divider setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
             [divider setBackgroundColor:[UIColor BCPLightGrayColor]];
             [header addSubview:divider];
+            [tableView setTableHeaderView:header];
+            
+            if(i%2==0) {
+                [tableView addPullToRefreshWithActionHandler:^{
+                    [weakSelf loadGrades];
+                }];
+            }
         }
         
         self.dividers = [[NSMutableArray alloc] init];
@@ -132,6 +138,9 @@
         if(!error&&[[BCPData data] objectForKey:@"grades"]) {
             for(int i=0;i<[self.tableViews count];i++) {
                 [[self.tableViews objectAtIndex:i] performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+                if(i%2==0) {
+                    [[[self.tableViews objectAtIndex:i] pullToRefreshView] stopAnimating];
+                }
             }
         }
         else {
@@ -160,7 +169,37 @@
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    if(scrollView.contentOffset.x>0) {
+    if([scrollView isKindOfClass:[UITableView class]]||self.scrollingBack) {
+        self.scrollingBack = NO;
+        return;
+    }
+    int nearestIndex = (scrollView.contentOffset.x / (scrollView.bounds.size.width+1) + 0.5f);
+    if(nearestIndex < scrollView.tag-1) {
+        nearestIndex = (int)scrollView.tag-1;
+    }
+    [scrollView setTag:nearestIndex];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [scrollView setContentOffset:CGPointMake((scrollView.bounds.size.width+1)*nearestIndex, 0) animated:YES];
+    });
+    if(nearestIndex==0) {
+        __unsafe_unretained typeof(self) weakSelf = self;
+        [self.navigationController setNavigationBarText:[NSString stringWithFormat:@"Grades (Semester %i)",[weakSelf currentSemester]+1]];
+        self.navigationController.leftButtonImageName = @"Sidebar";
+        self.navigationController.leftButtonTapped = ^{
+            [[BCPCommon viewController] showSideBar];
+        };
+        self.navigationController.rightButtonImageName = [self currentSemester]==0?@"ArrowDown":@"ArrowUp";
+        self.navigationController.rightButtonTapped = ^{
+            [weakSelf changeSemester];
+        };
+        [self updateNavigation];
+        [[self.scrollViews objectAtIndex:[self currentSemester]+1] setScrollEnabled:NO];
+        [[self.scrollViews objectAtIndex:[self currentSemester]+1] setTag:0];
+        [UIView animateWithDuration:BCP_TRANSITION_DURATION animations:^{
+            [self layoutSubviews];
+        }];
+    }
+    /*if(scrollView.contentOffset.x>0) {
         int currentIndex = (scrollView.contentOffset.x / scrollView.bounds.size.width + 0.5f);
         if(!decelerate) {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -188,12 +227,42 @@
         else if(currentIndex>0&&scrollView.tag>1) {
             [[self.scrollViews objectAtIndex:[self currentSemester]+1] setTag:1];
         }
-    }
+    }*/
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    int nearestIndex = (targetContentOffset->x / scrollView.bounds.size.width + 0.25f);
-    if(velocity.x!=0&&nearestIndex==0&&scrollView.tag==1) {
+    if([scrollView isKindOfClass:[UITableView class]]||velocity.x==0) {
+        return;
+    }
+    self.scrollingBack = YES;
+    int nearestIndex = (targetContentOffset->x / (scrollView.bounds.size.width+1) + 0.25f);
+    if(nearestIndex < scrollView.tag-1) {
+        nearestIndex = (int)scrollView.tag-1;
+    }
+    [scrollView setTag:nearestIndex];
+    *targetContentOffset = CGPointMake((scrollView.bounds.size.width+1)*nearestIndex, targetContentOffset->y);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [scrollView setContentOffset:CGPointMake((scrollView.bounds.size.width+1)*nearestIndex, targetContentOffset->y) animated:YES];
+    });
+    if(nearestIndex==0) {
+        __unsafe_unretained typeof(self) weakSelf = self;
+        [self.navigationController setNavigationBarText:[NSString stringWithFormat:@"Grades (Semester %i)",[weakSelf currentSemester]+1]];
+        self.navigationController.leftButtonImageName = @"Sidebar";
+        self.navigationController.leftButtonTapped = ^{
+            [[BCPCommon viewController] showSideBar];
+        };
+        self.navigationController.rightButtonImageName = [self currentSemester]==0?@"ArrowDown":@"ArrowUp";
+        self.navigationController.rightButtonTapped = ^{
+            [weakSelf changeSemester];
+        };
+        [self updateNavigation];
+        [[self.scrollViews objectAtIndex:[self currentSemester]+1] setScrollEnabled:NO];
+        [[self.scrollViews objectAtIndex:[self currentSemester]+1] setTag:0];
+        [UIView animateWithDuration:BCP_TRANSITION_DURATION animations:^{
+            [self layoutSubviews];
+        }];
+    }
+    /*if(velocity.x!=0&&nearestIndex==0&&scrollView.tag==1) {
         *targetContentOffset = CGPointMake(0, targetContentOffset->y);
         dispatch_async(dispatch_get_main_queue(), ^{
             [scrollView setContentOffset:CGPointMake(0, targetContentOffset->y) animated:YES];
@@ -215,15 +284,32 @@
             [self layoutSubviews];
         }];
     }
+    else if(velocity.x!=0) {
+        int newPage = nearestIndex>0?nearestIndex:(int)scrollView.tag-1;
+        [scrollView setTag:newPage];
+        *targetContentOffset = CGPointMake((scrollView.bounds.size.width+1)*newPage, targetContentOffset->y);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [scrollView setContentOffset:CGPointMake((scrollView.bounds.size.width+1)*newPage, targetContentOffset->y) animated:YES];
+        });
+    }
+    else if(velocity.x!=0&&nearestIndex==0&&scrollView.tag>1) {
+        *targetContentOffset = CGPointMake((scrollView.bounds.size.width+1)*scrollView.tag, targetContentOffset->y);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [scrollView setContentOffset:CGPointMake((scrollView.bounds.size.width+1)*nearestIndex, targetContentOffset->y) animated:YES];
+        });
+    }
     else if(nearestIndex>0) {
         *targetContentOffset = CGPointMake((scrollView.bounds.size.width+1)*nearestIndex, targetContentOffset->y);
         dispatch_async(dispatch_get_main_queue(), ^{
             [scrollView setContentOffset:CGPointMake((scrollView.bounds.size.width+1)*nearestIndex, targetContentOffset->y) animated:YES];
         });
-    }
+    }*/
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if([scrollView isKindOfClass:[UITableView class]]) {
+        return;
+    }
     if(scrollView.contentOffset.x==scrollView.bounds.size.width+1) {
         self.selectedDetail = NO;
         [self layoutSubviews];
@@ -233,6 +319,9 @@
 - (void)setHidden:(BOOL)hidden {
     [super setHidden:hidden];
     if(!hidden&&!self.firstLoadCompleted) {
+        for(int i=0;i<4;i+=2) {
+            [[self.tableViews objectAtIndex:i] triggerPullToRefresh];
+        }
         [self loadGrades];
     }
 }
