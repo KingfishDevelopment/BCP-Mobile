@@ -27,6 +27,7 @@
 
 + (BOOL)isIOS7;
 + (BOOL)isIPad;
++ (int)tableViewPadding;
 + (void)setViewController:(NSObject<BCPViewControllerDelegate> *)newViewController;
 + (CGSize)sizeOfText:(NSString *)text withFont:(UIFont *)font;
 + (CGSize)sizeOfText:(NSString *)text withFont:(UIFont *)font constrainedToWidth:(CGFloat)width;

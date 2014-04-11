@@ -73,8 +73,8 @@ static CGFloat gradeWidth;
 }
 
 - (void)layoutSubviews {
-    [self.titleLabel setFrame:CGRectMake(10, 4, self.bounds.size.width-gradeWidth-40, self.bounds.size.height-8)];
-    [self.gradeLabel setFrame:CGRectMake(self.bounds.size.width-gradeWidth-10+([self.gradeLabel.text isEqualToString:@"X"]?2:([self.gradeLabel.text isEqualToString:@"∅"]?1:0)), 4, gradeWidth, self.bounds.size.height-8)];
+    [self.titleLabel setFrame:CGRectMake([BCPCommon tableViewPadding], 4, self.bounds.size.width-gradeWidth-[BCPCommon tableViewPadding]*4, self.bounds.size.height-8)];
+    [self.gradeLabel setFrame:CGRectMake(self.bounds.size.width-gradeWidth-[BCPCommon tableViewPadding]+([self.gradeLabel.text isEqualToString:@"X"]?2:([self.gradeLabel.text isEqualToString:@"∅"]?1:0)), 4, gradeWidth, self.bounds.size.height-8)];
     
     CGSize titleLabelSize = [BCPCommon sizeOfText:self.titleLabel.text withFont:self.titleLabel.font constrainedToWidth:self.titleLabel.bounds.size.width singleLine:YES];
     CGSize titleLabelSizeMax = [BCPCommon sizeOfText:self.titleLabel.text withFont:self.titleLabel.font singleLine:YES];

@@ -199,35 +199,6 @@
             [self layoutSubviews];
         }];
     }
-    /*if(scrollView.contentOffset.x>0) {
-        int currentIndex = (scrollView.contentOffset.x / scrollView.bounds.size.width + 0.5f);
-        if(!decelerate) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [scrollView setContentOffset:CGPointMake(currentIndex*(self.frame.size.width+1), 0) animated:YES];
-            });
-        }
-        if(currentIndex==0&&scrollView.tag>0) {
-            __unsafe_unretained typeof(self) weakSelf = self;
-            [self.navigationController setNavigationBarText:[NSString stringWithFormat:@"Grades (Semester %i)",[weakSelf currentSemester]+1]];
-            self.navigationController.leftButtonImageName = @"Sidebar";
-            self.navigationController.leftButtonTapped = ^{
-                [[BCPCommon viewController] showSideBar];
-            };
-            self.navigationController.rightButtonImageName = [self currentSemester]==0?@"ArrowDown":@"ArrowUp";
-            self.navigationController.rightButtonTapped = ^{
-                [weakSelf changeSemester];
-            };
-            [self updateNavigation];
-            [[self.scrollViews objectAtIndex:[self currentSemester]+1] setScrollEnabled:NO];
-            [[self.scrollViews objectAtIndex:[self currentSemester]+1] setTag:0];
-            [UIView animateWithDuration:BCP_TRANSITION_DURATION animations:^{
-                [self layoutSubviews];
-            }];
-        }
-        else if(currentIndex>0&&scrollView.tag>1) {
-            [[self.scrollViews objectAtIndex:[self currentSemester]+1] setTag:1];
-        }
-    }*/
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
@@ -262,48 +233,6 @@
             [self layoutSubviews];
         }];
     }
-    /*if(velocity.x!=0&&nearestIndex==0&&scrollView.tag==1) {
-        *targetContentOffset = CGPointMake(0, targetContentOffset->y);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [scrollView setContentOffset:CGPointMake(0, targetContentOffset->y) animated:YES];
-        });
-        __unsafe_unretained typeof(self) weakSelf = self;
-        [self.navigationController setNavigationBarText:[NSString stringWithFormat:@"Grades (Semester %i)",[weakSelf currentSemester]+1]];
-        self.navigationController.leftButtonImageName = @"Sidebar";
-        self.navigationController.leftButtonTapped = ^{
-            [[BCPCommon viewController] showSideBar];
-        };
-        self.navigationController.rightButtonImageName = [self currentSemester]==0?@"ArrowDown":@"ArrowUp";
-        self.navigationController.rightButtonTapped = ^{
-            [weakSelf changeSemester];
-        };
-        [self updateNavigation];
-        [[self.scrollViews objectAtIndex:[self currentSemester]+1] setScrollEnabled:NO];
-        [[self.scrollViews objectAtIndex:[self currentSemester]+1] setTag:0];
-        [UIView animateWithDuration:BCP_TRANSITION_DURATION animations:^{
-            [self layoutSubviews];
-        }];
-    }
-    else if(velocity.x!=0) {
-        int newPage = nearestIndex>0?nearestIndex:(int)scrollView.tag-1;
-        [scrollView setTag:newPage];
-        *targetContentOffset = CGPointMake((scrollView.bounds.size.width+1)*newPage, targetContentOffset->y);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [scrollView setContentOffset:CGPointMake((scrollView.bounds.size.width+1)*newPage, targetContentOffset->y) animated:YES];
-        });
-    }
-    else if(velocity.x!=0&&nearestIndex==0&&scrollView.tag>1) {
-        *targetContentOffset = CGPointMake((scrollView.bounds.size.width+1)*scrollView.tag, targetContentOffset->y);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [scrollView setContentOffset:CGPointMake((scrollView.bounds.size.width+1)*nearestIndex, targetContentOffset->y) animated:YES];
-        });
-    }
-    else if(nearestIndex>0) {
-        *targetContentOffset = CGPointMake((scrollView.bounds.size.width+1)*nearestIndex, targetContentOffset->y);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [scrollView setContentOffset:CGPointMake((scrollView.bounds.size.width+1)*nearestIndex, targetContentOffset->y) animated:YES];
-        });
-    }*/
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -362,7 +291,7 @@
                     UILabel *label = [[UILabel alloc] init];
                     [label setAutoresizingMask:i==0?UIViewAutoresizingFlexibleRightMargin:UIViewAutoresizingFlexibleLeftMargin];
                     [label setBackgroundColor:[UIColor BCPOffWhiteColor]];
-                    [label setFrame:CGRectMake(i==0?10:(tableViewHeader.bounds.size.width-20)*0.5, 4, (tableViewHeader.bounds.size.width-20)*0.5, tableViewHeader.bounds.size.height-8)];
+                    [label setFrame:CGRectMake(i==0?[BCPCommon tableViewPadding]:(tableViewHeader.bounds.size.width-[BCPCommon tableViewPadding])*0.5, 4, (tableViewHeader.bounds.size.width-[BCPCommon tableViewPadding]*2)*0.5, tableViewHeader.bounds.size.height-8)];
                     [label setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:18]];
                     [label setText:i==0?@"Total Grade:":[NSString stringWithFormat:@"%@ — %@",[self.selectedCourse objectForKey:@"percent"],[self.selectedCourse objectForKey:@"letter"]]];
                     [label setTextAlignment:i==0?NSTextAlignmentLeft:NSTextAlignmentRight];
@@ -478,7 +407,7 @@
         [view setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
         [view setBackgroundColor:[UIColor BCPMoreOffWhiteColor]];
         
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 4, view.bounds.size.width-20, view.bounds.size.height-8)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake([BCPCommon tableViewPadding], 4, view.bounds.size.width-[BCPCommon tableViewPadding]*2, view.bounds.size.height-8)];
         [label setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
         [label setBackgroundColor:[UIColor BCPMoreOffWhiteColor]];
         [label setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:14]];

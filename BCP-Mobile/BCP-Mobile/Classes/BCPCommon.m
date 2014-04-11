@@ -20,6 +20,10 @@ static NSObject<BCPViewControllerDelegate> *viewController = nil;
     return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
 }
 
++ (int)tableViewPadding {
+    return [BCPCommon isIPad]?20:10;
+}
+
 + (void)setViewController:(NSObject<BCPViewControllerDelegate> *)newViewController {
     viewController = newViewController;
 }

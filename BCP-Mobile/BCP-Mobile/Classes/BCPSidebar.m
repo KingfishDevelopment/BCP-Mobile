@@ -27,7 +27,8 @@
             [self registerClass:[BCPSidebarCell class] forCellReuseIdentifier:@"SidebarCell"];
         }
         
-        self.sections = [NSArray arrayWithObjects:[NSArray arrayWithObjects:@"Grades",@"Email",@"Schedule",@"Planner",@"CSP Hours",@"Login",nil],[NSArray arrayWithObjects:@"Announcements",@"News",@"Calendar",@"Sports Results",nil],[NSArray arrayWithObjects:@"Settings",@"About",@"Rate This App",nil],nil];
+        //self.sections = [NSArray arrayWithObjects:[NSArray arrayWithObjects:@"Grades",@"Email",@"Schedule",@"Planner",@"CSP Hours",@"Login",nil],[NSArray arrayWithObjects:@"Announcements",@"News",@"Calendar",@"Sports Results",nil],[NSArray arrayWithObjects:@"Settings",@"About",@"Rate This App",nil],nil];
+        self.sections = [NSArray arrayWithObjects:[NSArray arrayWithObjects:@"Grades",@"Schedule",@"Login",nil],[NSArray arrayWithObjects:@"Announcements",@"News",@"Calendar",nil],[NSArray arrayWithObjects:@"Settings",@"About",@"Rate This App",nil],nil];
         self.titles = [NSArray arrayWithObjects:@"My BCP",@"General",@"More",nil];
     }
     return self;
