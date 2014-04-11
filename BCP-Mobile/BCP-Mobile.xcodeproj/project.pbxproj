@@ -86,6 +86,8 @@
 		028DB2A318F22BFB00D14EE6 /* BCPLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 028DB2A218F22BFB00D14EE6 /* BCPLoginView.m */; };
 		028DB2A518F22DA500D14EE6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028DB2A418F22DA500D14EE6 /* QuartzCore.framework */; };
 		028DB2A818F2FD2500D14EE6 /* BCPData.m in Sources */ = {isa = PBXBuildFile; fileRef = 028DB2A718F2FD2500D14EE6 /* BCPData.m */; };
+		02E821F218F6EEFE003C1208 /* BCPGradesDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E821F118F6EEFE003C1208 /* BCPGradesDetails.m */; };
+		02E821F518F727F3003C1208 /* BCPHTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E821F418F727F3003C1208 /* BCPHTMLParser.m */; };
 		02FCB2FC18F44D780036B15B /* TSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FCB2E118F44D780036B15B /* TSMessage.m */; };
 		02FCB2FE18F44D780036B15B /* NotificationBackgroundError.png in Resources */ = {isa = PBXBuildFile; fileRef = 02FCB2E618F44D780036B15B /* NotificationBackgroundError.png */; };
 		02FCB2FF18F44D780036B15B /* NotificationBackgroundError@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02FCB2E718F44D780036B15B /* NotificationBackgroundError@2x.png */; };
@@ -211,6 +213,10 @@
 		028DB2A418F22DA500D14EE6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		028DB2A618F2FD2500D14EE6 /* BCPData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPData.h; path = Classes/BCPData.h; sourceTree = "<group>"; };
 		028DB2A718F2FD2500D14EE6 /* BCPData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPData.m; path = Classes/BCPData.m; sourceTree = "<group>"; };
+		02E821F018F6EEFE003C1208 /* BCPGradesDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPGradesDetails.h; path = Classes/BCPGradesDetails.h; sourceTree = "<group>"; };
+		02E821F118F6EEFE003C1208 /* BCPGradesDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPGradesDetails.m; path = Classes/BCPGradesDetails.m; sourceTree = "<group>"; };
+		02E821F318F727F3003C1208 /* BCPHTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPHTMLParser.h; path = Classes/BCPHTMLParser.h; sourceTree = "<group>"; };
+		02E821F418F727F3003C1208 /* BCPHTMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPHTMLParser.m; path = Classes/BCPHTMLParser.m; sourceTree = "<group>"; };
 		02FCB2E018F44D780036B15B /* TSMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMessage.h; sourceTree = "<group>"; };
 		02FCB2E118F44D780036B15B /* TSMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMessage.m; sourceTree = "<group>"; };
 		02FCB2E618F44D780036B15B /* NotificationBackgroundError.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundError.png; sourceTree = "<group>"; };
@@ -372,6 +378,8 @@
 				028DB29718F0D2BD00D14EE6 /* BCPContentView.m */,
 				028DB2A618F2FD2500D14EE6 /* BCPData.h */,
 				028DB2A718F2FD2500D14EE6 /* BCPData.m */,
+				02E821F318F727F3003C1208 /* BCPHTMLParser.h */,
+				02E821F418F727F3003C1208 /* BCPHTMLParser.m */,
 				0289ACFD18F05EA100763150 /* BCPInterface.h */,
 				0289ACFE18F05EA100763150 /* BCPInterface.m */,
 				020A62C718F0AB50003CF941 /* BCPNavigationBar.h */,
@@ -432,6 +440,8 @@
 			children = (
 				0222FEBC18F4E37C00D97BE1 /* BCPGradesCell.h */,
 				0222FEBD18F4E37C00D97BE1 /* BCPGradesCell.m */,
+				02E821F018F6EEFE003C1208 /* BCPGradesDetails.h */,
+				02E821F118F6EEFE003C1208 /* BCPGradesDetails.m */,
 				0222FEB918F4C70100D97BE1 /* BCPGradesView.h */,
 				0222FEBA18F4C70100D97BE1 /* BCPGradesView.m */,
 				028DB2A118F22BFB00D14EE6 /* BCPLoginView.h */,
@@ -665,6 +675,7 @@
 				028DB29818F0D2BD00D14EE6 /* BCPContentView.m in Sources */,
 				0222FEBB18F4C70100D97BE1 /* BCPGradesView.m in Sources */,
 				02FCB31018F44D780036B15B /* TSMessageView.m in Sources */,
+				02E821F518F727F3003C1208 /* BCPHTMLParser.m in Sources */,
 				0289ACD818F05BA200763150 /* BCPAppDelegate.m in Sources */,
 				020A62CC18F0AC31003CF941 /* BCPColors.m in Sources */,
 				0289ACF918F05D4E00763150 /* BCPViewController.m in Sources */,
@@ -674,6 +685,7 @@
 				020A62C918F0AB50003CF941 /* BCPNavigationBar.m in Sources */,
 				02FCB31618F465C40036B15B /* BCPLogoutView.m in Sources */,
 				020A628218F07142003CF941 /* BCPSidebar.m in Sources */,
+				02E821F218F6EEFE003C1208 /* BCPGradesDetails.m in Sources */,
 				020A628518F07167003CF941 /* BCPContent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BCPData : NSObject
+@interface BCPData : NSObject <NSXMLParserDelegate>
 
 + (NSMutableDictionary *)data;
 + (void)deleteData;

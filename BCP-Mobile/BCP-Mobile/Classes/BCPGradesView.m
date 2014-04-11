@@ -9,6 +9,7 @@
 #import "BCPGradesView.h"
 
 #import "BCPGradesCell.h"
+#import "BCPGradesDetails.h"
 
 @implementation BCPGradesView
 
@@ -120,6 +121,7 @@
     for(int i=0;i<[self.dividers count];i++) {
         [[self.dividers objectAtIndex:i] setFrame:CGRectMake(i==0?0:self.bounds.size.width*((i-1)%2+1)+(i%2==1?0:1), i==0?self.bounds.size.height:0, i==0?self.bounds.size.width*2+1:1, i==0?1:self.bounds.size.height)];
     }
+    [self.details setFrame:CGRectMake(self.bounds.size.width*2+2, 0, self.bounds.size.width, self.bounds.size.height)];
     for(UIScrollView *scrollView in self.scrollViews) {
         [scrollView setContentOffset:CGPointMake((scrollView.bounds.size.width+1)*(scrollView.tag%3), (scrollView.bounds.size.height+1)*(scrollView.tag/3))];
     }
@@ -159,7 +161,7 @@
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if(scrollView.contentOffset.x>0) {
-        NSUInteger currentIndex = (NSUInteger)(scrollView.contentOffset.x / scrollView.bounds.size.width + 0.5f);
+        int currentIndex = (scrollView.contentOffset.x / scrollView.bounds.size.width + 0.5f);
         if(!decelerate) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [scrollView setContentOffset:CGPointMake(currentIndex*(self.frame.size.width+1), 0) animated:YES];
@@ -190,11 +192,8 @@
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    NSUInteger nearestIndex = (NSUInteger)(targetContentOffset->x / scrollView.bounds.size.width + 0.5f);
-    nearestIndex = MAX(MIN(nearestIndex, 1), 0);
-    CGFloat xOffset = nearestIndex * scrollView.bounds.size.width;
-    xOffset = xOffset==0?1:xOffset;
-    if(velocity.x!=0&&nearestIndex==0&&scrollView.tag>0) {
+    int nearestIndex = (targetContentOffset->x / scrollView.bounds.size.width + 0.25f);
+    if(velocity.x!=0&&nearestIndex==0&&scrollView.tag==1) {
         *targetContentOffset = CGPointMake(0, targetContentOffset->y);
         dispatch_async(dispatch_get_main_queue(), ^{
             [scrollView setContentOffset:CGPointMake(0, targetContentOffset->y) animated:YES];
@@ -226,7 +225,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if(scrollView.contentOffset.x==scrollView.bounds.size.width+1) {
-        self.selectedDetail = nil;
+        self.selectedDetail = NO;
         [self layoutSubviews];
     }
 }
@@ -251,10 +250,10 @@
         }
     }
     else if(self.selectedCourse) {
-        if(indexPath.section==0&&[self.selectedCourse objectForKey:@"assignments"]) {
+        if(indexPath.section==0&&[self.selectedCourse objectForKey:@"assignments"]&&[[self.selectedCourse objectForKey:@"assignments"] count]>indexPath.row) {
             [cell setTitle:[[[self.selectedCourse objectForKey:@"assignments"] objectAtIndex:indexPath.row] objectForKey:@"name"] withGrade:[[[self.selectedCourse objectForKey:@"assignments"] objectAtIndex:indexPath.row] objectForKey:@"letter"]];
         }
-        else if([self.selectedCourse objectForKey:@"categories"]) {
+        else if([self.selectedCourse objectForKey:@"categories"]&&[[self.selectedCourse objectForKey:@"categories"] count]>indexPath.row) {
             [cell setTitle:[[[self.selectedCourse objectForKey:@"categories"] objectAtIndex:indexPath.row] objectForKey:@"category"] withGrade:[[[self.selectedCourse objectForKey:@"categories"] objectAtIndex:indexPath.row] objectForKey:@"letter"]];
         }
     }
@@ -325,7 +324,25 @@
     }
     else {
         [tableView deselectRowAtIndexPath:indexPath animated:NO];
-        self.selectedDetail = [NSMutableDictionary dictionary];
+        self.selectedDetail = YES;
+        
+        if(self.details&&[self.details superview]) {
+            [self.details removeFromSuperview];
+        }
+        BOOL assignment = indexPath.section==0&&[self.selectedCourse objectForKey:@"assignments"];
+        NSMutableDictionary *details = [[self.selectedCourse objectForKey:assignment?@"assignments":@"categories"] objectAtIndex:indexPath.row];
+        self.details = [[BCPGradesDetails alloc] initWithFrame:CGRectMake(self.bounds.size.width*2+2, 0, self.bounds.size.width, self.bounds.size.height)];
+        NSNumberFormatter *formatter = [NSNumberFormatter new];
+        [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        [formatter setMaximumFractionDigits:3];
+        if(assignment) {
+            [self.details setTitle:[details objectForKey:@"name"] withDetails:[NSArray arrayWithObjects:[[details objectForKey:@"letter"] isEqualToString:@"X"]||[[details objectForKey:@"letter"] length]==0?@"(N.A.)":[NSString stringWithFormat:@"%@/%@",[formatter stringFromNumber:@([[details objectForKey:@"grade"] floatValue])],[formatter stringFromNumber:@([[details objectForKey:@"max"] floatValue])]],@"Score",[[details objectForKey:@"max"] floatValue]==0||[[details objectForKey:@"letter"] isEqualToString:@"X"]||[[details objectForKey:@"letter"] length]==0?@"(N.A.)":[NSString stringWithFormat:@"%.02f%%",[[details objectForKey:@"grade"] floatValue]*100/[[details objectForKey:@"max"] floatValue]],@"Percent",[[details objectForKey:@"letter"] length]==0?@"(N.A.)":[details objectForKey:@"letter"],@"Grade",@"",@"",[details objectForKey:@"category"],@"Category",[details objectForKey:@"due"],@"Due",nil]];
+        }
+        else {
+            [self.details setTitle:[details objectForKey:@"category"] withDetails:[NSArray arrayWithObjects:[[details objectForKey:@"letter"] length]==0?@"(N.A.)":[[details objectForKey:@"points"] stringByReplacingOccurrencesOfString:@" " withString:@""],@"Score",[[details objectForKey:@"percent"] length]==0?@"(N.A.)":[[details objectForKey:@"percent"] stringByAppendingString:@"%"],@"Percent",[[details objectForKey:@"letter"] length]==0?@"(N.A.)":[details objectForKey:@"letter"],@"Grade",@"",@"",[[formatter stringFromNumber:@([[details objectForKey:@"weight"] floatValue])] stringByAppendingString:@"%"],@"Weight",nil]];
+        }
+        [[self.scrollViews objectAtIndex:tableView.tag/2+1] addSubview:self.details];
+        
         [[self.scrollViews objectAtIndex:tableView.tag/2+1] setScrollEnabled:YES];
         [[self.scrollViews objectAtIndex:tableView.tag/2+1] setTag:2];
         [UIView animateWithDuration:BCP_TRANSITION_DURATION animations:^{

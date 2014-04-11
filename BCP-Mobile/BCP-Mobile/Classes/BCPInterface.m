@@ -109,6 +109,9 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self scaleContent];
     [self scaleSidebar];
+    if(self.scrollView.contentOffset.x>=BCP_SIDEBAR_WIDTH) {
+        [self.sideBar setContentOffset:CGPointZero];
+    }
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
     [self.content setUserInteractionEnabled:scrollView.contentOffset.x>0];
     [self.scrollViewTapRecognizer setEnabled:scrollView.contentOffset.x==0];

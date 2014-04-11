@@ -8,8 +8,11 @@
 
 #import "BCPData.h"
 
+#import "BCPHTMLParser.h"
+
 @implementation BCPData
 
+static BCPHTMLParser *parser;
 static NSMutableDictionary *connectionResponses;
 static NSMutableDictionary *data = nil;
 static NSString *path = nil;
@@ -18,6 +21,7 @@ static NSString *path = nil;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     path = [documentsDirectory stringByAppendingPathComponent:@"data"];
+    parser = [BCPHTMLParser parser];
     
     if([[NSFileManager defaultManager] fileExistsAtPath:path]) {
         @try {
@@ -92,6 +96,7 @@ static NSString *path = nil;
 + (void)parseResponse:(NSData *)responseString withCompletionBlock:(void (^)(NSString *error))completionBlock withRequest:(NSString *)request {
     NSError *e = nil;
     id response = [NSJSONSerialization JSONObjectWithData:responseString options:NSJSONReadingMutableContainers error:&e];
+    [self processParsedObject:response depth:0 parent:nil atIndex:-1 atKey:nil];
     if(response==nil) {
         completionBlock(@"Fatal");
     }
@@ -102,6 +107,31 @@ static NSString *path = nil;
         [data setObject:response forKey:request];
         [self saveDictionary];
         completionBlock(nil);
+    }
+}
+
++ (void)processParsedObject:(id)object depth:(int)depth parent:(id)parent atIndex:(int)parentIndex atKey:(NSString *)parentKey {
+    if([object isKindOfClass:[NSDictionary class]]) {
+        for(NSString *key in [object allKeys]) {
+            id child = [object objectForKey:key];
+            [self processParsedObject:child depth:depth+1 parent:object atIndex:-1 atKey:key];
+        }
+    }
+    else if([object isKindOfClass:[NSArray class]]) {
+        for(int i=0;i<[object count];i++) {
+            [self processParsedObject:[object objectAtIndex:i] depth:depth+1 parent:object atIndex:i atKey:nil];
+        }
+    }
+    else if([object isKindOfClass:[NSString class]]) {
+        NSString *newObject = [parser parseString:object];
+        if(![newObject isEqualToString:object]) {
+            if(parentKey) {
+                [parent setObject:newObject forKey:parentKey];
+            }
+            else {
+                [parent replaceObjectAtIndex:parentIndex withObject:newObject];
+            }
+        }
     }
 }
 
