@@ -144,7 +144,7 @@
             }
         }
         else {
-            NSLog(@"error: %@",error);
+            [TSMessage showNotificationWithTitle:@"An Error has Occurred" subtitle:@"Please seek help if the problem persists." type:TSMessageNotificationTypeError];
         }
     }];
 }

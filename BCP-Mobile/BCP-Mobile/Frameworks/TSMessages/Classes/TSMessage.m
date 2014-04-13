@@ -149,6 +149,19 @@ __weak static UIViewController *_defaultViewController;
     }
 }
 
++ (void)removeCurrentNotification {
+    TSMessageView *currentNotification = (TSMessageView *)[[BCPCommon viewController] currentNotification];
+    if(currentNotification)
+    {
+        [currentNotification removeFromSuperview];
+        if ([[TSMessage sharedMessage].messages count] > 0)
+        {
+            [[TSMessage sharedMessage].messages removeObjectAtIndex:0];
+        }
+        notificationActive = NO;
+    }
+}
+
 
 + (void)prepareNotificationToBeShown:(TSMessageView *)messageView
 {
@@ -396,7 +409,6 @@ __weak static UIViewController *_defaultViewController;
     __strong UIViewController *defaultViewController = _defaultViewController;
     
     if (!defaultViewController) {
-        NSLog(@"TSMessages: It is recommended to set a custom defaultViewController that is used to display the notifications");
         defaultViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
     }
     return defaultViewController;

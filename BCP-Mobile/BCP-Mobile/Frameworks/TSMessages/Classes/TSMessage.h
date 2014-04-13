@@ -134,4 +134,6 @@ typedef NS_ENUM(NSInteger,TSMessageNotificationDuration) {
  This depends on the Base SDK and the currently used device */
 + (BOOL)iOS7StyleEnabled;
 
++ (void)removeCurrentNotification;
+
 @end

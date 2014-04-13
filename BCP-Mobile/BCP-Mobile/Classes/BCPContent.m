@@ -87,8 +87,11 @@
     if(!viewFound) {
         [self updateNavigationBarWithController:[[BCPNavigationController alloc] init]];
     }
-    [[BCPData data] setObject:showKey forKey:@"lastView"];
-    [BCPData saveDictionary];
+    if(![showKey isEqual:[[BCPData data] objectForKey:@"lastView"]]) {
+        [TSMessage removeCurrentNotification];
+        [[BCPData data] setObject:showKey forKey:@"lastView"];
+        [BCPData saveDictionary];
+    }
 }
 
 - (void)updateNavigationBarWithController:(BCPNavigationController *)navigationController {
