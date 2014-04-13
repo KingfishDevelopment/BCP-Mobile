@@ -50,6 +50,9 @@
             [tableView setDelegate:self];
             [tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
             [tableView setTag:i];
+            if([BCPCommon isIOS7]) {
+                [tableView registerClass:[BCPGradesCell class] forCellReuseIdentifier:@"GradesCell"];
+            }
             [[self.scrollViews objectAtIndex:i/2+1] addSubview:tableView];
             [self.tableViews addObject:tableView];
             
@@ -135,12 +138,14 @@
 
 - (void)loadGrades {
     [BCPData sendRequest:@"grades" withDetails:[NSDictionary dictionaryWithObjectsAndKeys:[[[BCPData data] objectForKey:@"login"] objectForKey:@"token"],@"token",nil] onCompletion:^(NSString *error) {
+        for(int i=0;i<[self.tableViews count];i++) {
+            if(i%2==0) {
+                [[[self.tableViews objectAtIndex:i] pullToRefreshView] stopAnimating];
+            }
+        }
         if(!error&&[[BCPData data] objectForKey:@"grades"]) {
             for(int i=0;i<[self.tableViews count];i++) {
                 [[self.tableViews objectAtIndex:i] performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
-                if(i%2==0) {
-                    [[[self.tableViews objectAtIndex:i] pullToRefreshView] stopAnimating];
-                }
             }
         }
         else {

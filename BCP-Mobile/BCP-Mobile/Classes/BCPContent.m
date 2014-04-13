@@ -8,6 +8,7 @@
 
 #import "BCPContent.h"
 
+#import "BCPAnnouncementsView.h"
 #import "BCPGradesView.h"
 #import "BCPLoginView.h"
 #import "BCPLogoutView.h"
@@ -39,6 +40,10 @@
         BCPGradesView *gradesView = [[BCPGradesView alloc] initWithFrame:self.container.bounds];
         [self.container addSubview:gradesView];
         [self.views setObject:gradesView forKey:@"Grades"];
+        
+        BCPAnnouncementsView *announcementsView = [[BCPAnnouncementsView alloc] initWithFrame:self.container.bounds];
+        [self.container addSubview:announcementsView];
+        [self.views setObject:announcementsView forKey:@"Announcements"];
         
         BCPLoginView *loginView = [[BCPLoginView alloc] initWithFrame:self.container.bounds];
         [self.container addSubview:loginView];
