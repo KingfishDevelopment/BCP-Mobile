@@ -88,6 +88,7 @@
 		028DB2A818F2FD2500D14EE6 /* BCPData.m in Sources */ = {isa = PBXBuildFile; fileRef = 028DB2A718F2FD2500D14EE6 /* BCPData.m */; };
 		02E19F7418FA1AE200DDA8AE /* BCPAnnouncementsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E19F7318FA1AE200DDA8AE /* BCPAnnouncementsView.m */; };
 		02E19F7718FA1DED00DDA8AE /* BCPAnnouncementsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E19F7618FA1DED00DDA8AE /* BCPAnnouncementsCell.m */; };
+		02E19F7A18FA37B700DDA8AE /* BCPAnnouncementsDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E19F7918FA37B700DDA8AE /* BCPAnnouncementsDetails.m */; };
 		02E821F218F6EEFE003C1208 /* BCPGradesDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E821F118F6EEFE003C1208 /* BCPGradesDetails.m */; };
 		02E821F518F727F3003C1208 /* BCPHTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E821F418F727F3003C1208 /* BCPHTMLParser.m */; };
 		02E8221318F771EE003C1208 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E8221018F771EE003C1208 /* UIScrollView+SVInfiniteScrolling.m */; };
@@ -221,6 +222,8 @@
 		02E19F7318FA1AE200DDA8AE /* BCPAnnouncementsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPAnnouncementsView.m; path = Classes/BCPAnnouncementsView.m; sourceTree = "<group>"; };
 		02E19F7518FA1DED00DDA8AE /* BCPAnnouncementsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPAnnouncementsCell.h; path = Classes/BCPAnnouncementsCell.h; sourceTree = "<group>"; };
 		02E19F7618FA1DED00DDA8AE /* BCPAnnouncementsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPAnnouncementsCell.m; path = Classes/BCPAnnouncementsCell.m; sourceTree = "<group>"; };
+		02E19F7818FA37B700DDA8AE /* BCPAnnouncementsDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPAnnouncementsDetails.h; path = Classes/BCPAnnouncementsDetails.h; sourceTree = "<group>"; };
+		02E19F7918FA37B700DDA8AE /* BCPAnnouncementsDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPAnnouncementsDetails.m; path = Classes/BCPAnnouncementsDetails.m; sourceTree = "<group>"; };
 		02E821F018F6EEFE003C1208 /* BCPGradesDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPGradesDetails.h; path = Classes/BCPGradesDetails.h; sourceTree = "<group>"; };
 		02E821F118F6EEFE003C1208 /* BCPGradesDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPGradesDetails.m; path = Classes/BCPGradesDetails.m; sourceTree = "<group>"; };
 		02E821F318F727F3003C1208 /* BCPHTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPHTMLParser.h; path = Classes/BCPHTMLParser.h; sourceTree = "<group>"; };
@@ -453,6 +456,8 @@
 			children = (
 				02E19F7518FA1DED00DDA8AE /* BCPAnnouncementsCell.h */,
 				02E19F7618FA1DED00DDA8AE /* BCPAnnouncementsCell.m */,
+				02E19F7818FA37B700DDA8AE /* BCPAnnouncementsDetails.h */,
+				02E19F7918FA37B700DDA8AE /* BCPAnnouncementsDetails.m */,
 				02E19F7218FA1AE200DDA8AE /* BCPAnnouncementsView.h */,
 				02E19F7318FA1AE200DDA8AE /* BCPAnnouncementsView.m */,
 				0222FEBC18F4E37C00D97BE1 /* BCPGradesCell.h */,
@@ -695,6 +700,7 @@
 				028DB29D18F1DC9D00D14EE6 /* BCPWelcomeView.m in Sources */,
 				02FCB2FC18F44D780036B15B /* TSMessage.m in Sources */,
 				028DB2A318F22BFB00D14EE6 /* BCPLoginView.m in Sources */,
+				02E19F7A18FA37B700DDA8AE /* BCPAnnouncementsDetails.m in Sources */,
 				02E19F7418FA1AE200DDA8AE /* BCPAnnouncementsView.m in Sources */,
 				0222FEBE18F4E37D00D97BE1 /* BCPGradesCell.m in Sources */,
 				028DB2A018F1E0D600D14EE6 /* BCPNavigationController.m in Sources */,

@@ -253,6 +253,7 @@
 - (void)setHidden:(BOOL)hidden {
     [super setHidden:hidden];
     if(!hidden&&!self.firstLoadCompleted) {
+        self.firstLoadCompleted = YES;
         for(int i=0;i<4;i+=2) {
             [[self.tableViews objectAtIndex:i] triggerPullToRefresh];
         }

@@ -8,9 +8,14 @@
 
 #import "BCPContentView.h"
 
-@interface BCPAnnouncementsView : BCPContentView <UITableViewDataSource, UITableViewDelegate>
+@class BCPAnnouncementsDetails;
 
+@interface BCPAnnouncementsView : BCPContentView <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, retain) BCPAnnouncementsDetails *detailsView;
 @property (nonatomic) BOOL firstLoadCompleted;
+@property (nonatomic) BOOL scrollingBack;
+@property (nonatomic, retain) UIScrollView *scrollView;
 @property (nonatomic, retain) UITableView *tableView;
 
 @end
