@@ -13,6 +13,7 @@
 @interface BCPAnnouncementsView : BCPContentView <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, retain) BCPAnnouncementsDetails *detailsView;
+@property (nonatomic, retain) UIView *divider;
 @property (nonatomic) BOOL firstLoadCompleted;
 @property (nonatomic) BOOL scrollingBack;
 @property (nonatomic, retain) UIScrollView *scrollView;

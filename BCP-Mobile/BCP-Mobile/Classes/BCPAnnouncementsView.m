@@ -47,6 +47,10 @@
         [header addSubview:divider];
         [self.tableView setTableHeaderView:header];
         
+        self.divider = [[UIView alloc] init];
+        [self.divider setBackgroundColor:[UIColor BCPLightGrayColor]];
+        [self.scrollView addSubview:self.divider];
+        
         self.detailsView = [[BCPAnnouncementsDetails alloc] init];
         [self.scrollView addSubview:self.detailsView];
         
@@ -66,6 +70,7 @@
     [self.scrollView setContentSize:CGSizeMake(self.bounds.size.width*2+1, self.bounds.size.height)];
     [self.tableView setFrame:CGRectMake(0, 0, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height)];
     [self.detailsView setFrame:CGRectMake(self.bounds.size.width+1, 0, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height)];
+    [self.divider setFrame:CGRectMake(self.bounds.size.width, 0, 1, self.bounds.size.height)];
     [self.scrollView setContentOffset:CGPointMake((self.bounds.size.width+1)*self.scrollView.tag, 0)];
 }
 
