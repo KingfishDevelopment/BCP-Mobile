@@ -9,6 +9,7 @@
 #import "BCPViewController.h"
 
 #import "BCPContent.h"
+#import "BCPGradesView.h"
 #import "BCPInterface.h"
 #import "BCPNavigationBar.h"
 #import "BCPSidebar.h"
@@ -81,6 +82,11 @@
     [self.interface.sideBar performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
     if(loggedIn) {
         [TSMessage showNotificationWithTitle:@"Logged In" subtitle:@"You may now access new sections from the sidebar." type:TSMessageNotificationTypeSuccess];
+    
+        [[self.interface.content.views objectForKey:@"Grades"] setFirstLoadCompleted:NO];
+        for(UITableView *tableView in [[self.interface.content.views objectForKey:@"Grades"] tableViews]) {
+            [tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+        }
     }
     else {
         [TSMessage showNotificationWithTitle:@"Logged Out" subtitle:@"You must login again to access the 'My BCP' sections." type:TSMessageNotificationTypeMessage];
