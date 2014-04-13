@@ -20,6 +20,7 @@
         [self setContentInset:UIEdgeInsetsMake(BCP_SIDEBAR_VERTICAL_PADDING, 0, BCP_SIDEBAR_VERTICAL_PADDING, 0)];
         [self setDataSource:self];
         [self setDelegate:self];
+        [self setScrollsToTop:NO];
         [self setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         [self setShowsHorizontalScrollIndicator:NO];
         [self setShowsVerticalScrollIndicator:NO];

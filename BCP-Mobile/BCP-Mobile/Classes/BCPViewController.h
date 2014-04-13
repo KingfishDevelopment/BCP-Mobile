@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @class BCPInterface;
+
 @interface BCPViewController : UIViewController <BCPViewControllerDelegate>
 
+@property (nonatomic, weak) UIScrollView *currentScrollView;
 @property (nonatomic, retain) BCPInterface *interface;
 
 @end

@@ -25,6 +25,7 @@
         [self addSubview:background];
         
         self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, BCP_SIDEBAR_WIDTH, self.bounds.size.height)];
+        [self.scrollView setScrollsToTop:NO];
         
         self.sideBar = [[BCPSidebar alloc] initWithFrame:CGRectMake(0, 0, BCP_SIDEBAR_WIDTH, self.bounds.size.height)];
         [self.sideBar setSelectBlock:^(NSString *name) {

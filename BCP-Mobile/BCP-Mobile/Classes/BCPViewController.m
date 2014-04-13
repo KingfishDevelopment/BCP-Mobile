@@ -87,6 +87,16 @@
     }
 }
 
+- (void)setScrollsToTop:(UIScrollView *)scrollView {
+    if(self.currentScrollView) {
+        [self.currentScrollView setScrollsToTop:NO];
+    }
+    self.currentScrollView = scrollView;
+    if(self.currentScrollView) {
+        [self.currentScrollView setScrollsToTop:YES];
+    }
+}
+
 - (void)showSideBar {
     [UIView animateWithDuration:BCP_TRANSITION_DURATION animations:^{
         [self.interface.scrollView setContentOffset:CGPointZero];

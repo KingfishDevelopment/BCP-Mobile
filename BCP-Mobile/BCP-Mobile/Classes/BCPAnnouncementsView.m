@@ -24,6 +24,7 @@
         [self.scrollView setBounces:NO];
         [self.scrollView setDelegate:self];
         [self.scrollView setScrollEnabled:NO];
+        [self.scrollView setScrollsToTop:NO];
         [self.scrollView setShowsHorizontalScrollIndicator:NO];
         [self.scrollView setShowsVerticalScrollIndicator:NO];
         [self.scrollView setTag:0];
@@ -33,6 +34,7 @@
         [self.tableView setBackgroundColor:[UIColor BCPOffWhiteColor]];
         [self.tableView setDataSource:self];
         [self.tableView setDelegate:self];
+        [self.tableView setScrollsToTop:NO];
         [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         if([BCPCommon isIOS7]) {
             [self.tableView registerClass:[BCPAnnouncementsCell class] forCellReuseIdentifier:@"AnnouncementsCell"];
@@ -60,7 +62,7 @@
         [self.tableView addPullToRefreshWithActionHandler:^{
                 [weakSelf loadAnnouncements];
         }];
-        
+        [self updateCurrentScrollView];
         [self.navigationController setNavigationBarText:@"Announcements"];
     }
     return self;
@@ -111,6 +113,7 @@
         [self updateNavigation];
         [self.scrollView setScrollEnabled:NO];
     }
+    [self updateCurrentScrollView];
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
@@ -132,6 +135,7 @@
         [self updateNavigation];
         [self.scrollView setScrollEnabled:NO];
     }
+    [self updateCurrentScrollView];
 }
 
 - (void)setHidden:(BOOL)hidden {
@@ -141,6 +145,7 @@
         [self.tableView triggerPullToRefresh];
         [self loadAnnouncements];
     }
+    [self updateCurrentScrollView];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -173,6 +178,7 @@
         [UIView animateWithDuration:BCP_TRANSITION_DURATION animations:^{
             [weakSelf.scrollView setContentOffset:CGPointZero];
         }];
+        [weakSelf updateCurrentScrollView];
     }];
     [self updateNavigation];
     
@@ -181,6 +187,7 @@
     [UIView animateWithDuration:BCP_TRANSITION_DURATION animations:^{
         [self layoutSubviews];
     }];
+    [self updateCurrentScrollView];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -214,6 +221,12 @@
     [view addSubview:label];
     
     return view;
+}
+
+- (void)updateCurrentScrollView {
+    if(!self.hidden) {
+        [[BCPCommon viewController] setScrollsToTop:self.scrollView.tag==0?self.tableView:self.detailsView.scrollView];
+    }
 }
 
 @end

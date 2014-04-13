@@ -20,6 +20,7 @@
 - (BOOL)loggedIn;
 - (int)navigationBarHeight;
 - (void)setLoggedIn:(BOOL)loggedIn;
+- (void)setScrollsToTop:(UIScrollView *)scrollView;
 - (void)showSideBar;
 @end
 

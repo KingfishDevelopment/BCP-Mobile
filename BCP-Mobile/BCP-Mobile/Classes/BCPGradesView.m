@@ -30,6 +30,7 @@
             [scrollView setBounces:NO];
             [scrollView setPagingEnabled:i==0];
             [scrollView setScrollEnabled:NO];
+            [scrollView setScrollsToTop:NO];
             [scrollView setShowsHorizontalScrollIndicator:NO];
             [scrollView setShowsVerticalScrollIndicator:NO];
             [scrollView setTag:i==0?[self currentSemester]*3:0];
@@ -48,6 +49,7 @@
             [tableView setBackgroundColor:[UIColor BCPOffWhiteColor]];
             [tableView setDataSource:self];
             [tableView setDelegate:self];
+            [tableView setScrollsToTop:NO];
             [tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
             [tableView setTag:i];
             if([BCPCommon isIOS7]) {
@@ -86,6 +88,7 @@
         self.navigationController.rightButtonTapped = ^{
             [weakSelf changeSemester];
         };
+        [self updateCurrentScrollView];
     }
     return self;
 }
@@ -101,6 +104,7 @@
     [UIView animateWithDuration:BCP_TRANSITION_DURATION animations:^{
         [self layoutSubviews];
     }];
+    [self updateCurrentScrollView];
 }
 
 - (int)currentSemester {
@@ -186,6 +190,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [scrollView setContentOffset:CGPointMake((scrollView.bounds.size.width+1)*nearestIndex, 0) animated:YES];
     });
+    [self updateCurrentScrollView];
     if(nearestIndex==0) {
         __unsafe_unretained typeof(self) weakSelf = self;
         [self.navigationController setNavigationBarText:[NSString stringWithFormat:@"Grades (Semester %i)",[weakSelf currentSemester]+1]];
@@ -220,6 +225,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [scrollView setContentOffset:CGPointMake((scrollView.bounds.size.width+1)*nearestIndex, targetContentOffset->y) animated:YES];
     });
+    [self updateCurrentScrollView];
     if(nearestIndex==0) {
         __unsafe_unretained typeof(self) weakSelf = self;
         [self.navigationController setNavigationBarText:[NSString stringWithFormat:@"Grades (Semester %i)",[weakSelf currentSemester]+1]];
@@ -259,6 +265,7 @@
         }
         [self loadGrades];
     }
+    [self updateCurrentScrollView];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -335,6 +342,7 @@
             [UIView animateWithDuration:BCP_TRANSITION_DURATION animations:^{
                 [weakSelf layoutSubviews];
             }];
+            [weakSelf updateCurrentScrollView];
         }];
         [self.navigationController setRightButtonImageName:nil];
         [self.navigationController setRightButtonTapped:nil];
@@ -373,6 +381,7 @@
             [self layoutSubviews];
         }];
     }
+    [self updateCurrentScrollView];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -424,6 +433,14 @@
         return view;
     }
     return nil;
+}
+
+- (void)updateCurrentScrollView {
+    if(!self.hidden) {
+        int currentSemester = [self currentSemester];
+        int currentPage = (int)[[self.scrollViews objectAtIndex:currentSemester+1] tag];
+        [[BCPCommon viewController] setScrollsToTop:currentPage>1?self.details.scrollView:[self.tableViews objectAtIndex:currentSemester*2+currentPage]];
+    }
 }
 
 @end

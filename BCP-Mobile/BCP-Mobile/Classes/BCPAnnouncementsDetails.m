@@ -17,6 +17,7 @@
         
         self.scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
         [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleSize];
+        [self.scrollView setScrollsToTop:NO];
         [self addSubview:self.scrollView];
         
         for(int i=0;i<3;i++) {

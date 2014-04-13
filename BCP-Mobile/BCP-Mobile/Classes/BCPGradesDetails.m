@@ -15,6 +15,7 @@
     if (self) {
         [self setBackgroundColor:[UIColor BCPOffWhiteColor]];
         self.scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
+        [self.scrollView setScrollsToTop:NO];
         [self addSubview:self.scrollView];
     }
     return self;
