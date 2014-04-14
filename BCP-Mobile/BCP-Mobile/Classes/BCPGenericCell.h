@@ -1,5 +1,5 @@
 //
-//  BCPAnnouncementsCell.h
+//  BCPGenericCell.h
 //  BCP-Mobile
 //
 //  Created by Bryce Pauken on 4/12/14.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BCPAnnouncementsCell : UITableViewCell
+@interface BCPGenericCell : UITableViewCell
 
 @property (nonatomic, retain) UIView *divider;
 @property (nonatomic, retain) UILabel *label;

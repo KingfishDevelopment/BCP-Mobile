@@ -13,6 +13,7 @@
 #import "BCPLoginView.h"
 #import "BCPLogoutView.h"
 #import "BCPNavigationBar.h"
+#import "BCPNewsView.h"
 #import "BCPWelcomeView.h"
 
 @implementation BCPContent
@@ -37,13 +38,13 @@
         
         self.views = [[NSMutableDictionary alloc] init];
         
-        BCPGradesView *gradesView = [[BCPGradesView alloc] initWithFrame:self.container.bounds];
-        [self.container addSubview:gradesView];
-        [self.views setObject:gradesView forKey:@"Grades"];
-        
         BCPAnnouncementsView *announcementsView = [[BCPAnnouncementsView alloc] initWithFrame:self.container.bounds];
         [self.container addSubview:announcementsView];
         [self.views setObject:announcementsView forKey:@"Announcements"];
+        
+        BCPGradesView *gradesView = [[BCPGradesView alloc] initWithFrame:self.container.bounds];
+        [self.container addSubview:gradesView];
+        [self.views setObject:gradesView forKey:@"Grades"];
         
         BCPLoginView *loginView = [[BCPLoginView alloc] initWithFrame:self.container.bounds];
         [self.container addSubview:loginView];
@@ -52,6 +53,10 @@
         BCPLogoutView *logoutView = [[BCPLogoutView alloc] initWithFrame:self.container.bounds];
         [self.container addSubview:logoutView];
         [self.views setObject:logoutView forKey:@"Logout"];
+        
+        BCPNewsView *newsView = [[BCPNewsView alloc] initWithFrame:self.container.bounds];
+        [self.container addSubview:newsView];
+        [self.views setObject:newsView forKey:@"News"];
         
         BCPWelcomeView *welcomeView = [[BCPWelcomeView alloc] initWithFrame:self.container.bounds];
         [self.container addSubview:welcomeView];

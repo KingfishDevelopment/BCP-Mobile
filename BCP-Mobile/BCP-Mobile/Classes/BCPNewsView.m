@@ -1,17 +1,16 @@
 //
-//  BCPAnnouncementsView.m
+//  BCPNewsView.m
 //  BCP-Mobile
 //
-//  Created by Bryce Pauken on 4/12/14.
+//  Created by Bryce Pauken on 4/13/14.
 //  Copyright (c) 2014 Kingfish. All rights reserved.
 //
 
-#import "BCPAnnouncementsView.h"
+#import "BCPNewsView.h"
 
-#import "BCPAnnouncementsDetails.h"
 #import "BCPGenericCell.h"
 
-@implementation BCPAnnouncementsView
+@implementation BCPNewsView
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -37,7 +36,7 @@
         [self.tableView setScrollsToTop:NO];
         [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         if([BCPCommon isIOS7]) {
-            [self.tableView registerClass:[BCPGenericCell class] forCellReuseIdentifier:@"AnnouncementsCell"];
+            [self.tableView registerClass:[BCPGenericCell class] forCellReuseIdentifier:@"NewsCell"];
         }
         [self.scrollView addSubview:self.tableView];
         
@@ -53,17 +52,25 @@
         [self.divider setBackgroundColor:[UIColor BCPLightGrayColor]];
         [self.scrollView addSubview:self.divider];
         
-        self.detailsView = [[BCPAnnouncementsDetails alloc] init];
-        [self.scrollView addSubview:self.detailsView];
+        self.webView = [[UIWebView alloc] init];
+        [self.webView setDelegate:self];
+        [((UIScrollView *)[[self.webView subviews] objectAtIndex:0]) setScrollsToTop:NO];
+        [self.scrollView addSubview:self.webView];
+        
+        self.webViewSpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [self.webViewSpinner setHidesWhenStopped:YES];
+        [self.webViewSpinner setTransform:CGAffineTransformScale(CGAffineTransformIdentity, 2, 2)];
+        [self.webViewSpinner stopAnimating];
+        [self.scrollView addSubview:self.webViewSpinner];
         
         [self setNeedsLayout];
         
         __unsafe_unretained typeof(self) weakSelf = self;
         [self.tableView addPullToRefreshWithActionHandler:^{
-                [weakSelf loadAnnouncements];
+            [weakSelf loadNews];
         }];
         [self updateCurrentScrollView];
-        [self.navigationController setNavigationBarText:@"Announcements"];
+        [self.navigationController setNavigationBarText:@"News"];
     }
     return self;
 }
@@ -71,15 +78,16 @@
 - (void)layoutSubviews {
     [self.scrollView setContentSize:CGSizeMake(self.bounds.size.width*2+1, self.bounds.size.height)];
     [self.tableView setFrame:CGRectMake(0, 0, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height)];
-    [self.detailsView setFrame:CGRectMake(self.bounds.size.width+1, 0, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height)];
+    [self.webView setFrame:CGRectMake(self.bounds.size.width+1, 0, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height)];
+    [self.webViewSpinner setFrame:CGRectMake(self.bounds.size.width+1+(self.bounds.size.width-self.webViewSpinner.bounds.size.width)/2, (self.bounds.size.height-self.webViewSpinner.bounds.size.height)/2, self.webViewSpinner.bounds.size.width, self.webViewSpinner.bounds.size.height)];
     [self.divider setFrame:CGRectMake(self.bounds.size.width, 0, 1, self.bounds.size.height)];
     [self.scrollView setContentOffset:CGPointMake((self.bounds.size.width+1)*self.scrollView.tag, 0)];
 }
 
-- (void)loadAnnouncements {
-    [BCPData sendRequest:@"announcements" withDetails:nil onCompletion:^(NSString *error) {
+- (void)loadNews {
+    [BCPData sendRequest:@"news" withDetails:nil onCompletion:^(NSString *error) {
         [[self.tableView pullToRefreshView] stopAnimating];
-        if(!error&&[[BCPData data] objectForKey:@"announcements"]) {
+        if(!error&&[[BCPData data] objectForKey:@"news"]) {
             [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
         }
         else {
@@ -89,10 +97,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if([[BCPData data] objectForKey:@"announcements"]) {
-        return [[[BCPData data] objectForKey:@"announcements"] count];
-    }
-    return 0;
+    return 1;
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
@@ -143,27 +148,30 @@
     if(!hidden&&!self.firstLoadCompleted) {
         self.firstLoadCompleted = YES;
         [self.tableView triggerPullToRefresh];
-        [self loadAnnouncements];
+        [self loadNews];
     }
     [self updateCurrentScrollView];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BCPGenericCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AnnouncementsCell"];
+    BCPGenericCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsCell"];
     if (cell == nil) {
-        cell = [[BCPGenericCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"AnnouncementsCell"];
+        cell = [[BCPGenericCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"NewsCell"];
     }
-    NSDictionary *announcement = [[[[[BCPData data] objectForKey:@"announcements"] objectAtIndex:indexPath.section] objectForKey:@"announcements"] objectAtIndex:indexPath.row];
-    [cell setText:[announcement objectForKey:@"announcement"]];
-    [cell setUserInteractionEnabled:([announcement objectForKey:@"more_info"]&&[[announcement objectForKey:@"more_info"] length]>0)||([announcement objectForKey:@"url"]&&[[announcement objectForKey:@"url"] length]>0)];
+    NSDictionary *article = [[[BCPData data] objectForKey:@"news"] objectAtIndex:indexPath.row];
+    [cell setText:[article objectForKey:@"title"]];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [self.webViewSpinner startAnimating];
     
-    NSDictionary *announcement = [[[[[BCPData data] objectForKey:@"announcements"] objectAtIndex:indexPath.section] objectForKey:@"announcements"] objectAtIndex:indexPath.row];
-    [self.detailsView setTitle:[announcement objectForKey:@"announcement"] withDescription:[announcement objectForKey:@"more_info"] withURL:[announcement objectForKey:@"url"]];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"about:blank"]]];
+    
+    NSDictionary *article = [[[BCPData data] objectForKey:@"news"] objectAtIndex:indexPath.row];
+    BOOL numericID = [[article objectForKey:@"id"] rangeOfCharacterFromSet:[[NSCharacterSet characterSetWithCharactersInString:@"0123456789"] invertedSet]].location == NSNotFound;
+    NSString *url = numericID?[@"https://kingfi.sh/api/bellarmine/v2/news/" stringByAppendingString:[article objectForKey:@"id"]]:[article objectForKey:@"id"];
     
     __unsafe_unretained typeof(self) weakSelf = self;
     [self.navigationController setLeftButtonImageName:@"ArrowLeft"];
@@ -186,46 +194,30 @@
     [self.scrollView setTag:1];
     [UIView animateWithDuration:BCP_TRANSITION_DURATION animations:^{
         [self layoutSubviews];
+    } completion:^(BOOL finished) {
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
     }];
     [self updateCurrentScrollView];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return BCP_TABLEVIEW_HEADER_HEIGHT;
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CGSize labelSize = [BCPCommon sizeOfText:[[[[[[BCPData data] objectForKey:@"announcements"] objectAtIndex:indexPath.section] objectForKey:@"announcements"] objectAtIndex:indexPath.row] objectForKey:@"announcement"] withFont:[BCPGenericCell font] constrainedToWidth:self.tableView.bounds.size.width-[BCPCommon tableViewPadding]*2];
+    CGSize labelSize = [BCPCommon sizeOfText:[[[[BCPData data] objectForKey:@"news"] objectAtIndex:indexPath.row] objectForKey:@"title"] withFont:[BCPGenericCell font] constrainedToWidth:self.tableView.bounds.size.width-[BCPCommon tableViewPadding]*2];
     return MAX(labelSize.height+30,50);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [[[[[BCPData data] objectForKey:@"announcements"] objectAtIndex:section] objectForKey:@"announcements"] count];
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [[[[BCPData data] objectForKey:@"announcements"] objectAtIndex:section] objectForKey:@"category"];
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *view  = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, [self tableView:tableView heightForHeaderInSection:section])];
-    [view setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
-    [view setBackgroundColor:[UIColor BCPMoreOffWhiteColor]];
-    
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake([BCPCommon tableViewPadding], 4, view.bounds.size.width-[BCPCommon tableViewPadding]*2, view.bounds.size.height-8)];
-    [label setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
-    [label setBackgroundColor:[UIColor BCPMoreOffWhiteColor]];
-    [label setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:14]];
-    [label setText:[self tableView:tableView titleForHeaderInSection:section]];
-    [label setTextColor:[UIColor BCPOffBlackColor]];
-    [view addSubview:label];
-    
-    return view;
+    return [[[BCPData data] objectForKey:@"news"] count];
 }
 
 - (void)updateCurrentScrollView {
     if(!self.hidden) {
-        [[BCPCommon viewController] setScrollsToTop:self.scrollView.tag==0?self.tableView:self.detailsView.scrollView];
+        [[BCPCommon viewController] setScrollsToTop:self.scrollView.tag==0?self.tableView:((UIScrollView *)[[self.webView subviews] objectAtIndex:0])];
+    }
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    if(![webView.request.URL.absoluteString isEqualToString:@"about:blank"]) {
+        [self.webViewSpinner stopAnimating];
     }
 }
 

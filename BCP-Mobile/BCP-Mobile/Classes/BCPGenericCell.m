@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Kingfish. All rights reserved.
 //
 
-#import "BCPAnnouncementsCell.h"
+#import "BCPGenericCell.h"
 
-@implementation BCPAnnouncementsCell
+@implementation BCPGenericCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -24,7 +24,7 @@
         self.label = [[UILabel alloc] init];
         [self.label setBackgroundColor:[UIColor BCPOffWhiteColor]];
         [self.label setNumberOfLines:0];
-        [self.label setFont:[BCPAnnouncementsCell font]];
+        [self.label setFont:[BCPGenericCell font]];
         [self.label setTextColor:[UIColor BCPOffBlackColor]];
         [self addSubview:self.label];
     }
