@@ -9,6 +9,7 @@
 #import "BCPContent.h"
 
 #import "BCPAnnouncementsView.h"
+#import "BCPCalendarView.h"
 #import "BCPGradesView.h"
 #import "BCPLoginView.h"
 #import "BCPLogoutView.h"
@@ -42,6 +43,10 @@
         BCPAnnouncementsView *announcementsView = [[BCPAnnouncementsView alloc] initWithFrame:self.container.bounds];
         [self.container addSubview:announcementsView];
         [self.views setObject:announcementsView forKey:@"Announcements"];
+        
+        BCPCalendarView *calendarView = [[BCPCalendarView alloc] initWithFrame:self.container.bounds];
+        [self.container addSubview:calendarView];
+        [self.views setObject:calendarView forKey:@"Calendar"];
         
         BCPGradesView *gradesView = [[BCPGradesView alloc] initWithFrame:self.container.bounds];
         [self.container addSubview:gradesView];

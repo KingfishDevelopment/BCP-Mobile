@@ -87,6 +87,11 @@
         for(UITableView *tableView in [[self.interface.content.views objectForKey:@"Grades"] tableViews]) {
             [tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
         }
+        
+        [[self.interface.content.views objectForKey:@"Schedule"] setFirstLoadCompleted:NO];
+        for(UITableView *tableView in [[self.interface.content.views objectForKey:@"Schedule"] tableViews]) {
+            [tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+        }
     }
     else {
         [TSMessage showNotificationWithTitle:@"Logged Out" subtitle:@"You must login again to access the 'My BCP' sections." type:TSMessageNotificationTypeMessage];

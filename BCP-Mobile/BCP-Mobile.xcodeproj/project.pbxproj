@@ -55,6 +55,7 @@
 		0222FECE18F5050B00D97BE1 /* ArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0222FEC818F5050B00D97BE1 /* ArrowRight@2x.png */; };
 		026C556018FB64A000E44085 /* BCPScheduleDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 026C555C18FB64A000E44085 /* BCPScheduleDetails.m */; };
 		026C556118FB64A000E44085 /* BCPScheduleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 026C555E18FB64A000E44085 /* BCPScheduleView.m */; };
+		026C556418FC2FE600E44085 /* BCPCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 026C556318FC2FE600E44085 /* BCPCalendarView.m */; };
 		0289ACC818F05BA200763150 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0289ACC718F05BA200763150 /* Foundation.framework */; };
 		0289ACCA18F05BA200763150 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0289ACC918F05BA200763150 /* CoreGraphics.framework */; };
 		0289ACCC18F05BA200763150 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0289ACCB18F05BA200763150 /* UIKit.framework */; };
@@ -179,6 +180,8 @@
 		026C555C18FB64A000E44085 /* BCPScheduleDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPScheduleDetails.m; path = Classes/BCPScheduleDetails.m; sourceTree = "<group>"; };
 		026C555D18FB64A000E44085 /* BCPScheduleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPScheduleView.h; path = Classes/BCPScheduleView.h; sourceTree = "<group>"; };
 		026C555E18FB64A000E44085 /* BCPScheduleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPScheduleView.m; path = Classes/BCPScheduleView.m; sourceTree = "<group>"; };
+		026C556218FC2FE600E44085 /* BCPCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPCalendarView.h; path = Classes/BCPCalendarView.h; sourceTree = "<group>"; };
+		026C556318FC2FE600E44085 /* BCPCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPCalendarView.m; path = Classes/BCPCalendarView.m; sourceTree = "<group>"; };
 		0289ACC418F05BA200763150 /* BCP-Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BCP-Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0289ACC718F05BA200763150 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0289ACC918F05BA200763150 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -469,6 +472,8 @@
 				02E19F7918FA37B700DDA8AE /* BCPAnnouncementsDetails.m */,
 				02E19F7218FA1AE200DDA8AE /* BCPAnnouncementsView.h */,
 				02E19F7318FA1AE200DDA8AE /* BCPAnnouncementsView.m */,
+				026C556218FC2FE600E44085 /* BCPCalendarView.h */,
+				026C556318FC2FE600E44085 /* BCPCalendarView.m */,
 				0222FEBC18F4E37C00D97BE1 /* BCPGradesCell.h */,
 				0222FEBD18F4E37C00D97BE1 /* BCPGradesCell.m */,
 				02E821F018F6EEFE003C1208 /* BCPGradesDetails.h */,
@@ -738,6 +743,7 @@
 				0289ACD418F05BA200763150 /* main.m in Sources */,
 				0289ACFF18F05EA100763150 /* BCPInterface.m in Sources */,
 				020A627F18F05FC3003CF941 /* BCPConstants.m in Sources */,
+				026C556418FC2FE600E44085 /* BCPCalendarView.m in Sources */,
 				020A62C918F0AB50003CF941 /* BCPNavigationBar.m in Sources */,
 				02E19F7718FA1DED00DDA8AE /* BCPGenericCell.m in Sources */,
 				026C556118FB64A000E44085 /* BCPScheduleView.m in Sources */,
