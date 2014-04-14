@@ -14,6 +14,7 @@
 #import "BCPLogoutView.h"
 #import "BCPNavigationBar.h"
 #import "BCPNewsView.h"
+#import "BCPScheduleView.h"
 #import "BCPWelcomeView.h"
 
 @implementation BCPContent
@@ -57,6 +58,10 @@
         BCPNewsView *newsView = [[BCPNewsView alloc] initWithFrame:self.container.bounds];
         [self.container addSubview:newsView];
         [self.views setObject:newsView forKey:@"News"];
+        
+        BCPScheduleView *scheduleView = [[BCPScheduleView alloc] initWithFrame:self.container.bounds];
+        [self.container addSubview:scheduleView];
+        [self.views setObject:scheduleView forKey:@"Schedule"];
         
         BCPWelcomeView *welcomeView = [[BCPWelcomeView alloc] initWithFrame:self.container.bounds];
         [self.container addSubview:welcomeView];

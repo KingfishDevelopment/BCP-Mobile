@@ -53,6 +53,8 @@
 		0222FECC18F5050B00D97BE1 /* ArrowLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0222FEC618F5050B00D97BE1 /* ArrowLeft@2x.png */; };
 		0222FECD18F5050B00D97BE1 /* ArrowRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 0222FEC718F5050B00D97BE1 /* ArrowRight.png */; };
 		0222FECE18F5050B00D97BE1 /* ArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0222FEC818F5050B00D97BE1 /* ArrowRight@2x.png */; };
+		026C556018FB64A000E44085 /* BCPScheduleDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 026C555C18FB64A000E44085 /* BCPScheduleDetails.m */; };
+		026C556118FB64A000E44085 /* BCPScheduleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 026C555E18FB64A000E44085 /* BCPScheduleView.m */; };
 		0289ACC818F05BA200763150 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0289ACC718F05BA200763150 /* Foundation.framework */; };
 		0289ACCA18F05BA200763150 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0289ACC918F05BA200763150 /* CoreGraphics.framework */; };
 		0289ACCC18F05BA200763150 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0289ACCB18F05BA200763150 /* UIKit.framework */; };
@@ -173,6 +175,10 @@
 		0222FEC618F5050B00D97BE1 /* ArrowLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ArrowLeft@2x.png"; sourceTree = "<group>"; };
 		0222FEC718F5050B00D97BE1 /* ArrowRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArrowRight.png; sourceTree = "<group>"; };
 		0222FEC818F5050B00D97BE1 /* ArrowRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ArrowRight@2x.png"; sourceTree = "<group>"; };
+		026C555B18FB64A000E44085 /* BCPScheduleDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPScheduleDetails.h; path = Classes/BCPScheduleDetails.h; sourceTree = "<group>"; };
+		026C555C18FB64A000E44085 /* BCPScheduleDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPScheduleDetails.m; path = Classes/BCPScheduleDetails.m; sourceTree = "<group>"; };
+		026C555D18FB64A000E44085 /* BCPScheduleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCPScheduleView.h; path = Classes/BCPScheduleView.h; sourceTree = "<group>"; };
+		026C555E18FB64A000E44085 /* BCPScheduleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCPScheduleView.m; path = Classes/BCPScheduleView.m; sourceTree = "<group>"; };
 		0289ACC418F05BA200763150 /* BCP-Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BCP-Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0289ACC718F05BA200763150 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0289ACC918F05BA200763150 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -475,6 +481,10 @@
 				02FCB31518F465C40036B15B /* BCPLogoutView.m */,
 				0296FFC618FB476F00DF6CF1 /* BCPNewsView.h */,
 				0296FFC718FB476F00DF6CF1 /* BCPNewsView.m */,
+				026C555B18FB64A000E44085 /* BCPScheduleDetails.h */,
+				026C555C18FB64A000E44085 /* BCPScheduleDetails.m */,
+				026C555D18FB64A000E44085 /* BCPScheduleView.h */,
+				026C555E18FB64A000E44085 /* BCPScheduleView.m */,
 				028DB29B18F1DC9D00D14EE6 /* BCPWelcomeView.h */,
 				028DB29C18F1DC9D00D14EE6 /* BCPWelcomeView.m */,
 			);
@@ -718,6 +728,7 @@
 				02E8221318F771EE003C1208 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				028DB29818F0D2BD00D14EE6 /* BCPContentView.m in Sources */,
 				0222FEBB18F4C70100D97BE1 /* BCPGradesView.m in Sources */,
+				026C556018FB64A000E44085 /* BCPScheduleDetails.m in Sources */,
 				02FCB31018F44D780036B15B /* TSMessageView.m in Sources */,
 				02E821F518F727F3003C1208 /* BCPHTMLParser.m in Sources */,
 				0289ACD818F05BA200763150 /* BCPAppDelegate.m in Sources */,
@@ -729,6 +740,7 @@
 				020A627F18F05FC3003CF941 /* BCPConstants.m in Sources */,
 				020A62C918F0AB50003CF941 /* BCPNavigationBar.m in Sources */,
 				02E19F7718FA1DED00DDA8AE /* BCPGenericCell.m in Sources */,
+				026C556118FB64A000E44085 /* BCPScheduleView.m in Sources */,
 				02FCB31618F465C40036B15B /* BCPLogoutView.m in Sources */,
 				020A628218F07142003CF941 /* BCPSidebar.m in Sources */,
 				02E821F218F6EEFE003C1208 /* BCPGradesDetails.m in Sources */,
